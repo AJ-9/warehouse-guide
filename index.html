@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библия Кладовщика - Справочник</title>
+    <meta name="description" content="Полный справочник для кладовщиков с удобным поиском и навигацией">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        .search-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-results {
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: 15px;
+            background: #f9fafb;
+        }
+
+        .search-result {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .search-result:hover {
+            background-color: #f3f4f6;
+        }
+
+        .search-result:last-child {
+            border-bottom: none;
+        }
+
+        .search-result h3 {
+            color: #1e40af;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .search-result p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .chapter-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .chapter-card h2 {
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chapter-card .icon {
+            font-size: 2rem;
+        }
+
+        .chapter-card p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .subchapters {
+            list-style: none;
+        }
+
+        .subchapters li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+            color: #4b5563;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .subchapters li:hover {
+            color: #1e40af;
+        }
+
+        .subchapters li:last-child {
+            border-bottom: none;
+        }
+
+        .content-view {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .content-view.active {
+            display: block;
+        }
+
+        .content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .back-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: #2563eb;
+        }
+
+        .content-body {
+            line-height: 1.8;
+        }
+
+        .content-body h3 {
+            color: #1e40af;
+            margin: 30px 0 15px 0;
+            font-size: 1.3rem;
+        }
+
+        .content-body p {
+            margin-bottom: 15px;
+            color: #374151;
+        }
+
+        .content-body ul, .content-body ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .content-body li {
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .highlight {
+            background-color: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .install-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px;
+            transition: background-color 0.2s ease;
+        }
+
+        .install-btn:hover {
+            background: #059669;
+        }
+
+        .install-btn.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .chapter-card, .search-container, .content-view {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .search-box {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📦 Библия Кладовщика</h1>
+            <p>Полный справочник для работы в полевых условиях</p>
+            <button id="installBtn" class="install-btn hidden">Установить приложение</button>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск по справочнику...">
+            <div id="searchResults" class="search-results" style="display: none;"></div>
+        </div>
+
+        <div id="chaptersView" class="content-grid">
+            <!-- Главы будут загружены через JavaScript -->
+        </div>
+
+        <div id="contentView" class="content-view">
+            <div class="content-header">
+                <h2 id="contentTitle"></h2>
+                <button class="back-btn" onclick="showChapters()">← Назад к главам</button>
+            </div>
+            <div id="contentBody" class="content-body"></div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Библия Кладовщика - Бесплатное приложение для всех</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
