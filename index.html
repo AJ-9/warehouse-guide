@@ -265,6 +265,82 @@
             display: none;
         }
 
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .prev-btn {
+            background: #6b7280;
+        }
+
+        .prev-btn:hover {
+            background: #4b5563;
+            box-shadow: 0 8px 20px rgba(107, 114, 128, 0.3);
+        }
+
+        .home-btn {
+            background: #10b981;
+        }
+
+        .home-btn:hover {
+            background: #059669;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .next-btn {
+            background: #3b82f6;
+        }
+
+        .next-btn:hover {
+            background: #2563eb;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-btn {
+                width: 100%;
+                min-width: auto;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -319,6 +395,11 @@
                 <button class="back-btn" onclick="showChapters()">← Назад к главам</button>
             </div>
             <div id="contentBody" class="content-body"></div>
+            <div class="navigation-buttons">
+                <button id="prevBtn" class="nav-btn prev-btn" onclick="navigateToPrevious()" style="display: none;">← Назад</button>
+                <button class="nav-btn home-btn" onclick="showChapters()">🏠 Главная</button>
+                <button id="nextBtn" class="nav-btn next-btn" onclick="navigateToNext()" style="display: none;">Далее →</button>
+            </div>
         </div>
 
         <div class="footer">
