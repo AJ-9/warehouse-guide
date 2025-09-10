@@ -132,9 +132,12 @@ const warehouseData = {
                 
                 <p>Использование нестандартных символов, замена букв на цифры и подобные манипуляции ведут к ошибкам в работе с 1С, искажению информации и увеличению трудозатрат ваших Коллег.</p>
                 
+                <h3>Неверно:</h3>
                 <div class="image-container">
-                    <img src="images/image_4_1.png" alt="Пример неверного оформления" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример неверного оформления</em></p>
+                    <img src="images/image_4_1.png" alt="Пример неверного оформления - коды" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_2.png" alt="Пример неверного оформления - рукописная таблица" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_3.png" alt="Пример неверного оформления - коллаж" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Примеры неверного оформления</em></p>
                 </div>
             `
         },
@@ -159,8 +162,9 @@ const warehouseData = {
                 <h3>Важно!</h3>
                 <p>Кладовщик НЕ подписывает и НЕ ставит печати на листы простоя, путевые листы, акты или иные документы по запросу водителей при приемке материалов, если иные распоряжения не поступали от руководства.</p>
                 
+                <h3>Пример:</h3>
                 <div class="image-container">
-                    <img src="images/image_4_2.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_4.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример проверки документов</em></p>
                 </div>
             `
@@ -240,8 +244,9 @@ const warehouseData = {
                     <li>Если повреждение – какое повреждение какого ГМ и т.д.</li>
                 </ul>
                 
+                <h3>Пример ниже:</h3>
                 <div class="image-container">
-                    <img src="images/image_4_3.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_5.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример составления Акта М7</em></p>
                 </div>
             `
@@ -320,8 +325,9 @@ const warehouseData = {
                     <li>В случае если составлен М-7 дописать «Акт М-7»</li>
                 </ol>
                 
+                <h3>Пример ниже:</h3>
                 <div class="image-container">
-                    <img src="images/image_4_4.png" alt="Пример предоставления информации" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_6.png" alt="Пример предоставления информации" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример предоставления информации</em></p>
                 </div>
                 
@@ -353,6 +359,15 @@ const warehouseData = {
             content: `
                 <h3>Система кодирования</h3>
                 <p>Коды хранения указываются в упаковочных листах и ведомостях грузовых мест.</p>
+                
+                <h3>Коды хранения:</h3>
+                <ul>
+                    <li><strong>X</strong> - для хранения на открытой площадке, не под навесом</li>
+                    <li><strong>XX</strong> - для хранения на открытой мощеной площадке, под навесом</li>
+                    <li><strong>XXX</strong> - для хранения в закрытом, сухом, неотапливаемом помещении</li>
+                    <li><strong>XXXX</strong> - для хранения в закрытом, сухом, отапливаемом/охлаждаемом помещении</li>
+                    <li><strong>XXXXX</strong> - для перевозки на отапливаемых транспортных средствах</li>
+                </ul>
                 
                 <div class="image-container">
                     <img src="images/image_5_1.png" alt="Пример кодов хранения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
@@ -400,6 +415,7 @@ const warehouseData = {
                 <h3>Процедура выдачи</h3>
                 <p>Выдача ТМЦ осуществляется по заявкам на выдачу целыми грузовыми местами.</p>
                 
+                <h3>Пример заявки на выдачу:</h3>
                 <div class="image-container">
                     <img src="images/image_7_1.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу</em></p>
@@ -425,6 +441,7 @@ const warehouseData = {
                 <h3>Акт осмотра</h3>
                 <p>При выдаче ТМЦ составляется акт осмотра для фиксации состояния материалов.</p>
                 
+                <h3>Пример акта осмотра:</h3>
                 <div class="image-container">
                     <img src="images/image_9_1.png" alt="Пример акта осмотра" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример акта осмотра</em></p>
@@ -448,6 +465,7 @@ const warehouseData = {
                 <h3>Транспортная накладная</h3>
                 <p>ТН должна содержать всю необходимую информацию о грузе и перевозке.</p>
                 
+                <h3>Пример оформления ТН:</h3>
                 <div class="image-container">
                     <img src="images/image_12_1.png" alt="Пример ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример оформления ТН</em></p>
@@ -469,6 +487,7 @@ const warehouseData = {
                 <h3>Международная накладная CMR</h3>
                 <p>CMR используется для международных перевозок грузов.</p>
                 
+                <h3>Пример оформления CMR:</h3>
                 <div class="image-container">
                     <img src="images/image_13_1.png" alt="Пример CMR" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример оформления CMR</em></p>
@@ -484,6 +503,7 @@ const warehouseData = {
                 <h3>Ведомость на перемещение и приемку ТМЦ</h3>
                 <p>Документ используется для учета перемещений ТМЦ между складами.</p>
                 
+                <h3>Пример ведомости на перемещение:</h3>
                 <div class="image-container">
                     <img src="images/image_13_2.png" alt="Пример ведомости" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример ведомости на перемещение</em></p>
@@ -496,6 +516,7 @@ const warehouseData = {
                 <h3>Упаковочный лист</h3>
                 <p>УЛ содержит детальную информацию о содержимом каждого грузового места.</p>
                 
+                <h3>Пример упаковочного листа:</h3>
                 <div class="image-container">
                     <img src="images/image_14_1.png" alt="Пример УЛ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример упаковочного листа</em></p>
@@ -517,6 +538,7 @@ const warehouseData = {
                 <h3>Ведомость грузового места</h3>
                 <p>Документ содержит информацию о всех грузовых местах в поставке.</p>
                 
+                <h3>Пример ведомости грузового места:</h3>
                 <div class="image-container">
                     <img src="images/image_17_1.png" alt="Пример ведомости ГМ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример ведомости грузового места</em></p>
@@ -529,6 +551,7 @@ const warehouseData = {
                 <h3>Маркировка груза</h3>
                 <p>Shipping Mark содержит информацию для идентификации и обработки груза.</p>
                 
+                <h3>Пример маркировки груза:</h3>
                 <div class="image-container">
                     <img src="images/image_18_1.png" alt="Пример маркировки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример маркировки груза</em></p>
@@ -541,6 +564,7 @@ const warehouseData = {
                 <h3>Заявка на выдачу ТМЦ</h3>
                 <p>Документ для оформления выдачи материалов со склада.</p>
                 
+                <h3>Пример заявки на выдачу:</h3>
                 <div class="image-container">
                     <img src="images/image_19_1.png" alt="Пример заявки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу</em></p>
@@ -553,6 +577,7 @@ const warehouseData = {
                 <h3>Пропуск на вывоз</h3>
                 <p>Документ для оформления вывоза ТМЦ с территории склада.</p>
                 
+                <h3>Пример пропуска на вывоз:</h3>
                 <div class="image-container">
                     <img src="images/image_20_1.png" alt="Пример пропуска" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример пропуска на вывоз</em></p>
@@ -566,6 +591,7 @@ const warehouseData = {
                 <h3>Группа Оперуполномоченные</h3>
                 <p>Информационная группа для оперативного решения вопросов.</p>
                 
+                <h3>Пример группы:</h3>
                 <div class="image-container">
                     <img src="images/image_21_1.png" alt="Пример группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
@@ -585,6 +611,7 @@ const warehouseData = {
                 <h3>Информационная группа</h3>
                 <p>Группа для размещения важной информации и обновлений.</p>
                 
+                <h3>Пример информационной группы:</h3>
                 <div class="image-container">
                     <img src="images/image_22_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
@@ -597,6 +624,7 @@ const warehouseData = {
                 <h3>Группа для проверки документов</h3>
                 <p>В эту группу отправляются документы поставщиков из списка на проверку.</p>
                 
+                <h3>Пример проверки документов:</h3>
                 <div class="image-container">
                     <img src="images/image_23_1.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример проверки документов</em></p>
@@ -609,6 +637,7 @@ const warehouseData = {
                 <h3>Группа для актов М-7</h3>
                 <p>В эту группу отправляется информация о несоответствиях для составления актов М-7.</p>
                 
+                <h3>Пример акта М-7:</h3>
                 <div class="image-container">
                     <img src="images/image_25_1.png" alt="Пример акта М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример акта М-7</em></p>
@@ -621,6 +650,7 @@ const warehouseData = {
                 <h3>Группа для учета ТН</h3>
                 <p>В эту группу отправляется информация о выгруженных ТС для учета в 1С.</p>
                 
+                <h3>Пример учета ТН:</h3>
                 <div class="image-container">
                     <img src="images/image_26_1.png" alt="Пример учета ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример учета ТН</em></p>
