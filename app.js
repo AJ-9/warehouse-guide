@@ -133,9 +133,9 @@ const warehouseData = {
                 
                 <h3>Неверно:</h3>
                 <div class="image-container">
-                    <img src="images/image_4_1.png" alt="Пример неверного оформления - коды" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <img src="images/image_4_2.png" alt="Пример неверного оформления - рукописная таблица" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <img src="images/image_4_3.png" alt="Пример неверного оформления - коллаж" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_5_1.png" alt="Пример неверного оформления - размытые коды" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_13_2.png" alt="Пример неверного оформления - накладная на перемещение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_31_3.png" alt="Пример неверного оформления - составное изображение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Примеры неверного оформления</em></p>
                 </div>
             `
