@@ -688,6 +688,7 @@ const warehouseData = {
 // Глобальные переменные
 let currentView = 'chapters';
 let searchResults = [];
+let currentContentId = null;
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
@@ -726,11 +727,13 @@ function showContent(contentId) {
         return;
     }
     
+    currentContentId = contentId;
     document.getElementById('chaptersView').style.display = 'none';
     document.getElementById('contentView').style.display = 'block';
     document.getElementById('contentTitle').textContent = content.title;
     document.getElementById('contentBody').innerHTML = content.content;
     
+    updateNavigationButtons();
     currentView = 'content';
 }
 
@@ -862,6 +865,60 @@ function setupPWA() {
         console.log('PWA was installed');
         installBtn.classList.add('hidden');
     });
+}
+
+// Функции навигации
+function updateNavigationButtons() {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (!currentContentId) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        return;
+    }
+    
+    // Получаем все доступные ID контента
+    const allContentIds = Object.keys(warehouseData.content).sort();
+    const currentIndex = allContentIds.indexOf(currentContentId);
+    
+    // Показываем/скрываем кнопку "Назад"
+    if (currentIndex > 0) {
+        prevBtn.style.display = 'flex';
+    } else {
+        prevBtn.style.display = 'none';
+    }
+    
+    // Показываем/скрываем кнопку "Далее"
+    if (currentIndex < allContentIds.length - 1) {
+        nextBtn.style.display = 'flex';
+    } else {
+        nextBtn.style.display = 'none';
+    }
+}
+
+function navigateToPrevious() {
+    if (!currentContentId) return;
+    
+    const allContentIds = Object.keys(warehouseData.content).sort();
+    const currentIndex = allContentIds.indexOf(currentContentId);
+    
+    if (currentIndex > 0) {
+        const prevContentId = allContentIds[currentIndex - 1];
+        showContent(prevContentId);
+    }
+}
+
+function navigateToNext() {
+    if (!currentContentId) return;
+    
+    const allContentIds = Object.keys(warehouseData.content).sort();
+    const currentIndex = allContentIds.indexOf(currentContentId);
+    
+    if (currentIndex < allContentIds.length - 1) {
+        const nextContentId = allContentIds[currentIndex + 1];
+        showContent(nextContentId);
+    }
 }
 
 // Регистрация Service Worker
