@@ -133,7 +133,7 @@ const warehouseData = {
                 <p>Использование нестандартных символов, замена букв на цифры и подобные манипуляции ведут к ошибкам в работе с 1С, искажению информации и увеличению трудозатрат ваших Коллег.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_4_2.png" alt="Пример неверного оформления" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_1.png" alt="Пример неверного оформления" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример неверного оформления</em></p>
                 </div>
             `
@@ -160,7 +160,7 @@ const warehouseData = {
                 <p>Кладовщик НЕ подписывает и НЕ ставит печати на листы простоя, путевые листы, акты или иные документы по запросу водителей при приемке материалов, если иные распоряжения не поступали от руководства.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_4_3.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_2.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример проверки документов</em></p>
                 </div>
             `
@@ -241,7 +241,7 @@ const warehouseData = {
                 </ul>
                 
                 <div class="image-container">
-                    <img src="images/image_4_4.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_3.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример составления Акта М7</em></p>
                 </div>
             `
@@ -321,7 +321,7 @@ const warehouseData = {
                 </ol>
                 
                 <div class="image-container">
-                    <img src="images/image_5_1.png" alt="Пример предоставления информации" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_4_4.png" alt="Пример предоставления информации" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример предоставления информации</em></p>
                 </div>
                 
@@ -355,7 +355,7 @@ const warehouseData = {
                 <p>Коды хранения указываются в упаковочных листах и ведомостях грузовых мест.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_7_1.png" alt="Пример кодов хранения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_5_1.png" alt="Пример кодов хранения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример кодов хранения</em></p>
                 </div>
                 
@@ -401,7 +401,7 @@ const warehouseData = {
                 <p>Выдача ТМЦ осуществляется по заявкам на выдачу целыми грузовыми местами.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_9_1.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_7_1.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу</em></p>
                 </div>
                 
@@ -426,7 +426,7 @@ const warehouseData = {
                 <p>При выдаче ТМЦ составляется акт осмотра для фиксации состояния материалов.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_12_1.png" alt="Пример акта осмотра" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_9_1.png" alt="Пример акта осмотра" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример акта осмотра</em></p>
                 </div>
             `
@@ -449,7 +449,7 @@ const warehouseData = {
                 <p>ТН должна содержать всю необходимую информацию о грузе и перевозке.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_13_1.png" alt="Пример ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_12_1.png" alt="Пример ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример оформления ТН</em></p>
                 </div>
                 
@@ -470,7 +470,7 @@ const warehouseData = {
                 <p>CMR используется для международных перевозок грузов.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_13_2.png" alt="Пример CMR" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_13_1.png" alt="Пример CMR" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример оформления CMR</em></p>
                 </div>
                 
@@ -485,7 +485,7 @@ const warehouseData = {
                 <p>Документ используется для учета перемещений ТМЦ между складами.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_14_1.png" alt="Пример ведомости" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_13_2.png" alt="Пример ведомости" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример ведомости на перемещение</em></p>
                 </div>
             `
@@ -497,7 +497,7 @@ const warehouseData = {
                 <p>УЛ содержит детальную информацию о содержимом каждого грузового места.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_17_1.png" alt="Пример УЛ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_14_1.png" alt="Пример УЛ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример упаковочного листа</em></p>
                 </div>
                 
@@ -518,7 +518,7 @@ const warehouseData = {
                 <p>Документ содержит информацию о всех грузовых местах в поставке.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_18_1.png" alt="Пример ведомости ГМ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_17_1.png" alt="Пример ведомости ГМ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример ведомости грузового места</em></p>
                 </div>
             `
@@ -530,7 +530,7 @@ const warehouseData = {
                 <p>Shipping Mark содержит информацию для идентификации и обработки груза.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_19_1.png" alt="Пример маркировки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_18_1.png" alt="Пример маркировки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример маркировки груза</em></p>
                 </div>
             `
@@ -542,7 +542,7 @@ const warehouseData = {
                 <p>Документ для оформления выдачи материалов со склада.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_20_1.png" alt="Пример заявки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_19_1.png" alt="Пример заявки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу</em></p>
                 </div>
             `
@@ -554,7 +554,7 @@ const warehouseData = {
                 <p>Документ для оформления вывоза ТМЦ с территории склада.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_21_1.png" alt="Пример пропуска" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_20_1.png" alt="Пример пропуска" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример пропуска на вывоз</em></p>
                 </div>
             `
@@ -567,7 +567,7 @@ const warehouseData = {
                 <p>Информационная группа для оперативного решения вопросов.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_22_1.png" alt="Пример группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_21_1.png" alt="Пример группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
                 </div>
             `
@@ -586,7 +586,7 @@ const warehouseData = {
                 <p>Группа для размещения важной информации и обновлений.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_23_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_22_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
                 </div>
             `
@@ -598,7 +598,7 @@ const warehouseData = {
                 <p>В эту группу отправляются документы поставщиков из списка на проверку.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_25_1.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_23_1.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример проверки документов</em></p>
                 </div>
             `
@@ -610,7 +610,7 @@ const warehouseData = {
                 <p>В эту группу отправляется информация о несоответствиях для составления актов М-7.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_26_1.png" alt="Пример акта М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_25_1.png" alt="Пример акта М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример акта М-7</em></p>
                 </div>
             `
@@ -622,7 +622,7 @@ const warehouseData = {
                 <p>В эту группу отправляется информация о выгруженных ТС для учета в 1С.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_28_1.png" alt="Пример учета ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_26_1.png" alt="Пример учета ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример учета ТН</em></p>
                 </div>
             `
