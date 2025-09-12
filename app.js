@@ -130,11 +130,11 @@ const warehouseData = {
                 
                 <p>Использование нестандартных символов, замена букв на цифры и подобные манипуляции ведут к ошибкам в работе с 1С, искажению информации и увеличению трудозатрат ваших Коллег.</p>
                 
-                <h3>Неверно:</h3>
+                <h3 style="color: #dc2626; font-weight: bold;">Неверно:</h3>
                 <div class="image-container">
-                    <img src="images/image_5_1.png" alt="Пример неверного оформления - размытые коды" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <img src="images/image_13_2.png" alt="Пример неверного оформления - накладная на перемещение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <img src="images/image_31_3.png" alt="Пример неверного оформления - составное изображение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.2-1.png" alt="Пример неверного оформления - размытые коды" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.2-2.png" alt="Пример неверного оформления - накладная на перемещение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.2-3.png" alt="Пример неверного оформления - составное изображение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Примеры неверного оформления</em></p>
                 </div>
             `
@@ -694,6 +694,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderChapters();
     setupSearch();
     setupPWA();
+    setupImageModal();
 });
 
 // Отображение глав
@@ -918,6 +919,42 @@ function navigateToNext() {
         const nextContentId = allContentIds[currentIndex + 1];
         showContent(nextContentId);
     }
+}
+
+// Функции для модального окна изображений
+function setupImageModal() {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const captionText = document.getElementById('caption');
+    const closeBtn = document.getElementsByClassName('close')[0];
+
+    // Обработчик клика на изображения
+    document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'IMG' && e.target.closest('.content-body')) {
+            modal.style.display = 'block';
+            modalImg.src = e.target.src;
+            captionText.innerHTML = e.target.alt || '';
+        }
+    });
+
+    // Закрытие модального окна
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    // Закрытие при клике вне изображения
+    modal.onclick = function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    // Закрытие по клавише Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
 }
 
 // Регистрация Service Worker
