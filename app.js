@@ -760,7 +760,7 @@ function showContent(contentId) {
 
 // Показать главы
 function showChapters() {
-    document.getElementById('chaptersView').style.display = 'grid';
+    renderChapters(); // Вызываем renderChapters для правильного отображения
     document.getElementById('contentView').style.display = 'none';
     currentView = 'chapters';
     currentContentId = null;
@@ -1075,9 +1075,11 @@ function updateBreadcrumbs(chapterTitle, contentTitle) {
         
         if (contentTitle) {
             breadcrumbContent.textContent = contentTitle;
+            breadcrumbContent.onclick = null; // Контент не кликабельный
             breadcrumbSeparator.style.display = 'block';
         } else {
             breadcrumbContent.textContent = '';
+            breadcrumbContent.onclick = null;
             breadcrumbSeparator.style.display = 'none';
         }
         
