@@ -692,12 +692,11 @@ let currentContentId = null;
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
-    renderChapters();
     setupSearch();
     setupPWA();
     setupImageModal();
     setupHeaderClick();
-    restoreState(); // Восстанавливаем состояние при загрузке
+    restoreState(); // Восстанавливаем состояние при загрузке ПЕРЕД renderChapters
 });
 
 // Отображение глав
@@ -968,19 +967,28 @@ function saveCurrentState() {
     if (currentContentId) {
         localStorage.setItem('warehouseGuide_currentContent', currentContentId);
         localStorage.setItem('warehouseGuide_currentView', 'content');
+        console.log('Saved state: content', currentContentId);
     } else {
         localStorage.setItem('warehouseGuide_currentView', 'chapters');
+        console.log('Saved state: chapters');
     }
 }
 
 // Функция восстановления состояния
 function restoreState() {
+    // Сначала рендерим главы
+    renderChapters();
+    
     const savedView = localStorage.getItem('warehouseGuide_currentView');
     const savedContent = localStorage.getItem('warehouseGuide_currentContent');
     
-    if (savedView === 'content' && savedContent && contentData[savedContent]) {
+    console.log('Restoring state:', { savedView, savedContent });
+    
+    if (savedView === 'content' && savedContent && warehouseData.content[savedContent]) {
+        console.log('Restoring content:', savedContent);
         showContent(savedContent);
     } else {
+        console.log('Showing chapters');
         showChapters();
     }
 }
