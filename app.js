@@ -98,13 +98,12 @@ const warehouseData = {
                 <h3>Файл по поступающим ТС</h3>
                 <p>Файл находится в общем доступе по ссылке:</p>
                 <p><a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?usp=sharing" target="_blank">Открыть файл ТС</a></p>
-                <p>Также доступно по QR коду.</p>
                 
                 <h3>Контакты диспетчеров:</h3>
                 <ul>
-                    <li>+7 (981) 234-85-59 Полозова Анастасия</li>
-                    <li>+7 (981) 149-36-86 Стрюкова Ольга</li>
-                    <li>+7 (981) 723-28–91 Амелина Ксения</li>
+                    <li><a href="tel:+79812348559" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 234-85-59</a> Полозова Анастасия</li>
+                    <li><a href="tel:+79811493686" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 149-36-86</a> Стрюкова Ольга</li>
+                    <li><a href="tel:+79817232891" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 723-28-91</a> Амелина Ксения</li>
                 </ul>
                 
                 <h3>Запрос дополнительной техники</h3>
