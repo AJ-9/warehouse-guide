@@ -188,23 +188,25 @@
 
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
             margin-bottom: 15px;
         }
 
         .chapter-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            min-height: 120px;
+            min-height: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .chapter-card:hover {
@@ -214,16 +216,18 @@
 
         .chapter-card h2 {
             color: #1e40af;
-            margin-bottom: 8px;
-            font-size: 1.3rem;
+            margin: 0;
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 6px;
             font-weight: 600;
+            line-height: 1.2;
         }
 
         .chapter-card .icon {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
         }
 
         .chapter-card p {
@@ -648,25 +652,35 @@
             }
 
             .content-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
 
             .header {
-                position: -webkit-sticky;
-                position: sticky;
-                top: 0;
+                position: static;
             }
 
             .search-container {
-                position: -webkit-sticky;
-                position: sticky;
-                top: 100px;
+                position: static;
                 padding: 8px;
             }
 
             .chapter-card, .search-container, .content-view {
                 padding: 20px;
+            }
+
+            .chapter-card {
+                padding: 12px;
+                min-height: 60px;
+            }
+
+            .chapter-card h2 {
+                font-size: 0.9rem;
+                gap: 4px;
+            }
+
+            .chapter-card .icon {
+                font-size: 1.2rem;
             }
 
             .chapter-header {
@@ -702,17 +716,27 @@
                 font-size: 1rem;
                 padding: 12px 15px;
             }
-        }
 
-        /* Дополнительная оптимизация для очень маленьких экранов */
-        @media (max-width: 480px) {
-            body {
-                background: url('images/wallpapers.jpg') center center / cover no-repeat fixed;
-                background-attachment: fixed;
-                background-position: center center;
-                -webkit-background-attachment: fixed;
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .chapter-card {
+                padding: 10px;
+                min-height: 50px;
+            }
+
+            .chapter-card h2 {
+                font-size: 0.8rem;
+                gap: 3px;
+            }
+
+            .chapter-card .icon {
+                font-size: 1rem;
             }
         }
+
     </style>
 </head>
 <body>
