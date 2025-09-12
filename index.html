@@ -127,17 +127,38 @@
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: #ffffff;
-            margin-bottom: 12px;
-            font-weight: 800;
-            line-height: 1.1;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.1);
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            margin-bottom: 0;
+            font-weight: 900;
+            line-height: 1.0;
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.1),
+                0 0 30px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 50%, #bae6fd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-transform: uppercase;
+            font-family: 'Arial Black', Arial, sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        header h1::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -10px;
+            right: -10px;
+            bottom: -5px;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 15px;
+            z-index: -1;
+            filter: blur(10px);
         }
 
         .header p {
@@ -812,7 +833,8 @@
             }
 
             header h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+                letter-spacing: 1.5px;
             }
 
             .header p {
@@ -926,7 +948,8 @@
             }
 
             header h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+                letter-spacing: 1px;
             }
 
             .header p {
