@@ -31,11 +31,14 @@
         }
 
         .header {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+            backdrop-filter: blur(20px);
             border-radius: 25px;
             padding: 15px 25px;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.2);
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -95,6 +98,18 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
+        .search-container {
+            position: sticky;
+            top: 120px;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
         .search-box {
             width: 100%;
             padding: 15px 20px;
@@ -146,19 +161,23 @@
 
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
         .chapter-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .chapter-card:hover {
@@ -168,20 +187,23 @@
 
         .chapter-card h2 {
             color: #1e40af;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-weight: 600;
         }
 
         .chapter-card .icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         .chapter-card p {
             color: #6b7280;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .subchapters {
@@ -474,6 +496,13 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                background: url('images/wallpapers.jpg') center center / contain no-repeat fixed;
+                background-size: cover;
+                background-position: center top;
+                background-attachment: scroll;
+            }
+            
             .container {
                 padding: 15px;
             }
@@ -519,7 +548,12 @@
 
             .content-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 12px;
+            }
+
+            .search-container {
+                top: 100px;
+                padding: 8px;
             }
 
             .chapter-card, .search-container, .content-view {
@@ -535,6 +569,15 @@
             .search-box {
                 font-size: 1rem;
                 padding: 12px 15px;
+            }
+        }
+
+        /* Дополнительная оптимизация для очень маленьких экранов */
+        @media (max-width: 480px) {
+            body {
+                background: url('images/wallpapers.jpg') center center / cover no-repeat;
+                background-attachment: scroll;
+                background-position: center center;
             }
         }
     </style>
