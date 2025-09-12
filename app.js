@@ -243,7 +243,7 @@ const warehouseData = {
                 
                 <h3>Пример ниже:</h3>
                 <div class="image-container">
-                    <img src="images/image_4_5.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.6.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример составления Акта М7</em></p>
                 </div>
             `
