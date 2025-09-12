@@ -64,6 +64,7 @@
             max-height: 200px;
             object-fit: cover;
             object-position: center;
+            border-radius: 25px;
         }
 
         .header:hover {
@@ -121,8 +122,8 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 20px;
+            margin-bottom: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
@@ -197,12 +198,12 @@
         }
 
         .chapter-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             min-height: 70px;
@@ -211,7 +212,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .chapter-card:hover {
@@ -221,7 +221,7 @@
         }
 
         .chapter-card h2 {
-            color: #ffffff;
+            color: #1e40af;
             margin: 0;
             font-size: 1rem;
             display: flex;
@@ -230,7 +230,6 @@
             gap: 6px;
             font-weight: 600;
             line-height: 1.2;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
         }
 
         .chapter-card .icon {
@@ -238,6 +237,37 @@
         }
 
         /* Убраны стили для подглав в блоках - они не нужны на главной странице */
+
+        /* Стили для хлебных крошек */
+        .breadcrumbs {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item {
+            color: #1e40af;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .breadcrumb-item:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: #6b7280;
+            font-weight: bold;
+        }
 
         /* Стили для заголовка главы */
         .chapter-header {
@@ -588,7 +618,7 @@
 
         @media (max-width: 768px) {
             body {
-                background: url('images/wallpapers.jpg') center center / cover no-repeat fixed;
+                background: url('images/wallpapers.jpg') center center / cover no-repeat;
                 background-attachment: fixed;
                 background-position: center center;
                 -webkit-background-attachment: fixed;
@@ -770,6 +800,15 @@
         <div class="search-container">
             <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск по справочнику...">
             <div id="searchResults" class="search-results" style="display: none;"></div>
+        </div>
+
+        <!-- Хлебные крошки -->
+        <div id="breadcrumbs" class="breadcrumbs" style="display: none;">
+            <div class="breadcrumb-item" onclick="showChapters()">Главная</div>
+            <div class="breadcrumb-separator">›</div>
+            <div class="breadcrumb-item" id="breadcrumb-chapter"></div>
+            <div class="breadcrumb-separator" id="breadcrumb-separator" style="display: none;">›</div>
+            <div class="breadcrumb-item" id="breadcrumb-content"></div>
         </div>
 
         <div id="chaptersView" class="content-grid">
