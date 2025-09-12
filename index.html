@@ -197,28 +197,31 @@
         }
 
         .chapter-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            min-height: 80px;
+            min-height: 70px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .chapter-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .chapter-card h2 {
-            color: #1e40af;
+            color: #ffffff;
             margin: 0;
             font-size: 1rem;
             display: flex;
@@ -227,6 +230,7 @@
             gap: 6px;
             font-weight: 600;
             line-height: 1.2;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
         }
 
         .chapter-card .icon {
@@ -681,13 +685,18 @@
             }
 
             .chapter-card {
-                padding: 12px;
-                min-height: 60px;
+                padding: 10px;
+                min-height: 55px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
             }
 
             .chapter-card h2 {
                 font-size: 0.9rem;
                 gap: 4px;
+                color: #ffffff;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
             }
 
             .chapter-card .icon {
@@ -734,13 +743,18 @@
             }
 
             .chapter-card {
-                padding: 10px;
-                min-height: 50px;
+                padding: 8px;
+                min-height: 45px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
             }
 
             .chapter-card h2 {
                 font-size: 0.8rem;
                 gap: 3px;
+                color: #ffffff;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
             }
 
             .chapter-card .icon {
