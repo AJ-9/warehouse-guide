@@ -153,8 +153,8 @@
         .search-container {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
             border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 24px;
+            padding: 12px 24px;
+            margin-bottom: 12px;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(20px);
@@ -773,6 +773,9 @@
 
             .header {
                 position: static;
+                max-width: 50%;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .header-background {
@@ -804,10 +807,7 @@
 
             .search-container {
                 position: static;
-                padding: 8px;
-                max-width: 50%;
-                margin-left: auto;
-                margin-right: auto;
+                padding: 4px 8px;
             }
 
             .chapter-card, .search-container, .content-view {
@@ -891,6 +891,12 @@
                 font-size: 1rem;
             }
 
+            .header {
+                max-width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             .header-background {
                 border-radius: 18px;
             }
@@ -922,9 +928,7 @@
                 background: #ffffff !important;
                 backdrop-filter: none;
                 -webkit-backdrop-filter: none;
-                max-width: 50%;
-                margin-left: auto;
-                margin-right: auto;
+                padding: 4px 8px;
             }
             
             .breadcrumbs {
