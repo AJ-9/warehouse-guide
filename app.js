@@ -707,6 +707,9 @@ function renderChapters() {
     chaptersView.innerHTML = '';
     chaptersView.style.display = 'grid';
     
+    // Скрываем хлебные крошки на главной странице
+    document.getElementById('breadcrumbs').style.display = 'none';
+    
     warehouseData.chapters.forEach(chapter => {
         const chapterCard = document.createElement('div');
         chapterCard.className = 'chapter-card';
@@ -737,6 +740,19 @@ function showContent(contentId) {
     document.getElementById('contentTitle').textContent = content.title;
     document.getElementById('contentBody').innerHTML = content.content;
     
+    // Находим название главы для хлебных крошек
+    let chapterTitle = '';
+    warehouseData.chapters.forEach(chapter => {
+        chapter.subchapters.forEach(sub => {
+            if (sub.id === contentId) {
+                chapterTitle = chapter.title;
+            }
+        });
+    });
+    
+    // Показываем хлебные крошки
+    updateBreadcrumbs(chapterTitle, content.title);
+    
     updateNavigationButtons();
     currentView = 'content';
     saveCurrentState(); // Сохраняем состояние
@@ -758,6 +774,9 @@ function showChapter(chapterId) {
     
     const chaptersView = document.getElementById('chaptersView');
     chaptersView.innerHTML = '';
+    
+    // Показываем хлебные крошки
+    updateBreadcrumbs(chapter.title, '');
     
     // Заголовок главы
     const chapterHeader = document.createElement('div');
@@ -1034,6 +1053,37 @@ function setupHeaderClick() {
         header.addEventListener('click', function() {
             showChapters();
         });
+    }
+}
+
+// Функция обновления хлебных крошек
+function updateBreadcrumbs(chapterTitle, contentTitle) {
+    const breadcrumbs = document.getElementById('breadcrumbs');
+    const breadcrumbChapter = document.getElementById('breadcrumb-chapter');
+    const breadcrumbContent = document.getElementById('breadcrumb-content');
+    const breadcrumbSeparator = document.getElementById('breadcrumb-separator');
+    
+    if (chapterTitle) {
+        breadcrumbChapter.textContent = chapterTitle;
+        breadcrumbChapter.onclick = () => {
+            // Находим ID главы по названию
+            const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
+            if (chapter) {
+                showChapter(chapter.id);
+            }
+        };
+        
+        if (contentTitle) {
+            breadcrumbContent.textContent = contentTitle;
+            breadcrumbSeparator.style.display = 'block';
+        } else {
+            breadcrumbContent.textContent = '';
+            breadcrumbSeparator.style.display = 'none';
+        }
+        
+        breadcrumbs.style.display = 'flex';
+    } else {
+        breadcrumbs.style.display = 'none';
     }
 }
 
