@@ -55,12 +55,12 @@
         }
 
         .header-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #1e40af;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: auto;
+            max-height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin: 3mm 0;
         }
 
         .header-text {
@@ -472,13 +472,16 @@
             }
 
             .header-content {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 15px;
+                align-items: center;
             }
 
             .header-logo {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
+                margin: 3mm 0;
             }
 
             .header h1 {
@@ -513,7 +516,7 @@
             <div class="header-content">
                 <img src="images/big-catalog-16472451591.jpg" alt="Логотип" class="header-logo">
                 <div class="header-text">
-                    <h1>📦 Библия Кладовщика</h1>
+                    <h1>Библия Кладовщика</h1>
                     <p>Полный справочник для работы в полевых условиях</p>
                 </div>
             </div>
@@ -542,7 +545,7 @@
         </div>
 
         <div class="footer">
-            <p>© 2025 Библия Кладовщика</p>
+            <p>Special thanks to Egor Sataev © 2025 Библия Кладовщика</p>
         </div>
     </div>
 
