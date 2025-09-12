@@ -699,26 +699,28 @@ document.addEventListener('DOMContentLoaded', function() {
     restoreState(); // Восстанавливаем состояние при загрузке ПЕРЕД renderChapters
 });
 
-// Отображение глав
+// Отображение глав - только название, без подглав
 function renderChapters() {
     const chaptersView = document.getElementById('chaptersView');
+    
+    // ПРИНУДИТЕЛЬНАЯ ОЧИСТКА СТАРОГО КОНТЕНТА
     chaptersView.innerHTML = '';
+    chaptersView.style.display = 'grid';
     
     warehouseData.chapters.forEach(chapter => {
         const chapterCard = document.createElement('div');
         chapterCard.className = 'chapter-card';
         chapterCard.onclick = () => showChapter(chapter.id);
         
+        // ТОЛЬКО НАЗВАНИЕ ГЛАВЫ - БЕЗ ОПИСАНИЯ И ПОДГЛАВ
         chapterCard.innerHTML = `
             <h2><span class="icon">${chapter.icon}</span> ${chapter.title}</h2>
-            <p>${chapter.description}</p>
-            <ul class="subchapters">
-                ${chapter.subchapters.map(sub => `<li onclick="event.stopPropagation(); showContent('${sub.id}')">${sub.id} ${sub.title}</li>`).join('')}
-            </ul>
         `;
         
         chaptersView.appendChild(chapterCard);
     });
+    
+    console.log('Chapters rendered - only titles, no subchapters');
 }
 
 // Показать содержимое раздела
@@ -747,6 +749,38 @@ function showChapters() {
     currentView = 'chapters';
     currentContentId = null;
     saveCurrentState(); // Сохраняем состояние
+}
+
+// Показать содержимое главы (подглавы)
+function showChapter(chapterId) {
+    const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
+    if (!chapter) return;
+    
+    const chaptersView = document.getElementById('chaptersView');
+    chaptersView.innerHTML = '';
+    
+    // Заголовок главы
+    const chapterHeader = document.createElement('div');
+    chapterHeader.className = 'chapter-header';
+    chapterHeader.innerHTML = `
+        <h1><span class="icon">${chapter.icon}</span> ${chapter.title}</h1>
+        <p>${chapter.description}</p>
+        <button class="back-btn" onclick="showChapters()">← Назад к главам</button>
+    `;
+    chaptersView.appendChild(chapterHeader);
+    
+    // Подглавы
+    chapter.subchapters.forEach(subchapter => {
+        const subchapterCard = document.createElement('div');
+        subchapterCard.className = 'subchapter-card';
+        subchapterCard.onclick = () => showContent(subchapter.id);
+        
+        subchapterCard.innerHTML = `
+            <h3>${subchapter.id} ${subchapter.title}</h3>
+        `;
+        
+        chaptersView.appendChild(subchapterCard);
+    });
 }
 
 // Настройка поиска
