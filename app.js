@@ -696,6 +696,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSearch();
     setupPWA();
     setupImageModal();
+    setupHeaderClick();
+    restoreState(); // Восстанавливаем состояние при загрузке
 });
 
 // Отображение глав
@@ -736,6 +738,7 @@ function showContent(contentId) {
     
     updateNavigationButtons();
     currentView = 'content';
+    saveCurrentState(); // Сохраняем состояние
 }
 
 // Показать главы
@@ -743,6 +746,8 @@ function showChapters() {
     document.getElementById('chaptersView').style.display = 'grid';
     document.getElementById('contentView').style.display = 'none';
     currentView = 'chapters';
+    currentContentId = null;
+    saveCurrentState(); // Сохраняем состояние
 }
 
 // Настройка поиска
@@ -956,6 +961,38 @@ function setupImageModal() {
             modal.style.display = 'none';
         }
     });
+}
+
+// Функция сохранения текущего состояния
+function saveCurrentState() {
+    if (currentContentId) {
+        localStorage.setItem('warehouseGuide_currentContent', currentContentId);
+        localStorage.setItem('warehouseGuide_currentView', 'content');
+    } else {
+        localStorage.setItem('warehouseGuide_currentView', 'chapters');
+    }
+}
+
+// Функция восстановления состояния
+function restoreState() {
+    const savedView = localStorage.getItem('warehouseGuide_currentView');
+    const savedContent = localStorage.getItem('warehouseGuide_currentContent');
+    
+    if (savedView === 'content' && savedContent && contentData[savedContent]) {
+        showContent(savedContent);
+    } else {
+        showChapters();
+    }
+}
+
+// Функция для кликабельной шапки
+function setupHeaderClick() {
+    const header = document.querySelector('.header');
+    if (header) {
+        header.addEventListener('click', function() {
+            showChapters();
+        });
+    }
 }
 
 // Регистрация Service Worker
