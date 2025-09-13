@@ -756,6 +756,9 @@ function showContent(contentId) {
     updateNavigationButtons();
     currentView = 'content';
     saveCurrentState(); // Сохраняем состояние
+    
+    // Прокручиваем к началу страницы
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Показать главы
@@ -772,6 +775,9 @@ function showChapters() {
     updateNavigationButtons();
     
     saveCurrentState(); // Сохраняем состояние
+    
+    // Прокручиваем к началу страницы
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Показать содержимое главы (подглавы)
@@ -805,6 +811,9 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
         
         chaptersView.appendChild(subchapterCard);
     });
+    
+    // Прокручиваем к началу страницы
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Настройка поиска
@@ -969,6 +978,8 @@ function navigateToPrevious() {
     if (currentIndex > 0) {
         const prevContentId = allContentIds[currentIndex - 1];
         showContent(prevContentId);
+        // Прокручиваем к началу страницы
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
@@ -981,6 +992,8 @@ function navigateToNext() {
     if (currentIndex < allContentIds.length - 1) {
         const nextContentId = allContentIds[currentIndex + 1];
         showContent(nextContentId);
+        // Прокручиваем к началу страницы
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
