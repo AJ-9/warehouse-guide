@@ -137,28 +137,18 @@
         }
 
         .search-container {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 120px;
+            z-index: 999;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 6px 12px;
             margin-bottom: 36px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             border: none;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        .search-container {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 120px;
-            z-index: 999;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 5px;
-            margin-bottom: 42px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .search-box {
@@ -318,20 +308,6 @@
         /* Стили для заголовка главы удалены - больше не используются */
 
 
-        .back-btn {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 2rem;
-            transition: background 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: #2563eb;
-        }
 
         /* Стили для карточек подглав */
         .subchapter-card {
@@ -502,6 +478,17 @@
             display: none;
         }
 
+        .install-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .install-btn:disabled:hover {
+            background: inherit !important;
+            transform: none !important;
+        }
+
         .navigation-buttons {
             display: flex;
             justify-content: space-between;
@@ -639,6 +626,70 @@
         @keyframes zoomIn {
             from { transform: scale(0.5); }
             to { transform: scale(1); }
+        }
+
+        /* Стили для lazy loading изображений */
+        .lazy-image {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .lazy-image.loaded {
+            opacity: 1;
+            background: none;
+            animation: none;
+        }
+
+        .lazy-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .lazy-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .lazy-image .loading-text {
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .lazy-image .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Стили для кликабельных изображений */
@@ -1017,16 +1068,17 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
-                <img src="images/big-catalog-16472451591.jpg" alt="Логотип" class="header-logo">
+                <img src="images/big-catalog-16472451591.jpg" alt="Логотип Библия Кладовщика" class="header-logo">
                 <div class="header-text">
                     <h1>Библия Кладовщика</h1>
                 </div>
             </div>
-            <button id="installBtn" class="install-btn hidden">Установить приложение</button>
+            <button id="installBtn" class="install-btn hidden" aria-label="Установить приложение на устройство">Установить приложение</button>
+            <button id="refreshBtn" class="install-btn" aria-label="Проверить обновления" style="background: #f59e0b; margin-left: 10px;">🔄 Проверить обновления</button>
         </div>
 
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск по справочнику...">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск по справочнику..." aria-label="Поиск по справочнику кладовщика">
             <div id="searchResults" class="search-results" style="display: none;"></div>
         </div>
 
@@ -1049,9 +1101,9 @@
             </div>
             <div id="contentBody" class="content-body"></div>
             <div class="navigation-buttons">
-                <button id="prevBtn" class="nav-btn prev-btn" onclick="navigateToPrevious()" style="display: none;">← Назад</button>
-                <button class="nav-btn home-btn" onclick="showChapters()">🏠 Главная</button>
-                <button id="nextBtn" class="nav-btn next-btn" onclick="navigateToNext()" style="display: none;">Далее →</button>
+                <button id="prevBtn" class="nav-btn prev-btn" onclick="navigateToPrevious()" style="display: none;" aria-label="Перейти к предыдущему разделу">← Назад</button>
+                <button class="nav-btn home-btn" onclick="showChapters()" aria-label="Вернуться на главную страницу">🏠 Главная</button>
+                <button id="nextBtn" class="nav-btn next-btn" onclick="navigateToNext()" style="display: none;" aria-label="Перейти к следующему разделу">Далее →</button>
             </div>
         </div>
 
@@ -1063,7 +1115,7 @@
     <!-- Модальное окно для просмотра изображений -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
+        <img class="modal-content" id="modalImage" alt="Увеличенное изображение">
         <div id="caption"></div>
     </div>
 
