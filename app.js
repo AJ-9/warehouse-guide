@@ -1076,8 +1076,8 @@ function updateBreadcrumbs(chapterTitle, contentTitle) {
             // Находим ID главы по названию
             const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
             if (chapter) {
-                // Показываем список подглав вместо первого пункта
-                showChapter(chapter.id, true);
+                // Показываем список подглав
+                showChapter(chapter.id);
             }
         };
         
