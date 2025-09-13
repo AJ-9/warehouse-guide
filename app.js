@@ -692,6 +692,17 @@ let currentContentId = null;
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing app...');
+    
+    // Проверяем, что все элементы существуют
+    const chaptersView = document.getElementById('chaptersView');
+    const contentView = document.getElementById('contentView');
+    
+    if (!chaptersView || !contentView) {
+        console.error('Required elements not found!');
+        return;
+    }
+    
     setupSearch();
     setupPWA();
     setupImageModal();
@@ -702,6 +713,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Отображение глав - только название, без подглав
 function renderChapters() {
     const chaptersView = document.getElementById('chaptersView');
+    if (!chaptersView) {
+        console.error('chaptersView element not found!');
+        return;
+    }
+    
+    console.log('Rendering chapters...', warehouseData.chapters.length);
     
     // ПРИНУДИТЕЛЬНАЯ ОЧИСТКА СТАРОГО КОНТЕНТА
     chaptersView.innerHTML = '';
@@ -763,8 +780,14 @@ function showContent(contentId) {
 
 // Показать главы
 function showChapters() {
+    console.log('showChapters called');
     renderChapters(); // Вызываем renderChapters для правильного отображения
-    document.getElementById('contentView').style.display = 'none';
+    
+    const contentView = document.getElementById('contentView');
+    if (contentView) {
+        contentView.style.display = 'none';
+    }
+    
     currentView = 'chapters';
     currentContentId = null;
     
@@ -1119,4 +1142,38 @@ if ('serviceWorker' in navigator) {
                 console.log('SW registration failed: ', registrationError);
             });
     });
+}
+
+// Принудительная инициализация при загрузке
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, initializing app...');
+        initializeApp();
+    });
+} else {
+    console.log('DOM already loaded, initializing app immediately...');
+    initializeApp();
+}
+
+function initializeApp() {
+    console.log('Initializing app...');
+    
+    // Проверяем, что все элементы существуют
+    const chaptersView = document.getElementById('chaptersView');
+    const contentView = document.getElementById('contentView');
+    
+    if (!chaptersView || !contentView) {
+        console.error('Required elements not found!', { chaptersView, contentView });
+        return;
+    }
+    
+    console.log('All elements found, setting up app...');
+    
+    setupSearch();
+    setupPWA();
+    setupImageModal();
+    setupHeaderClick();
+    
+    // Принудительно показываем главы
+    showChapters();
 }
