@@ -764,6 +764,13 @@ function showChapters() {
     document.getElementById('contentView').style.display = 'none';
     currentView = 'chapters';
     currentContentId = null;
+    
+    // Скрываем хлебные крошки на главной странице
+    updateBreadcrumbs('', '');
+    
+    // Скрываем навигационные кнопки на главной странице
+    updateNavigationButtons();
+    
     saveCurrentState(); // Сохраняем состояние
 }
 
