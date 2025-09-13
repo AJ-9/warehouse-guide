@@ -5,7 +5,7 @@ const warehouseData = {
             id: 'chapter1',
             title: 'Процесс приемки',
             icon: '🚛',
-            description: 'Полный процесс приемки товарно-материальных ценностей',
+            description: '',
             subchapters: [
                 { id: '1.1', title: 'Заезд ТС на площадку' },
                 { id: '1.2', title: 'Правила предоставления информации в Отдел Учета' },
@@ -775,7 +775,7 @@ function showChapters() {
 }
 
 // Показать содержимое главы (подглавы)
-function showChapter(chapterId) {
+function showChapter(chapterId, showSubchaptersOnly = false) {
     const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
     if (!chapter) return;
     
@@ -1076,7 +1076,8 @@ function updateBreadcrumbs(chapterTitle, contentTitle) {
             // Находим ID главы по названию
             const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
             if (chapter) {
-                showChapter(chapter.id);
+                // Показываем список подглав вместо первого пункта
+                showChapter(chapter.id, true);
             }
         };
         
