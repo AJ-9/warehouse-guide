@@ -791,6 +791,9 @@ function showChapters() {
     currentView = 'chapters';
     currentContentId = null;
     
+    // Очищаем сохраненную главу
+    localStorage.removeItem('warehouseGuide_currentChapter');
+    
     // Скрываем хлебные крошки на главной странице
     updateBreadcrumbs('', '');
     
@@ -834,6 +837,25 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
         
         chaptersView.appendChild(subchapterCard);
     });
+    
+    // Устанавливаем состояние
+    currentView = 'subchapters';
+    currentContentId = null;
+    
+    // Сохраняем ID текущей главы
+    localStorage.setItem('warehouseGuide_currentChapter', chapterId);
+    
+    // Скрываем contentView
+    const contentView = document.getElementById('contentView');
+    if (contentView) {
+        contentView.style.display = 'none';
+    }
+    
+    // Скрываем навигационные кнопки
+    updateNavigationButtons();
+    
+    // Сохраняем состояние
+    saveCurrentState();
     
     // Прокручиваем к началу страницы
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1062,17 +1084,24 @@ function saveCurrentState() {
         localStorage.setItem('warehouseGuide_currentContent', currentContentId);
         localStorage.setItem('warehouseGuide_currentView', 'content');
         console.log('Saved state: content', currentContentId);
+    } else if (currentView === 'subchapters') {
+        // Сохраняем состояние подглав
+        localStorage.setItem('warehouseGuide_currentView', 'subchapters');
+        // Сохраняем ID текущей главы
+        const currentChapterId = localStorage.getItem('warehouseGuide_currentChapter');
+        if (currentChapterId) {
+            localStorage.setItem('warehouseGuide_currentContent', currentChapterId);
+        }
+        console.log('Saved state: subchapters', currentChapterId);
     } else {
         localStorage.setItem('warehouseGuide_currentView', 'chapters');
+        localStorage.removeItem('warehouseGuide_currentContent');
         console.log('Saved state: chapters');
     }
 }
 
 // Функция восстановления состояния
 function restoreState() {
-    // Сначала рендерим главы
-    renderChapters();
-    
     const savedView = localStorage.getItem('warehouseGuide_currentView');
     const savedContent = localStorage.getItem('warehouseGuide_currentContent');
     
@@ -1081,6 +1110,15 @@ function restoreState() {
     if (savedView === 'content' && savedContent && warehouseData.content[savedContent]) {
         console.log('Restoring content:', savedContent);
         showContent(savedContent);
+    } else if (savedView === 'subchapters' && savedContent) {
+        console.log('Restoring subchapters for chapter:', savedContent);
+        // savedContent содержит ID главы
+        const chapter = warehouseData.chapters.find(ch => ch.id === savedContent);
+        if (chapter) {
+            showChapter(savedContent, true);
+        } else {
+            showChapters();
+        }
     } else {
         console.log('Showing chapters');
         showChapters();
