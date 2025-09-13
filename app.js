@@ -326,7 +326,7 @@ const warehouseData = {
                 
                 <h3>Пример ниже:</h3>
                 <div class="image-container">
-                    <img src="images/image_4_6.png" alt="Пример предоставления информации" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.9.png" alt="Пример предоставления информации" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример предоставления информации</em></p>
                 </div>
                 
@@ -707,6 +707,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setupPWA();
     setupImageModal();
     setupHeaderClick();
+    setupUpdateButton();
+    setupLazyLoading();
+    preloadCriticalImages();
+    showVersionInfo(); // Показываем информацию о версии
     restoreState(); // Восстанавливаем состояние при загрузке ПЕРЕД renderChapters
 });
 
@@ -755,7 +759,16 @@ function showContent(contentId) {
     document.getElementById('chaptersView').style.display = 'none';
     document.getElementById('contentView').style.display = 'block';
     document.getElementById('contentTitle').textContent = content.title;
-    document.getElementById('contentBody').innerHTML = content.content;
+    
+    // Преобразуем изображения в lazy loading перед вставкой
+    const processedContent = convertImagesToLazy(content.content);
+    document.getElementById('contentBody').innerHTML = processedContent;
+    
+    // Применяем lazy loading к новому контенту
+    setTimeout(() => {
+        refreshLazyLoading();
+        trackLazyLoadingPerformance();
+    }, 100);
     
     // Находим название главы для хлебных крошек
     let chapterTitle = '';
@@ -1135,6 +1148,54 @@ function setupHeaderClick() {
     }
 }
 
+// Функция настройки кнопки обновления
+function setupUpdateButton() {
+    const refreshBtn = document.getElementById('refreshBtn');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', function() {
+            // Показываем индикатор загрузки
+            const originalText = refreshBtn.textContent;
+            refreshBtn.textContent = '🔄 Проверяем...';
+            refreshBtn.disabled = true;
+            
+            // Проверяем обновления Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistration().then(function(registration) {
+                    if (registration) {
+                        registration.update().then(function() {
+                            // Показываем сообщение о результате
+                            refreshBtn.textContent = '✅ Проверено';
+                            setTimeout(() => {
+                                refreshBtn.textContent = originalText;
+                                refreshBtn.disabled = false;
+                            }, 2000);
+                        }).catch(function(error) {
+                            console.error('Update check failed:', error);
+                            refreshBtn.textContent = '❌ Ошибка';
+                            setTimeout(() => {
+                                refreshBtn.textContent = originalText;
+                                refreshBtn.disabled = false;
+                            }, 2000);
+                        });
+                    } else {
+                        refreshBtn.textContent = '❌ SW не найден';
+                        setTimeout(() => {
+                            refreshBtn.textContent = originalText;
+                            refreshBtn.disabled = false;
+                        }, 2000);
+                    }
+                });
+            } else {
+                refreshBtn.textContent = '❌ SW не поддерживается';
+                setTimeout(() => {
+                    refreshBtn.textContent = originalText;
+                    refreshBtn.disabled = false;
+                }, 2000);
+            }
+        });
+    }
+}
+
 // Функция обновления хлебных крошек
 function updateBreadcrumbs(chapterTitle, contentTitle) {
     const breadcrumbs = document.getElementById('breadcrumbs');
@@ -1169,12 +1230,29 @@ function updateBreadcrumbs(chapterTitle, contentTitle) {
     }
 }
 
-// Регистрация Service Worker
+// Регистрация Service Worker с обработкой обновлений
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
             .then((registration) => {
                 console.log('SW registered: ', registration);
+                
+                // Проверяем обновления каждые 60 секунд
+                setInterval(() => {
+                    registration.update();
+                }, 60000);
+                
+                // Обработка обновлений Service Worker
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // Новый Service Worker установлен, показываем уведомление
+                            showUpdateNotification();
+                        }
+                    });
+                });
             })
             .catch((registrationError) => {
                 console.log('SW registration failed: ', registrationError);
@@ -1182,36 +1260,310 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Принудительная инициализация при загрузке
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM loaded, initializing app...');
-        initializeApp();
+// Функция показа уведомления об обновлении
+function showUpdateNotification() {
+    // Создаем уведомление
+    const notification = document.createElement('div');
+    notification.id = 'update-notification';
+    notification.innerHTML = `
+        <div style="
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            max-width: 300px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+        ">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <span style="font-size: 20px;">🔄</span>
+                <strong>Доступно обновление!</strong>
+            </div>
+            <p style="margin: 0 0 10px 0;">Новая версия приложения готова к установке.</p>
+            <div style="display: flex; gap: 10px;">
+                <button id="update-btn" style="
+                    background: rgba(255, 255, 255, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                ">Обновить</button>
+                <button id="dismiss-btn" style="
+                    background: transparent;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                ">Позже</button>
+            </div>
+        </div>
+    `;
+    
+    // Добавляем стили для hover эффектов
+    const style = document.createElement('style');
+    style.textContent = `
+        #update-btn:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-1px);
+        }
+        #dismiss-btn:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-1px);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(notification);
+    
+    // Обработчики событий
+    document.getElementById('update-btn').addEventListener('click', () => {
+        // Обновляем страницу для применения нового Service Worker
+        window.location.reload();
     });
-} else {
-    console.log('DOM already loaded, initializing app immediately...');
-    initializeApp();
+    
+    document.getElementById('dismiss-btn').addEventListener('click', () => {
+        notification.remove();
+    });
+    
+    // Автоматически скрываем через 10 секунд
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.remove();
+        }
+    }, 10000);
 }
 
-function initializeApp() {
-    console.log('Initializing app...');
-    
-    // Проверяем, что все элементы существуют
-    const chaptersView = document.getElementById('chaptersView');
-    const contentView = document.getElementById('contentView');
-    
-    if (!chaptersView || !contentView) {
-        console.error('Required elements not found!', { chaptersView, contentView });
+// Функция получения версии приложения
+function getAppVersion() {
+    return new Promise((resolve) => {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then((registration) => {
+                if (registration.active) {
+                    const messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = (event) => {
+                        resolve(event.data.version || 'unknown');
+                    };
+                    registration.active.postMessage({ type: 'GET_VERSION' }, [messageChannel.port2]);
+                } else {
+                    resolve('unknown');
+                }
+            }).catch(() => {
+                resolve('unknown');
+            });
+        } else {
+            resolve('unknown');
+        }
+    });
+}
+
+// Функция показа информации о версии
+function showVersionInfo() {
+    getAppVersion().then((version) => {
+        console.log('App version:', version);
+        // Можно добавить отображение версии в интерфейсе
+    });
+}
+
+// Настройка lazy loading для изображений
+function setupLazyLoading() {
+    // Проверяем поддержку Intersection Observer
+    if (!('IntersectionObserver' in window)) {
+        console.warn('IntersectionObserver not supported, falling back to immediate loading');
+        loadAllImages();
         return;
     }
-    
-    console.log('All elements found, setting up app...');
-    
-    setupSearch();
-    setupPWA();
-    setupImageModal();
-    setupHeaderClick();
-    
-    // Восстанавливаем состояние вместо принудительного показа глав
-    restoreState();
+
+    // Создаем Intersection Observer
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const lazyImage = entry.target;
+                loadLazyImage(lazyImage);
+                observer.unobserve(lazyImage);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '50px', // Загружаем изображения за 50px до появления в viewport
+        threshold: 0.1
+    });
+
+    // Находим все lazy изображения
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    lazyImages.forEach(lazyImage => {
+        imageObserver.observe(lazyImage);
+    });
+
+    console.log(`Lazy loading setup complete for ${lazyImages.length} images`);
 }
+
+// Функция загрузки lazy изображения
+function loadLazyImage(lazyImageContainer) {
+    const img = lazyImageContainer.querySelector('img');
+    if (!img) return;
+
+    const src = img.dataset.src;
+    if (!src) return;
+
+    // Показываем индикатор загрузки
+    showLoadingIndicator(lazyImageContainer);
+
+    // Создаем новое изображение для предзагрузки
+    const imageLoader = new Image();
+    
+    imageLoader.onload = function() {
+        // Изображение загружено успешно
+        img.src = src;
+        img.style.display = 'block';
+        img.onload = function() {
+            lazyImageContainer.classList.add('loaded');
+        };
+    };
+
+    imageLoader.onerror = function() {
+        // Ошибка загрузки
+        showErrorIndicator(lazyImageContainer);
+    };
+
+    // Начинаем загрузку
+    imageLoader.src = src;
+}
+
+// Показать индикатор загрузки
+function showLoadingIndicator(container) {
+    const loadingHtml = `
+        <div class="loading-spinner"></div>
+        <span class="loading-text">Загрузка изображения...</span>
+    `;
+    container.innerHTML = loadingHtml;
+}
+
+// Скрыть индикатор загрузки
+function hideLoadingIndicator(container) {
+    // Индикатор будет заменен на изображение
+}
+
+// Показать индикатор ошибки
+function showErrorIndicator(container) {
+    container.innerHTML = `
+        <div style="color: #ef4444; text-align: center; padding: 20px;">
+            <div style="font-size: 24px; margin-bottom: 10px;">⚠️</div>
+            <div style="font-size: 14px;">Ошибка загрузки изображения</div>
+        </div>
+    `;
+    container.classList.add('loaded');
+}
+
+// Загрузить все изображения сразу (fallback)
+function loadAllImages() {
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    lazyImages.forEach(lazyImage => {
+        loadLazyImage(lazyImage);
+    });
+}
+
+// Функция для обновления lazy loading при динамическом контенте
+function refreshLazyLoading() {
+    // Удаляем старые наблюдатели
+    if (window.imageObserver) {
+        window.imageObserver.disconnect();
+    }
+
+    // Настраиваем заново
+    setupLazyLoading();
+}
+
+// Функция преобразования обычных img тегов в lazy loading
+function convertImagesToLazy(htmlContent) {
+    // Регулярное выражение для поиска img тегов
+    const imgRegex = /<img([^>]*?)src=["']([^"']*?)["']([^>]*?)>/gi;
+    
+    return htmlContent.replace(imgRegex, (match, beforeSrc, src, afterSrc) => {
+        // Извлекаем alt атрибут
+        const altMatch = match.match(/alt=["']([^"']*?)["']/i);
+        const alt = altMatch ? altMatch[1] : '';
+        
+        // Извлекаем style атрибут
+        const styleMatch = match.match(/style=["']([^"']*?)["']/i);
+        const style = styleMatch ? styleMatch[1] : '';
+        
+        // Создаем lazy loading контейнер с адаптивными изображениями
+        return `
+            <div class="lazy-image" style="${style}">
+                <img data-src="${src}" alt="${alt}" style="display: none;" loading="lazy">
+                <div class="loading-spinner"></div>
+                <span class="loading-text">Загрузка изображения...</span>
+            </div>
+        `;
+    });
+}
+
+// Функция предзагрузки критически важных изображений
+function preloadCriticalImages() {
+    const criticalImages = [
+        'images/big-catalog-16472451591.jpg' // Логотип в шапке
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+    
+    console.log(`Preloaded ${criticalImages.length} critical images`);
+}
+
+// Функция мониторинга производительности lazy loading
+function trackLazyLoadingPerformance() {
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    let loadedCount = 0;
+    let errorCount = 0;
+    const startTime = performance.now();
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const lazyImage = entry.target;
+                const loadStartTime = performance.now();
+                
+                lazyImage.addEventListener('load', () => {
+                    const loadTime = performance.now() - loadStartTime;
+                    loadedCount++;
+                    console.log(`Image loaded in ${loadTime.toFixed(2)}ms (${loadedCount}/${lazyImages.length})`);
+                    
+                    if (loadedCount + errorCount === lazyImages.length) {
+                        const totalTime = performance.now() - startTime;
+                        console.log(`All images processed in ${totalTime.toFixed(2)}ms`);
+                    }
+                });
+                
+                lazyImage.addEventListener('error', () => {
+                    errorCount++;
+                    console.log(`Image failed to load (${errorCount} errors)`);
+                });
+            }
+        });
+    });
+    
+    lazyImages.forEach(lazyImage => {
+        observer.observe(lazyImage);
+    });
+}
+
+// Инициализация приложения (убрана дублирующая функция)
