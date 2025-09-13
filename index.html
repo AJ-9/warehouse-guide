@@ -30,6 +30,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            padding-bottom: 100px;
         }
 
         .header {
@@ -652,15 +653,21 @@
         }
 
         .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 0;
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 100;
         }
 
         .footer p {
@@ -726,6 +733,7 @@
             
             .container {
                 padding: 10px;
+                padding-bottom: 80px;
             }
 
             .header {
@@ -861,6 +869,7 @@
             @media (max-width: 480px) {
                 .container {
                     padding: 5px;
+                    padding-bottom: 80px;
                 }
             }
             
@@ -989,10 +998,12 @@
             }
 
             .footer {
-                background: rgba(255, 255, 255, 0.9) !important;
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                background: rgba(255, 255, 255, 0.75) !important;
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
             }
 
             .footer p {
