@@ -1212,6 +1212,6 @@ function initializeApp() {
     setupImageModal();
     setupHeaderClick();
     
-    // Принудительно показываем главы
-    showChapters();
+    // Восстанавливаем состояние вместо принудительного показа глав
+    restoreState();
 }
