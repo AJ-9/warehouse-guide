@@ -785,15 +785,13 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
     // Показываем хлебные крошки
     updateBreadcrumbs(chapter.title, '');
     
-    // Заголовок главы
-    const chapterHeader = document.createElement('div');
-    chapterHeader.className = 'chapter-header';
-    chapterHeader.innerHTML = `
-        <h1><span class="icon">${chapter.icon}</span> ${chapter.title}</h1>
-        <p>${chapter.description}</p>
+    // Кнопка "Назад к главам"
+    const backButton = document.createElement('div');
+    backButton.style.marginBottom = '20px';
+    backButton.innerHTML = `
         <button class="back-btn" onclick="showChapters()">← Назад к главам</button>
     `;
-    chaptersView.appendChild(chapterHeader);
+    chaptersView.appendChild(backButton);
     
     // Подглавы
     chapter.subchapters.forEach(subchapter => {
