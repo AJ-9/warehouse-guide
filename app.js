@@ -285,7 +285,7 @@ const warehouseData = {
             title: 'Составление Акта о Повреждении ТМЦ',
             content: `
                 <h3>Информация о повреждении</h3>
-                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу Оперуполномоченные в формате:</p>
+                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Оперуполномоченные</a> в формате:</p>
                 
                 <ol>
                     <li>Фото повреждения</li>
@@ -563,7 +563,7 @@ const warehouseData = {
         '5.1': {
             title: 'Оперуполномоченные',
             content: `
-                <h3>Группа Оперуполномоченные</h3>
+                <h3>Группа <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Оперуполномоченные</a></h3>
                 <p>Информационная группа для оперативного решения вопросов.</p>
                 
                 <h3>Пример группы:</h3>
