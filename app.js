@@ -1639,6 +1639,9 @@ function updateBreadcrumbs(chapterTitle, contentTitle) {
             if (chapter) {
                 // Показываем список подглав
                 showChapter(chapter.id);
+            } else {
+                console.error('Chapter not found for title:', chapterTitle);
+                console.log('Available chapters:', warehouseData.chapters.map(ch => ch.title));
             }
         };
         
