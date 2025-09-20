@@ -1198,18 +1198,20 @@ function showContent(contentId) {
     // Загружаем контент с обычными изображениями (без lazy loading)
     document.getElementById('contentBody').innerHTML = content.content;
     
-    // Находим название главы для хлебных крошек
+    // Находим название главы и ID главы для хлебных крошек
     let chapterTitle = '';
+    let chapterId = '';
     warehouseData.chapters.forEach(chapter => {
         chapter.subchapters.forEach(sub => {
             if (sub.id === contentId) {
                 chapterTitle = chapter.title;
+                chapterId = chapter.id;
             }
         });
     });
     
     // Показываем хлебные крошки
-    updateBreadcrumbs(chapterTitle, content.title);
+    updateBreadcrumbs(chapterTitle, content.title, chapterId);
     
     updateNavigationButtons();
     currentView = 'content';
@@ -1256,7 +1258,7 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
     chaptersView.innerHTML = '';
     
     // Показываем хлебные крошки
-    updateBreadcrumbs(chapter.title, '');
+    updateBreadcrumbs(chapter.title, '', chapter.id);
     
     // Кнопка "Назад к главам"
     const backButton = document.createElement('div');
@@ -1625,7 +1627,7 @@ function setupUpdateButton() {
 }
 
 // Функция обновления хлебных крошек
-function updateBreadcrumbs(chapterTitle, contentTitle) {
+function updateBreadcrumbs(chapterTitle, contentTitle, chapterId = null) {
     const breadcrumbs = document.getElementById('breadcrumbs');
     const breadcrumbChapter = document.getElementById('breadcrumb-chapter');
     const breadcrumbContent = document.getElementById('breadcrumb-content');
@@ -1634,14 +1636,18 @@ function updateBreadcrumbs(chapterTitle, contentTitle) {
     if (chapterTitle) {
         breadcrumbChapter.textContent = chapterTitle;
         breadcrumbChapter.onclick = () => {
-            // Находим ID главы по названию
-            const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
-            if (chapter) {
-                // Показываем список подглав
-                showChapter(chapter.id);
+            // Если передан ID главы, используем его напрямую
+            if (chapterId) {
+                showChapter(chapterId);
             } else {
-                console.error('Chapter not found for title:', chapterTitle);
-                console.log('Available chapters:', warehouseData.chapters.map(ch => ch.title));
+                // Иначе ищем ID главы по названию (для обратной совместимости)
+                const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
+                if (chapter) {
+                    showChapter(chapter.id);
+                } else {
+                    console.error('Chapter not found for title:', chapterTitle);
+                    console.log('Available chapters:', warehouseData.chapters.map(ch => ch.title));
+                }
             }
         };
         
