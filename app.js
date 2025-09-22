@@ -443,7 +443,7 @@ const warehouseData = {
                 
                 <h3>Пример постинга перемещения</h3>
                 <div class="image-container">
-                    <img src="images/image_4_1.png" alt="Пример постинга перемещения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_12_1.png" alt="Пример постинга перемещения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример постинга перемещения</em></p>
                 </div>
             `
