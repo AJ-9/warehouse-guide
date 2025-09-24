@@ -606,7 +606,6 @@ const warehouseData = {
                 
                 <h3>Действия при обнаружении несоответствий</h3>
                 
-                <h3>Информация для постинга полевого сотрудника</h3>
                 <p>При обнаружении несоответствий полевой сотрудник должен разместить в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a> следующую информацию:</p>
                 
                 <ol>
