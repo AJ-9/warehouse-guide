@@ -2,7 +2,7 @@
   "name": "Библия Кладовщика",
   "short_name": "Кладовщик",
   "description": "Полный справочник для кладовщиков с удобным поиском и навигацией",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#2563eb",
