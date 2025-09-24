@@ -9,14 +9,14 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>",
+      "src": "images/big-catalog-16472451591.jpg",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/jpeg"
     },
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>",
+      "src": "images/big-catalog-16472451591.jpg",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/jpeg"
     }
   ],
   "categories": ["productivity", "business"],
