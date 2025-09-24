@@ -7,8 +7,8 @@
     <meta name="description" content="Полный справочник для кладовщиков с удобным поиском и навигацией">
     <meta name="theme-color" content="#2563eb">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+    <link rel="icon" type="image/png" href="images/big-catalog-16472451591.jpg">
+    <link rel="apple-touch-icon" href="images/big-catalog-16472451591.jpg">
     <style>
         * {
             margin: 0;
@@ -100,9 +100,10 @@
             font-weight: 900;
             line-height: 1.2;
             text-shadow: 
-                0 2px 4px rgba(255, 255, 255, 0.8),
-                0 4px 8px rgba(255, 255, 255, 0.6),
-                0 8px 16px rgba(255, 255, 255, 0.4);
+                0 0 10px rgba(255, 255, 255, 1),
+                0 0 20px rgba(255, 255, 255, 0.8),
+                0 0 30px rgba(255, 255, 255, 0.6),
+                0 2px 4px rgba(0, 0, 0, 0.3);
             letter-spacing: 1.5px;
             text-transform: uppercase;
             font-family: 'Arial Black', Arial, sans-serif;
@@ -112,6 +113,11 @@
             max-width: calc(100vw - 220px);
             overflow: hidden;
             text-overflow: ellipsis;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         header h1::before {
@@ -804,6 +810,15 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 color: #000000 !important;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 8px 15px;
+                border-radius: 12px;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                text-shadow: 
+                    0 0 8px rgba(255, 255, 255, 1),
+                    0 0 16px rgba(255, 255, 255, 0.8),
+                    0 2px 4px rgba(0, 0, 0, 0.3);
             }
 
             .header p {
@@ -886,6 +901,15 @@
                 text-overflow: ellipsis;
                 letter-spacing: 0.8px;
                 color: #000000 !important;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 6px 12px;
+                border-radius: 10px;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                text-shadow: 
+                    0 0 6px rgba(255, 255, 255, 1),
+                    0 0 12px rgba(255, 255, 255, 0.8),
+                    0 2px 4px rgba(0, 0, 0, 0.3);
             }
 
             .search-box {
