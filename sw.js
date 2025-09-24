@@ -1,6 +1,6 @@
-const CACHE_NAME = 'warehouse-guide-v2.0.2';
-const STATIC_CACHE = 'warehouse-guide-static-v2.0.2';
-const DYNAMIC_CACHE = 'warehouse-guide-dynamic-v2.0.2';
+const CACHE_NAME = 'warehouse-guide-v2.0.3-spravochnik-sklad';
+const STATIC_CACHE = 'warehouse-guide-static-v2.0.3-spravochnik-sklad';
+const DYNAMIC_CACHE = 'warehouse-guide-dynamic-v2.0.3-spravochnik-sklad';
 
 const urlsToCache = [
   './',
@@ -64,41 +64,30 @@ self.addEventListener('fetch', function(event) {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Стратегия для статических ресурсов (Cache First)
+  // Стратегия для статических ресурсов (Network First для обновлений)
   if (staticAssets.includes(url.pathname) || url.pathname === './') {
     event.respondWith(
-      caches.match(request)
-        .then(function(response) {
-          if (response) {
-            // Обновляем кэш в фоне
-            fetch(request).then(function(fetchResponse) {
-              if (fetchResponse && fetchResponse.status === 200) {
-                caches.open(STATIC_CACHE).then(function(cache) {
-                  cache.put(request, fetchResponse.clone());
-                });
-              }
-            }).catch(function() {
-              // Игнорируем ошибки фонового обновления
+      fetch(request)
+        .then(function(fetchResponse) {
+          if (fetchResponse && fetchResponse.status === 200) {
+            const responseToCache = fetchResponse.clone();
+            caches.open(STATIC_CACHE).then(function(cache) {
+              cache.put(request, responseToCache);
             });
-            return response;
           }
-          
-          // Если нет в кэше, загружаем из сети
-          return fetch(request).then(function(response) {
-            if (response && response.status === 200) {
-              const responseToCache = response.clone();
-              caches.open(STATIC_CACHE).then(function(cache) {
-                cache.put(request, responseToCache);
-              });
-            }
-            return response;
-          });
+          return fetchResponse;
         })
         .catch(function() {
-          // Офлайн режим
-          if (request.destination === 'document') {
-            return caches.match('./index.html');
-          }
+          // Если нет сети, возвращаем из кэша
+          return caches.match(request).then(function(response) {
+            if (response) {
+              return response;
+            }
+            // Офлайн режим
+            if (request.destination === 'document') {
+              return caches.match('./index.html');
+            }
+          });
         })
     );
     return;
