@@ -1,6 +1,6 @@
-const CACHE_NAME = 'warehouse-guide-v2.0.1';
-const STATIC_CACHE = 'warehouse-guide-static-v2.0.1';
-const DYNAMIC_CACHE = 'warehouse-guide-dynamic-v2.0.1';
+const CACHE_NAME = 'warehouse-guide-v2.0.2';
+const STATIC_CACHE = 'warehouse-guide-static-v2.0.2';
+const DYNAMIC_CACHE = 'warehouse-guide-dynamic-v2.0.2';
 
 const urlsToCache = [
   './',
