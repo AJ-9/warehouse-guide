@@ -1140,6 +1140,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
+    // Принудительное обновление Service Worker при запуске
+    forceUpdateServiceWorker();
+    
     setupSearch();
     setupPWA();
     setupImageModal();
@@ -1674,22 +1677,30 @@ if ('serviceWorker' in navigator) {
             .then((registration) => {
                 console.log('SW registered: ', registration);
                 
-                // Проверяем обновления каждые 60 секунд
+                // Проверяем обновления каждые 30 секунд (более часто)
                 setInterval(() => {
                     registration.update();
-                }, 60000);
+                }, 30000);
                 
                 // Обработка обновлений Service Worker
                 registration.addEventListener('updatefound', () => {
                     const newWorker = registration.installing;
                     
                     newWorker.addEventListener('statechange', () => {
-                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            // Новый Service Worker установлен, показываем уведомление
-                            showUpdateNotification();
+                        if (newWorker.state === 'installed') {
+                            if (navigator.serviceWorker.controller) {
+                                // Новый Service Worker установлен, показываем уведомление
+                                showUpdateNotification();
+                            } else {
+                                // Первая установка
+                                console.log('Service Worker installed for the first time');
+                            }
                         }
                     });
                 });
+                
+                // Принудительная проверка обновлений при каждом запуске
+                registration.update();
             })
             .catch((registrationError) => {
                 console.log('SW registration failed: ', registrationError);
@@ -1805,6 +1816,22 @@ function getAppVersion() {
             resolve('unknown');
         }
     });
+}
+
+// Функция принудительного обновления Service Worker
+function forceUpdateServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration().then(function(registration) {
+            if (registration) {
+                console.log('Checking for Service Worker updates...');
+                registration.update().then(function() {
+                    console.log('Service Worker update check completed');
+                }).catch(function(error) {
+                    console.error('Service Worker update failed:', error);
+                });
+            }
+        });
+    }
 }
 
 // Функция показа информации о версии
