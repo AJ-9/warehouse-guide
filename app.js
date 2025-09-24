@@ -492,7 +492,7 @@ const warehouseData = {
                 <h3>Особенности выдачи труб</h3>
                 <p>При выдаче труб иногда в заявках указываются метры, и бывают позиции, где метраж не кратен длине труб.</p>
                 
-                <p>В таких случаях выдаём целую трубу, в заявке прописываем кол-во шт. (в скобках кол-во метров согласно маркировки или в случае ее отсутствия средней длине труб).</p>
+                <p>В таких случаях выдаём целую трубу, в заявке прописываем кол-во шт. (в скобках кол-во метров согласно маркировки или в случае ее отсутствия согласно фактически произведенным замерам длин при выдаче).</p>
                 
                 <h3>Варианты выдачи</h3>
                 <p>ТМЦ по Заявке может забираться как целиком, так частично в течении определенного промежутка времени.</p>
@@ -512,7 +512,7 @@ const warehouseData = {
                 <p>Проверить актуальность заявки. Срок действия заявки – 2 месяца с даты подписания. После истечения срока (например, 06.04.25) выдача запрещена без подтверждения руководства.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_4_2.png" alt="Пример визы отдела учета" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_13_1.png" alt="Пример визы отдела учета" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример визы отдела учета</em></p>
                 </div>
                 
@@ -520,7 +520,7 @@ const warehouseData = {
                 <p>Заявку необходимо сфотографировать, четко видны номер заявки и верхние строки номенклатурных позиций. Фото отправить в группу «ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ» для получения актуальных остатков. Без проверки остатков выдача запрещена.</p>
                 
                 <div class="image-container">
-                    <img src="images/image_4_3.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_13_2.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу</em></p>
                 </div>
                 
@@ -1641,9 +1641,9 @@ function updateBreadcrumbs(chapterTitle, contentTitle, chapterId = null) {
                 showChapter(chapterId);
             } else {
                 // Иначе ищем ID главы по названию (для обратной совместимости)
-                const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
-                if (chapter) {
-                    showChapter(chapter.id);
+            const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
+            if (chapter) {
+                showChapter(chapter.id);
                 } else {
                     console.error('Chapter not found for title:', chapterTitle);
                     console.log('Available chapters:', warehouseData.chapters.map(ch => ch.title));
