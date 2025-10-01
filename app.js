@@ -664,7 +664,7 @@ const warehouseData = {
                 </div>
                 
                 <h4>г) Пункт 4 «Сопроводительные документы»</h4>
-                <p>Номера УЛ. Если информация отсутствует, необходимо дописать от руки, написать «Исправленному верить», подписать.</p>
+                <p>Должны присутствовать номера УЛ. Если информация отсутствует, необходимо дописать от руки, написать «Исправленному верить», подписать.</p>
                 
                 <h4>д) Пункт 8 «Прием груза»</h4>
                 <p>Должна стоять подпись водителя за прием груза от грузоотправителя.</p>
@@ -678,7 +678,8 @@ const warehouseData = {
                 
                 <h3>Пример заполненной ТН</h3>
                 <div class="image-container">
-                    <img src="images/image_4_1.png" alt="Пример заполненной ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_18_1.png" alt="Пример заполненной ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_19_1.png" alt="Пример заполненной ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заполненной транспортной накладной</em></p>
                 </div>
             `
