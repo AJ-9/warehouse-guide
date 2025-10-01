@@ -1124,72 +1124,134 @@ let currentContentId = null;
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing app...');
     
-    // Проверяем, что все элементы существуют
-    const chaptersView = document.getElementById('chaptersView');
-    const contentView = document.getElementById('contentView');
-    
-    if (!chaptersView || !contentView) {
-        console.error('Required elements not found!');
-        return;
-    }
-    
-    // Принудительное обновление Service Worker при запуске
-    forceUpdateServiceWorker();
-    
-    setupSearch();
-    setupPWA();
-    setupImageModal();
-    setupHeaderClick();
-    setupUpdateButton();
-    showVersionInfo(); // Показываем информацию о версии
-    restoreState(); // Восстанавливаем состояние при загрузке ПЕРЕД renderChapters
-    
-    // Принудительно показываем главы, если ничего не восстановилось
-    setTimeout(() => {
+    try {
+        // Проверяем, что все элементы существуют
         const chaptersView = document.getElementById('chaptersView');
-        if (chaptersView && chaptersView.innerHTML.trim() === '') {
-            console.log('No content found, forcing renderChapters...');
-            renderChapters();
+        const contentView = document.getElementById('contentView');
+        
+        if (!chaptersView || !contentView) {
+            console.error('Required elements not found!');
+            return;
         }
-    }, 100);
+        
+        console.log('Elements found, proceeding with initialization...');
+        
+        // Принудительное обновление Service Worker при запуске
+        try {
+            forceUpdateServiceWorker();
+        } catch (e) {
+            console.error('Error in forceUpdateServiceWorker:', e);
+        }
+        
+        try {
+            setupSearch();
+        } catch (e) {
+            console.error('Error in setupSearch:', e);
+        }
+        
+        try {
+            setupPWA();
+        } catch (e) {
+            console.error('Error in setupPWA:', e);
+        }
+        
+        try {
+            setupImageModal();
+        } catch (e) {
+            console.error('Error in setupImageModal:', e);
+        }
+        
+        try {
+            setupHeaderClick();
+        } catch (e) {
+            console.error('Error in setupHeaderClick:', e);
+        }
+        
+        try {
+            setupUpdateButton();
+        } catch (e) {
+            console.error('Error in setupUpdateButton:', e);
+        }
+        
+        try {
+            showVersionInfo(); // Показываем информацию о версии
+        } catch (e) {
+            console.error('Error in showVersionInfo:', e);
+        }
+        
+        // Принудительно показываем главы
+        console.log('Forcing renderChapters...');
+        renderChapters();
+        
+        // Также пытаемся восстановить состояние
+        try {
+            restoreState();
+        } catch (e) {
+            console.error('Error in restoreState:', e);
+        }
+        
+    } catch (error) {
+        console.error('Critical error during initialization:', error);
+        // В случае критической ошибки, принудительно показываем главы
+        try {
+            renderChapters();
+        } catch (e) {
+            console.error('Even renderChapters failed:', e);
+        }
+    }
 });
 
 // Отображение глав - только название, без подглав
 function renderChapters() {
-    const chaptersView = document.getElementById('chaptersView');
-    if (!chaptersView) {
-        console.error('chaptersView element not found!');
-        return;
-    }
+    console.log('renderChapters called');
     
-    if (!warehouseData || !warehouseData.chapters) {
-        console.error('warehouseData or chapters not found!', warehouseData);
-        return;
-    }
-    
-    console.log('Rendering chapters...', warehouseData.chapters.length);
-    
-    // ПРИНУДИТЕЛЬНАЯ ОЧИСТКА СТАРОГО КОНТЕНТА
-    chaptersView.innerHTML = '';
-    chaptersView.style.display = 'grid';
-    
-    // Скрываем хлебные крошки на главной странице
-    document.getElementById('breadcrumbs').style.display = 'none';
-    
-    warehouseData.chapters.forEach(chapter => {
-        const chapterCard = document.createElement('div');
-        chapterCard.className = 'chapter-card';
-        chapterCard.onclick = () => showChapter(chapter.id);
+    try {
+        const chaptersView = document.getElementById('chaptersView');
+        if (!chaptersView) {
+            console.error('chaptersView element not found!');
+            return;
+        }
         
-        // ТОЛЬКО НАЗВАНИЕ ГЛАВЫ - БЕЗ ОПИСАНИЯ И ПОДГЛАВ
-        chapterCard.innerHTML = `
-            <h2><span class="icon">${chapter.icon}</span> ${chapter.title}</h2>
-        `;
+        if (!warehouseData || !warehouseData.chapters) {
+            console.error('warehouseData or chapters not found!', warehouseData);
+            return;
+        }
         
-        chaptersView.appendChild(chapterCard);
-    });
-    
-    console.log('Chapters rendered - only titles, no subchapters');
+        console.log('Rendering chapters...', warehouseData.chapters.length);
+        
+        // ПРИНУДИТЕЛЬНАЯ ОЧИСТКА СТАРОГО КОНТЕНТА
+        chaptersView.innerHTML = '';
+        chaptersView.style.display = 'grid';
+        
+        // Скрываем хлебные крошки на главной странице
+        const breadcrumbs = document.getElementById('breadcrumbs');
+        if (breadcrumbs) {
+            breadcrumbs.style.display = 'none';
+        }
+        
+        warehouseData.chapters.forEach((chapter, index) => {
+            try {
+                const chapterCard = document.createElement('div');
+                chapterCard.className = 'chapter-card';
+                chapterCard.onclick = () => showChapter(chapter.id);
+                
+                // ТОЛЬКО НАЗВАНИЕ ГЛАВЫ - БЕЗ ОПИСАНИЯ И ПОДГЛАВ
+                chapterCard.innerHTML = `
+                    <h2><span class="icon">${chapter.icon}</span> ${chapter.title}</h2>
+                `;
+                
+                chaptersView.appendChild(chapterCard);
+                console.log(`Chapter ${index + 1} rendered:`, chapter.title);
+            } catch (e) {
+                console.error(`Error rendering chapter ${index + 1}:`, e);
+            }
+        });
+        
+        console.log('All chapters rendered successfully');
+        
+    } catch (error) {
+        console.error('Critical error in renderChapters:', error);
+    }
 }
 
 // Показать содержимое раздела
