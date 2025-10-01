@@ -1372,13 +1372,7 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
     
     // Сохраняем ID текущей главы
     localStorage.setItem('warehouseGuide_currentChapter', chapterId);
-    
-    // Скрываем contentView
-    const contentView = document.getElementById('contentView');
-    if (contentView) {
-        contentView.style.display = 'none';
-    }
-    
+    // (Удалено дублирующее объявление contentView, чтобы избежать ошибки "Cannot redeclare block-scoped variable 'contentView'")
     // Скрываем навигационные кнопки
     updateNavigationButtons();
     
