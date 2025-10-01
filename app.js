@@ -1143,6 +1143,15 @@ document.addEventListener('DOMContentLoaded', function() {
     setupUpdateButton();
     showVersionInfo(); // Показываем информацию о версии
     restoreState(); // Восстанавливаем состояние при загрузке ПЕРЕД renderChapters
+    
+    // Принудительно показываем главы, если ничего не восстановилось
+    setTimeout(() => {
+        const chaptersView = document.getElementById('chaptersView');
+        if (chaptersView && chaptersView.innerHTML.trim() === '') {
+            console.log('No content found, forcing renderChapters...');
+            renderChapters();
+        }
+    }, 100);
 });
 
 // Отображение глав - только название, без подглав
@@ -1150,6 +1159,11 @@ function renderChapters() {
     const chaptersView = document.getElementById('chaptersView');
     if (!chaptersView) {
         console.error('chaptersView element not found!');
+        return;
+    }
+    
+    if (!warehouseData || !warehouseData.chapters) {
+        console.error('warehouseData or chapters not found!', warehouseData);
         return;
     }
     
