@@ -710,7 +710,7 @@ const warehouseData = {
                 
                 <h3>Пример оформления CMR</h3>
                 <div class="image-container">
-                    <img src="images/image_13_1.png" alt="Пример CMR" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_20_1.png" alt="Пример CMR" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример оформления CMR</em></p>
                 </div>
             `
