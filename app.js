@@ -1247,11 +1247,24 @@ function showChapters() {
 
 // Показать содержимое главы (подглавы)
 function showChapter(chapterId, showSubchaptersOnly = false) {
+    console.log('showChapter called with:', chapterId);
     const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
-    if (!chapter) return;
+    if (!chapter) {
+        console.error('Chapter not found:', chapterId);
+        return;
+    }
+    
+    console.log('Found chapter:', chapter.title);
+    
+    // Скрываем contentView
+    const contentView = document.getElementById('contentView');
+    if (contentView) {
+        contentView.style.display = 'none';
+    }
     
     const chaptersView = document.getElementById('chaptersView');
     chaptersView.innerHTML = '';
+    chaptersView.style.display = 'grid';
     
     // Показываем хлебные крошки
     updateBreadcrumbs(chapter.title, '', chapter.id);
@@ -1632,14 +1645,17 @@ function updateBreadcrumbs(chapterTitle, contentTitle, chapterId = null) {
     if (chapterTitle) {
         breadcrumbChapter.textContent = chapterTitle;
         breadcrumbChapter.onclick = () => {
+            console.log('Breadcrumb chapter clicked:', chapterTitle, chapterId);
             // Если передан ID главы, используем его напрямую
             if (chapterId) {
+                console.log('Using chapterId:', chapterId);
                 showChapter(chapterId);
             } else {
                 // Иначе ищем ID главы по названию (для обратной совместимости)
-            const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
-            if (chapter) {
-                showChapter(chapter.id);
+                const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
+                if (chapter) {
+                    console.log('Found chapter by title:', chapter.id);
+                    showChapter(chapter.id);
                 } else {
                     console.error('Chapter not found for title:', chapterTitle);
                     console.log('Available chapters:', warehouseData.chapters.map(ch => ch.title));
