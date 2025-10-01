@@ -811,7 +811,7 @@ const warehouseData = {
                 
                 <h3>Пример упаковочного листа</h3>
                 <div class="image-container">
-                    <img src="images/image_14_1.png" alt="Пример упаковочного листа" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_23_1.png" alt="Пример упаковочного листа" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример упаковочного листа</em></p>
                 </div>
             `
