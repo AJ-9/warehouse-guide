@@ -678,8 +678,8 @@ const warehouseData = {
                 
                 <h3>Пример заполненной ТН</h3>
                 <div class="image-container">
-                    <img src="images/image_18_1.png" alt="Пример заполненной ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <img src="images/image_19_1.png" alt="Пример заполненной ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_18_1.png" alt="Пример заполненной ТН - первая страница" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_19_1.png" alt="Пример заполненной ТН - вторая страница" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заполненной транспортной накладной</em></p>
                 </div>
             `
@@ -931,9 +931,8 @@ const warehouseData = {
                 <h4>i) Выдал, ФИО</h4>
                 <p>Получатель расписывается и ставит дату за полученные позиции, записывает фактически выданное количество, если оно меньше запрашиваемого.</p>
                 
-                <h3>Пример заявки на выдачу</h3>
                 <div class="image-container">
-                    <img src="images/image_28_1.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_28_1.png" alt="Пример заявки на выдачу ТМЦ со склада" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу ТМЦ со склада</em></p>
                 </div>
             `
@@ -989,7 +988,7 @@ const warehouseData = {
                 
                 <h3>Пример группы:</h3>
                 <div class="image-container">
-                    <img src="images/image_21_1.png" alt="Пример группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_21_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
                 </div>
             `
@@ -1009,7 +1008,7 @@ const warehouseData = {
                 
                 <h3>Пример информационной группы:</h3>
                 <div class="image-container">
-                    <img src="images/image_22_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_22_1.png" alt="Пример информационной группы - Читай меня" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
                 </div>
             `
