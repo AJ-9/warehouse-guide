@@ -892,7 +892,7 @@ const warehouseData = {
                 
                 <h3>Пример Shipping Mark</h3>
                 <div class="image-container">
-                    <img src="images/image_18_1.png" alt="Пример Shipping Mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_26_1.png" alt="Пример Shipping Mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример грузовой маркировки</em></p>
                 </div>
             `
