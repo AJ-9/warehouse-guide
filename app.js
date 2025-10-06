@@ -933,7 +933,7 @@ const warehouseData = {
                 
                 <h3>Пример заявки на выдачу</h3>
                 <div class="image-container">
-                    <img src="images/image_19_1.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_28_1.png" alt="Пример заявки на выдачу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу ТМЦ со склада</em></p>
                 </div>
             `
