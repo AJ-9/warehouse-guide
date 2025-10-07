@@ -1039,7 +1039,7 @@ const warehouseData = {
                         <p><em>Пример составления акта М-7</em></p>
                     </div>
                     
-                    <h4>6. ДЛЯ ТН ДЛЯ УЧЕТА</h4>
+                    <h4>6. <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ДЛЯ ТН ДЛЯ УЧЕТА</a></h4>
                     <p><strong>Назначение:</strong> В эту группу отправляется информация о выгруженных ТС для учета в 1С.</p>
                     
                     <h4>7. ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ</h4>
