@@ -1009,7 +1009,7 @@ const warehouseData = {
                         <p><em>Пример отчета в группе Оперуполномоченные</em></p>
                     </div>
                     
-                    <h4>2. БЕЗУМИЕ. Площадка</h4>
+                    <h4>2. <a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">БЕЗУМИЕ. Площадка</a></h4>
                     <p><strong>Назначение:</strong> Группа для обсуждения вопросов работы на складской площадке.</p>
                     
                     <h4>3. <a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Информация. Читай меня!</a></h4>
