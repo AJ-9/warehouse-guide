@@ -753,7 +753,7 @@ const warehouseData = {
                 <p>Указать номер УЛа, если он размещен на материале, номер ТН (в случае приемки ТМЦ в ангар), примечание (доп информация, помогающая идентифицировать материал в 1С).</p>
                 
                 <div class="image-container">
-                    <img src="images/image_21_1.png" alt="Пример ведомости на перемещение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/4.3.png" alt="Пример ведомости на перемещение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример ведомости на перемещение и приемку ТМЦ</em></p>
                 </div>
             `
