@@ -1006,6 +1006,13 @@ const warehouseData = {
                 <h3>Группа <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Оперуполномоченные</a></h3>
                 <p>Информационная группа для оперативного решения вопросов.</p>
                 
+                <p><strong>Предоставление отчетов с площадок в 9.00, 14.00, 17.00 для мониторинга процесса работы на площадке. Пример ниже.</strong></p>
+                
+                <div class="image-container">
+                    <img src="images/image_33_1.png" alt="Пример отчета с площадки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Пример отчета с площадки</em></p>
+                </div>
+                
                 <h3>Пример группы:</h3>
                 <div class="image-container">
                     <img src="images/image_21_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
