@@ -1033,44 +1033,6 @@ const warehouseData = {
                     <h4>9. <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ПОТЕРЯШКИ</a></h4>
                     <p><strong>Назначение:</strong> Группа для поиска и возврата потерянных или забытых предметов.</p>
                 </div>
-                
-                <h3>Примеры информационных групп:</h3>
-                
-                <h4>Пример отчета с площадки (Оперуполномоченные):</h4>
-                <div class="image-container">
-                    <img src="images/image_33_1.png" alt="Пример отчета с площадки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример отчета с площадки</em></p>
-                </div>
-                
-                <h4>Пример информационной группы:</h4>
-                <div class="image-container">
-                    <img src="images/image_21_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример информационной группы</em></p>
-                </div>
-                
-                <h4>Пример информационной группы - Читай меня:</h4>
-                <div class="image-container">
-                    <img src="images/image_22_1.png" alt="Пример информационной группы - Читай меня" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример информационной группы</em></p>
-                </div>
-                
-                <h4>Пример проверки документов:</h4>
-                <div class="image-container">
-                    <img src="images/image_23_1.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример проверки документов</em></p>
-                </div>
-                
-                <h4>Пример акта М-7:</h4>
-                <div class="image-container">
-                    <img src="images/image_25_1.png" alt="Пример акта М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример акта М-7</em></p>
-                </div>
-                
-                <h4>Пример учета ТН:</h4>
-                <div class="image-container">
-                    <img src="images/image_26_1.png" alt="Пример учета ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример учета ТН</em></p>
-                </div>
             `
         },
         // Глава 6: Общие хозяйственные вопросы
