@@ -67,15 +67,7 @@ const warehouseData = {
             description: 'Правила работы с отделом учета и функционал информационных групп',
             subchapters: [
                 { id: '5.0', title: 'Правила предоставления информации в отдел учета' },
-                { id: '5.1', title: 'Оперуполномоченные' },
-                { id: '5.2', title: 'БЕЗУМИЕ. Площадка' },
-                { id: '5.3', title: 'Информация. Читай меня!' },
-                { id: '5.4', title: 'Документы на проверку' },
-                { id: '5.5', title: 'Акты «М-7»' },
-                { id: '5.6', title: 'ДЛЯ ТН ДЛЯ УЧЕТА' },
-                { id: '5.7', title: 'ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ' },
-                { id: '5.8', title: 'ВЫДАЧА ТМЦ ПО ЗАЯВКАМ' },
-                { id: '5.9', title: 'ПОТЕРЯШКИ' }
+                { id: '5.1', title: 'Информационные группы' }
             ]
         },
         {
@@ -1001,103 +993,79 @@ const warehouseData = {
         },
         // Глава 5.1: Информационные группы
         '5.1': {
-            title: 'Оперуполномоченные',
+            title: 'Информационные группы',
             content: `
-                <h3>Группа <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Оперуполномоченные</a></h3>
-                <p>Информационная группа для оперативного решения вопросов.</p>
+                <h3>5.1 ИНФОРМАЦИОННЫЕ ГРУППЫ</h3>
                 
-                <p><strong>Предоставление отчетов с площадок в 9.00, 14.00, 17.00 для мониторинга процесса работы на площадке. Пример ниже.</strong></p>
+                <p>Ниже представлен полный список информационных групп с их описанием и ссылками для вступления:</p>
                 
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4>1. <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Оперуполномоченные</a></h4>
+                    <p><strong>Назначение:</strong> Информационная группа для оперативного решения вопросов.</p>
+                    <p><strong>Особенности:</strong> Предоставление отчетов с площадок в 9.00, 14.00, 17.00 для мониторинга процесса работы на площадке.</p>
+                    
+                    <h4>2. БЕЗУМИЕ. Площадка</h4>
+                    <p><strong>Назначение:</strong> Группа для обсуждения вопросов работы на складской площадке.</p>
+                    
+                    <h4>3. <a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Информация. Читай меня!</a></h4>
+                    <p><strong>Назначение:</strong> Группа для размещения важной информации и обновлений.</p>
+                    
+                    <h4>4. <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Документы на проверку</a></h4>
+                    <p><strong>Назначение:</strong> В эту группу отправляются документы поставщиков из списка на проверку.</p>
+                    
+                    <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акты «М-7»</a></h4>
+                    <p><strong>Назначение:</strong> В эту группу отправляется информация о несоответствиях для составления актов М-7.</p>
+                    
+                    <h4>6. ДЛЯ ТН ДЛЯ УЧЕТА</h4>
+                    <p><strong>Назначение:</strong> В эту группу отправляется информация о выгруженных ТС для учета в 1С.</p>
+                    
+                    <h4>7. ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ</h4>
+                    <p><strong>Назначение:</strong> Группа для проверки заявок на выдачу ТМЦ перед их выполнением.</p>
+                    
+                    <h4>8. ВЫДАЧА ТМЦ ПО ЗАЯВКАМ</h4>
+                    <p><strong>Назначение:</strong> Группа для координации выдачи ТМЦ по заявкам.</p>
+                    
+                    <h4>9. <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ПОТЕРЯШКИ</a></h4>
+                    <p><strong>Назначение:</strong> Группа для поиска и возврата потерянных или забытых предметов.</p>
+                </div>
+                
+                <h3>Примеры информационных групп:</h3>
+                
+                <h4>Пример отчета с площадки (Оперуполномоченные):</h4>
                 <div class="image-container">
                     <img src="images/image_33_1.png" alt="Пример отчета с площадки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример отчета с площадки</em></p>
                 </div>
                 
-                <h3>Пример группы:</h3>
+                <h4>Пример информационной группы:</h4>
                 <div class="image-container">
                     <img src="images/image_21_1.png" alt="Пример информационной группы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
                 </div>
-            `
-        },
-        '5.2': {
-            title: 'БЕЗУМИЕ. Площадка',
-            content: `
-                <h3>Группа БЕЗУМИЕ. Площадка</h3>
-                <p>Группа для обсуждения вопросов работы на складской площадке.</p>
-            `
-        },
-        '5.3': {
-            title: 'Информация. Читай меня!',
-            content: `
-                <h3>Информационная группа</h3>
-                <p>Группа для размещения важной информации и обновлений: <a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank">«Информация. Читай меня»</a></p>
                 
-                <h3>Пример информационной группы:</h3>
+                <h4>Пример информационной группы - Читай меня:</h4>
                 <div class="image-container">
                     <img src="images/image_22_1.png" alt="Пример информационной группы - Читай меня" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример информационной группы</em></p>
                 </div>
-            `
-        },
-        '5.4': {
-            title: 'Документы на проверку',
-            content: `
-                <h3>Группа для проверки документов</h3>
-                <p>В эту группу отправляются документы поставщиков из списка на проверку: <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">«Документы на проверку»</a></p>
                 
-                <h3>Пример проверки документов:</h3>
+                <h4>Пример проверки документов:</h4>
                 <div class="image-container">
                     <img src="images/image_23_1.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример проверки документов</em></p>
                 </div>
-            `
-        },
-        '5.5': {
-            title: 'Акты «М-7»',
-            content: `
-                <h3>Группа для актов М-7</h3>
-                <p>В эту группу отправляется информация о несоответствиях для составления актов М-7: <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank">«М-7»</a></p>
                 
-                <h3>Пример акта М-7:</h3>
+                <h4>Пример акта М-7:</h4>
                 <div class="image-container">
                     <img src="images/image_25_1.png" alt="Пример акта М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример акта М-7</em></p>
                 </div>
-            `
-        },
-        '5.6': {
-            title: 'ДЛЯ ТН ДЛЯ УЧЕТА',
-            content: `
-                <h3>Группа для учета ТН</h3>
-                <p>В эту группу отправляется информация о выгруженных ТС для учета в 1С.</p>
                 
-                <h3>Пример учета ТН:</h3>
+                <h4>Пример учета ТН:</h4>
                 <div class="image-container">
                     <img src="images/image_26_1.png" alt="Пример учета ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример учета ТН</em></p>
                 </div>
-            `
-        },
-        '5.7': {
-            title: 'ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ',
-            content: `
-                <h3>Проверка заявок</h3>
-                <p>Группа для проверки заявок на выдачу ТМЦ перед их выполнением.</p>
-            `
-        },
-        '5.8': {
-            title: 'ВЫДАЧА ТМЦ ПО ЗАЯВКАМ',
-            content: `
-                <h3>Выдача по заявкам</h3>
-                <p>Группа для координации выдачи ТМЦ по заявкам.</p>
-            `
-        },
-        '5.9': {
-            title: 'ПОТЕРЯШКИ',
-            content: `
-                <h3>Группа <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Потеряшки</a></h3>
-                <p>Группа для поиска и возврата потерянных или забытых предметов.</p>
             `
         },
         // Глава 6: Общие хозяйственные вопросы
