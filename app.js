@@ -1016,7 +1016,12 @@ const warehouseData = {
                     <p><strong>Назначение:</strong> Группа для размещения важной информации и обновлений.</p>
                     
                     <h4>4. <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Документы на проверку</a></h4>
-                    <p><strong>Назначение:</strong> В эту группу отправляются документы поставщиков из списка на проверку.</p>
+                    <p><strong>Назначение:</strong> Постинг ТН по поставщикам, фигурирующим в списке на проверку в группе «Информация. Читай меня!». Постится титульная страница ТН в читаемом формате. Прописывается текстом номер ТН и название поставщика. Информация скидывается ДО выгрузки ТС. Без согласования Отдела Учета (реакция палец вверх) ТС не выгружать. Если реакция знак стоп, значит ТС поставлена на стоп до прояснения всех нюансов с поставщиком.</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_33_2.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Пример проверки документов</em></p>
+                    </div>
                     
                     <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акты «М-7»</a></h4>
                     <p><strong>Назначение:</strong> В эту группу отправляется информация о несоответствиях для составления актов М-7.</p>
