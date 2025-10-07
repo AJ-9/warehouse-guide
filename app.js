@@ -1007,7 +1007,7 @@ const warehouseData = {
                     <div class="image-container" style="margin: 15px 0;">
                         <img src="images/image_33_1.png" alt="Пример отчета в группе Оперуполномоченные" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                         <p><em>Пример отчета в группе Оперуполномоченные</em></p>
-                    </div>
+                </div>
                     
                     <h4>2. <a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">БЕЗУМИЕ. Площадка</a></h4>
                     <p><strong>Назначение:</strong> Ежедневные отчеты по принятым ТС. Срочные запросы от руководства МСК, общие объявления.</p>
@@ -1020,8 +1020,8 @@ const warehouseData = {
                     
                     <div class="image-container" style="margin: 15px 0;">
                         <img src="images/image_33_2.png" alt="Пример проверки документов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                        <p><em>Пример проверки документов</em></p>
-                    </div>
+                    <p><em>Пример проверки документов</em></p>
+                </div>
                     
                     <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акты «М-7»</a></h4>
                     <p><strong>Назначение:</strong> Постинг информации по актам приемки ТМЦ с выявленными несоответствиями (излишки, недостачи, пересорт, повреждение ТМЦ, повреждение упаковки)</p>
@@ -1037,7 +1037,7 @@ const warehouseData = {
                     <div class="image-container" style="margin: 15px 0;">
                         <img src="images/image_34_1.png" alt="Пример составления акта М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                         <p><em>Пример составления акта М-7</em></p>
-                    </div>
+                </div>
                     
                     <h4>6. <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ДЛЯ ТН ДЛЯ УЧЕТА</a></h4>
                     <p><strong>Назначение:</strong> Постинг информации по поставке (по каждой машине) после выгрузки.</p>
@@ -1049,6 +1049,27 @@ const warehouseData = {
                     <div class="image-container" style="margin: 15px 0;">
                         <img src="images/image_35_1.png" alt="Пример постинга приемки Трубной продукции" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                         <p><em>Пример постинга приемки Трубной продукции</em></p>
+                    </div>
+                    
+                    <p><strong>Пример постинга приемки Кабельной продукции:</strong></p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_35_2.png" alt="Пример постинга приемки Кабельной продукции" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Пример постинга приемки Кабельной продукции</em></p>
+                    </div>
+                    
+                    <p><strong>Пример постинга приемки Контейнеров:</strong></p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_36_1.png" alt="Пример постинга приемки Контейнеров" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Пример постинга приемки Контейнеров</em></p>
+                    </div>
+                    
+                    <p><strong>Пример постинга приемки с составлением Акта М-7:</strong></p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_36_2.png" alt="Пример постинга приемки с составлением Акта М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Пример постинга приемки с составлением Акта М-7</em></p>
                     </div>
                     
                     <h4>7. ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ</h4>
