@@ -975,7 +975,6 @@ const warehouseData = {
                 
                 <div class="image-container" style="margin: 15px 0;">
                     <img src="images/image_29_2.png" alt="Пример заполнения пропуска на вывоз" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                    <p><em>Пример заполнения пропуска на вывоз</em></p>
                 </div>
                 
                 <h3>Пример:</h3>
