@@ -68,7 +68,8 @@ const warehouseData = {
             description: 'Правила работы с отделом учета и функционал информационных групп',
             subchapters: [
                 { id: '5.0', title: 'Правила предоставления информации в отдел учета' },
-                { id: '5.1', title: 'Информационные группы' }
+                { id: '5.1', title: 'Детальное описание информационных групп' },
+                { id: '5.2', title: 'Перечень групп' }
             ]
         },
         {
@@ -1047,7 +1048,7 @@ const warehouseData = {
         },
         // Глава 5.1: Информационные группы
         '5.1': {
-            title: 'Информационные группы',
+            title: 'Детальное описание информационных групп',
             content: `
                 <h3>5.1 ИНФОРМАЦИОННЫЕ ГРУППЫ</h3>
                 
@@ -1177,6 +1178,37 @@ const warehouseData = {
                     <p><strong>Формат сообщений:</strong> Сообщения подаются в формате «Выход на переработку 18.10».</p>
                     <p><strong>Процедура:</strong> Если поставлен лайк, то можно выходить в данный день, если нет, то по этому поводу связываются дополнительно для прояснения.</p>
                     <p><strong>Дополнительно:</strong> Также, сюда постятся сообщения по выходу в ежегодный отпуск и отпуск без сохранения заработной платы.</p>
+                </div>
+            `
+        },
+        '5.2': {
+            title: 'Перечень групп',
+            content: `
+                <h3>5.2 ПЕРЕЧЕНЬ ГРУПП</h3>
+                
+                <p>Ниже представлен полный перечень всех информационных групп с прямыми ссылками для быстрого доступа:</p>
+                
+                <div style="margin: 20px 0;">
+                    <h4>Информационные группы:</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">1. ОПЕРУПОЛНОМОЧЕННЫЕ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">2. БЕЗУМИЕ. ПЛОЩАДКА</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">3. ИНФОРМАЦИЯ. ЧИТАЙ МЕНЯ!</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">4. ДОКУМЕНТЫ НА ПРОВЕРКУ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">5. АКТЫ «М-7»</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">6. ДЛЯ ТН ДЛЯ УЧЕТА</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">7. ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">8. ВЫДАЧА ТМЦ ПО ЗАЯВКАМ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">9. ПОТЕРЯШКИ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">10. IC GROUP</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">11. ПЕРЕМЕЩЕНИЯ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://teams.microsoft.com/l/message/19:a383eea2-9fcf-4e39-870f-3d5c53abacf9_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912665617?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">12. ИНВЕНТАРИЗАЦИЯ ТМЦ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://teams.microsoft.com/l/message/19:8731fb79-1f40-46f5-9c66-7dfdfdbbb6c3_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912796869?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">13. ГРАФИК ВЫХОДА НА РАБОТУ</a></li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
+                    <p><strong>💡 Совет:</strong> Для получения подробной информации о назначении и правилах использования каждой группы, перейдите в раздел <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "Детальное описание информационных групп"</a>.</p>
                 </div>
             `
         },
