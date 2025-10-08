@@ -1094,7 +1094,7 @@ const warehouseData = {
                     <p><em>Пример проверки документов</em></p>
                 </div>
                     
-                    <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">АКТЫ «М-7»</a></h4>
+                    <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a></h4>
                     <p><strong>Назначение:</strong> Постинг информации по актам приемки ТМЦ с выявленными несоответствиями (излишки, недостачи, пересорт, повреждение ТМЦ, повреждение упаковки)</p>
                     <p><strong>Для составления Акта М-7 кладовщик обязан предоставить фото и информацию в группу «М-7» в формате:</strong></p>
                     <ol style="margin: 10px 0; padding-left: 20px;">
@@ -1211,7 +1211,7 @@ const warehouseData = {
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">2. БЕЗУМИЕ. ПЛОЩАДКА</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">3. ИНФОРМАЦИЯ. ЧИТАЙ МЕНЯ!</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">4. ДОКУМЕНТЫ НА ПРОВЕРКУ</a></li>
-                        <li style="margin: 10px 0;"><a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">5. АКТЫ «М-7»</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">5. М-7 / Акты о повреждениях</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">6. ДЛЯ ТН ДЛЯ УЧЕТА</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">7. ПРОВЕРКА ЗАЯВОК ПЕРЕД ВЫДАЧЕЙ</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">8. ВЫДАЧА ТМЦ ПО ЗАЯВКАМ</a></li>
