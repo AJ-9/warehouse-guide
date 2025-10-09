@@ -370,7 +370,7 @@ const warehouseData = {
             title: 'Коды хранения ТМЦ',
             content: `
                 <h3>Коды хранения</h3>
-                <p>ТМЦ выгружаются и хранятся на площадках согласно кодам хранения. Информация по кодам хранения присутствует в Упаковочном Листе и в Ведомости Грузового Места (см. <a href="#4.4" onclick="showContent('4.4')" style="color: #2563eb; text-decoration: none; font-weight: 600;">Главу «Содержание Упаковочного Листа (УЛ)»</a> и <a href="#4.5" onclick="showContent('4.5')" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание Ведомости Грузового места»</a>).</p>
+                <p>ТМЦ выгружаются и хранятся на площадках согласно кодам хранения. Информация по кодам хранения присутствует в Упаковочном Листе и в Ведомости Грузового Места (см. <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">Главу «Содержание Упаковочного Листа (УЛ)»</a> и <a href="#4.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание Ведомости Грузового места»</a>).</p>
                 
                 <div class="table-container" style="overflow-x: auto; margin: 20px 0;">
                     <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
@@ -424,7 +424,7 @@ const warehouseData = {
                 <p>Для перемещения материала со склада необходимо предварительно убедиться в его наличии на лоте хранения и доступе для ПРР. Кладовщик должен заказать технику для проведения ПРР и транспортировки ТМЦ, учитывая габариты материала и место его расположения. Техника заказывается через диспетчеров.</p>
                 
                 <h3>После погрузки</h3>
-                <p>После погрузки ТМЦ необходимо заполнить «Ведомость на перемещение и приемку» (см. <a href="#4.3" onclick="showContent('4.3')" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.3</a>).</p>
+                <p>После погрузки ТМЦ необходимо заполнить «Ведомость на перемещение и приемку» (см. <a href="#4.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.3</a>).</p>
                 
                 <h3>После выгрузки</h3>
                 <p>После выгрузки ТМЦ на принимающем складе или ячейке необходимо сделать фото Упаковочного Листа (УЛ) или Ведомостей ГМ по каждому грузовому месту для учета.</p>
@@ -478,7 +478,7 @@ const warehouseData = {
             title: 'Общие сведения',
             content: `
                 <h3>Процедура выдачи материалов</h3>
-                <p>Выдача материала в монтаж проводится по Заявкам на Выдачу (См. <a href="#4.7" onclick="showContent('4.7')" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.7 «Содержание Заявки на выдачу»</a>).</p>
+                <p>Выдача материала в монтаж проводится по Заявкам на Выдачу (См. <a href="#4.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.7 «Содержание Заявки на выдачу»</a>).</p>
                 
                 <h3>Формирование заявки</h3>
                 <p>Заявка на выдачу формируется строительным блоком в 1С, затем подтверждается и визируется отделом учета.</p>
@@ -531,7 +531,7 @@ const warehouseData = {
                 <p>Сфотографировать ТМЦ, погруженные на ТС.</p>
                 
                 <h4>7. ЗАПОЛНЕНИЕ ПРОПУСКА НА ВЫВОЗ</h4>
-                <p>Заполнить Пропуск на вывоз (см. <a href="#4.8" onclick="showContent('4.8')" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.8</a>).</p>
+                <p>Заполнить Пропуск на вывоз (см. <a href="#4.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.8</a>).</p>
                 
                 <h4>8. ПОСТИНГ ИНФОРМАЦИИ О ВЫДАЧЕ</h4>
                 <p>Разместить информацию о выдаче в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«ВЫДАЧА ТМЦ ПО ЗАЯВКАМ»</a>. Информация должна включать:</p>
@@ -574,7 +574,7 @@ const warehouseData = {
                 <p>После пересчета необходимо маркером прописать на ГМ «Посчитано» на двух смежных сторонах.</p>
                 
                 <h3>Обнаружение несоответствий</h3>
-                <p>В случае обнаружения несоответствий при пересчете (недостача, излишки, пересорт, порча/бой) необходимо составить Акт Осмотра (см <a href="#3.3" onclick="showContent('3.3')" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 3.3 «Составление Акта Осмотра»</a>). Акт необходимо отправить в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a>. На ГМ с несоответствиями маркером написать с двух смежных сторон «Посчитано, составлен Акт». Также необходимо убедиться, что ГМ возможно идентифицировать (наклеен УЛ/Ведомость ГМ/ГМ промаркировано).</p>
+                <p>В случае обнаружения несоответствий при пересчете (недостача, излишки, пересорт, порча/бой) необходимо составить Акт Осмотра (см <a href="#3.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 3.3 «Составление Акта Осмотра»</a>). Акт необходимо отправить в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a>. На ГМ с несоответствиями маркером написать с двух смежных сторон «Посчитано, составлен Акт». Также необходимо убедиться, что ГМ возможно идентифицировать (наклеен УЛ/Ведомость ГМ/ГМ промаркировано).</p>
                 
                 <h3>Пример Частичной Выдачи</h3>
                 <p>ГМ № 1 (ранее выдача с этого места не производилась) по системе 1С содержит 5 номенклатурных позиций болтов. Каждая по 10 шт. По Заявке на Выдачу необходимо выдать 3 номенклатурные позиции по 3шт. В этом случае необходимо разукомплектовать ГМ № 1, выдать из него 9 болтов (по 3 шт каждого наименования).</p>
@@ -798,7 +798,7 @@ const warehouseData = {
                 <p>Вес брутто грузового места.</p>
                 
                 <h4>j) Код хранения</h4>
-                <p>См. <a href="#chapter2" onclick="showChapter('chapter2')" style="color: #2563eb; text-decoration: none; font-weight: 600;">главу «Хранение»</a>.</p>
+                <p>См. <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">главу «Хранение»</a>.</p>
                 
                 <h4>k) Индекс штабелирования</h4>
                 <p>Если указаны кг, то это количество кг, которые допустимо поставить на ГМ сверху. Если указана цифра (0, 1, 2), то это количество ГМ с таким же весом, которые допустимо поставить на ГМ сверху. При индексе штабелирования 0 ставить что-либо на ГМ сверху запрещено.</p>
@@ -824,7 +824,7 @@ const warehouseData = {
                 <p>Размеры грузового места в сантиметрах (длина x ширина x высота).</p>
                 
                 <h4>c) Код хранения</h4>
-                <p>См. <a href="#chapter2" onclick="showChapter('chapter2')" style="color: #2563eb; text-decoration: none; font-weight: 600;">главу «Хранение»</a>.</p>
+                <p>См. <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">главу «Хранение»</a>.</p>
                 
                 <h4>d) Индекс штабелирования</h4>
                 <p>Если указаны кг, то это количество кг, которые допустимо поставить на ГМ сверху. Если указана цифра (0, 1, 2), то это количество ГМ с таким же весом, которые допустимо поставить на ГМ сверху. При индексе штабелирования 0 ставить что-либо на ГМ сверху запрещено.</p>
@@ -861,7 +861,7 @@ const warehouseData = {
             title: 'Содержание Shipping Mark',
             content: `
                 <h3>Назначение Shipping Mark</h3>
-                <p>Shipping Mark/Грузовая маркировка присутствует только на импортных поставках. В отличие от «Ведомость Грузового Места» в нем НЕ содержится подробное описание каждой номенклатурной позиции и количества материала по номенклатуре. Подробное описание пунктов смотрите в главе <a href="#4.4" onclick="showContent('4.4')" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание УЛ»</a>. Они пересекаются.</p>
+                <p>Shipping Mark/Грузовая маркировка присутствует только на импортных поставках. В отличие от «Ведомость Грузового Места» в нем НЕ содержится подробное описание каждой номенклатурной позиции и количества материала по номенклатуре. Подробное описание пунктов смотрите в главе <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание УЛ»</a>. Они пересекаются.</p>
                 
                 <h3>Содержимое Shipping Mark</h3>
                 
@@ -1252,7 +1252,7 @@ const warehouseData = {
                 </div>
                 
                 <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
-                    <p><strong>💡 Совет:</strong> Для получения подробной информации о назначении и правилах использования каждой группы, перейдите в раздел <a href="javascript:void(0);" onclick="showContent('5.1')" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "Детальное описание информационных групп"</a>.</p>
+                    <p><strong>💡 Совет:</strong> Для получения подробной информации о назначении и правилах использования каждой группы, перейдите в раздел <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "Детальное описание информационных групп"</a>.</p>
                 </div>
             `
         },
@@ -1321,6 +1321,7 @@ const warehouseData = {
 let currentView = 'chapters';
 let searchResults = [];
 let currentContentId = null;
+let isNavigating = false; // Флаг для предотвращения конфликтов навигации
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
@@ -1383,34 +1384,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Проверяем URL и инициализируем соответствующее состояние
         const hash = window.location.hash;
-        console.log('Initial URL hash:', hash);
+        const contentId = hash.startsWith('#') ? hash.substring(1) : hash;
+        console.log('Initial URL hash:', hash, 'contentId:', contentId);
         
-        if (hash === '#chapters' || hash === '') {
-            // Показываем главы
-            console.log('Showing chapters...');
-        renderChapters();
-        } else if (hash.startsWith('#')) {
-            const contentId = hash.substring(1);
-            const content = warehouseData.content[contentId];
-            if (content) {
-                // Показываем контент
-                console.log('Showing content:', contentId);
-                showContent(contentId);
-            } else {
-                // Проверяем, является ли это главой
-                const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
-                if (chapter) {
-                    console.log('Showing chapter:', contentId);
-                    showChapter(contentId);
-                } else {
-                    console.log('Unknown content, showing chapters...');
-                    renderChapters();
-                }
-            }
+        // Используем новую систему навигации для инициализации
+        if (contentId === 'chapters' || contentId === '') {
+            console.log('Initializing with chapters');
+            showChaptersDirect();
         } else {
-            // Показываем главы по умолчанию
-            console.log('Default: showing chapters...');
-            renderChapters();
+            console.log('Initializing with contentId:', contentId);
+            navigateTo(contentId);
         }
         
         // Также пытаемся восстановить состояние
@@ -1463,7 +1446,7 @@ function renderChapters() {
             try {
                 const chapterCard = document.createElement('div');
                 chapterCard.className = 'chapter-card';
-                chapterCard.onclick = () => showChapter(chapter.id);
+                chapterCard.onclick = () => navigateTo(chapter.id);
                 
                 // ТОЛЬКО НАЗВАНИЕ ГЛАВЫ - БЕЗ ОПИСАНИЯ И ПОДГЛАВ
                 chapterCard.innerHTML = `
@@ -1486,146 +1469,50 @@ function renderChapters() {
 
 // Показать содержимое раздела
 function showContent(contentId) {
+    console.log('showContent called with:', contentId);
+    
+    // Сначала показываем контент
+    showContentDirect(contentId);
+    
+    // Затем обновляем историю браузера
     const content = warehouseData.content[contentId];
-    if (!content) {
-        alert('Содержимое раздела пока не добавлено');
-        return;
+    if (content) {
+        const state = { type: 'content', id: contentId, _programmatic: true };
+        const url = `#${contentId}`;
+        history.pushState(state, content.title, url);
+        console.log('History updated for content:', contentId);
     }
-    
-    currentContentId = contentId;
-    document.getElementById('chaptersView').style.display = 'none';
-    document.getElementById('contentView').style.display = 'block';
-    document.getElementById('contentTitle').textContent = content.title;
-    
-    // Загружаем контент с обычными изображениями (без lazy loading)
-    document.getElementById('contentBody').innerHTML = content.content;
-    
-    // Находим название главы и ID главы для хлебных крошек
-    let chapterTitle = '';
-    let chapterId = '';
-    warehouseData.chapters.forEach(chapter => {
-        chapter.subchapters.forEach(sub => {
-            if (sub.id === contentId) {
-                chapterTitle = chapter.title;
-                chapterId = chapter.id;
-            }
-        });
-    });
-    
-    // Показываем хлебные крошки
-    updateBreadcrumbs(chapterTitle, content.title, chapterId);
-    
-    updateNavigationButtons();
-    currentView = 'content';
-    saveCurrentState(); // Сохраняем состояние
-    
-    // Обновляем историю браузера
-    const state = { type: 'content', id: contentId };
-    const url = `#${contentId}`;
-    history.pushState(state, content.title, url);
-    
-    // Прокручиваем к началу страницы
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Показать главы
 function showChapters() {
     console.log('showChapters called');
-    renderChapters(); // Вызываем renderChapters для правильного отображения
     
-    const contentView = document.getElementById('contentView');
-    if (contentView) {
-        contentView.style.display = 'none';
-    }
+    // Сначала показываем главы
+    showChaptersDirect();
     
-    currentView = 'chapters';
-    currentContentId = null;
-    
-    // Очищаем сохраненную главу
-    localStorage.removeItem('warehouseGuide_currentChapter');
-    
-    // Скрываем хлебные крошки на главной странице
-    updateBreadcrumbs('', '');
-    
-    // Скрываем навигационные кнопки на главной странице
-    updateNavigationButtons();
-    
-    saveCurrentState(); // Сохраняем состояние
-    
-    // Обновляем историю браузера
-    const state = { type: 'chapters' };
+    // Затем обновляем историю браузера
+    const state = { type: 'chapters', _programmatic: true };
     const url = '#chapters';
     history.pushState(state, 'Главы', url);
-    
-    // Прокручиваем к началу страницы
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    console.log('History updated for chapters');
 }
 
 // Показать содержимое главы (подглавы)
 function showChapter(chapterId, showSubchaptersOnly = false) {
     console.log('showChapter called with:', chapterId);
+    
+    // Сначала показываем главу
+    showChapterDirect(chapterId);
+    
+    // Затем обновляем историю браузера
     const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
-    if (!chapter) {
-        console.error('Chapter not found:', chapterId);
-        return;
+    if (chapter) {
+        const state = { type: 'chapter', id: chapterId, _programmatic: true };
+        const url = `#${chapterId}`;
+        history.pushState(state, chapter.title, url);
+        console.log('History updated for chapter:', chapterId);
     }
-    
-    console.log('Found chapter:', chapter.title);
-    
-    // Скрываем contentView
-    const contentView = document.getElementById('contentView');
-    if (contentView) {
-        contentView.style.display = 'none';
-    }
-    
-    const chaptersView = document.getElementById('chaptersView');
-    chaptersView.innerHTML = '';
-    chaptersView.style.display = 'grid';
-    
-    // Показываем хлебные крошки
-    updateBreadcrumbs(chapter.title, '', chapter.id);
-    
-    // Кнопка "Назад к главам"
-    const backButton = document.createElement('div');
-    backButton.style.marginBottom = '20px';
-    backButton.innerHTML = `
-        <button class="back-btn" onclick="showChapters()">← Назад к главам</button>
-    `;
-    chaptersView.appendChild(backButton);
-    
-    // Подглавы
-    chapter.subchapters.forEach(subchapter => {
-        const subchapterCard = document.createElement('div');
-        subchapterCard.className = 'subchapter-card';
-        subchapterCard.onclick = () => showContent(subchapter.id);
-        
-        subchapterCard.innerHTML = `
-            <h3>${subchapter.id} ${subchapter.title}</h3>
-        `;
-        
-        chaptersView.appendChild(subchapterCard);
-    });
-    
-    // Устанавливаем состояние
-    currentView = 'subchapters';
-    currentContentId = null;
-    
-    // Сохраняем ID текущей главы
-    localStorage.setItem('warehouseGuide_currentChapter', chapterId);
-    // (Удалено дублирующее объявление contentView, чтобы избежать ошибки "Cannot redeclare block-scoped variable 'contentView'")
-    // Скрываем навигационные кнопки
-    updateNavigationButtons();
-    
-    // Сохраняем состояние
-    saveCurrentState();
-    
-    // Обновляем историю браузера
-    const state = { type: 'chapter', id: chapterId };
-    const url = `#${chapterId}`;
-    history.pushState(state, chapter.title, url);
-    
-    // Прокручиваем к началу страницы
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Настройка поиска
@@ -2170,52 +2057,302 @@ function showVersionInfo() {
 
 // Обработчик навигации браузера (кнопки назад/вперед и смахивания)
 window.addEventListener('popstate', function(event) {
-    console.log('popstate event:', event.state);
+    console.log('popstate event:', event.state, 'hash:', window.location.hash);
     
-    if (event.state) {
-        const { type, id } = event.state;
-        
-        switch (type) {
-            case 'chapters':
-                showChapters();
-                break;
-            case 'chapter':
-                if (id) {
-                    showChapter(id);
-                }
-                break;
-            case 'content':
-                if (id) {
-                    showContent(id);
-                }
-                break;
-            default:
-                // Если состояние неизвестно, показываем главы
-                showChapters();
-        }
-    } else {
-        // Если нет состояния, проверяем URL
-        const hash = window.location.hash;
-        if (hash === '#chapters' || hash === '') {
-            showChapters();
-        } else if (hash.startsWith('#')) {
-            const contentId = hash.substring(1);
-            const content = warehouseData.content[contentId];
-            if (content) {
-                showContent(contentId);
-            } else {
-                // Проверяем, является ли это главой
-                const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
-                if (chapter) {
-                    showChapter(contentId);
-                } else {
-                    showChapters();
-                }
+    // Предотвращаем обновление истории при программном вызове
+    if (event.state && event.state._programmatic) {
+        console.log('Programmatic navigation, ignoring popstate');
+        return;
+    }
+    
+    // Обрабатываем навигацию браузера
+    const hash = window.location.hash;
+    const contentId = hash.startsWith('#') ? hash.substring(1) : hash;
+    
+    console.log('Processing popstate with contentId:', contentId);
+    
+    // Используем новую систему навигации
+    navigateTo(contentId);
+});
+
+// Версии функций навигации без обновления истории (для обработчика popstate)
+function showContentWithoutHistory(contentId) {
+    const content = warehouseData.content[contentId];
+    if (!content) {
+        alert('Содержимое раздела пока не добавлено');
+        return;
+    }
+    
+    currentContentId = contentId;
+    document.getElementById('chaptersView').style.display = 'none';
+    document.getElementById('contentView').style.display = 'block';
+    document.getElementById('contentTitle').textContent = content.title;
+    
+    // Загружаем контент с обычными изображениями (без lazy loading)
+    document.getElementById('contentBody').innerHTML = content.content;
+    
+    // Находим название главы и ID главы для хлебных крошек
+    let chapterTitle = '';
+    let chapterId = '';
+    warehouseData.chapters.forEach(chapter => {
+        chapter.subchapters.forEach(sub => {
+            if (sub.id === contentId) {
+                chapterTitle = chapter.title;
+                chapterId = chapter.id;
             }
-        } else {
-            showChapters();
-        }
+        });
+    });
+    
+    // Показываем хлебные крошки
+    updateBreadcrumbs(chapterTitle, content.title, chapterId);
+    
+    updateNavigationButtons();
+    currentView = 'content';
+    saveCurrentState(); // Сохраняем состояние
+    
+    // Прокручиваем к началу страницы
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showChaptersWithoutHistory() {
+    console.log('showChaptersWithoutHistory called');
+    renderChapters(); // Вызываем renderChapters для правильного отображения
+    
+    const contentView = document.getElementById('contentView');
+    if (contentView) {
+        contentView.style.display = 'none';
+    }
+    
+    currentView = 'chapters';
+    currentContentId = null;
+    
+    // Очищаем сохраненную главу
+    localStorage.removeItem('warehouseGuide_currentChapter');
+    
+    // Скрываем хлебные крошки на главной странице
+    updateBreadcrumbs('', '');
+    
+    // Скрываем навигационные кнопки на главной странице
+    updateNavigationButtons();
+    
+    saveCurrentState(); // Сохраняем состояние
+    
+    // Прокручиваем к началу страницы
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showChapterWithoutHistory(chapterId) {
+    console.log('showChapterWithoutHistory called with:', chapterId);
+    const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
+    if (!chapter) {
+        console.error('Chapter not found:', chapterId);
+        return;
+    }
+    
+    console.log('Found chapter:', chapter.title);
+    
+    // Скрываем contentView
+    const contentView = document.getElementById('contentView');
+    if (contentView) {
+        contentView.style.display = 'none';
+    }
+    
+    const chaptersView = document.getElementById('chaptersView');
+    chaptersView.innerHTML = '';
+    chaptersView.style.display = 'grid';
+    
+    // Показываем хлебные крошки
+    updateBreadcrumbs(chapter.title, '', chapter.id);
+    
+    // Кнопка "Назад к главам"
+    const backButton = document.createElement('div');
+    backButton.style.marginBottom = '20px';
+    backButton.innerHTML = `
+        <button class="back-btn" onclick="navigateTo('chapters')">← Назад к главам</button>
+    `;
+    chaptersView.appendChild(backButton);
+    
+    // Подглавы
+    chapter.subchapters.forEach(subchapter => {
+        const subchapterCard = document.createElement('div');
+        subchapterCard.className = 'subchapter-card';
+        subchapterCard.onclick = () => navigateTo(subchapter.id);
+        
+        subchapterCard.innerHTML = `
+            <h3>${subchapter.id} ${subchapter.title}</h3>
+        `;
+        
+        chaptersView.appendChild(subchapterCard);
+    });
+    
+    // Устанавливаем состояние
+    currentView = 'subchapters';
+    currentContentId = null;
+    
+    // Сохраняем ID текущей главы
+    localStorage.setItem('warehouseGuide_currentChapter', chapterId);
+    
+    // Скрываем навигационные кнопки
+    updateNavigationButtons();
+    
+    // Сохраняем состояние
+    saveCurrentState();
+    
+    // Прокручиваем к началу страницы
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Глобальный обработчик кликов по ссылкам для навигации
+document.addEventListener('click', function(event) {
+    const link = event.target.closest('a[href^="#"]');
+    if (link && !link.hasAttribute('target')) {
+        event.preventDefault();
+        const href = link.getAttribute('href');
+        const contentId = href.substring(1);
+        
+        console.log('Link clicked:', href, 'contentId:', contentId);
+        
+        // Используем новую систему навигации
+        navigateTo(contentId);
     }
 });
+
+// Новая универсальная функция навигации
+function navigateTo(contentId) {
+    console.log('navigateTo called with:', contentId);
+    
+    // Проверяем, является ли это контентом
+    const content = warehouseData.content[contentId];
+    if (content) {
+        console.log('Navigating to content:', contentId);
+        showContentDirect(contentId);
+        return;
+    }
+    
+    // Проверяем, является ли это главой
+    const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+    if (chapter) {
+        console.log('Navigating to chapter:', contentId);
+        showChapterDirect(contentId);
+        return;
+    }
+    
+    // Если это #chapters
+    if (contentId === 'chapters') {
+        console.log('Navigating to chapters');
+        showChaptersDirect();
+        return;
+    }
+    
+    console.log('Unknown content ID:', contentId);
+}
+
+// Прямые функции навигации без обновления истории
+function showContentDirect(contentId) {
+    const content = warehouseData.content[contentId];
+    if (!content) {
+        console.error('Content not found:', contentId);
+        return;
+    }
+    
+    console.log('showContentDirect:', contentId);
+    
+    currentContentId = contentId;
+    document.getElementById('chaptersView').style.display = 'none';
+    document.getElementById('contentView').style.display = 'block';
+    document.getElementById('contentTitle').textContent = content.title;
+    document.getElementById('contentBody').innerHTML = content.content;
+    
+    // Находим название главы и ID главы для хлебных крошек
+    let chapterTitle = '';
+    let chapterId = '';
+    warehouseData.chapters.forEach(chapter => {
+        chapter.subchapters.forEach(sub => {
+            if (sub.id === contentId) {
+                chapterTitle = chapter.title;
+                chapterId = chapter.id;
+            }
+        });
+    });
+    
+    updateBreadcrumbs(chapterTitle, content.title, chapterId);
+    updateNavigationButtons();
+    currentView = 'content';
+    saveCurrentState();
+    
+    // Прокручиваем к началу страницы
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showChaptersDirect() {
+    console.log('showChaptersDirect');
+    
+    renderChapters();
+    
+    const contentView = document.getElementById('contentView');
+    if (contentView) {
+        contentView.style.display = 'none';
+    }
+    
+    currentView = 'chapters';
+    currentContentId = null;
+    
+    localStorage.removeItem('warehouseGuide_currentChapter');
+    updateBreadcrumbs('', '');
+    updateNavigationButtons();
+    saveCurrentState();
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showChapterDirect(chapterId) {
+    console.log('showChapterDirect:', chapterId);
+    
+    const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
+    if (!chapter) {
+        console.error('Chapter not found:', chapterId);
+        return;
+    }
+    
+    const contentView = document.getElementById('contentView');
+    if (contentView) {
+        contentView.style.display = 'none';
+    }
+    
+    const chaptersView = document.getElementById('chaptersView');
+    chaptersView.innerHTML = '';
+    chaptersView.style.display = 'grid';
+    
+    updateBreadcrumbs(chapter.title, '', chapter.id);
+    
+    // Кнопка "Назад к главам"
+    const backButton = document.createElement('div');
+    backButton.style.marginBottom = '20px';
+    backButton.innerHTML = `
+        <button class="back-btn" onclick="navigateTo('chapters')">← Назад к главам</button>
+    `;
+    chaptersView.appendChild(backButton);
+    
+    // Подглавы
+    chapter.subchapters.forEach(subchapter => {
+        const subchapterCard = document.createElement('div');
+        subchapterCard.className = 'subchapter-card';
+        subchapterCard.onclick = () => navigateTo(subchapter.id);
+        
+        subchapterCard.innerHTML = `
+            <h3>${subchapter.id} ${subchapter.title}</h3>
+        `;
+        
+        chaptersView.appendChild(subchapterCard);
+    });
+    
+    currentView = 'subchapters';
+    currentContentId = null;
+    localStorage.setItem('warehouseGuide_currentChapter', chapterId);
+    updateNavigationButtons();
+    saveCurrentState();
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 // Инициализация приложения (убрана дублирующая функция)
