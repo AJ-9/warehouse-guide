@@ -1322,6 +1322,7 @@ let currentView = 'chapters';
 let searchResults = [];
 let currentContentId = null;
 let isNavigating = false; // Флаг для предотвращения конфликтов навигации
+let navigationHandled = false; // Флаг для предотвращения вызова restoreState после popstate
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
@@ -1391,16 +1392,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (contentId === 'chapters' || contentId === '') {
             console.log('Initializing with chapters');
             showChaptersDirect();
+            navigationHandled = true; // Отмечаем, что навигация обработана
         } else {
             console.log('Initializing with contentId:', contentId);
             navigateTo(contentId);
+            navigationHandled = true; // Отмечаем, что навигация обработана
         }
         
-        // Также пытаемся восстановить состояние
-        try {
-            restoreState();
-        } catch (e) {
-            console.error('Error in restoreState:', e);
+        // Также пытаемся восстановить состояние, только если навигация не была обработана через popstate
+        if (!navigationHandled) {
+            try {
+                restoreState();
+            } catch (e) {
+                console.error('Error in restoreState:', e);
+            }
+        } else {
+            console.log('Navigation already handled by popstate, skipping restoreState');
         }
         
     } catch (error) {
@@ -2064,6 +2071,9 @@ window.addEventListener('popstate', function(event) {
         console.log('Programmatic navigation, ignoring popstate');
         return;
     }
+    
+    // Устанавливаем флаг, что навигация обработана
+    navigationHandled = true;
     
     // Обрабатываем навигацию браузера
     const hash = window.location.hash;
