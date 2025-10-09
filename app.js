@@ -1381,9 +1381,37 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error in showVersionInfo:', e);
         }
         
-        // Принудительно показываем главы
-        console.log('Forcing renderChapters...');
+        // Проверяем URL и инициализируем соответствующее состояние
+        const hash = window.location.hash;
+        console.log('Initial URL hash:', hash);
+        
+        if (hash === '#chapters' || hash === '') {
+            // Показываем главы
+            console.log('Showing chapters...');
         renderChapters();
+        } else if (hash.startsWith('#')) {
+            const contentId = hash.substring(1);
+            const content = warehouseData.content[contentId];
+            if (content) {
+                // Показываем контент
+                console.log('Showing content:', contentId);
+                showContent(contentId);
+            } else {
+                // Проверяем, является ли это главой
+                const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+                if (chapter) {
+                    console.log('Showing chapter:', contentId);
+                    showChapter(contentId);
+                } else {
+                    console.log('Unknown content, showing chapters...');
+                    renderChapters();
+                }
+            }
+        } else {
+            // Показываем главы по умолчанию
+            console.log('Default: showing chapters...');
+            renderChapters();
+        }
         
         // Также пытаемся восстановить состояние
         try {
@@ -1491,6 +1519,11 @@ function showContent(contentId) {
     currentView = 'content';
     saveCurrentState(); // Сохраняем состояние
     
+    // Обновляем историю браузера
+    const state = { type: 'content', id: contentId };
+    const url = `#${contentId}`;
+    history.pushState(state, content.title, url);
+    
     // Прокручиваем к началу страницы
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -1518,6 +1551,11 @@ function showChapters() {
     updateNavigationButtons();
     
     saveCurrentState(); // Сохраняем состояние
+    
+    // Обновляем историю браузера
+    const state = { type: 'chapters' };
+    const url = '#chapters';
+    history.pushState(state, 'Главы', url);
     
     // Прокручиваем к началу страницы
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1580,6 +1618,11 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
     
     // Сохраняем состояние
     saveCurrentState();
+    
+    // Обновляем историю браузера
+    const state = { type: 'chapter', id: chapterId };
+    const url = `#${chapterId}`;
+    history.pushState(state, chapter.title, url);
     
     // Прокручиваем к началу страницы
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2124,5 +2167,55 @@ function showVersionInfo() {
 }
 
 // Lazy loading отключен - все изображения загружаются сразу
+
+// Обработчик навигации браузера (кнопки назад/вперед и смахивания)
+window.addEventListener('popstate', function(event) {
+    console.log('popstate event:', event.state);
+    
+    if (event.state) {
+        const { type, id } = event.state;
+        
+        switch (type) {
+            case 'chapters':
+                showChapters();
+                break;
+            case 'chapter':
+                if (id) {
+                    showChapter(id);
+                }
+                break;
+            case 'content':
+                if (id) {
+                    showContent(id);
+                }
+                break;
+            default:
+                // Если состояние неизвестно, показываем главы
+                showChapters();
+        }
+    } else {
+        // Если нет состояния, проверяем URL
+        const hash = window.location.hash;
+        if (hash === '#chapters' || hash === '') {
+            showChapters();
+        } else if (hash.startsWith('#')) {
+            const contentId = hash.substring(1);
+            const content = warehouseData.content[contentId];
+            if (content) {
+                showContent(contentId);
+            } else {
+                // Проверяем, является ли это главой
+                const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+                if (chapter) {
+                    showChapter(contentId);
+                } else {
+                    showChapters();
+                }
+            }
+        } else {
+            showChapters();
+        }
+    }
+});
 
 // Инициализация приложения (убрана дублирующая функция)
