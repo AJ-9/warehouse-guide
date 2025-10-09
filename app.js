@@ -2067,7 +2067,13 @@ window.addEventListener('popstate', function(event) {
     
     // Обрабатываем навигацию браузера
     const hash = window.location.hash;
-    const contentId = hash.startsWith('#') ? hash.substring(1) : hash;
+    let contentId = '';
+    
+    if (hash && hash.startsWith('#')) {
+        contentId = hash.substring(1);
+    } else if (hash) {
+        contentId = hash;
+    }
     
     console.log('Processing popstate with contentId:', contentId);
     
@@ -2212,14 +2218,33 @@ document.addEventListener('click', function(event) {
         
         console.log('Link clicked:', href, 'contentId:', contentId);
         
-        // Используем новую систему навигации
-        navigateTo(contentId);
+        // Используем основные функции навигации, которые обновляют историю
+        const content = warehouseData.content[contentId];
+        if (content) {
+            showContent(contentId);
+        } else {
+            const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+            if (chapter) {
+                showChapter(contentId);
+            } else if (contentId === 'chapters') {
+                showChapters();
+            } else {
+                console.log('Unknown content ID:', contentId);
+            }
+        }
     }
 });
 
 // Новая универсальная функция навигации
 function navigateTo(contentId) {
     console.log('navigateTo called with:', contentId);
+    
+    // Обрабатываем пустые или неопределенные состояния
+    if (!contentId || contentId === '' || contentId === 'undefined') {
+        console.log('Empty contentId, showing chapters');
+        showChaptersDirect();
+        return;
+    }
     
     // Проверяем, является ли это контентом
     const content = warehouseData.content[contentId];
@@ -2244,7 +2269,8 @@ function navigateTo(contentId) {
         return;
     }
     
-    console.log('Unknown content ID:', contentId);
+    console.log('Unknown content ID:', contentId, 'showing chapters as fallback');
+    showChaptersDirect();
 }
 
 // Прямые функции навигации без обновления истории
