@@ -1185,11 +1185,40 @@ const warehouseData = {
                     <h4>12. <a href="https://teams.microsoft.com/l/message/19:a383eea2-9fcf-4e39-870f-3d5c53abacf9_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912665617?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ИНВЕНТАРИЗАЦИЯ ТМЦ</a></h4>
                     <p><strong>Назначение:</strong> Группа предназначена для постинга инвентаризационных листов и обмена информацией по этому направлению. См Главу 4.9 Содержание и Правила заполнения инвентаризационного листа.</p>
                     
-                    <h4>13. <a href="https://teams.microsoft.com/l/message/19:8731fb79-1f40-46f5-9c66-7dfdfdbbb6c3_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912796869?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ГРАФИК ВЫХОДА НА РАБОТУ</a></h4>
+                    <h4>13. <a href="https://max.ru/join/HJ3DPOkt4dEMTy-UTtvCOLyL0F4yxouSVMKMlF1WpO8" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ГРАФИК ВЫХОДА НА РАБОТУ</a></h4>
                     <p><strong>Назначение:</strong> Чат создан для централизованного обмена информацией по поводу выхода на работу в Субботы/Воскресенья/Празничные дни.</p>
                     <p><strong>Формат сообщений:</strong> Сообщения подаются в формате «Выход на переработку 18.10».</p>
                     <p><strong>Процедура:</strong> Если поставлен лайк, то можно выходить в данный день, если нет, то по этому поводу связываются дополнительно для прояснения.</p>
                     <p><strong>Дополнительно:</strong> Также, сюда постятся сообщения по выходу в ежегодный отпуск и отпуск без сохранения заработной платы.</p>
+                    
+                    <h4>14. <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">АКТЫ ОСМОТРА ТМЦ</a></h4>
+                    <p><strong>Назначение:</strong> В данной группе постятся акты осмотра ТМЦ.</p>
+                    <p><strong>Условия составления:</strong> Акт Осмотра составляется в случае, если при частичной выдаче обнаружена недостача, излишки, пересорт или повреждение материала. Это касается как ТМЦ, прошедших ВК, так и не прошедших. При обнаружении несоответствий необходимо вызвать сотрудника Бизнес-Тренд для совместного осмотра этих ТМЦ.</p>
+                    <p><strong>Формат предоставления информации:</strong> При обнаружении вышеизложенных несоответствий полевой сотрудник должен запостить в группу «Акты осмотра ТМЦ» следующую информацию:</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>Фото ТМЦ</li>
+                        <li>Номер ГМ, УЛ</li>
+                        <li>Наименование ТМЦ согласно Ведомости Грузового места</li>
+                        <li>Описание несоответствия</li>
+                    </ol>
+                    <p><strong>Обработка акта:</strong> На основании вышеизложенных данных Отдел Учета подготавливает Акт Осмотра и направляет на подпись полевому сотруднику и сотруднику Бизнес-Тренд.</p>
+                    
+                    <h4>15. <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ЗРА ДЛЯ ГИ / VALVES</a></h4>
+                    <p><strong>Назначение:</strong> Группа предназначена для обмена информацией по перемещению на гидроиспытания ЗРА (Запорно-Регулирующей Арматуры).</p>
+                    
+                    <h4>16. <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ПЕРЕМЕЩЕНИЯ ЗРА (ИСПЫТАНИЯ)</a></h4>
+                    <p><strong>Назначение:</strong> Группа создана для отображения Пропусков на выдачу ЗРА (Запорно-Регулирующей Арматуры) для гидроиспытаний и накладных на перемещение с гидроиспытаний.</p>
+                    <p><strong>Формат сообщений:</strong> В сообщении необходимо указывать:</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>Фото «Пропусков на выдачу» в случае выдачи со склада/Ведомости на перемещение в случае перемещения с Гидроиспытаний</li>
+                        <li>Фото Упаковочных листов/Ведомостей грузовых мест/Shipping Marks в случае отгрузки со склада</li>
+                        <li>В тексте прописывать по примерам ниже</li>
+                    </ol>
+                    <p><strong>Пример постинга:</strong></p>
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/arm1.png" alt="Пример постинга ЗРА" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <img src="images/arm2.png" alt="Пример постинга ЗРА" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    </div>
                 </div>
             `
         },
@@ -1215,7 +1244,10 @@ const warehouseData = {
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">10. IC GROUP</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">11. ПЕРЕМЕЩЕНИЯ</a></li>
                         <li style="margin: 10px 0;"><a href="https://teams.microsoft.com/l/message/19:a383eea2-9fcf-4e39-870f-3d5c53abacf9_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912665617?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">12. ИНВЕНТАРИЗАЦИЯ ТМЦ</a></li>
-                        <li style="margin: 10px 0;"><a href="https://teams.microsoft.com/l/message/19:8731fb79-1f40-46f5-9c66-7dfdfdbbb6c3_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912796869?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">13. ГРАФИК ВЫХОДА НА РАБОТУ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HJ3DPOkt4dEMTy-UTtvCOLyL0F4yxouSVMKMlF1WpO8" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">13. ГРАФИК ВЫХОДА НА РАБОТУ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">14. АКТЫ ОСМОТРА ТМЦ</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">15. ЗРА ДЛЯ ГИ / VALVES</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">16. ПЕРЕМЕЩЕНИЯ ЗРА (ИСПЫТАНИЯ)</a></li>
                     </ul>
                 </div>
                 
