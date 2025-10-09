@@ -2192,7 +2192,7 @@ function showChapterWithoutHistory(chapterId) {
     chapter.subchapters.forEach(subchapter => {
         const subchapterCard = document.createElement('div');
         subchapterCard.className = 'subchapter-card';
-        subchapterCard.onclick = () => navigateTo(subchapter.id);
+        subchapterCard.onclick = () => showContent(subchapter.id);
         
         subchapterCard.innerHTML = `
             <h3>${subchapter.id} ${subchapter.title}</h3>
@@ -2228,6 +2228,31 @@ document.addEventListener('click', function(event) {
         
         console.log('Internal link clicked:', href, 'contentId:', contentId, '- opening in new window');
         
+        // Получаем контент для отображения
+        console.log('Looking for content with ID:', contentId);
+        console.log('Available content IDs:', Object.keys(warehouseData.content));
+        let contentToShow = '';
+        let titleToShow = 'Справочник кладовщика';
+        
+        const content = warehouseData.content[contentId];
+        if (content) {
+            console.log('Found content:', content);
+            contentToShow = `<h2>${content.title}</h2>${content.content}`;
+            titleToShow = `Справочник кладовщика - ${content.title}`;
+            console.log('Content to show:', contentToShow);
+        } else {
+            const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+            if (chapter) {
+                contentToShow = `<h2>${chapter.title}</h2><p>Выберите подраздел из списка ниже:</p>`;
+                chapter.subchapters.forEach(sub => {
+                    contentToShow += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;"><h4>${sub.title}</h4></div>`;
+                });
+                titleToShow = `Справочник кладовщика - ${chapter.title}`;
+            } else {
+                contentToShow = '<p>Раздел не найден: ' + contentId + '</p>';
+            }
+        }
+        
         // Открываем внутренние ссылки в новом окне
         const newWindow = window.open('', '_blank');
         if (newWindow) {
@@ -2238,7 +2263,7 @@ document.addEventListener('click', function(event) {
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Справочник кладовщика - ${contentId}</title>
+                    <title>${titleToShow}</title>
                     <style>
                         body { 
                             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
@@ -2290,6 +2315,12 @@ document.addEventListener('click', function(event) {
                         .image-container { margin: 15px 0; text-align: center; }
                         img { max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0; }
                         .image-caption { font-style: italic; color: #6b7280; margin-top: 5px; }
+                        table { width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin: 20px 0; }
+                        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+                        th { background-color: #f8f9fa; font-weight: 600; }
+                        .table-container { overflow-x: auto; margin: 20px 0; }
+                        .image-container { margin: 15px 0; text-align: center; }
+                        .image-caption { font-style: italic; color: #6b7280; margin-top: 5px; }
                     </style>
                 </head>
                 <body>
@@ -2300,30 +2331,9 @@ document.addEventListener('click', function(event) {
                         </div>
                         <div class="content-body">
                             <a href="#" class="back-btn" onclick="window.close()">← Закрыть окно</a>
-                            <div id="content"></div>
+                            <div id="content">${contentToShow}</div>
                         </div>
                     </div>
-                    <script>
-                        // Данные приложения
-                        const warehouseData = ${JSON.stringify(warehouseData)};
-                        
-                        // Функции навигации
-                        function showContent(contentId) {
-                            const content = warehouseData.content[contentId];
-                            if (content) {
-                                document.getElementById('content').innerHTML = content;
-                            } else {
-                                document.getElementById('content').innerHTML = '<p>Раздел не найден: ' + contentId + '</p>';
-                            }
-                        }
-                        
-                        // Инициализация
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const hash = window.location.hash || '${href}';
-                            const contentId = hash.substring(1);
-                            showContent(contentId);
-                        });
-                    </script>
                 </body>
                 </html>
             `);
@@ -2476,7 +2486,7 @@ function showChapterDirect(chapterId) {
     chapter.subchapters.forEach(subchapter => {
         const subchapterCard = document.createElement('div');
         subchapterCard.className = 'subchapter-card';
-        subchapterCard.onclick = () => navigateTo(subchapter.id);
+        subchapterCard.onclick = () => showContent(subchapter.id);
         
         subchapterCard.innerHTML = `
             <h3>${subchapter.id} ${subchapter.title}</h3>
