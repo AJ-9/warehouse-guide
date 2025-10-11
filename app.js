@@ -2265,73 +2265,233 @@ document.addEventListener('click', function(event) {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>${titleToShow}</title>
                     <style>
-                        body { 
-                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-                            margin: 0; 
-                            padding: 20px; 
-                            background-color: #f5f5f5;
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
                         }
-                        .container { 
-                            max-width: 1200px; 
-                            margin: 0 auto; 
-                            background: white; 
-                            border-radius: 10px; 
-                            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+                        body {
+                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                            line-height: 1.6;
+                            color: #1f2937;
+                            background: url('images/wallpapers.jpg') center center / cover no-repeat fixed;
+                            background-attachment: fixed;
+                            -webkit-background-attachment: fixed;
+                            min-height: 100vh;
+                        }
+
+                        .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 20px;
+                            padding-bottom: 100px;
+                        }
+
+                        .header {
+                            position: -webkit-sticky;
+                            position: sticky;
+                            top: 0;
+                            z-index: 1000;
+                            border-radius: 24px;
+                            padding: 0;
+                            margin-bottom: 12px;
+                            cursor: pointer;
+                            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                            overflow: hidden;
+                            background: transparent;
+                        }
+
+                        .header:hover {
+                            transform: translateY(-4px);
+                            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.3);
+                        }
+
+                        .header-logo {
+                            width: 225px;
+                            height: 225px;
+                            object-fit: cover;
+                            border-radius: 50%;
+                            border: 5px solid rgba(255, 255, 255, 0.95);
+                            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.4);
+                            flex-shrink: 0;
+                            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                            margin-left: -10px;
+                        }
+
+                        .header-logo:hover {
+                            transform: scale(1.08) rotate(2deg);
+                            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.6);
+                        }
+
+                        .header-content {
+                            position: relative;
+                            z-index: 3;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            gap: 20px;
+                            margin-bottom: 0;
+                            padding: 15px 20px;
+                            background: transparent;
+                        }
+
+                        .header-text {
+                            text-align: right;
+                            flex: 1;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                        }
+
+                        header h1 {
+                            font-size: 2.8rem;
+                            color: #000000 !important;
+                            margin-bottom: 0;
+                            margin-top: 20px;
+                            margin-left: -15px;
+                            font-weight: 900;
+                            line-height: 1.2;
+                            text-shadow: 
+                                0 0 10px rgba(255, 255, 255, 1),
+                                0 0 20px rgba(255, 255, 255, 0.8),
+                                0 0 30px rgba(255, 255, 255, 0.6),
+                                0 2px 4px rgba(0, 0, 0, 0.3);
+                            letter-spacing: 1.5px;
+                            text-transform: uppercase;
+                            font-family: 'Arial Black', Arial, sans-serif;
+                            position: relative;
+                            white-space: nowrap;
+                            display: inline-block;
+                            max-width: calc(100vw - 220px);
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            background: rgba(255, 255, 255, 0.9);
+                            padding: 10px 20px;
+                            border-radius: 15px;
+                            border: 2px solid rgba(0, 0, 0, 0.1);
+                            box-shadow: 
+                                0 8px 32px rgba(0, 0, 0, 0.1),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                        }
+
+
+                        .content-body {
+                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+                            border-radius: 25px;
+                            padding: 30px;
+                            margin-bottom: 20px;
+                            box-shadow: 
+                                0 15px 50px rgba(0, 0, 0, 0.15),
+                                0 8px 25px rgba(0, 0, 0, 0.1),
+                                0 0 0 2px rgba(0, 0, 0, 0.8),
+                                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+                            border: 2px solid rgba(0, 0, 0, 0.9);
+                            line-height: 1.8;
+                        }
+
+                        .back-btn {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 8px;
+                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+                            color: #1f2937;
+                            padding: 14px 28px;
+                            text-decoration: none;
+                            border-radius: 20px;
+                            margin-bottom: 25px;
+                            font-weight: 700;
+                            font-size: 16px;
+                            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                            box-shadow: 
+                                0 8px 25px rgba(0, 0, 0, 0.15),
+                                0 4px 12px rgba(0, 0, 0, 0.1),
+                                0 0 0 2px rgba(0, 0, 0, 0.1),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                            border: 2px solid rgba(0, 0, 0, 0.1);
+                            backdrop-filter: blur(10px);
+                            -webkit-backdrop-filter: blur(10px);
+                            position: relative;
                             overflow: hidden;
                         }
-                        .header { 
-                            background: linear-gradient(135deg, #2563eb, #1d4ed8); 
-                            color: white; 
-                            padding: 20px; 
-                            text-align: center; 
-                            cursor: pointer;
+
+                        .back-btn::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: -100%;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                            transition: left 0.5s ease;
                         }
-                        .content-body { 
-                            padding: 30px; 
-                            line-height: 1.6; 
+
+                        .back-btn:hover::before {
+                            left: 100%;
                         }
-                        .back-btn {
-                            display: inline-block;
-                            background: #2563eb;
-                            color: white;
-                            padding: 10px 20px;
-                            text-decoration: none;
-                            border-radius: 5px;
-                            margin-bottom: 20px;
-                        }
+
                         .back-btn:hover {
-                            background: #1d4ed8;
+                            transform: translateY(-3px) scale(1.02);
+                            box-shadow: 
+                                0 15px 35px rgba(0, 0, 0, 0.2),
+                                0 8px 20px rgba(0, 0, 0, 0.15),
+                                0 0 0 3px rgba(0, 0, 0, 0.15),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+                            color: #111827;
                         }
-                        h1, h2, h3, h4 { color: #1f2937; }
+
+                        .back-btn:active {
+                            transform: translateY(-1px) scale(0.98);
+                            transition: all 0.1s ease;
+                        }
+
+                        h1, h2, h3, h4 { color: #000000; }
                         h1 { font-size: 2.5rem; margin-bottom: 10px; }
                         h2 { font-size: 2rem; margin: 30px 0 15px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
-                        h3 { font-size: 1.5rem; margin: 25px 0 10px 0; }
+                        h3 { font-size: 18px; margin: 30px 0 15px 0; color: #000000; }
                         h4 { font-size: 1.25rem; margin: 20px 0 8px 0; }
-                        p { margin: 10px 0; }
-                        ul, ol { margin: 10px 0; padding-left: 20px; }
-                        li { margin: 5px 0; }
+                        p { margin-bottom: 15px; color: #000000; font-size: 18px; }
+                        ul, ol { margin: 15px 0; padding-left: 30px; }
+                        li { margin-bottom: 8px; color: #000000; font-size: 18px; }
                         a { color: #2563eb; text-decoration: none; font-weight: 600; }
                         a:hover { text-decoration: underline; }
                         .image-container { margin: 15px 0; text-align: center; }
-                        img { max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0; }
+                        img { max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+                        img:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); }
                         .image-caption { font-style: italic; color: #6b7280; margin-top: 5px; }
                         table { width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin: 20px 0; }
                         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
                         th { background-color: #f8f9fa; font-weight: 600; }
                         .table-container { overflow-x: auto; margin: 20px 0; }
-                        .image-container { margin: 15px 0; text-align: center; }
-                        .image-caption { font-style: italic; color: #6b7280; margin-top: 5px; }
                     </style>
                 </head>
                 <body>
                     <div class="container">
                         <div class="header" onclick="window.close()">
-                            <h1>📋 Справочник кладовщика</h1>
-                            <p>Нажмите на заголовок, чтобы закрыть окно</p>
+                            <div class="header-content">
+                                <img src="images/big-catalog-16472451591.jpg" alt="Логотип PESCO" class="header-logo">
+                                <div class="header-text">
+                                    <div>
+                                        <h1>Справочник кладовщика</h1>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="content-body">
-                            <a href="#" class="back-btn" onclick="window.close()">← Закрыть окно</a>
+                            <a href="#" class="back-btn" onclick="window.close()">
+                                <span style="font-size: 18px;">✕</span>
+                                <span>Закрыть окно</span>
+                            </a>
                             <div id="content">${contentToShow}</div>
+                        </div>
+                        
+                        <!-- Кнопка закрытия внизу -->
+                        <div style="text-align: center; margin-top: 30px; padding: 20px;">
+                            <a href="#" class="back-btn" onclick="window.close()">
+                                <span style="font-size: 18px;">✕</span>
+                                <span>Закрыть окно</span>
+                            </a>
                         </div>
                     </div>
                 </body>
