@@ -2264,6 +2264,7 @@ document.addEventListener('click', function(event) {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>${titleToShow}</title>
+                    <base href="${window.location.href.replace(/\/[^\/]*$/, '/')}">
                     <style>
                         * {
                             margin: 0;
@@ -2288,92 +2289,6 @@ document.addEventListener('click', function(event) {
                             padding-bottom: 100px;
                         }
 
-                        .header {
-                            position: -webkit-sticky;
-                            position: sticky;
-                            top: 0;
-                            z-index: 1000;
-                            border-radius: 24px;
-                            padding: 0;
-                            margin-bottom: 12px;
-                            cursor: pointer;
-                            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                            overflow: hidden;
-                            background: transparent;
-                        }
-
-                        .header:hover {
-                            transform: translateY(-4px);
-                            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.3);
-                        }
-
-                        .header-logo {
-                            width: 225px;
-                            height: 225px;
-                            object-fit: cover;
-                            border-radius: 50%;
-                            border: 5px solid rgba(255, 255, 255, 0.95);
-                            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.4);
-                            flex-shrink: 0;
-                            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                            margin-left: -10px;
-                        }
-
-                        .header-logo:hover {
-                            transform: scale(1.08) rotate(2deg);
-                            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(255, 255, 255, 0.6);
-                        }
-
-                        .header-content {
-                            position: relative;
-                            z-index: 3;
-                            display: flex;
-                            align-items: center;
-                            justify-content: flex-start;
-                            gap: 20px;
-                            margin-bottom: 0;
-                            padding: 15px 20px;
-                            background: transparent;
-                        }
-
-                        .header-text {
-                            text-align: right;
-                            flex: 1;
-                            display: flex;
-                            align-items: center;
-                            justify-content: flex-end;
-                        }
-
-                        header h1 {
-                            font-size: 2.8rem;
-                            color: #000000 !important;
-                            margin-bottom: 0;
-                            margin-top: 20px;
-                            margin-left: -15px;
-                            font-weight: 900;
-                            line-height: 1.2;
-                            text-shadow: 
-                                0 0 10px rgba(255, 255, 255, 1),
-                                0 0 20px rgba(255, 255, 255, 0.8),
-                                0 0 30px rgba(255, 255, 255, 0.6),
-                                0 2px 4px rgba(0, 0, 0, 0.3);
-                            letter-spacing: 1.5px;
-                            text-transform: uppercase;
-                            font-family: 'Arial Black', Arial, sans-serif;
-                            position: relative;
-                            white-space: nowrap;
-                            display: inline-block;
-                            max-width: calc(100vw - 220px);
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            background: rgba(255, 255, 255, 0.9);
-                            padding: 10px 20px;
-                            border-radius: 15px;
-                            border: 2px solid rgba(0, 0, 0, 0.1);
-                            box-shadow: 
-                                0 8px 32px rgba(0, 0, 0, 0.1),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-                        }
 
 
                         .content-body {
@@ -2468,16 +2383,6 @@ document.addEventListener('click', function(event) {
                 </head>
                 <body>
                     <div class="container">
-                        <div class="header" onclick="window.close()">
-                            <div class="header-content">
-                                <img src="images/big-catalog-16472451591.jpg" alt="Логотип PESCO" class="header-logo">
-                                <div class="header-text">
-                                    <div>
-                                        <h1>Справочник кладовщика</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="content-body">
                             <a href="#" class="back-btn" onclick="window.close()">
                                 <span style="font-size: 18px;">✕</span>
