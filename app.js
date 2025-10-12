@@ -2228,36 +2228,40 @@ document.addEventListener('click', function(event) {
         
         console.log('Internal link clicked:', href, 'contentId:', contentId, '- opening in new window');
         
-        // Получаем контент для отображения
-        console.log('Looking for content with ID:', contentId);
-        console.log('Available content IDs:', Object.keys(warehouseData.content));
-        let contentToShow = '';
+        // Определяем заголовок для нового окна
         let titleToShow = 'Справочник кладовщика';
-        
         const content = warehouseData.content[contentId];
         if (content) {
-            console.log('Found content:', content);
-            contentToShow = `<h2>${content.title}</h2>${content.content}`;
             titleToShow = `Справочник кладовщика - ${content.title}`;
-            console.log('Content to show:', contentToShow);
         } else {
             const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
             if (chapter) {
-                contentToShow = `<h2>${chapter.title}</h2><p>Выберите подраздел из списка ниже:</p>`;
-                chapter.subchapters.forEach(sub => {
-                    contentToShow += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;"><h4>${sub.title}</h4></div>`;
-                });
                 titleToShow = `Справочник кладовщика - ${chapter.title}`;
-            } else {
-                contentToShow = '<p>Раздел не найден: ' + contentId + '</p>';
             }
         }
         
         // Открываем внутренние ссылки в новом окне
         const newWindow = window.open('', '_blank');
         if (newWindow) {
-            // Копируем HTML структуру в новое окно
-            newWindow.document.write(`
+            // Определяем контент для отображения
+            let contentToShow = '';
+            const content = warehouseData.content[contentId];
+            if (content) {
+                contentToShow = `<h2>${content.title}</h2>${content.content}`;
+            } else {
+                const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+                if (chapter) {
+                    contentToShow = `<h2>${chapter.title}</h2><p>Выберите подраздел из списка ниже:</p>`;
+                    chapter.subchapters.forEach(sub => {
+                        contentToShow += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo('${sub.id}')"><h4>${sub.title}</h4></div>`;
+                    });
+                } else {
+                    contentToShow = '<p>Раздел не найден: ' + contentId + '</p>';
+                }
+            }
+            
+            // Создаем HTML структуру с готовым контентом
+            const htmlContent = `
                 <!DOCTYPE html>
                 <html lang="ru">
                 <head>
@@ -2288,8 +2292,6 @@ document.addEventListener('click', function(event) {
                             padding: 20px;
                             padding-bottom: 100px;
                         }
-
-
 
                         .content-body {
                             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
@@ -2399,9 +2401,21 @@ document.addEventListener('click', function(event) {
                             </a>
                         </div>
                     </div>
+                    
+                    <script>
+                        // Простая функция навигации для ссылок в контенте
+                        function navigateTo(contentId) {
+                            console.log('Navigating to:', contentId);
+                            // Для простоты, просто показываем сообщение
+                            alert('Навигация к: ' + contentId + '\\n\\nВ новом окне навигация ограничена.\\nИспользуйте основное окно для полной навигации.');
+                        }
+                    </script>
                 </body>
                 </html>
-            `);
+            `;
+            
+            // Записываем HTML в новое окно
+            newWindow.document.write(htmlContent);
             newWindow.document.close();
         } else {
             console.log('Failed to open new window, falling back to same window navigation');
