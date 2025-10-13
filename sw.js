@@ -1,6 +1,6 @@
-const CACHE_NAME = 'warehouse-guide-v2.0.3-spravochnik-sklad';
-const STATIC_CACHE = 'warehouse-guide-static-v2.0.3-spravochnik-sklad';
-const DYNAMIC_CACHE = 'warehouse-guide-dynamic-v2.0.3-spravochnik-sklad';
+const CACHE_NAME = 'warehouse-guide-v2.0.4-spravochnik-sklad';
+const STATIC_CACHE = 'warehouse-guide-static-v2.0.4-spravochnik-sklad';
+const DYNAMIC_CACHE = 'warehouse-guide-dynamic-v2.0.4-spravochnik-sklad';
 
 const urlsToCache = [
   './',
