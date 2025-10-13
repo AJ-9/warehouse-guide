@@ -242,7 +242,7 @@ const warehouseData = {
                 
                 <h3>Пример ниже:</h3>
                 <div class="image-container">
-                    <img src="images/1.6 .png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.6.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример составления Акта М7</em></p>
                 </div>
             `
@@ -1248,6 +1248,7 @@ const warehouseData = {
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">14. АКТЫ ОСМОТРА ТМЦ</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">15. ЗРА ДЛЯ ГИ / VALVES</a></li>
                         <li style="margin: 10px 0;"><a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">16. ПЕРЕМЕЩЕНИЯ ЗРА (ИСПЫТАНИЯ)</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">17. ВОЗВРАТ ТМЦ НА СКЛАД</a></li>
                     </ul>
                 </div>
                 
@@ -1268,11 +1269,14 @@ const warehouseData = {
                         <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1CD7d3T1QVWLJHrPMUyD-CQBv8LhWBUjk/edit?gid=1486374551#gid=1486374551" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📦 Наполнение складов</a></li>
                         <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🚛 Диспетчерская таблица</a></li>
                         <li style="margin: 10px 0;"><a href="https://drive.google.com/drive/folders/1WEGxMYp8Ockkv1aKnxubz2sg4lvbvXnF" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🗺️ Карты складов</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1y03T2JasqOd7AMUjEhPm1qvFX4RwjnwT/edit?gid=1336949133#gid=1336949133" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📞 Контакты склада</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1Ksengfzhqwu7sXiHpHyoPf5tnQd5L9Ai/edit?gid=763753371#gid=763753371" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📋 Список поставщиков на сверку</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1MfCMgEFtFrTynlRB2aUz0X4MxGwuVUva0cyyxeeywEE/edit?gid=0#gid=0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🔧 Расходники для склада</a></li>
                     </ul>
                 </div>
                 
                 <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #28a745;">
-                    <p><strong>💡 Примечание:</strong> Данный раздел будет дополняться по мере появления новых полезных ресурсов и ссылок. Если у вас есть предложения по добавлению ссылок, обратитесь к администратору системы.</p>
+                    <p><strong>💡 Примечание:</strong> Данный раздел будет дополняться по мере появления новых полезных ресурсов и ссылок.</p>
                 </div>
             `
         },
@@ -1609,12 +1613,11 @@ function handleSearchResult(id, type) {
     document.getElementById('searchInput').value = '';
     
     if (type === 'content') {
-        showContent(id);
+        showContentDirect(id);
     } else if (type === 'subchapter') {
-        showContent(id);
+        showContentDirect(id);
     } else if (type === 'chapter') {
-        // Можно добавить логику для показа главы
-        showChapters();
+        showChapterDirect(id);
     }
 }
 
@@ -1683,7 +1686,7 @@ function navigateToPrevious() {
     
     if (currentIndex > 0) {
         const prevContentId = allContentIds[currentIndex - 1];
-        showContent(prevContentId);
+        showContentDirect(prevContentId);
         // Прокручиваем к началу страницы
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1697,7 +1700,7 @@ function navigateToNext() {
     
     if (currentIndex < allContentIds.length - 1) {
         const nextContentId = allContentIds[currentIndex + 1];
-        showContent(nextContentId);
+        showContentDirect(nextContentId);
         // Прокручиваем к началу страницы
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1770,19 +1773,19 @@ function restoreState() {
     
     if (savedView === 'content' && savedContent && warehouseData.content[savedContent]) {
         console.log('Restoring content:', savedContent);
-        showContent(savedContent);
+        showContentDirect(savedContent);
     } else if (savedView === 'subchapters' && savedContent) {
         console.log('Restoring subchapters for chapter:', savedContent);
         // savedContent содержит ID главы
         const chapter = warehouseData.chapters.find(ch => ch.id === savedContent);
         if (chapter) {
-            showChapter(savedContent, true);
+            showChapterDirect(savedContent);
         } else {
-            showChapters();
+            showChaptersDirect();
         }
     } else {
         console.log('Showing chapters');
-        showChapters();
+        showChaptersDirect();
     }
 }
 
@@ -1791,7 +1794,7 @@ function setupHeaderClick() {
     const header = document.querySelector('.header');
     if (header) {
         header.addEventListener('click', function() {
-            showChapters();
+            showChaptersDirect();
         });
     }
 }
@@ -1858,13 +1861,13 @@ function updateBreadcrumbs(chapterTitle, contentTitle, chapterId = null) {
             // Если передан ID главы, используем его напрямую
             if (chapterId) {
                 console.log('Using chapterId:', chapterId);
-                showChapter(chapterId);
+                showChapterDirect(chapterId);
             } else {
                 // Иначе ищем ID главы по названию (для обратной совместимости)
                 const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
                 if (chapter) {
                     console.log('Found chapter by title:', chapter.id);
-                    showChapter(chapter.id);
+                    showChapterDirect(chapter.id);
                 } else {
                     console.error('Chapter not found for title:', chapterTitle);
                     console.log('Available chapters:', warehouseData.chapters.map(ch => ch.title));
@@ -2192,7 +2195,7 @@ function showChapterWithoutHistory(chapterId) {
     chapter.subchapters.forEach(subchapter => {
         const subchapterCard = document.createElement('div');
         subchapterCard.className = 'subchapter-card';
-        subchapterCard.onclick = () => showContent(subchapter.id);
+        subchapterCard.onclick = () => showContentDirect(subchapter.id);
         
         subchapterCard.innerHTML = `
             <h3>${subchapter.id} ${subchapter.title}</h3>
@@ -2484,13 +2487,13 @@ document.addEventListener('click', function(event) {
             // Fallback: если не удалось открыть новое окно, используем обычную навигацию
             const content = warehouseData.content[contentId];
             if (content) {
-                showContent(contentId);
+                showContentDirect(contentId);
             } else {
                 const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
                 if (chapter) {
-                    showChapter(contentId);
+                    showChapterDirect(contentId);
                 } else if (contentId === 'chapters') {
-                    showChapters();
+                    showChaptersDirect();
                 } else {
                     console.log('Unknown content ID:', contentId);
                 }
@@ -2596,7 +2599,7 @@ function showChaptersDirect() {
 }
 
 function showChapterDirect(chapterId) {
-    console.log('showChapterDirect:', chapterId);
+    console.log('showChapterDirect called with:', chapterId);
     
     const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
     if (!chapter) {
@@ -2604,45 +2607,36 @@ function showChapterDirect(chapterId) {
         return;
     }
     
-    const contentView = document.getElementById('contentView');
-    if (contentView) {
-        contentView.style.display = 'none';
-    }
+    // Скрываем chaptersView и показываем contentView
+    document.getElementById('chaptersView').style.display = 'none';
+    document.getElementById('contentView').style.display = 'block';
     
-    const chaptersView = document.getElementById('chaptersView');
-    chaptersView.innerHTML = '';
-    chaptersView.style.display = 'grid';
+    // Устанавливаем заголовок
+    document.getElementById('contentTitle').textContent = chapter.title;
     
-    updateBreadcrumbs(chapter.title, '', chapter.id);
-    
-    // Кнопка "Назад к главам"
-    const backButton = document.createElement('div');
-    backButton.style.marginBottom = '20px';
-    backButton.innerHTML = `
-        <button class="back-btn" onclick="navigateTo('chapters')">← Назад к главам</button>
-    `;
-    chaptersView.appendChild(backButton);
-    
-    // Подглавы
-    chapter.subchapters.forEach(subchapter => {
-        const subchapterCard = document.createElement('div');
-        subchapterCard.className = 'subchapter-card';
-        subchapterCard.onclick = () => showContent(subchapter.id);
-        
-        subchapterCard.innerHTML = `
-            <h3>${subchapter.id} ${subchapter.title}</h3>
-        `;
-        
-        chaptersView.appendChild(subchapterCard);
+    // Создаем контент с подразделами
+    let contentHtml = `<p>Выберите подраздел из списка ниже:</p>`;
+    chapter.subchapters.forEach(sub => {
+        contentHtml += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="showContentDirect('${sub.id}')"><h4>${sub.title}</h4></div>`;
     });
     
-    currentView = 'subchapters';
+    document.getElementById('contentBody').innerHTML = contentHtml;
+    
+    // Обновляем состояние
+    currentView = 'chapter';
     currentContentId = null;
-    localStorage.setItem('warehouseGuide_currentChapter', chapterId);
+    
+    // Обновляем хлебные крошки
+    updateBreadcrumbs(chapter.title, '', chapterId);
+    
+    // Скрываем навигационные кнопки для глав
     updateNavigationButtons();
+    
     saveCurrentState();
     
+    // Прокручиваем к началу страницы
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 
 // Инициализация приложения (убрана дублирующая функция)
