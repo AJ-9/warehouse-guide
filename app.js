@@ -2248,6 +2248,7 @@ document.addEventListener('click', function(event) {
             const content = warehouseData.content[contentId];
             if (content) {
                 contentToShow = `<h2>${content.title}</h2>${content.content}`;
+                console.log('Content created for new window:', content.title);
             } else {
                 const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
                 if (chapter) {
@@ -2255,8 +2256,10 @@ document.addEventListener('click', function(event) {
                     chapter.subchapters.forEach(sub => {
                         contentToShow += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo('${sub.id}')"><h4>${sub.title}</h4></div>`;
                     });
+                    console.log('Chapter created for new window:', chapter.title);
                 } else {
                     contentToShow = '<p>Раздел не найден: ' + contentId + '</p>';
+                    console.log('Content not found for ID:', contentId);
                 }
             }
             
@@ -2403,12 +2406,71 @@ document.addEventListener('click', function(event) {
                     </div>
                     
                     <script>
-                        // Простая функция навигации для ссылок в контенте
+                        console.log('Script loaded in new window');
+                        
+                        // Данные для навигации в новом окне
+                        const warehouseData = ${JSON.stringify(warehouseData)};
+                        console.log('warehouseData loaded:', warehouseData);
+                        
+                        // Простая функция навигации
                         function navigateTo(contentId) {
-                            console.log('Navigating to:', contentId);
-                            // Для простоты, просто показываем сообщение
-                            alert('Навигация к: ' + contentId + '\\n\\nВ новом окне навигация ограничена.\\nИспользуйте основное окно для полной навигации.');
+                            console.log('navigateTo called with:', contentId);
+                            
+                            // Проверяем, является ли это контентом
+                            const content = warehouseData.content[contentId];
+                            if (content) {
+                                console.log('Found content:', content);
+                                const contentDiv = document.getElementById('content');
+                                if (contentDiv) {
+                                    contentDiv.innerHTML = '<h2>' + content.title + '</h2>' + content.content;
+                                    document.title = 'Справочник кладовщика - ' + content.title;
+                                    console.log('Content displayed successfully');
+                                }
+                                return;
+                            }
+                            
+                            // Проверяем, является ли это главой
+                            const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+                            if (chapter) {
+                                console.log('Found chapter:', chapter);
+                                let contentHtml = '<h2>' + chapter.title + '</h2><p>Выберите подраздел из списка ниже:</p>';
+                                chapter.subchapters.forEach(sub => {
+                                    contentHtml += '<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo(\\'' + sub.id + '\\')"><h4>' + sub.title + '</h4></div>';
+                                });
+                                const contentDiv = document.getElementById('content');
+                                if (contentDiv) {
+                                    contentDiv.innerHTML = contentHtml;
+                                    document.title = 'Справочник кладовщика - ' + chapter.title;
+                                    console.log('Chapter displayed successfully');
+                                }
+                                return;
+                            }
+                            
+                            console.log('Content not found for ID:', contentId);
+                            const contentDiv = document.getElementById('content');
+                            if (contentDiv) {
+                                contentDiv.innerHTML = '<p>Раздел не найден: ' + contentId + '</p>';
+                            }
                         }
+                        
+                        // Обработчик кликов по ссылкам
+                        document.addEventListener('click', function(event) {
+                            console.log('Click event:', event.target);
+                            
+                            const link = event.target.closest('a[href^="#"]');
+                            if (link) {
+                                event.preventDefault();
+                                const href = link.getAttribute('href');
+                                const contentId = href.substring(1);
+                                
+                                console.log('Link clicked:', href, 'contentId:', contentId);
+                                
+                                // Навигация
+                                navigateTo(contentId);
+                            }
+                        });
+                        
+                        console.log('Event listeners attached');
                     </script>
                 </body>
                 </html>
