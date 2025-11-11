@@ -684,6 +684,164 @@
             text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
             letter-spacing: 0.3px;
         }
+        
+        .feedback-btn {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .feedback-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .feedback-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Модальное окно для отзывов */
+        .feedback-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .feedback-modal-content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        .feedback-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #aaa;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .feedback-close:hover,
+        .feedback-close:focus {
+            color: #000;
+        }
+        
+        .feedback-form {
+            margin-top: 20px;
+        }
+        
+        .feedback-form h2 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .feedback-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .feedback-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .feedback-submit-btn {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .feedback-submit-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .feedback-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .feedback-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .feedback-message.success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+            display: block;
+        }
+        
+        .feedback-message.error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+            display: block;
+        }
 
         @media (max-width: 768px) {
             body {
@@ -1037,6 +1195,22 @@
                 text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
                 font-weight: 600;
             }
+            
+            .feedback-btn {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+                margin-left: 10px;
+            }
+            
+            .feedback-modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                width: 95%;
+            }
+            
+            .feedback-form h2 {
+                font-size: 1.5rem;
+            }
     </style>
 </head>
 <body>
@@ -1082,7 +1256,9 @@
         </div>
 
         <div class="footer">
-            <p>Special thanks to Egor Sataev © 2025 Справочник СКЛАД</p>
+            <p>Special thanks to Egor Sataev © 2025 Справочник СКЛАД 
+                <button class="feedback-btn" onclick="openFeedbackModal()">💬 Отзывы и предложения</button>
+            </p>
         </div>
     </div>
 
@@ -1093,6 +1269,33 @@
         <div id="caption"></div>
     </div>
 
+    <!-- Модальное окно для отзывов и предложений -->
+    <div id="feedbackModal" class="feedback-modal">
+        <div class="feedback-modal-content">
+            <span class="feedback-close" onclick="closeFeedbackModal()">&times;</span>
+            <div class="feedback-form">
+                <h2>💬 Отзывы и предложения</h2>
+                <p style="color: #6b7280; margin-bottom: 20px;">Ваше мнение очень важно для нас! Поделитесь своими мыслями, предложениями или сообщите об ошибках.</p>
+                <form id="feedbackForm" onsubmit="submitFeedback(event)">
+                    <label for="feedbackName">Ваше имя (необязательно):</label>
+                    <input type="text" id="feedbackName" name="name" placeholder="Введите ваше имя">
+                    
+                    <label for="feedbackEmail">Ваш email (необязательно):</label>
+                    <input type="email" id="feedbackEmail" name="email" placeholder="your.email@example.com">
+                    
+                    <label for="feedbackMessage">Сообщение: <span style="color: #ef4444;">*</span></label>
+                    <textarea id="feedbackMessage" name="message" placeholder="Напишите ваш отзыв, предложение или сообщение об ошибке..." required></textarea>
+                    
+                    <button type="submit" class="feedback-submit-btn" id="feedbackSubmitBtn">Отправить</button>
+                    <div id="feedbackMessageDiv" class="feedback-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <script src="app.js"></script>
     
     <script>
