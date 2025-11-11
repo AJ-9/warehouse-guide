@@ -1,6 +1,9 @@
-const CACHE_NAME = 'warehouse-guide-v2.0.4-spravochnik-sklad';
-const STATIC_CACHE = 'warehouse-guide-static-v2.0.4-spravochnik-sklad';
-const DYNAMIC_CACHE = 'warehouse-guide-dynamic-v2.0.4-spravochnik-sklad';
+// Версия кэша - ОБЯЗАТЕЛЬНО обновляйте при каждом изменении файлов!
+// Формат: v[версия]-[дата в формате YYYYMMDD]
+const CACHE_VERSION = 'v2.0.5-20251111';
+const CACHE_NAME = 'warehouse-guide-' + CACHE_VERSION;
+const STATIC_CACHE = 'warehouse-guide-static-' + CACHE_VERSION;
+const DYNAMIC_CACHE = 'warehouse-guide-dynamic-' + CACHE_VERSION;
 
 const urlsToCache = [
   './',
@@ -21,40 +24,78 @@ const staticAssets = [
 
 // Установка Service Worker
 self.addEventListener('install', function(event) {
-  console.log('Service Worker installing...');
+  console.log('Service Worker installing...', CACHE_VERSION);
+  
+  // Пропускаем ожидание и сразу активируем новый Service Worker
+  self.skipWaiting();
+  
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(function(cache) {
-        console.log('Opened static cache');
-        return cache.addAll(staticAssets);
+        console.log('Opened static cache:', STATIC_CACHE);
+        // Используем cache.addAll с обработкой ошибок для каждого файла
+        return Promise.allSettled(
+          staticAssets.map(function(url) {
+            return fetch(url, { cache: 'no-store' })
+              .then(function(response) {
+                if (response.ok) {
+                  return cache.put(url, response);
+                }
+              })
+              .catch(function(error) {
+                console.warn('Failed to cache:', url, error);
+              });
+          })
+        );
       })
       .then(function() {
+        console.log('Cache installation completed');
         // Принудительно активируем новый Service Worker
         return self.skipWaiting();
       })
       .catch(function(error) {
         console.error('Cache installation failed:', error);
+        // Все равно активируем Service Worker даже при ошибке кэширования
+        return self.skipWaiting();
       })
   );
 });
 
 // Активация Service Worker
 self.addEventListener('activate', function(event) {
-  console.log('Service Worker activating...');
+  console.log('Service Worker activating...', CACHE_VERSION);
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
+      console.log('Found caches:', cacheNames);
       return Promise.all(
-        cacheNames.map(function(cacheName) {
-          // Удаляем старые кэши
-          if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
+        cacheNames
+          .map(function(cacheName) {
+            // Удаляем ВСЕ старые кэши (не только с другими именами, но и старые версии)
+            if (!cacheName.includes(CACHE_VERSION) && cacheName.includes('warehouse-guide')) {
+              console.log('Deleting old cache:', cacheName);
+              return caches.delete(cacheName);
+            }
+            return Promise.resolve(); // Возвращаем resolved promise для кэшей, которые не нужно удалять
+          })
+          .filter(function(promise) {
+            return promise !== undefined; // Фильтруем undefined
+          })
       );
     }).then(function() {
+      console.log('Old caches deleted, claiming clients...');
       // Принудительно берем контроль над всеми клиентами
       return self.clients.claim();
+    }).then(function() {
+      console.log('Service Worker activated and claimed clients');
+      // Отправляем сообщение всем клиентам о готовности
+      return self.clients.matchAll().then(function(clients) {
+        clients.forEach(function(client) {
+          client.postMessage({
+            type: 'SW_ACTIVATED',
+            version: CACHE_VERSION
+          });
+        });
+      });
     })
   );
 });
@@ -64,18 +105,22 @@ self.addEventListener('fetch', function(event) {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Стратегия для статических ресурсов (Network First для обновлений)
-  if (staticAssets.includes(url.pathname) || url.pathname === './') {
+  // Стратегия для статических ресурсов (Network First с принудительным обновлением)
+  if (staticAssets.includes(url.pathname) || url.pathname === './' || url.pathname === '/') {
     event.respondWith(
-      fetch(request)
+      // Всегда пытаемся получить свежую версию из сети
+      fetch(request, { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
         .then(function(fetchResponse) {
           if (fetchResponse && fetchResponse.status === 200) {
             const responseToCache = fetchResponse.clone();
+            // Обновляем кэш с новой версией
             caches.open(STATIC_CACHE).then(function(cache) {
               cache.put(request, responseToCache);
             });
+            return fetchResponse;
           }
-          return fetchResponse;
+          // Если ответ не OK, пробуем кэш
+          return caches.match(request);
         })
         .catch(function() {
           // Если нет сети, возвращаем из кэша
@@ -85,7 +130,7 @@ self.addEventListener('fetch', function(event) {
             }
             // Офлайн режим
             if (request.destination === 'document') {
-              return caches.match('./index.html');
+              return caches.match('./index.html') || caches.match('/index.html');
             }
           });
         })
