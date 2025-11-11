@@ -1404,10 +1404,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Также пытаемся восстановить состояние, только если навигация не была обработана через popstate
         if (!navigationHandled) {
-        try {
-            restoreState();
-        } catch (e) {
-            console.error('Error in restoreState:', e);
+            try {
+                restoreState();
+            } catch (e) {
+                console.error('Error in restoreState:', e);
             }
         } else {
             console.log('Navigation already handled by popstate, skipping restoreState');
@@ -1853,6 +1853,12 @@ function updateBreadcrumbs(chapterTitle, contentTitle, chapterId = null) {
     const breadcrumbContent = document.getElementById('breadcrumb-content');
     const breadcrumbSeparator = document.getElementById('breadcrumb-separator');
     
+    // Проверка на существование элементов
+    if (!breadcrumbs || !breadcrumbChapter || !breadcrumbContent || !breadcrumbSeparator) {
+        console.error('Breadcrumb elements not found');
+        return;
+    }
+    
     if (chapterTitle) {
         breadcrumbChapter.textContent = chapterTitle;
         breadcrumbChapter.onclick = () => {
@@ -2101,13 +2107,23 @@ function showContentWithoutHistory(contentId) {
         return;
     }
     
+    const chaptersView = document.getElementById('chaptersView');
+    const contentView = document.getElementById('contentView');
+    const contentTitle = document.getElementById('contentTitle');
+    const contentBody = document.getElementById('contentBody');
+    
+    if (!chaptersView || !contentView || !contentTitle || !contentBody) {
+        console.error('Required elements not found in showContentWithoutHistory');
+        return;
+    }
+    
     currentContentId = contentId;
-    document.getElementById('chaptersView').style.display = 'none';
-    document.getElementById('contentView').style.display = 'block';
-    document.getElementById('contentTitle').textContent = content.title;
+    chaptersView.style.display = 'none';
+    contentView.style.display = 'block';
+    contentTitle.textContent = content.title;
     
     // Загружаем контент с обычными изображениями (без lazy loading)
-    document.getElementById('contentBody').innerHTML = content.content;
+    contentBody.innerHTML = content.content;
     
     // Находим название главы и ID главы для хлебных крошек
     let chapterTitle = '';
@@ -2386,6 +2402,81 @@ document.addEventListener('click', function(event) {
                         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
                         th { background-color: #f8f9fa; font-weight: 600; }
                         .table-container { overflow-x: auto; margin: 20px 0; }
+                        
+                        /* Стили для модального окна изображений */
+                        .modal {
+                            display: none;
+                            position: fixed;
+                            z-index: 1000;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            overflow: auto;
+                            background-color: rgba(0, 0, 0, 0.9);
+                            animation: fadeIn 0.3s ease;
+                        }
+                        
+                        .modal-content {
+                            margin: auto;
+                            display: block;
+                            width: 90%;
+                            max-width: 1200px;
+                            max-height: 90%;
+                            object-fit: contain;
+                            animation: zoomIn 0.3s ease;
+                        }
+                        
+                        .close {
+                            position: absolute;
+                            bottom: 20px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            color: #ff0000;
+                            font-size: 30px;
+                            font-weight: bold;
+                            transition: 0.3s;
+                            cursor: pointer;
+                            z-index: 1001;
+                            width: 50px;
+                            height: 50px;
+                            background-color: white;
+                            border: 2px solid #ff0000;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                        }
+                        
+                        .close:hover,
+                        .close:focus {
+                            color: #cc0000;
+                            border-color: #cc0000;
+                            text-decoration: none;
+                            transform: translateX(-50%) scale(1.1);
+                        }
+                        
+                        #caption {
+                            margin: auto;
+                            display: block;
+                            width: 80%;
+                            max-width: 700px;
+                            text-align: center;
+                            color: #ccc;
+                            padding: 10px 0;
+                            height: 150px;
+                        }
+                        
+                        @keyframes fadeIn {
+                            from { opacity: 0; }
+                            to { opacity: 1; }
+                        }
+                        
+                        @keyframes zoomIn {
+                            from { transform: scale(0.5); }
+                            to { transform: scale(1); }
+                        }
                     </style>
                 </head>
                 <body>
@@ -2405,6 +2496,13 @@ document.addEventListener('click', function(event) {
                                 <span>Закрыть окно</span>
                             </a>
                         </div>
+                    </div>
+                    
+                    <!-- Модальное окно для просмотра изображений -->
+                    <div id="imageModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modalImage" alt="Увеличенное изображение">
+                        <div id="caption"></div>
                     </div>
                     
                     <script>
@@ -2471,6 +2569,67 @@ document.addEventListener('click', function(event) {
                                 navigateTo(contentId);
                             }
                         });
+                        
+                        // Настройка модального окна для изображений
+                        let imageModalInitialized = false;
+                        function setupImageModal() {
+                            // Предотвращаем множественную инициализацию
+                            if (imageModalInitialized) {
+                                return;
+                            }
+                            
+                            const modal = document.getElementById('imageModal');
+                            const modalImg = document.getElementById('modalImage');
+                            const captionText = document.getElementById('caption');
+                            const closeBtn = document.getElementsByClassName('close')[0];
+                            
+                            if (!modal || !modalImg || !captionText || !closeBtn) {
+                                console.error('Modal elements not found');
+                                return;
+                            }
+                            
+                            // Обработчик клика на изображения (только если это не ссылка)
+                            document.addEventListener('click', function(e) {
+                                // Проверяем, что клик был по изображению, а не по ссылке
+                                if (e.target.tagName === 'IMG' && 
+                                    e.target.closest('.content-body') && 
+                                    !e.target.closest('a')) {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    modal.style.display = 'block';
+                                    modalImg.src = e.target.src;
+                                    captionText.innerHTML = e.target.alt || '';
+                                }
+                            }, true); // Используем capture phase для приоритета
+                            
+                            // Закрытие модального окна
+                            closeBtn.onclick = function() {
+                                modal.style.display = 'none';
+                            };
+                            
+                            // Закрытие при клике вне изображения
+                            modal.onclick = function(e) {
+                                if (e.target === modal) {
+                                    modal.style.display = 'none';
+                                }
+                            };
+                            
+                            // Закрытие по клавише Escape
+                            document.addEventListener('keydown', function(e) {
+                                if (e.key === 'Escape' && modal.style.display === 'block') {
+                                    modal.style.display = 'none';
+                                }
+                            });
+                            
+                            imageModalInitialized = true;
+                        }
+                        
+                        // Инициализация модального окна после загрузки DOM
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', setupImageModal);
+                        } else {
+                            setupImageModal();
+                        }
                         
                         console.log('Event listeners attached');
                     </script>
@@ -2549,11 +2708,21 @@ function showContentDirect(contentId) {
     
     console.log('showContentDirect:', contentId);
     
+    const chaptersView = document.getElementById('chaptersView');
+    const contentView = document.getElementById('contentView');
+    const contentTitle = document.getElementById('contentTitle');
+    const contentBody = document.getElementById('contentBody');
+    
+    if (!chaptersView || !contentView || !contentTitle || !contentBody) {
+        console.error('Required elements not found in showContentDirect');
+        return;
+    }
+    
     currentContentId = contentId;
-    document.getElementById('chaptersView').style.display = 'none';
-    document.getElementById('contentView').style.display = 'block';
-    document.getElementById('contentTitle').textContent = content.title;
-    document.getElementById('contentBody').innerHTML = content.content;
+    chaptersView.style.display = 'none';
+    contentView.style.display = 'block';
+    contentTitle.textContent = content.title;
+    contentBody.innerHTML = content.content;
     
     // Находим название главы и ID главы для хлебных крошек
     let chapterTitle = '';
@@ -2606,12 +2775,22 @@ function showChapterDirect(chapterId) {
         return;
     }
     
+    const chaptersView = document.getElementById('chaptersView');
+    const contentView = document.getElementById('contentView');
+    const contentTitle = document.getElementById('contentTitle');
+    const contentBody = document.getElementById('contentBody');
+    
+    if (!chaptersView || !contentView || !contentTitle || !contentBody) {
+        console.error('Required elements not found in showChapterDirect');
+        return;
+    }
+    
     // Скрываем chaptersView и показываем contentView
-    document.getElementById('chaptersView').style.display = 'none';
-    document.getElementById('contentView').style.display = 'block';
+    chaptersView.style.display = 'none';
+    contentView.style.display = 'block';
     
     // Устанавливаем заголовок
-    document.getElementById('contentTitle').textContent = chapter.title;
+    contentTitle.textContent = chapter.title;
     
     // Создаем контент с подразделами
     let contentHtml = `<p>Выберите подраздел из списка ниже:</p>`;
@@ -2619,7 +2798,7 @@ function showChapterDirect(chapterId) {
         contentHtml += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="showContentDirect('${sub.id}')"><h4>${sub.title}</h4></div>`;
     });
     
-    document.getElementById('contentBody').innerHTML = contentHtml;
+    contentBody.innerHTML = contentHtml;
     
     // Обновляем состояние
     currentView = 'chapter';
@@ -2637,5 +2816,210 @@ function showChapterDirect(chapterId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+
+// ============================================
+// ФУНКЦИИ ДЛЯ ОТЗЫВОВ И ПРЕДЛОЖЕНИЙ
+// ============================================
+
+// Конфигурация EmailJS
+const EMAILJS_CONFIG = {
+    serviceId: 'service_3en4wth',      // Service ID
+    templateId: 'template_j5vm25r',     // Template ID для получения отзывов
+    autoReplyTemplateId: null,          // Template ID для автоответа (укажите после создания шаблона)
+    publicKey: 'V4x0GnZ84xI2CB7Cv'     // Public Key
+};
+
+// Инициализация EmailJS
+function initEmailJS() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_CONFIG.publicKey);
+        console.log('EmailJS initialized');
+    } else {
+        console.warn('EmailJS SDK not loaded');
+    }
+}
+
+// Открытие модального окна для отзывов
+function openFeedbackModal() {
+    const modal = document.getElementById('feedbackModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Блокируем прокрутку фона
+    }
+}
+
+// Закрытие модального окна для отзывов
+function closeFeedbackModal() {
+    const modal = document.getElementById('feedbackModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
+        // Очищаем форму
+        const form = document.getElementById('feedbackForm');
+        if (form) {
+            form.reset();
+        }
+        // Скрываем сообщения
+        const messageDiv = document.getElementById('feedbackMessageDiv');
+        if (messageDiv) {
+            messageDiv.className = 'feedback-message';
+            messageDiv.style.display = 'none';
+        }
+    }
+}
+
+// Закрытие модального окна при клике вне его
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('feedbackModal');
+    if (event.target === modal) {
+        closeFeedbackModal();
+    }
+});
+
+// Закрытие модального окна по клавише Escape
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('feedbackModal');
+        if (modal && modal.style.display === 'block') {
+            closeFeedbackModal();
+        }
+    }
+});
+
+// Отправка отзыва
+async function submitFeedback(event) {
+    event.preventDefault();
+    
+    const submitBtn = document.getElementById('feedbackSubmitBtn');
+    const messageDiv = document.getElementById('feedbackMessageDiv');
+    const form = document.getElementById('feedbackForm');
+    
+    // Получаем данные формы
+    const name = document.getElementById('feedbackName').value.trim();
+    const email = document.getElementById('feedbackEmail').value.trim();
+    const message = document.getElementById('feedbackMessage').value.trim();
+    
+    // Проверка обязательного поля
+    if (!message) {
+        showFeedbackMessage('Пожалуйста, заполните поле сообщения', 'error');
+        return;
+    }
+    
+    // Отключаем кнопку отправки
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка...';
+    
+    try {
+        // Проверяем, инициализирован ли EmailJS
+        if (typeof emailjs === 'undefined') {
+            throw new Error('EmailJS SDK не загружен. Проверьте подключение к интернету.');
+        }
+        
+        // Подготавливаем данные для отправки
+        // ВАЖНО: Адрес получателя должен быть указан в настройках шаблона EmailJS
+        // в поле "To Email" как: aokha.aj@gmail.com или {{to_email}}
+        const templateParams = {
+            from_name: name || 'Анонимный пользователь',
+            from_email: email || 'не указан',
+            message: message,
+            reply_to: email || 'aokha.aj@gmail.com',
+            to_email: 'aokha.aj@gmail.com',
+            to_name: 'Получатель отзывов',
+            // Дополнительные параметры для совместимости
+            user_email: email || 'не указан',
+            user_name: name || 'Анонимный пользователь'
+        };
+        
+        // Отправляем email через EmailJS (основное письмо вам)
+        const response = await emailjs.send(
+            EMAILJS_CONFIG.serviceId,
+            EMAILJS_CONFIG.templateId,
+            templateParams
+        );
+        
+        console.log('Email sent successfully:', response);
+        
+        // Отправляем автоответ пользователю (если указан email и настроен шаблон)
+        if (email && EMAILJS_CONFIG.autoReplyTemplateId) {
+            try {
+                const autoReplyParams = {
+                    from_name: 'Команда Справочник СКЛАД',
+                    from_email: 'aokha.aj@gmail.com',
+                    to_email: email,
+                    to_name: name || 'Пользователь',
+                    message: message,
+                    user_name: name || 'Пользователь'
+                };
+                
+                await emailjs.send(
+                    EMAILJS_CONFIG.serviceId,
+                    EMAILJS_CONFIG.autoReplyTemplateId,
+                    autoReplyParams
+                );
+                
+                console.log('Auto-reply sent successfully');
+            } catch (autoReplyError) {
+                console.warn('Auto-reply failed (non-critical):', autoReplyError);
+                // Не показываем ошибку пользователю, если автоответ не отправился
+            }
+        }
+        
+        // Показываем сообщение об успехе
+        showFeedbackMessage('Спасибо! Ваш отзыв успешно отправлен. Мы обязательно его рассмотрим.' + (email ? ' На ваш email отправлено подтверждение.' : ''), 'success');
+        
+        // Очищаем форму через 2 секунды
+        setTimeout(() => {
+            form.reset();
+            setTimeout(() => {
+                closeFeedbackModal();
+            }, 1000);
+        }, 2000);
+        
+    } catch (error) {
+        console.error('Error sending feedback:', error);
+        
+        // Показываем сообщение об ошибке
+        let errorMessage = 'Произошла ошибка при отправке отзыва. ';
+        
+        if (error.text) {
+            errorMessage += error.text;
+        } else if (error.message) {
+            errorMessage += error.message;
+        } else {
+            errorMessage += 'Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.';
+        }
+        
+        showFeedbackMessage(errorMessage, 'error');
+        
+    } finally {
+        // Восстанавливаем кнопку отправки
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Отправить';
+    }
+}
+
+// Показ сообщения в форме
+function showFeedbackMessage(message, type) {
+    const messageDiv = document.getElementById('feedbackMessageDiv');
+    if (messageDiv) {
+        messageDiv.textContent = message;
+        messageDiv.className = `feedback-message ${type}`;
+        messageDiv.style.display = 'block';
+        
+        // Автоматически скрываем сообщение об ошибке через 5 секунд
+        if (type === 'error') {
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+}
+
+// Инициализация EmailJS при загрузке страницы
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEmailJS);
+} else {
+    initEmailJS();
+}
 
 // Инициализация приложения (убрана дублирующая функция)
