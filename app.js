@@ -1,95 +1,402 @@
 // Данные справочника СКЛАД
+// Структура данных поддерживает как старый формат (строки), так и новый (объекты с переводами)
+// Для добавления переводов используйте формат: { ru: '...', en: '...', zh: '...' }
 const warehouseData = {
     chapters: [
         {
             id: 'chapter1',
-            title: 'Процесс приемки',
+            title: {
+                ru: 'Процесс приемки',
+                en: 'Receiving Process',
+                zh: '接收流程'
+            },
             icon: '🚛',
-            description: '',
+            description: {
+                ru: '',
+                en: '',
+                zh: ''
+            },
             subchapters: [
-                { id: '1.1', title: 'Заезд ТС на площадку' },
-                { id: '1.2', title: 'Правила предоставления информации в Отдел Учета' },
-                { id: '1.3', title: 'Проверка Документов перед выгрузкой' },
-                { id: '1.4', title: 'Начало выгрузки' },
-                { id: '1.5', title: 'Работа с Несоответствиями при Приемке ТМЦ' },
-                { id: '1.6', title: 'Составление Акта М7' },
-                { id: '1.7', title: 'Выгрузка ТС' },
-                { id: '1.8', title: 'Составление Акта о Повреждении ТМЦ' },
-                { id: '1.9', title: 'Предоставление информации о выгруженном ТС в Отдел Учета' }
+                { 
+                    id: '1.1', 
+                    title: {
+                        ru: 'Заезд ТС на площадку',
+                        en: 'Vehicle Arrival at Site',
+                        zh: '车辆到达场地'
+                    }
+                },
+                { 
+                    id: '1.2', 
+                    title: {
+                        ru: 'Правила предоставления информации в Отдел Учета',
+                        en: 'Rules for Providing Information to Accounting Department',
+                        zh: '向会计部门提供信息的规则'
+                    }
+                },
+                { 
+                    id: '1.3', 
+                    title: {
+                        ru: 'Проверка Документов перед выгрузкой',
+                        en: 'Document Verification Before Unloading',
+                        zh: '卸货前文件检查'
+                    }
+                },
+                { 
+                    id: '1.4', 
+                    title: {
+                        ru: 'Начало выгрузки',
+                        en: 'Start of Unloading',
+                        zh: '开始卸货'
+                    }
+                },
+                { 
+                    id: '1.5', 
+                    title: {
+                        ru: 'Работа с Несоответствиями при Приемке ТМЦ',
+                        en: 'Handling Discrepancies During Material Acceptance',
+                        zh: '材料验收时处理不符项'
+                    }
+                },
+                { 
+                    id: '1.6', 
+                    title: {
+                        ru: 'Составление Акта М7',
+                        en: 'Preparation of Act M7',
+                        zh: '编制M7报告'
+                    }
+                },
+                { 
+                    id: '1.7', 
+                    title: {
+                        ru: 'Выгрузка ТС',
+                        en: 'Vehicle Unloading',
+                        zh: '车辆卸货'
+                    }
+                },
+                { 
+                    id: '1.8', 
+                    title: {
+                        ru: 'Составление Акта о Повреждении ТМЦ',
+                        en: 'Preparation of Material Damage Act',
+                        zh: '编制材料损坏报告'
+                    }
+                },
+                { 
+                    id: '1.9', 
+                    title: {
+                        ru: 'Предоставление информации о выгруженном ТС в Отдел Учета',
+                        en: 'Providing Information on Unloaded Vehicle to Accounting Department',
+                        zh: '向会计部门提供已卸货车辆信息'
+                    }
+                }
             ]
         },
         {
             id: 'chapter2',
-            title: 'Хранение материала',
+            title: {
+                ru: 'Хранение материала',
+                en: 'Material Storage',
+                zh: '材料存储'
+            },
             icon: '📦',
-            description: 'Правила хранения и перемещения ТМЦ',
+            description: {
+                ru: 'Правила хранения и перемещения ТМЦ',
+                en: 'Rules for storage and movement of materials',
+                zh: '材料存储和移动规则'
+            },
             subchapters: [
-                { id: '2.1', title: 'Общие положения по хранению ТМЦ' },
-                { id: '2.2', title: 'Коды хранения ТМЦ' },
-                { id: '2.3', title: 'Перемещение ТМЦ между складами, перемещение ТМЦ по складу' },
-                { id: '2.4', title: 'Составление Акта о Повреждении ТМЦ' },
-                { id: '2.5', title: 'Перенаправление ТМЦ со склада для выгрузки на территории завода' }
+                { 
+                    id: '2.1', 
+                    title: {
+                        ru: 'Общие положения по хранению ТМЦ',
+                        en: 'General Provisions for Material Storage',
+                        zh: '材料存储总则'
+                    }
+                },
+                { 
+                    id: '2.2', 
+                    title: {
+                        ru: 'Коды хранения ТМЦ',
+                        en: 'Material Storage Codes',
+                        zh: '材料存储代码'
+                    }
+                },
+                { 
+                    id: '2.3', 
+                    title: {
+                        ru: 'Перемещение ТМЦ между складами, перемещение ТМЦ по складу',
+                        en: 'Material Movement Between Warehouses, Material Movement Within Warehouse',
+                        zh: '仓库间材料移动，仓库内材料移动'
+                    }
+                },
+                { 
+                    id: '2.4', 
+                    title: {
+                        ru: 'Составление Акта о Повреждении ТМЦ',
+                        en: 'Preparation of Material Damage Act',
+                        zh: '编制材料损坏报告'
+                    }
+                },
+                { 
+                    id: '2.5', 
+                    title: {
+                        ru: 'Перенаправление ТМЦ со склада для выгрузки на территории завода',
+                        en: 'Redirecting Materials from Warehouse for Unloading at Plant Territory',
+                        zh: '从仓库重定向材料到工厂区域卸货'
+                    }
+                }
             ]
         },
         {
             id: 'chapter3',
-            title: 'Выдача материала в монтаж',
+            title: {
+                ru: 'Выдача материала в монтаж',
+                en: 'Material Issuance for Installation',
+                zh: '安装材料发放'
+            },
             icon: '🔧',
-            description: 'Процедуры выдачи материалов для монтажных работ',
+            description: {
+                ru: 'Процедуры выдачи материалов для монтажных работ',
+                en: 'Procedures for issuing materials for installation work',
+                zh: '安装工作材料发放程序'
+            },
             subchapters: [
-                { id: '3.0', title: 'Общие сведения' },
-                { id: '3.1', title: 'Выдача по Заявке на Выдачу целыми ГМ' },
-                { id: '3.2', title: 'Частичная Выдача' },
-                { id: '3.3', title: 'Составление Акта Осмотра' },
-                { id: '3.4', title: 'Составление Акта о Повреждении ТМЦ' }
+                { 
+                    id: '3.0', 
+                    title: {
+                        ru: 'Общие сведения',
+                        en: 'General Information',
+                        zh: '一般信息'
+                    }
+                },
+                { 
+                    id: '3.1', 
+                    title: {
+                        ru: 'Выдача по Заявке на Выдачу целыми ГМ',
+                        en: 'Issuance by Request for Complete Cargo Units',
+                        zh: '按申请发放完整货物单位'
+                    }
+                },
+                { 
+                    id: '3.2', 
+                    title: {
+                        ru: 'Частичная Выдача',
+                        en: 'Partial Issuance',
+                        zh: '部分发放'
+                    }
+                },
+                { 
+                    id: '3.3', 
+                    title: {
+                        ru: 'Составление Акта Осмотра',
+                        en: 'Preparation of Inspection Act',
+                        zh: '编制检查报告'
+                    }
+                },
+                { 
+                    id: '3.4', 
+                    title: {
+                        ru: 'Составление Акта о Повреждении ТМЦ',
+                        en: 'Preparation of Material Damage Act',
+                        zh: '编制材料损坏报告'
+                    }
+                }
             ]
         },
         {
             id: 'chapter4',
-            title: 'Документация и правила ее оформления',
+            title: {
+                ru: 'Документация и правила ее оформления',
+                en: 'Documentation and Documentation Rules',
+                zh: '文件和文件规则'
+            },
             icon: '📋',
-            description: 'Правила оформления всех видов документов',
+            description: {
+                ru: 'Правила оформления всех видов документов',
+                en: 'Rules for processing all types of documents',
+                zh: '所有类型文件的处理规则'
+            },
             subchapters: [
-                { id: '4.1', title: 'Правила оформления ТН' },
-                { id: '4.2', title: 'Правила Оформления CMR' },
-                { id: '4.3', title: 'Правила заполнения Ведомости на перемещение' },
-                { id: '4.4', title: 'Содержание Упаковочного Листа (УЛ)' },
-                { id: '4.5', title: 'Содержание Ведомости Грузового места' },
-                { id: '4.6', title: 'Содержание Shipping Mark' },
-                { id: '4.7', title: 'Содержание Заявки на Выдачу' },
-                { id: '4.8', title: 'Содержание и Правила заполнения Пропуска на Вывоз' },
-                { id: '4.9', title: 'Содержание и Правила заполнения Инвентаризационного листа' }
+                { 
+                    id: '4.1', 
+                    title: {
+                        ru: 'Правила оформления ТН',
+                        en: 'Transportation Bill (TB) Processing Rules',
+                        zh: '运输单（TB）处理规则'
+                    }
+                },
+                { 
+                    id: '4.2', 
+                    title: {
+                        ru: 'Правила Оформления CMR',
+                        en: 'CMR Processing Rules',
+                        zh: 'CMR处理规则'
+                    }
+                },
+                { 
+                    id: '4.3', 
+                    title: {
+                        ru: 'Правила заполнения Ведомости на перемещение',
+                        en: 'Rules for Filling Movement Statement',
+                        zh: '移动报表填写规则'
+                    }
+                },
+                { 
+                    id: '4.4', 
+                    title: {
+                        ru: 'Содержание Упаковочного Листа (УЛ)',
+                        en: 'Packing List (PL) Contents',
+                        zh: '装箱单（PL）内容'
+                    }
+                },
+                { 
+                    id: '4.5', 
+                    title: {
+                        ru: 'Содержание Ведомости Грузового места',
+                        en: 'Cargo Unit Statement Contents',
+                        zh: '货物单位报表内容'
+                    }
+                },
+                { 
+                    id: '4.6', 
+                    title: {
+                        ru: 'Содержание Shipping Mark',
+                        en: 'Shipping Mark Contents',
+                        zh: '运输标记内容'
+                    }
+                },
+                { 
+                    id: '4.7', 
+                    title: {
+                        ru: 'Содержание Заявки на Выдачу',
+                        en: 'Issuance Request Contents',
+                        zh: '发放申请内容'
+                    }
+                },
+                { 
+                    id: '4.8', 
+                    title: {
+                        ru: 'Содержание и Правила заполнения Пропуска на Вывоз',
+                        en: 'Export Permit Contents and Filling Rules',
+                        zh: '出口许可证内容和填写规则'
+                    }
+                },
+                { 
+                    id: '4.9', 
+                    title: {
+                        ru: 'Содержание и Правила заполнения Инвентаризационного листа',
+                        en: 'Inventory List Contents and Filling Rules',
+                        zh: '库存清单内容和填写规则'
+                    }
+                }
             ]
         },
         {
             id: 'chapter5',
-            title: 'Информационные группы и полезные ссылки',
+            title: {
+                ru: 'Информационные группы и полезные ссылки',
+                en: 'Information Groups and Useful Links',
+                zh: '信息组和有用链接'
+            },
             icon: '💬',
-            description: 'Правила работы с отделом учета и функционал информационных групп',
+            description: {
+                ru: 'Правила работы с отделом учета и функционал информационных групп',
+                en: 'Rules for working with accounting department and information groups functionality',
+                zh: '与会计部门合作的规则和信息组功能'
+            },
             subchapters: [
-                { id: '5.0', title: 'Правила предоставления информации в отдел учета' },
-                { id: '5.1', title: 'Детальное описание информационных групп' },
-                { id: '5.2', title: 'Перечень групп' },
-                { id: '5.3', title: 'Полезные ссылки' }
+                { 
+                    id: '5.0', 
+                    title: {
+                        ru: 'Правила предоставления информации в отдел учета',
+                        en: 'Rules for Providing Information to Accounting Department',
+                        zh: '向会计部门提供信息的规则'
+                    }
+                },
+                { 
+                    id: '5.1', 
+                    title: {
+                        ru: 'Детальное описание информационных групп',
+                        en: 'Detailed Description of Information Groups',
+                        zh: '信息组详细说明'
+                    }
+                },
+                { 
+                    id: '5.2', 
+                    title: {
+                        ru: 'Перечень групп',
+                        en: 'List of Groups',
+                        zh: '组列表'
+                    }
+                },
+                { 
+                    id: '5.3', 
+                    title: {
+                        ru: 'Полезные ссылки',
+                        en: 'Useful Links',
+                        zh: '有用链接'
+                    }
+                }
             ]
         },
         {
             id: 'chapter6',
-            title: 'Общие Хозяйственные Вопросы',
+            title: {
+                ru: 'Общие Хозяйственные Вопросы',
+                en: 'General Administrative Matters',
+                zh: '一般行政事务'
+            },
             icon: '🏢',
-            description: 'Хозяйственные вопросы и процедуры',
+            description: {
+                ru: 'Хозяйственные вопросы и процедуры',
+                en: 'Administrative matters and procedures',
+                zh: '行政事务和程序'
+            },
             subchapters: [
-                { id: '6.1', title: 'ЗАЯВКИ НА КАНЦЕЛЯРИЮ И РАСХОДНЫЕ МАТЕРИАЛЫ' },
-                { id: '6.2', title: 'ВРЕМЯ ТРУДА И ОТДЫХА' },
-                { id: '6.3', title: 'ОФОРМЛЕНИЕ ОТПУСКА И ОТПУСКА БЕЗ СОХРАНЕНИЯ ЗАРАБОТНОЙ ПЛАТЫ' },
-                { id: '6.4', title: 'ПЕРЕДАЧА ДОКУМЕНТОВ В УЧЕТ' }
+                { 
+                    id: '6.1', 
+                    title: {
+                        ru: 'ЗАЯВКИ НА КАНЦЕЛЯРИЮ И РАСХОДНЫЕ МАТЕРИАЛЫ',
+                        en: 'REQUESTS FOR STATIONERY AND CONSUMABLES',
+                        zh: '文具和消耗品申请'
+                    }
+                },
+                { 
+                    id: '6.2', 
+                    title: {
+                        ru: 'ВРЕМЯ ТРУДА И ОТДЫХА',
+                        en: 'WORKING HOURS AND REST',
+                        zh: '工作时间和休息'
+                    }
+                },
+                { 
+                    id: '6.3', 
+                    title: {
+                        ru: 'ОФОРМЛЕНИЕ ОТПУСКА И ОТПУСКА БЕЗ СОХРАНЕНИЯ ЗАРАБОТНОЙ ПЛАТЫ',
+                        en: 'VACATION AND UNPAID LEAVE PROCESSING',
+                        zh: '假期和无薪假处理'
+                    }
+                },
+                { 
+                    id: '6.4', 
+                    title: {
+                        ru: 'ПЕРЕДАЧА ДОКУМЕНТОВ В УЧЕТ',
+                        en: 'DOCUMENT TRANSFER TO ACCOUNTING',
+                        zh: '文件转交会计'
+                    }
+                }
             ]
         }
     ],
     content: {
         '1.1': {
-            title: 'Заезд ТС на площадку',
-            content: `
+            title: {
+                ru: 'Заезд ТС на площадку',
+                en: 'Vehicle Arrival at Site',
+                zh: '车辆到达场地'
+            },
+            content: {
+                ru: `
                 <h3>Направление ТС</h3>
                 <p>ТС (Транспортные Средства) направляются на соответствующие локации диспетчерами.</p>
                 
@@ -106,11 +413,53 @@ const warehouseData = {
                 
                 <h3>Запрос дополнительной техники</h3>
                 <p>Запрос дополнительной техники для выгрузки/погрузки/работы на складской площадке также осуществляется через диспетчеров.</p>
+            `,
+                en: `
+                <h3>Vehicle Dispatch</h3>
+                <p>Vehicles (Transportation Means) are dispatched to appropriate locations by dispatchers.</p>
+                
+                <h3>Incoming Vehicle File</h3>
+                <p>The file is available at the following link:</p>
+                <p><a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank">Open Vehicle Dispatcher File</a></p>
+                
+                <h3>Dispatcher Contacts:</h3>
+                <ul>
+                    <li><a href="tel:+79812348559" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 234-85-59</a> Polozova Anastasia</li>
+                    <li><a href="tel:+79811493686" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 149-36-86</a> Stryukova Olga</li>
+                    <li><a href="tel:+79817232891" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 723-28-91</a> Amelina Ksenia</li>
+                </ul>
+                
+                <h3>Additional Equipment Request</h3>
+                <p>Requests for additional equipment for unloading/loading/warehouse operations are also processed through dispatchers.</p>
+            `,
+                zh: `
+                <h3>车辆调度</h3>
+                <p>车辆（运输工具）由调度员调度至相应地点。</p>
+                
+                <h3>到货车辆文件</h3>
+                <p>文件可通过以下链接访问：</p>
+                <p><a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank">打开车辆调度文件</a></p>
+                
+                <h3>调度员联系方式：</h3>
+                <ul>
+                    <li><a href="tel:+79812348559" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 234-85-59</a> Polozova Anastasia</li>
+                    <li><a href="tel:+79811493686" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 149-36-86</a> Stryukova Olga</li>
+                    <li><a href="tel:+79817232891" style="color: #1e40af; text-decoration: none; font-weight: 500;">+7 (981) 723-28-91</a> Amelina Ksenia</li>
+                </ul>
+                
+                <h3>额外设备申请</h3>
+                <p>装卸货或仓库作业所需的额外设备申请也需通过调度员处理。</p>
             `
+            }
         },
         '1.2': {
-            title: 'Правила предоставления информации в Отдел Учета',
-            content: `
+            title: {
+                ru: 'Правила предоставления информации в Отдел Учета',
+                en: 'Rules for Providing Information to Accounting Department',
+                zh: '向会计部门提供信息的规则'
+            },
+            content: {
+                ru: `
                 <h3>Требования к информации</h3>
                 <p>Информация, предоставляемая в Отдел Учета должна быть:</p>
                 <ul>
@@ -135,11 +484,69 @@ const warehouseData = {
                     <img src="images/1.2-3.png" alt="Пример неверного оформления - составное изображение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Примеры неверного оформления</em></p>
                 </div>
+            `,
+                en: `
+                <h3>Information Requirements</h3>
+                <p>Information provided to the Accounting Department must be:</p>
+                <ul>
+                    <li>Clear</li>
+                    <li>Readable</li>
+                    <li>Specific</li>
+                    <li>Unambiguous</li>
+                </ul>
+                
+                <h3>Photography Requirements</h3>
+                <p>Photographs must be provided in HD quality, without the need to rotate images to read information.</p>
+                
+                <h3>Important!</h3>
+                <p>If you observe that Chinese colleagues violate these requirements, it is necessary to make a remark requesting them to provide information in accordance with our requirements.</p>
+                
+                <p>Use of non-standard characters, replacement of letters with numbers, and similar manipulations lead to errors in 1C system operations, information distortion, and increased workload for your colleagues.</p>
+                
+                <h3 style="color: #dc2626; font-weight: bold;">Incorrect:</h3>
+                <div class="image-container">
+                    <img src="images/1.2-1.png" alt="Example of incorrect formatting - blurred codes" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.2-2.png" alt="Example of incorrect formatting - movement invoice" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.2-3.png" alt="Example of incorrect formatting - composite image" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Examples of incorrect formatting</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>信息要求</h3>
+                <p>提供给会计部门的信息必须：</p>
+                <ul>
+                    <li>清晰</li>
+                    <li>可读</li>
+                    <li>具体</li>
+                    <li>明确</li>
+                </ul>
+                
+                <h3>照片要求</h3>
+                <p>照片必须为高清质量，无需旋转即可读取信息。</p>
+                
+                <h3>重要！</h3>
+                <p>如发现中国同事违反这些要求，需提醒并要求其按照我们的要求提供信息。</p>
+                
+                <p>使用非标准字符、将字母替换为数字等操作会导致1C系统操作错误、信息失真，并增加同事的工作量。</p>
+                
+                <h3 style="color: #dc2626; font-weight: bold;">错误示例：</h3>
+                <div class="image-container">
+                    <img src="images/1.2-1.png" alt="错误格式示例 - 模糊代码" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.2-2.png" alt="错误格式示例 - 移动发票" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/1.2-3.png" alt="错误格式示例 - 合成图像" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>错误格式示例</em></p>
+                </div>
             `
+            }
         },
         '1.3': {
-            title: 'Проверка Документов перед выгрузкой',
-            content: `
+            title: {
+                ru: 'Проверка Документов перед выгрузкой',
+                en: 'Document Verification Before Unloading',
+                zh: '卸货前文件检查'
+            },
+            content: {
+                ru: `
                 <h3>Проверка документов</h3>
                 <p>Если поставщик материала присутствует в списке на проверку документов, то перед выгрузкой ТС необходимо предоставить фото лицевой страницы ТН в информационную группу в мессенджере MAX <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">«Документы на проверку»</a>.</p>
                 
@@ -164,11 +571,69 @@ const warehouseData = {
                 <div class="image-container">
                     <img src="images/1.3.png" alt="Пример публикации в группу" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                 </div>
+            `,
+                en: `
+                <h3>Document Verification</h3>
+                <p>If the material supplier is present in the document verification list, before unloading the vehicle, it is necessary to provide a photo of the front page of the Transportation Bill (TB) to the information group in MAX messenger <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">"Documents for Verification"</a>.</p>
+                
+                <h3>Supplier List</h3>
+                <p>The list is published in the group <a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank">"Information. Read Me"</a>. Search for the current version of the list in the group.</p>
+                
+                <h3>Document Set</h3>
+                <p>The document set must consist of:</p>
+                <ul>
+                    <li>TB/CMR</li>
+                    <li>PL (Packing List)</li>
+                </ul>
+                
+                <p>Acceptance of vehicles with a single TB without PL is allowed if unique cargo unit identifiers are specified in the TB.</p>
+                
+                <h3>Important!</h3>
+                <p>The warehouse keeper does NOT sign and does NOT stamp downtime sheets, waybills, acts, or other documents at the request of drivers during material acceptance, unless other instructions have been received from management.</p>
+                
+                <p style="color: red; font-weight: bold;">The warehouse keeper does NOT accept quality documents and technical documentation from drivers!</p>
+                
+                <h3>Example of posting to group:</h3>
+                <div class="image-container">
+                    <img src="images/1.3.png" alt="Example of posting to group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+            `,
+                zh: `
+                <h3>文件检查</h3>
+                <p>如果材料供应商在文件检查列表中，卸货前需将运输单（TB）首页照片发送至MAX信息群组 <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">"待检查文件"</a>。</p>
+                
+                <h3>供应商列表</h3>
+                <p>列表发布在群组 <a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank">"信息。请阅读"</a> 中。请在群组中查找最新版本。</p>
+                
+                <h3>文件套件</h3>
+                <p>文件套件必须包括：</p>
+                <ul>
+                    <li>TB/CMR</li>
+                    <li>PL（装箱单）</li>
+                </ul>
+                
+                <p>如果运输单中已注明货物单位的唯一标识符，允许仅凭运输单（无装箱单）接收车辆。</p>
+                
+                <h3>重要！</h3>
+                <p>除非收到管理层其他指示，仓库管理员不得应司机要求在材料验收时签署或盖章待机单、路单、报告或其他文件。</p>
+                
+                <p style="color: red; font-weight: bold;">仓库管理员不接受司机提供的质量文件和 technical documentation！</p>
+                
+                <h3>群组发布示例：</h3>
+                <div class="image-container">
+                    <img src="images/1.3.png" alt="群组发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
             `
+            }
         },
         '1.4': {
-            title: 'Начало выгрузки',
-            content: `
+            title: {
+                ru: 'Начало выгрузки',
+                en: 'Start of Unloading',
+                zh: '开始卸货'
+            },
+            content: {
+                ru: `
                 <h3>Порядок выгрузки</h3>
                 <p>Если ТН скидываются в группу <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">«Документы на проверку»</a>, то необходимо дождаться подтверждения от Отдела Учета о возможности выгрузить данное ТС.</p>
                 
@@ -181,11 +646,45 @@ const warehouseData = {
                 
                 <h3>Осмотр ТМЦ</h3>
                 <p>После заезда ТС на площадку необходимо осмотреть ТМЦ на предмет повреждений и соответствия сопроводительной документации.</p>
+            `,
+                en: `
+                <h3>Unloading Procedure</h3>
+                <p>If Transportation Bills (TB) are sent to the group <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">"Documents for Verification"</a>, it is necessary to wait for confirmation from the Accounting Department regarding the possibility of unloading this vehicle.</p>
+                
+                <p>If information about the delivery is not entered into 1C, or there are other obstacles to unloading, unloading is not performed until the Accounting Department notifies that the vehicle can be unloaded.</p>
+                
+                <h3>Unrestricted Unloading</h3>
+                <p>If it is NOT necessary to send TB to the group <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">"Documents for Verification"</a>, i.e., the supplier is not present in the document verification list, then the vehicle is unloaded without restrictions in queue order.</p>
+                
+                <p>Unloading queue can be viewed in the <a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank">dispatcher file for incoming vehicles</a>.</p>
+                
+                <h3>Material Inspection</h3>
+                <p>After the vehicle arrives at the site, it is necessary to inspect the materials for damage and compliance with accompanying documentation.</p>
+            `,
+                zh: `
+                <h3>卸货程序</h3>
+                <p>如运输单（TB）已发送至群组 <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">"待检查文件"</a>，需等待会计部门确认是否可以卸货。</p>
+                
+                <p>如交货信息未录入1C系统，或存在其他卸货障碍，在会计部门通知可以卸货之前不得进行卸货。</p>
+                
+                <h3>无障碍卸货</h3>
+                <p>如无需将运输单发送至群组 <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank">"待检查文件"</a>（即供应商不在文件检查列表中），车辆可按队列顺序无障碍卸货。</p>
+                
+                <p>卸货顺序可在 <a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank">到货车辆调度文件</a> 中查看。</p>
+                
+                <h3>材料检查</h3>
+                <p>车辆到达场地后，需检查材料是否有损坏，并核对是否与随附文件一致。</p>
             `
+            }
         },
         '1.5': {
-            title: 'Работа с Несоответствиями при Приемке ТМЦ',
-            content: `
+            title: {
+                ru: 'Работа с Несоответствиями при Приемке ТМЦ',
+                en: 'Handling Discrepancies During Material Acceptance',
+                zh: '材料验收时处理不符项'
+            },
+            content: {
+                ru: `
                 <h3>Виды несоответствий</h3>
                 <ol>
                     <li>Повреждения упаковки и самих ТМЦ</li>
@@ -206,11 +705,61 @@ const warehouseData = {
                 
                 <h3>Важно!</h3>
                 <p>Повреждения ТМЦ необходимо зафиксировать на фото НА ТС ДО ВЫГРУЗКИ (если заметить повреждения на этом этапе представляется возможным).</p>
+            `,
+                en: `
+                <h3>Types of Discrepancies</h3>
+                <ol>
+                    <li>Packaging and material damage</li>
+                    <li>Shortages</li>
+                    <li>Surpluses</li>
+                    <li>Mis-sorted items</li>
+                    <li>Missing labeling (PL, factory marking, etc.)</li>
+                </ol>
+                
+                <h3>Actions When Discrepancies Are Detected</h3>
+                <p>When discrepancies are detected after the vehicle arrives at the site, it is necessary to:</p>
+                <ol>
+                    <li>Document these discrepancies with photographs</li>
+                    <li>Send data with detailed description to the group <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank">"M-7 / Damage Acts"</a></li>
+                </ol>
+                
+                <p>The Accounting Department will prepare Act M7 and send it to the supplier.</p>
+                
+                <h3>Important!</h3>
+                <p>Material damage must be documented with photographs ON THE VEHICLE BEFORE UNLOADING (if it is possible to notice damage at this stage).</p>
+            `,
+                zh: `
+                <h3>不符项类型</h3>
+                <ol>
+                    <li>包装和材料损坏</li>
+                    <li>短缺</li>
+                    <li>多余</li>
+                    <li>错配</li>
+                    <li>缺少标记（装箱单、工厂标记等）</li>
+                </ol>
+                
+                <h3>发现不符项时的处理</h3>
+                <p>车辆到达场地后发现不符项时，需：</p>
+                <ol>
+                    <li>拍照记录不符项</li>
+                    <li>将详细说明的数据发送至群组 <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank">"M-7 / 损坏报告"</a></li>
+                </ol>
+                
+                <p>会计部门将编制M7报告并发送给供应商。</p>
+                
+                <h3>重要！</h3>
+                <p>材料损坏必须在卸货前在车辆上拍照记录（如在此阶段能够发现损坏）。</p>
             `
+            }
         },
         '1.6': {
-            title: 'Составление Акта М7',
-            content: `
+            title: {
+                ru: 'Составление Акта М7',
+                en: 'Preparation of Act M7',
+                zh: '编制M7报告'
+            },
+            content: {
+                ru: `
                 <h3>Когда составляется Акт М-7</h3>
                 <p>Акт М-7 составляется при наличии несоответствий:</p>
                 <ol>
@@ -245,11 +794,89 @@ const warehouseData = {
                     <img src="images/1.6.png" alt="Пример составления Акта М7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример составления Акта М7</em></p>
                 </div>
+            `,
+                en: `
+                <h3>When Act M-7 is Prepared</h3>
+                <p>Act M-7 is prepared when there are discrepancies:</p>
+                <ol>
+                    <li>Packaging and material damage</li>
+                    <li>Shortages</li>
+                    <li>Surpluses</li>
+                    <li>Mis-sorted items</li>
+                    <li>Missing labeling (PL, factory marking, etc.)</li>
+                </ol>
+                
+                <h3>Information Requirements</h3>
+                <p>When submitting information to the Accounting Department, the warehouse keeper must ensure the completeness, clarity, readability, specificity, and unambiguity of the provided information.</p>
+                
+                <h3>Information Submission Format</h3>
+                <p>To prepare Act M-7, the warehouse keeper must provide photos and information to the group <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank">"M-7 / Damage Acts"</a> in the following format:</p>
+                <ol>
+                    <li>Photo of the front page of the TB showing the TB number and driver's full name</li>
+                    <li>Photo of the vehicle tractor with a readable license plate</li>
+                    <li>Photo of the discrepancy</li>
+                    <li>Text stating the TB number, date and time of start and end of unloading</li>
+                    <li>Text with detailed description of the discrepancy</li>
+                </ol>
+                
+                <ul>
+                    <li>If shortage – in what quantity and which GM numbers are missing</li>
+                    <li>If surplus – which specific GM is extra</li>
+                    <li>If damage – what damage to which GM, etc.</li>
+                </ul>
+                
+                <h3>Example below:</h3>
+                <div class="image-container">
+                    <img src="images/1.6.png" alt="Example of Act M7 Preparation" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Act M7 Preparation</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>何时编制M-7报告</h3>
+                <p>出现以下不符项时需编制M-7报告：</p>
+                <ol>
+                    <li>包装和材料损坏</li>
+                    <li>短缺</li>
+                    <li>多余</li>
+                    <li>错配</li>
+                    <li>缺少标记（装箱单、工厂标记等）</li>
+                </ol>
+                
+                <h3>信息要求</h3>
+                <p>向会计部门提交信息时，仓库管理员需确保信息完整、清晰、可读、具体且明确。</p>
+                
+                <h3>信息提交格式</h3>
+                <p>为编制M-7报告，仓库管理员需按以下格式向群组 <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank">"M-7 / 损坏报告"</a> 提供照片和信息：</p>
+                <ol>
+                    <li>运输单首页照片，显示运输单号和司机姓名</li>
+                    <li>车辆牵引车照片，车牌清晰可见</li>
+                    <li>不符项照片</li>
+                    <li>文字说明运输单号、卸货开始和结束的日期和时间</li>
+                    <li>文字详细描述不符项</li>
+                </ol>
+                
+                <ul>
+                    <li>如为短缺 – 说明短缺数量和缺失的GM编号</li>
+                    <li>如为多余 – 说明具体多余的GM</li>
+                    <li>如为损坏 – 说明哪个GM的何种损坏等</li>
+                </ul>
+                
+                <h3>示例如下：</h3>
+                <div class="image-container">
+                    <img src="images/1.6.png" alt="M7报告编制示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>M7报告编制示例</em></p>
+                </div>
             `
+            }
         },
         '1.7': {
-            title: 'Выгрузка ТС',
-            content: `
+            title: {
+                ru: 'Выгрузка ТС',
+                en: 'Vehicle Unloading',
+                zh: '车辆卸货'
+            },
+            content: {
+                ru: `
                 <h3>Заказ техники</h3>
                 <p>Техника для выгрузки ТС на складской площадке заказывается диспетчерами вечером предыдущего дня.</p>
                 <p>Если необходимо увеличить количество техники - обращаться к диспетчерам.</p>
@@ -278,11 +905,77 @@ const warehouseData = {
                 
                 <h3>Повреждения при ПРР</h3>
                 <p>Если в ходе выгрузки груз был поврежден при ПРР, то в этом случае необходимо составить Акт о Повреждении ТМЦ.</p>
+            `,
+                en: `
+                <h3>Equipment Order</h3>
+                <p>Equipment for unloading vehicles at the warehouse site is ordered by dispatchers in the evening of the previous day.</p>
+                <p>If it is necessary to increase the amount of equipment - contact the dispatchers.</p>
+                <p>Current information about equipment can be viewed in the <a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank">dispatcher file</a>.</p>
+                
+                <h3>Unloading Location</h3>
+                <p>The unloading location is determined by the warehouse keeper independently, unless otherwise specified by management.</p>
+                <p>The unloading location is also determined by the material storage code.</p>
+                
+                <h3>Storage Codes</h3>
+                <p>Information on storage codes is present in the Packing List and in the Cargo Unit Statement:</p>
+                <ul>
+                    <li><strong>X</strong> - for storage on an open area, not under a canopy</li>
+                    <li><strong>XX</strong> - for storage on an open paved area, under a canopy</li>
+                    <li><strong>XXX</strong> - for storage in a closed, dry, unheated room</li>
+                    <li><strong>XXXX</strong> - for storage in a closed, dry, heated / cooled room</li>
+                    <li><strong>XXXXX</strong> - for transportation on heated vehicles</li>
+                </ul>
+                
+                <h3>Unloading Rules</h3>
+                <ul>
+                    <li>Unloading XX is carried out with subsequent covering with tarps by default, unless other instructions are received</li>
+                    <li>Unloading XXX when space is available in covered warehouses or containers is STRICTLY PROHIBITED without coordination with the Warehouse Manager or Deputy Manager</li>
+                    <li>Unloading XXXX when space is available in covered heated warehouses is STRICTLY PROHIBITED without coordination with the Warehouse Manager or Deputy Manager</li>
+                </ul>
+                
+                <h3>Damage During Cargo Handling</h3>
+                <p>If cargo was damaged during unloading in the course of cargo handling operations, it is necessary to prepare an Act of Material Damage.</p>
+            `,
+                zh: `
+                <h3>设备订购</h3>
+                <p>仓库场地卸货设备由调度员在前一天晚上订购。</p>
+                <p>如需增加设备数量，请联系调度员。</p>
+                <p>设备最新信息可在 <a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank">调度文件</a> 中查看。</p>
+                
+                <h3>卸货地点</h3>
+                <p>卸货地点由仓库管理员自行确定，除非管理层另有规定。</p>
+                <p>卸货地点也由材料存储代码决定。</p>
+                
+                <h3>存储代码</h3>
+                <p>存储代码信息见装箱单和货物单位清单：</p>
+                <ul>
+                    <li><strong>X</strong> - 露天存放，无遮阳棚</li>
+                    <li><strong>XX</strong> - 露天铺装场地存放，有遮阳棚</li>
+                    <li><strong>XXX</strong> - 封闭、干燥、无供暖房间存放</li>
+                    <li><strong>XXXX</strong> - 封闭、干燥、有供暖/制冷房间存放</li>
+                    <li><strong>XXXXX</strong> - 在供暖车辆上运输</li>
+                </ul>
+                
+                <h3>卸货规则</h3>
+                <ul>
+                    <li>XX类货物卸货后默认需用篷布覆盖，除非收到其他指示</li>
+                    <li>如有封闭仓库或集装箱空间，XXX类货物卸货前必须与仓库经理或副经理协调，否则严格禁止</li>
+                    <li>如有封闭供暖仓库空间，XXXX类货物卸货前必须与仓库经理或副经理协调，否则严格禁止</li>
+                </ul>
+                
+                <h3>装卸作业中的损坏</h3>
+                <p>如卸货过程中货物在装卸作业中受损，需编制材料损坏报告。</p>
             `
+            }
         },
         '1.8': {
-            title: 'Составление Акта о Повреждении ТМЦ',
-            content: `
+            title: {
+                ru: 'Составление Акта о Повреждении ТМЦ',
+                en: 'Preparation of Act of Material Damage',
+                zh: '编制材料损坏报告'
+            },
+            content: {
+                ru: `
                 <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
                 
                 <ol>
@@ -295,11 +988,45 @@ const warehouseData = {
                 
                 <h3>Обработка акта</h3>
                 <p>На основании вышеизложенных данных Отдел Учета подготавливает Акт о Повреждении ТМЦ и направляет полевому сотруднику на подпись.</p>
+            `,
+                en: `
+                <p>Information about Material Damage during Cargo Handling Operations must be sent to the group <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / Damage Acts</a> in the following format:</p>
+                
+                <ol>
+                    <li>Photo of the damage</li>
+                    <li>Photo of the pass of the riggers/forklift operator who performed the cargo handling operations</li>
+                    <li>Photo of the TB for which the cargo arrived and photo of the vehicle</li>
+                    <li>Description of exactly how the material damage occurred</li>
+                    <li>Description of the materials – GM number, PL, quantity of damaged materials</li>
+                </ol>
+                
+                <h3>Act Processing</h3>
+                <p>Based on the above data, the Accounting Department prepares the Act of Material Damage and sends it to the field employee for signature.</p>
+            `,
+                zh: `
+                <p>装卸作业中材料损坏信息需按以下格式发送至群组 <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / 损坏报告</a>：</p>
+                
+                <ol>
+                    <li>损坏照片</li>
+                    <li>进行装卸作业的索具工/叉车操作员的通行证照片</li>
+                    <li>货物对应的运输单照片和车辆照片</li>
+                    <li>材料损坏发生过程的详细描述</li>
+                    <li>材料描述 – GM编号、装箱单、损坏材料数量</li>
+                </ol>
+                
+                <h3>报告处理</h3>
+                <p>根据上述数据，会计部门编制材料损坏报告并发送给现场员工签字。</p>
             `
+            }
         },
         '1.9': {
-            title: 'Предоставление информации о выгруженном ТС в Отдел Учета',
-            content: `
+            title: {
+                ru: 'Предоставление информации о выгруженном ТС в Отдел Учета',
+                en: 'Providing Information on Unloaded Vehicle to Accounting Department',
+                zh: '向会计部门提供卸货车辆信息'
+            },
+            content: {
+                ru: `
                 <h3>Своевременность предоставления информации</h3>
                 <p>По окончании выгрузки ТС, необходимо направить информацию в Отдел Учета.</p>
                 
@@ -326,12 +1053,74 @@ const warehouseData = {
                 </div>
                 
                 <p><strong>На этом процесс приемки закончен.</strong></p>
+            `,
+                en: `
+                <h3>Timeliness of Information Provision</h3>
+                <p>Upon completion of vehicle unloading, it is necessary to send information to the Accounting Department.</p>
+                
+                <p>The Accounting Department works in a flow mode and makes entries at the moment information is received in groups. All TBs must be posted in 1C by the end of the working day. In this regard, information must be sent immediately upon completion of unloading and TBs should not be accumulated to ensure a continuous and uniform process of material accounting during the working day.</p>
+                
+                <h3>Information Requirements</h3>
+                <p>When submitting information to the Accounting Department, the warehouse keeper must ensure the completeness, clarity, readability, specificity, and unambiguity of the provided information.</p>
+                
+                <h3>Information Submission Format</h3>
+                <p>Information about the unloaded vehicle must be provided in the following format:</p>
+                <ol>
+                    <li>Photo of the front page of the TB</li>
+                    <li>Photo of the unloaded cargo on the storage lot</li>
+                    <li>Photo of packing lists or cargo unit statements placed on the materials. If this is not available (for example, in the case of pipe products), a photo of the factory marking is provided</li>
+                    <li>Text stating the TB number, quantity of GMs and numbers of these GMs, if this information is missing on the front page of the TB and PL</li>
+                    <li>Text stating the warehouse where unloading was performed and the storage lot</li>
+                    <li>If M-7 is prepared, add "Act M-7"</li>
+                </ol>
+                
+                <h3>Example below:</h3>
+                <div class="image-container">
+                    <img src="images/1.9.png" alt="Example of Information Provision" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Information Provision</em></p>
+                </div>
+                
+                <p><strong>The acceptance process is complete.</strong></p>
+            `,
+                zh: `
+                <h3>信息提供的及时性</h3>
+                <p>车辆卸货完成后，需向会计部门发送信息。</p>
+                
+                <p>会计部门以流程模式工作，在群组收到信息时立即进行记账。所有运输单必须在工作日内录入1C系统。因此，信息需在卸货完成后立即发送，不得积压运输单，以确保工作日内材料核算的连续性和均匀性。</p>
+                
+                <h3>信息要求</h3>
+                <p>向会计部门提交信息时，仓库管理员需确保信息完整、清晰、可读、具体且明确。</p>
+                
+                <h3>信息提交格式</h3>
+                <p>卸货车辆信息需按以下格式提供：</p>
+                <ol>
+                    <li>运输单首页照片</li>
+                    <li>存储场地上的卸货货物照片</li>
+                    <li>材料上的装箱单或货物单位清单照片。如无此信息（例如管材产品），则提供工厂标记照片</li>
+                    <li>如运输单首页和装箱单缺少信息，需文字说明运输单号、GM数量和编号</li>
+                    <li>文字说明进行卸货的仓库和存储场地</li>
+                    <li>如已编制M-7，需补充"报告M-7"</li>
+                </ol>
+                
+                <h3>示例如下：</h3>
+                <div class="image-container">
+                    <img src="images/1.9.png" alt="信息提供示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>信息提供示例</em></p>
+                </div>
+                
+                <p><strong>验收流程至此结束。</strong></p>
             `
+            }
         },
         // Глава 2: Хранение материала
         '2.1': {
-            title: 'Общие положения по хранению ТМЦ',
-            content: `
+            title: {
+                ru: 'Общие положения по хранению ТМЦ',
+                en: 'General Provisions for Material Storage',
+                zh: '材料存储总则'
+            },
+            content: {
+                ru: `
                 <h3>Пропускной контроль и безопасность</h3>
                 <p>Склад является закрытой территорией с пропускным контролем. Нахождение посторонних лиц на складе строго запрещено. Если замечены посторонние, либо сотрудники компании СС7 или других строительных организаций, не занятые в работе, кладовщик обязан сопроводить их до выхода со склада.</p>
                 
@@ -364,11 +1153,85 @@ const warehouseData = {
                 
                 <h3>Парко-хозяйственный день</h3>
                 <p>Каждое Воскресенье на площадке является ПХД (Парко-хозяйственный день), целью которого является уборка площадок от мусора и устранение замечаний по площадкам.</p>
+            `,
+                en: `
+                <h3>Access Control and Security</h3>
+                <p>The warehouse is a closed area with access control. The presence of unauthorized persons at the warehouse is strictly prohibited. If unauthorized persons are noticed, or employees of SS7 company or other construction organizations who are not engaged in work, the warehouse keeper must escort them to the warehouse exit.</p>
+                
+                <h3>Photo-Video Shooting and Material Inspection</h3>
+                <p>Any requests for photo-video shooting, "viewing materials" must be coordinated with management. Without management approval, such employees are prohibited from entering the warehouse. If there is approval from management, the warehouse keeper must accompany the employee on the warehouse territory, unless otherwise confirmed by management.</p>
+                
+                <h3>Territory Order</h3>
+                <p>Persons noticed eating, aimlessly walking, and spending time on the warehouse territory must be removed from it.</p>
+                
+                <p>The warehouse keeper is the person responsible for order at the storage site. The presence of foreign debris, scattered timber, and crating is unacceptable. The warehouse keeper must organize periodic cleaning of the territory with the help of laborers. Debris is removed to a dumpster. As the dumpster fills up, the warehouse keeper must order a dumpster replacement through dispatchers.</p>
+                
+                <p>Every morning, a general list of laborers engaged in work must be provided to the group <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Operational Officers</a> by the field employee assigned for this purpose.</p>
+                
+                <h3>Unloading of LMC Equipment and OOG Cargo</h3>
+                <p>LMC Equipment (Long Manufacturing Cycle Equipment) and OOG Cargo (Out-of-Gauge and Heavy Cargo) are unloaded on slabs; if there is no space on slabs, it is necessary to obtain management approval for unloading LMC Equipment and OOG Cargo on crushed stone.</p>
+                
+                <h3>Storage in Hangar Warehouses</h3>
+                <p>Storage of materials in hangar warehouses must be carried out taking into account their weight and dimensional characteristics and storage code. Warm hangar – XXXX. Cold hangar – XXX.</p>
+                
+                <h3>Rack Warehouses</h3>
+                <p>If weight and dimensional characteristics allow, materials must be placed in rack warehouses. The maximum permitted weight per storage cell of a rack warehouse is 3,000 kg. Dimensions for placement on racks must fit within the storage cell dimensions with a margin necessary for safe operation. If materials are not placed on standard Euro pallets, they must be pre-palletized and secured on the pallet with strapping bands.</p>
+                
+                <h3>Access to Materials and Marking</h3>
+                <p>For access to materials (when conducting QC and searching for materials), storage of materials on sites and covered non-rack hangars must be carried out with a spacing of at least 60 cm from each other. To simplify the search for materials, marking on the material must be accessible, preferably placing materials with marking facing the aisle.</p>
+                
+                <p>If material without marking is noticed at the warehouse site, it should be requested through the group <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Lost Items"</a>, printed and marked. It is acceptable to mark the material with a marker – write the GM number and PL.</p>
+                
+                <h3>Stacking Index</h3>
+                <p>Stacking index – an index that determines how many tiers cargo can be stacked. If kg is indicated, this is the number of kg that can be placed on top of the GM. If a number (0, 1, 2) is indicated, this is the number of GMs with the same weight that can be placed on top of the GM. With a stacking index of 0, placing anything on top of the GM is prohibited, unless otherwise directed by management.</p>
+                
+                <h3>Park-Household Day</h3>
+                <p>Every Sunday at the site is PHD (Park-Household Day), the purpose of which is to clean the sites from debris and eliminate remarks on the sites.</p>
+            `,
+                zh: `
+                <h3>通行控制和安全管理</h3>
+                <p>仓库为封闭区域，设有通行控制。严禁无关人员进入仓库。如发现无关人员，或SS7公司或其他建筑组织未参与工作的员工，仓库管理员必须护送其离开仓库。</p>
+                
+                <h3>拍照录像和材料检查</h3>
+                <p>任何拍照录像、"查看材料"的请求必须与管理层协调。未经管理层批准，禁止此类员工进入仓库。如有管理层批准，仓库管理员必须陪同员工在仓库区域内活动，除非管理层另有确认。</p>
+                
+                <h3>场地秩序</h3>
+                <p>在仓库场地内进食、无目的行走和逗留的人员必须被驱逐。</p>
+                
+                <p>仓库管理员是存储场地的秩序负责人。不允许存在外来垃圾、散落的木材和板条箱。仓库管理员必须组织使用临时工定期清理场地。垃圾需清理至垃圾箱。垃圾箱装满后，仓库管理员必须通过调度员订购垃圾箱更换。</p>
+                
+                <p>每天早晨，指定的现场员工需向群组 <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">运营专员</a> 提供参与工作的临时工总名单。</p>
+                
+                <h3>长周期制造设备和超限超重货物卸货</h3>
+                <p>长周期制造设备（LMC）和超限超重货物（OOG）需在平板上卸货；如平板上无空间，需获得管理层批准方可在碎石上卸货。</p>
+                
+                <h3>机库仓库存储</h3>
+                <p>机库仓库中的材料存储需考虑其重量和尺寸特性以及存储代码。暖机库 – XXXX。冷机库 – XXX。</p>
+                
+                <h3>货架仓库</h3>
+                <p>如重量和尺寸特性允许，材料需放置在货架仓库中。货架仓库每个存储单元的最大允许重量为3,000公斤。放置在货架上的尺寸必须适合存储单元尺寸，并留有安全操作所需的余量。如材料未放置在标准欧式托盘上，需预先装盘并用捆扎带固定在托盘上。</p>
+                
+                <h3>材料存取和标记</h3>
+                <p>为便于存取材料（进行质量控制和查找材料时），场地和封闭无货架机库中的材料存储必须彼此间隔至少60厘米。为简化材料查找，材料上的标记必须可见，最好将材料标记面向通道。</p>
+                
+                <p>如发现仓库场地上有未标记的材料，应通过群组 <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"丢失物品"</a> 请求标记，打印并标记材料。可用记号笔标记材料 – 写上GM编号和装箱单。</p>
+                
+                <h3>堆码指数</h3>
+                <p>堆码指数 – 确定货物可堆码层数的指数。如标注为公斤，则为可在GM顶部放置的公斤数。如标注为数字（0、1、2），则为可在GM顶部放置的相同重量GM数量。堆码指数为0时，禁止在GM顶部放置任何物品，除非管理层另有指示。</p>
+                
+                <h3>停车-内务日</h3>
+                <p>每周日场地为停车-内务日（PHD），目的是清理场地垃圾并消除场地问题。</p>
             `
+            }
         },
         '2.2': {
-            title: 'Коды хранения ТМЦ',
-            content: `
+            title: {
+                ru: 'Коды хранения ТМЦ',
+                en: 'Material Storage Codes',
+                zh: '材料存储代码'
+            },
+            content: {
+                ru: `
                 <h3>Коды хранения</h3>
                 <p>ТМЦ выгружаются и хранятся на площадках согласно кодам хранения. Информация по кодам хранения присутствует в Упаковочном Листе и в Ведомости Грузового Места (см. <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">Главу «Содержание Упаковочного Листа (УЛ)» 🔗</a> и <a href="#4.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание Ведомости Грузового места» 🔗</a>).</p>
                 
@@ -415,11 +1278,113 @@ const warehouseData = {
                 
                 <h4>ВЫГРУЗКА XXXX</h4>
                 <p><strong>Выгрузка XXXX на открытых площадках при наличии места в крытых отапливаемых складах СТРОГО ЗАПРЕЩЕНА без согласования Руководителя склада либо его Заместителя.</strong></p>
+            `,
+                en: `
+                <h3>Storage Codes</h3>
+                <p>Materials are unloaded and stored on sites according to storage codes. Information on storage codes is present in the Packing List and in the Cargo Unit Statement (see <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">Chapter "Contents of Packing List (PL)" 🔗</a> and <a href="#4.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Contents of Cargo Unit Statement" 🔗</a>).</p>
+                
+                <div class="table-container" style="overflow-x: auto; margin: 20px 0;">
+                    <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                        <thead>
+                            <tr style="background-color: #f8f9fa;">
+                                <th style="border: 1px solid #ddd; padding: 12px; text-align: left; font-weight: bold;">Code</th>
+                                <th style="border: 1px solid #ddd; padding: 12px; text-align: left; font-weight: bold;">Storage Conditions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">X</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">for storage on an open area, not under a canopy</td>
+                            </tr>
+                            <tr style="background-color: #f8f9fa;">
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">for storage on an open paved area, under a canopy</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XXX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">for storage in a closed, dry, unheated room</td>
+                            </tr>
+                            <tr style="background-color: #f8f9fa;">
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XXXX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">for storage in a closed, dry, heated / cooled room</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XXXXX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">for transportation on heated vehicles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Unloading Rules by Codes</h3>
+                
+                <h4>UNLOADING XX</h4>
+                <p>Unloading XX is carried out with subsequent covering with tarps by default, unless other instructions are received. Covering with tarps is performed by laborers. Organization of laborers' work and control over their presence is the responsibility of the warehouse keeper.</p>
+                
+                <h4>UNLOADING XXX</h4>
+                <p><strong>Unloading XXX on open sites when space is available in covered warehouses or containers is STRICTLY PROHIBITED without coordination with the Warehouse Manager or Deputy Manager.</strong></p>
+                
+                <h4>UNLOADING XXXX</h4>
+                <p><strong>Unloading XXXX on open sites when space is available in covered heated warehouses is STRICTLY PROHIBITED without coordination with the Warehouse Manager or Deputy Manager.</strong></p>
+            `,
+                zh: `
+                <h3>存储代码</h3>
+                <p>材料根据存储代码在场地卸货和存储。存储代码信息见装箱单和货物单位清单（参见 <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节"装箱单（PL）内容" 🔗</a> 和 <a href="#4.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">"货物单位清单内容" 🔗</a>）。</p>
+                
+                <div class="table-container" style="overflow-x: auto; margin: 20px 0;">
+                    <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                        <thead>
+                            <tr style="background-color: #f8f9fa;">
+                                <th style="border: 1px solid #ddd; padding: 12px; text-align: left; font-weight: bold;">代码</th>
+                                <th style="border: 1px solid #ddd; padding: 12px; text-align: left; font-weight: bold;">存储条件</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">X</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">露天存放，无遮阳棚</td>
+                            </tr>
+                            <tr style="background-color: #f8f9fa;">
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">露天铺装场地存放，有遮阳棚</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XXX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">封闭、干燥、无供暖房间存放</td>
+                            </tr>
+                            <tr style="background-color: #f8f9fa;">
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XXXX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">封闭、干燥、有供暖/制冷房间存放</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px; font-weight: bold;">XXXXX</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">在供暖车辆上运输</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>按代码的卸货规则</h3>
+                
+                <h4>XX类卸货</h4>
+                <p>XX类货物卸货后默认需用篷布覆盖，除非收到其他指示。篷布覆盖由临时工完成。组织临时工工作并监督其出勤是仓库管理员的责任。</p>
+                
+                <h4>XXX类卸货</h4>
+                <p><strong>如有封闭仓库或集装箱空间，XXX类货物在露天场地卸货前必须与仓库经理或副经理协调，否则严格禁止。</strong></p>
+                
+                <h4>XXXX类卸货</h4>
+                <p><strong>如有封闭供暖仓库空间，XXXX类货物在露天场地卸货前必须与仓库经理或副经理协调，否则严格禁止。</strong></p>
             `
+            }
         },
         '2.3': {
-            title: 'Перемещение ТМЦ между складами, перемещение ТМЦ по складу',
-            content: `
+            title: {
+                ru: 'Перемещение ТМЦ между складами, перемещение ТМЦ по складу',
+                en: 'Material Transfer Between Warehouses, Material Transfer Within Warehouse',
+                zh: '仓库间材料转移，仓库内材料转移'
+            },
+            content: {
+                ru: `
                 <h3>Процедура перемещения</h3>
                 <p>Для перемещения материала со склада необходимо предварительно убедиться в его наличии на лоте хранения и доступе для ПРР. Кладовщик должен заказать технику для проведения ПРР и транспортировки ТМЦ, учитывая габариты материала и место его расположения. Техника заказывается через диспетчеров.</p>
                 
@@ -440,11 +1405,61 @@ const warehouseData = {
                     <img src="images/image_12_1.png" alt="Пример постинга перемещения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример постинга перемещения</em></p>
                 </div>
+            `,
+                en: `
+                <h3>Transfer Procedure</h3>
+                <p>To transfer material from the warehouse, it is necessary to first verify its presence at the storage lot and access for cargo handling operations. The warehouse keeper must order equipment for conducting cargo handling operations and transporting materials, taking into account the material dimensions and its location. Equipment is ordered through dispatchers.</p>
+                
+                <h3>After Loading</h3>
+                <p>After loading materials, it is necessary to fill out the "Transfer and Acceptance Statement" (see <a href="#4.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 4.3 🔗</a>).</p>
+                
+                <h3>After Unloading</h3>
+                <p>After unloading materials at the receiving warehouse or cell, it is necessary to take photos of the Packing List (PL) or GM Statements for each cargo unit for accounting.</p>
+                
+                <h3>Document Submission</h3>
+                <p>The transfer statement together with photos of the Packing List (or GM Statements) and description of where from and where to the transfer was made must be provided to the group <a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"TRANSFERS"</a>.</p>
+                
+                <h3>Information for Accounting</h3>
+                <p>For any material transfer, complete information must be provided to the Accounting Department, including where from and where to the material was transferred, GM number, its characteristics or nomenclature, Packing List (PL), or Transportation Bill (TB) if available. Information must be provided timely immediately after the transfer.</p>
+                
+                <h3>Example of Transfer Posting</h3>
+                <div class="image-container">
+                    <img src="images/image_12_1.png" alt="Example of Transfer Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Transfer Posting</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>转移程序</h3>
+                <p>从仓库转移材料前，需先确认其在存储场地的存在以及可进行装卸作业。仓库管理员必须根据材料尺寸和位置订购装卸作业和运输设备。设备通过调度员订购。</p>
+                
+                <h3>装货后</h3>
+                <p>装货后，需填写"转移和验收清单"（参见 <a href="#4.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节4.3 🔗</a>）。</p>
+                
+                <h3>卸货后</h3>
+                <p>在接收仓库或单元卸货后，需为每个货物单位拍摄装箱单（PL）或GM清单照片以供核算。</p>
+                
+                <h3>文件提交</h3>
+                <p>转移清单连同装箱单（或GM清单）照片以及转移起点和终点的说明，需提交至群组 <a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"转移"</a>。</p>
+                
+                <h3>核算信息</h3>
+                <p>任何材料转移的完整信息需提交给会计部门，包括转移起点和终点、GM编号、其特征或名称、装箱单（PL），或运输单（TB）（如有）。信息需在转移后立即及时提供。</p>
+                
+                <h3>转移发布示例</h3>
+                <div class="image-container">
+                    <img src="images/image_12_1.png" alt="转移发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>转移发布示例</em></p>
+                </div>
             `
+            }
         },
         '2.4': {
-            title: 'Составление Акта о Повреждении ТМЦ',
-            content: `
+            title: {
+                ru: 'Составление Акта о Повреждении ТМЦ',
+                en: 'Preparation of Act of Material Damage',
+                zh: '编制材料损坏报告'
+            },
+            content: {
+                ru: `
                 <h3>Повреждения при складских операциях</h3>
                 <p>Повреждение ТМЦ может произойти при складских операциях, связанных с перемещением и проведением ПРР. В таких случаях необходимо составить «Акт о Повреждении ТМЦ».</p>
                 
@@ -461,22 +1476,84 @@ const warehouseData = {
                 
                 <h3>Обработка акта</h3>
                 <p>На основании предоставленных данных Отдел Учета составляет «Акт о Повреждении ТМЦ» и направляет его полевому сотруднику для подписи.</p>
+            `,
+                en: `
+                <h3>Damage During Warehouse Operations</h3>
+                <p>Material damage can occur during warehouse operations related to transfer and cargo handling operations. In such cases, it is necessary to prepare an "Act of Material Damage".</p>
+                
+                <h3>Damage Information</h3>
+                <p>Information about Material Damage during cargo handling operations must be sent to the group <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / Damage Acts</a> in the following format:</p>
+                
+                <ol>
+                    <li>Photo of the damage</li>
+                    <li>Photo of the pass of the riggers/forklift operator who performed the cargo handling operations</li>
+                    <li>Photo of the vehicle on which materials were loaded</li>
+                    <li>Description of exactly how the material damage occurred</li>
+                    <li>Description of the materials – GM number, PL, quantity of damaged materials</li>
+                </ol>
+                
+                <h3>Act Processing</h3>
+                <p>Based on the provided data, the Accounting Department prepares the "Act of Material Damage" and sends it to the field employee for signature.</p>
+            `,
+                zh: `
+                <h3>仓库作业中的损坏</h3>
+                <p>材料损坏可能发生在与转移和装卸作业相关的仓库作业中。在此情况下，需编制"材料损坏报告"。</p>
+                
+                <h3>损坏信息</h3>
+                <p>装卸作业中材料损坏信息需按以下格式发送至群组 <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / 损坏报告</a>：</p>
+                
+                <ol>
+                    <li>损坏照片</li>
+                    <li>进行装卸作业的索具工/叉车操作员的通行证照片</li>
+                    <li>装载材料的车辆照片</li>
+                    <li>材料损坏发生过程的详细描述</li>
+                    <li>材料描述 – GM编号、装箱单、损坏材料数量</li>
+                </ol>
+                
+                <h3>报告处理</h3>
+                <p>根据提供的数据，会计部门编制"材料损坏报告"并发送给现场员工签字。</p>
             `
+            }
         },
         '2.5': {
-            title: 'Перенаправление ТМЦ со склада для выгрузки на территории завода',
-            content: `
+            title: {
+                ru: 'Перенаправление ТМЦ со склада для выгрузки на территории завода',
+                en: 'Redirecting Materials from Warehouse for Unloading at Plant Territory',
+                zh: '从仓库重定向材料至工厂场地卸货'
+            },
+            content: {
+                ru: `
                 <h3>Процедура перенаправления</h3>
                 <p>Бывают случаи, когда ТС, приехавшее для выгрузки на склад, перенаправляется на территорию завода для последующей разгрузки в зоне монтажа. В таких ситуациях полевой сотрудник получает соответствующую информацию от Диспетчеров, либо китайские коллеги физически приезжают на склад и сообщают об этом.</p>
                 
                 <h3>Разрешение на выезд</h3>
                 <p>Перед тем как ТС будет отпущено со склада на завод, необходимо получить разрешение от Диспетчера, подтверждающее, что ТС имеет право покинуть склад.</p>
+            `,
+                en: `
+                <h3>Redirection Procedure</h3>
+                <p>There are cases when a vehicle that arrived for unloading at the warehouse is redirected to the plant territory for subsequent unloading in the installation area. In such situations, the field employee receives relevant information from Dispatchers, or Chinese colleagues physically come to the warehouse and inform about this.</p>
+                
+                <h3>Exit Permission</h3>
+                <p>Before the vehicle is released from the warehouse to the plant, it is necessary to obtain permission from the Dispatcher confirming that the vehicle has the right to leave the warehouse.</p>
+            `,
+                zh: `
+                <h3>重定向程序</h3>
+                <p>有时，到达仓库卸货的车辆会被重定向至工厂场地，以便在安装区域进行后续卸货。在此情况下，现场员工会从调度员处收到相关信息，或中国同事会亲自到仓库通知。</p>
+                
+                <h3>离场许可</h3>
+                <p>车辆从仓库离场前往工厂前，需获得调度员许可，确认车辆有权离开仓库。</p>
             `
+            }
         },
         // Глава 3: Выдача материала в монтаж
         '3.0': {
-            title: 'Общие сведения',
-            content: `
+            title: {
+                ru: 'Общие сведения',
+                en: 'General Information',
+                zh: '基本信息'
+            },
+            content: {
+                ru: `
                 <h3>Процедура выдачи материалов</h3>
                 <p>Выдача материала в монтаж проводится по Заявкам на Выдачу (См. <a href="#4.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.7 «Содержание Заявки на выдачу» 🔗</a>).</p>
                 
@@ -490,11 +1567,47 @@ const warehouseData = {
                 
                 <h3>Варианты выдачи</h3>
                 <p>ТМЦ по Заявке может забираться как целиком, так частично в течении определенного промежутка времени.</p>
+            `,
+                en: `
+                <h3>Material Issuance Procedure</h3>
+                <p>Material issuance for installation is conducted according to Issuance Requests (See <a href="#4.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 4.7 "Contents of Issuance Request" 🔗</a>).</p>
+                
+                <h3>Request Formation</h3>
+                <p>The issuance request is formed by the construction unit in 1C, then confirmed and approved by the accounting department.</p>
+                
+                <h3>Pipe Issuance Features</h3>
+                <p>When issuing pipes, sometimes meters are indicated in requests, and there are positions where the footage is not a multiple of the pipe length.</p>
+                
+                <p>In such cases, we issue a whole pipe, in the request we write the quantity in pieces (in parentheses the number of meters according to marking or in case of its absence according to actual length measurements made during issuance).</p>
+                
+                <h3>Issuance Options</h3>
+                <p>Materials according to the Request can be taken either completely or partially over a certain period of time.</p>
+            `,
+                zh: `
+                <h3>材料发放程序</h3>
+                <p>材料发放用于安装需根据发放申请进行（参见 <a href="#4.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节4.7"发放申请内容" 🔗</a>）。</p>
+                
+                <h3>申请形成</h3>
+                <p>发放申请由建筑单位在1C系统中形成，然后由会计部门确认和批准。</p>
+                
+                <h3>管道发放特点</h3>
+                <p>发放管道时，申请中有时会标注米数，且存在米数不是管道长度倍数的情况。</p>
+                
+                <p>在此情况下，我们发放整根管道，在申请中标注件数（括号内为根据标记的米数，如无标记则根据发放时的实际长度测量）。</p>
+                
+                <h3>发放选项</h3>
+                <p>根据申请的材料可在一定时间内全部或部分领取。</p>
             `
+            }
         },
         '3.1': {
-            title: 'Выдача по Заявке на Выдачу целыми ГМ',
-            content: `
+            title: {
+                ru: 'Выдача по Заявке на Выдачу целыми ГМ',
+                en: 'Issuance by Issuance Request for Whole Cargo Units',
+                zh: '按申请发放整件货物单位'
+            },
+            content: {
+                ru: `
                 <h3>Общие принципы</h3>
                 <p>Если в заявке указаны номера ГМ без указания «частичная выдача», то выдается целое грузовое место без разукомплектации.</p>
                 
@@ -558,11 +1671,147 @@ const warehouseData = {
                 </ul>
                 
                 <p><em>Реакции на сообщения полевых сотрудников не касаются, это внутренние обозначения Отдела Учета.</em></p>
+            `,
+                en: `
+                <h3>General Principles</h3>
+                <p>If the request specifies GM numbers without indicating "partial issuance", then a whole cargo unit is issued without unpacking.</p>
+                
+                <h3>Issuance Procedure Upon Arrival of Construction Team or Contractor</h3>
+                
+                <h4>1. REQUEST VERIFICATION</h4>
+                <p>Ensure that the request has an Accounting Department approval signed by an employee. Requests without Accounting Department approval are not processed unless coordinated with management.</p>
+                
+                <p>Check the request validity. The request validity period is 2 months from the signing date. After expiration (for example, 06.04.25), issuance is prohibited without management confirmation.</p>
+                
+                <div class="image-container">
+                    <img src="images/image_13_1.png" alt="Example of Accounting Department Approval" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Accounting Department Approval</em></p>
+                </div>
+                
+                <h4>2. REQUEST PHOTOGRAPHY</h4>
+                <p>The request must be photographed so that the request number and top lines of nomenclature positions are clearly visible. Send the photo to the group <a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"REQUEST VERIFICATION BEFORE ISSUANCE"</a> to obtain current balances. Without balance verification, issuance is prohibited.</p>
+                
+                <div class="image-container">
+                    <img src="images/image_13_2.png" alt="Example of Issuance Request" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Issuance Request</em></p>
+                </div>
+                
+                <h4>3. MATERIAL PREPARATION</h4>
+                <p>After balance verification, find the material on the site and prepare equipment for loading.</p>
+                
+                <h4>4. MARKING PHOTOGRAPHY</h4>
+                <p>Photograph the GM marking, Cargo Unit Statement, or Shipping Mark. If not found, photograph the Packing List (PL) or factory marking of the material (for example, pipe marking).</p>
+                
+                <h4>5. MATERIAL LOADING</h4>
+                <p>Load materials onto the vehicle. Crane equipment for SS7 construction teams is provided by the teams. If a forklift or additional crane is needed, contact dispatchers.</p>
+                
+                <h4>6. LOADED MATERIAL PHOTOGRAPHY</h4>
+                <p>Photograph materials loaded onto the vehicle.</p>
+                
+                <h4>7. FILLING OUT EXIT PASS</h4>
+                <p>Fill out the Exit Pass (see <a href="#4.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 4.8 🔗</a>).</p>
+                
+                <h4>8. POSTING ISSUANCE INFORMATION</h4>
+                <p>Post issuance information to the group <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"MATERIAL ISSUANCE BY REQUESTS"</a>. Information must include:</p>
+                
+                <ul>
+                    <li>Complete, readable, uncropped and non-inverted photos of the first page of the Issuance Request and all pages with receipt marks showing signatures of those receiving the material, quantity and date.</li>
+                    <li>Complete photo of "Material Exit Pass" with signatures of the warehouse keeper and cargo receiver.</li>
+                    <li>Photos of issued materials and their Packing List/GM Statement/Shipping Mark/marking for each GM. Without these photos, the Accounting Department cannot write off the material.</li>
+                    <li>Photo of the cargo receiver's pass. The construction team and contractor must match the "Applicant (Contractor)" field in the Issuance Request.</li>
+                    <li>Text stating the Request number, quantity (and name if possible) of issued GMs, numbers of released GMs, if possible and applicable. Also, state the Chinese Colleague who performed the issuance, if it was done by CC</li>
+                </ul>
+                
+                <h3>Example</h3>
+                <div class="image-container">
+                    <img src="images/image_14_1.png" alt="Example of Issuance Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Issuance Posting</em></p>
+                </div>
+                
+                <h3>Do not:</h3>
+                <ul>
+                    <li>Post issuance information for multiple requests in one post.</li>
+                    <li>Mix photos of materials from multiple requests in one post.</li>
+                    <li>Post unverified information about issuance of materials that were not actually issued.</li>
+                </ul>
+                
+                <p><em>Reactions to field employee messages are not relevant, these are internal Accounting Department designations.</em></p>
+            `,
+                zh: `
+                <h3>一般原则</h3>
+                <p>如申请中指定了GM编号但未注明"部分发放"，则发放整件货物单位，无需拆包。</p>
+                
+                <h3>建筑团队或承包商到达时的发放程序</h3>
+                
+                <h4>1. 申请验证</h4>
+                <p>确保申请有会计部门员工签字的批准。无会计部门批准的申请不予处理，除非与管理层协调。</p>
+                
+                <p>检查申请有效性。申请有效期为签字之日起2个月。过期后（例如，06.04.25），未经管理层确认禁止发放。</p>
+                
+                <div class="image-container">
+                    <img src="images/image_13_1.png" alt="会计部门批准示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>会计部门批准示例</em></p>
+                </div>
+                
+                <h4>2. 申请拍照</h4>
+                <p>需拍摄申请，确保申请编号和名称位置的前几行清晰可见。将照片发送至群组 <a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"发放前申请验证"</a> 以获取当前余额。未经余额验证，禁止发放。</p>
+                
+                <div class="image-container">
+                    <img src="images/image_13_2.png" alt="发放申请示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>发放申请示例</em></p>
+                </div>
+                
+                <h4>3. 材料准备</h4>
+                <p>余额验证后，在场地找到材料并准备装货设备。</p>
+                
+                <h4>4. 标记拍照</h4>
+                <p>拍摄GM标记、货物单位清单或Shipping Mark。如未找到，拍摄装箱单（PL）或材料的工厂标记（例如，管道标记）。</p>
+                
+                <h4>5. 材料装货</h4>
+                <p>将材料装到车辆上。SS7建筑团队的起重设备由团队提供。如需要叉车或额外起重机，请联系调度员。</p>
+                
+                <h4>6. 已装材料拍照</h4>
+                <p>拍摄已装到车辆上的材料。</p>
+                
+                <h4>7. 填写离场通行证</h4>
+                <p>填写离场通行证（参见 <a href="#4.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节4.8 🔗</a>）。</p>
+                
+                <h4>8. 发布发放信息</h4>
+                <p>将发放信息发布至群组 <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"按申请发放材料"</a>。信息需包括：</p>
+                
+                <ul>
+                    <li>发放申请首页和所有带有接收标记页面的完整、可读、未裁剪且未翻转的照片，显示接收材料人员的签名、数量和日期。</li>
+                    <li>带有仓库管理员和货物接收人签名的"材料离场通行证"完整照片。</li>
+                    <li>每个GM的已发放材料及其装箱单/GM清单/Shipping Mark/标记的照片。无这些照片，会计部门无法核销材料。</li>
+                    <li>货物接收人的通行证照片。建筑团队和承包商必须与发放申请中的"申请人（承包商）"字段一致。</li>
+                    <li>文字说明申请编号、已发放GM的数量（如可能，包括名称）、已释放GM的编号（如可能且适用）。如由中国同事执行发放，也需说明。</li>
+                </ul>
+                
+                <h3>示例</h3>
+                <div class="image-container">
+                    <img src="images/image_14_1.png" alt="发放发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>发放发布示例</em></p>
+                </div>
+                
+                <h3>请勿：</h3>
+                <ul>
+                    <li>在一个帖子中发布多个申请的发放信息。</li>
+                    <li>在一个帖子中混合多个申请的材料照片。</li>
+                    <li>发布未经验证的关于实际未发放材料的发放信息。</li>
+                </ul>
+                
+                <p><em>对现场员工消息的反应不相关，这些是会计部门的内部标识。</em></p>
             `
+            }
         },
         '3.2': {
-            title: 'Частичная Выдача',
-            content: `
+            title: {
+                ru: 'Частичная Выдача',
+                en: 'Partial Issuance',
+                zh: '部分发放'
+            },
+            content: {
+                ru: `
                 <h3>Условия частичной выдачи</h3>
                 <p>Если в Заявке на Выдачу в пункте Примечания указаны номера ГМ с указания «частичная выдача», то Грузоместо выдается частично с разукомплектацией.</p>
                 
@@ -590,11 +1839,75 @@ const warehouseData = {
                 
                 <h3>Повторное вскрытие ГМ</h3>
                 <p><strong>Если ГМ вскрывается повторно и при первом вскрытии остатки были сверены</strong> (На ГМ написано «Посчитано»), то следует произвести выдачу в общем порядке с последующим постингом в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Выдача ТМЦ по Заявкам»</a>.</p>
+            `,
+                en: `
+                <h3>Partial Issuance Conditions</h3>
+                <p>If the Issuance Request in the Notes section specifies GM numbers with "partial issuance" indication, then the Cargo Unit is issued partially with unpacking.</p>
+                
+                <p>In this case, the GM should be unpacked and only the nomenclature positions specified in the Issuance Request in the required quantity should be issued.</p>
+                
+                <h3>First GM Opening</h3>
+                <p><strong>If the GM is opened for the first time</strong>, then after partial issuance it is necessary to recount and verify the balances of <strong>all</strong> material in the GM with the Cargo Unit Statement. If the Cargo Unit Statement for the GM is missing, or an electronic version is required for verification, the Statement can be requested through the group <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Lost Items"</a>.</p>
+                
+                <p>After recounting, it is necessary to write "Counted" on the GM with a marker on two adjacent sides.</p>
+                
+                <h3>Discrepancy Detection</h3>
+                <p>If discrepancies are detected during recounting (shortage, surplus, mis-sorted items, damage/breakage), it is necessary to prepare an Inspection Act (see <a href="#3.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 3.3 "Preparation of Inspection Act" 🔗</a>). The Act must be sent to the group <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Inspection Acts"</a>. On GMs with discrepancies, write with a marker on two adjacent sides "Counted, Act prepared". It is also necessary to ensure that the GM can be identified (PL/GM Statement is attached/GM is marked).</p>
+                
+                <h3>Partial Issuance Example</h3>
+                <p>GM No. 1 (previously no issuance was made from this location) according to the 1C system contains 5 nomenclature positions of bolts. Each has 10 pieces. According to the Issuance Request, it is necessary to issue 3 nomenclature positions of 3 pieces each. In this case, it is necessary to unpack GM No. 1 and issue 9 bolts from it (3 pieces of each name).</p>
+                
+                <p>After issuance, it is necessary to recount the materials in the GM. GM No. 1 should have 41 bolts remaining - 2 nomenclature positions of 10 pieces each and 3 nomenclature positions of 4 pieces each.</p>
+                
+                <p>If physically everything matches and 41 bolts remain in the GM, then the issuance can be posted to the group <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Issuance by Requests"</a>. Write "Counted" on the GM with a marker.</p>
+                
+                <p>If physically the material balances do not match what should remain according to the 1C system, then it is necessary to post the issuance to the group <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Issuance by Requests"</a>, and then prepare an Inspection Act. Write "Counted. Act prepared" on the GM with a marker.</p>
+                
+                <h3>Remaining Positions</h3>
+                <p>Other nomenclature positions not included in this request should remain in the box at the previous storage location, or should be moved to another storage location (for example, container/hangar) with subsequent filling out of the Transfer Statement.</p>
+                
+                <h3>Repeated GM Opening</h3>
+                <p><strong>If the GM is opened repeatedly and balances were verified during the first opening</strong> (On the GM it is written "Counted"), then issuance should be performed in the general order with subsequent posting to the group <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Issuance by Requests"</a>.</p>
+            `,
+                zh: `
+                <h3>部分发放条件</h3>
+                <p>如发放申请在备注部分指定了GM编号并注明"部分发放"，则货物单位需部分发放并拆包。</p>
+                
+                <p>在此情况下，需拆包GM，仅发放申请中指定的名称位置，数量按需。</p>
+                
+                <h3>首次打开GM</h3>
+                <p><strong>如GM首次打开</strong>，部分发放后需重新清点并核对GM中<strong>所有</strong>材料与货物单位清单的余额。如GM的货物单位清单缺失，或需要电子版进行核对，可通过群组 <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"丢失物品"</a> 请求清单。</p>
+                
+                <p>重新清点后，需用记号笔在GM的两个相邻面上标注"已清点"。</p>
+                
+                <h3>发现不符项</h3>
+                <p>如重新清点时发现不符项（短缺、多余、错配、损坏/破损），需编制检查报告（参见 <a href="#3.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节3.3"编制检查报告" 🔗</a>）。报告需发送至群组 <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"材料检查报告"</a>。对于存在不符项的GM，用记号笔在两个相邻面上标注"已清点，已编制报告"。还需确保GM可识别（已粘贴装箱单/GM清单/GM已标记）。</p>
+                
+                <h3>部分发放示例</h3>
+                <p>GM № 1（此前未从此位置发放）根据1C系统包含5个名称位置的螺栓。每个10件。根据发放申请，需发放3个名称位置，每个3件。在此情况下，需拆包GM № 1，从中发放9个螺栓（每个名称3件）。</p>
+                
+                <p>发放后，需重新清点GM中的材料。GM №1应剩余41个螺栓 - 2个名称位置各10件，3个名称位置各4件。</p>
+                
+                <p>如实际清点一致，GM中剩余41个螺栓，则可发布发放信息至群组 <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"按申请发放材料"</a>。用记号笔在GM上标注"已清点"。</p>
+                
+                <p>如实际材料余额与1C系统应剩余数量不一致，需先发布发放信息至群组 <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"按申请发放材料"</a>，然后编制检查报告。用记号笔在GM上标注"已清点。已编制报告"。</p>
+                
+                <h3>其余位置</h3>
+                <p>未包含在此申请中的其他名称位置应保留在原存储位置的箱子中，或应移至其他存储位置（例如，集装箱/机库），并随后填写转移清单。</p>
+                
+                <h3>再次打开GM</h3>
+                <p><strong>如GM再次打开且首次打开时余额已核对</strong>（GM上标注"已清点"），则按一般程序进行发放，随后发布至群组 <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"按申请发放材料"</a>。</p>
             `
+            }
         },
         '3.3': {
-            title: 'Составление Акта Осмотра',
-            content: `
+            title: {
+                ru: 'Составление Акта Осмотра',
+                en: 'Preparation of Inspection Act',
+                zh: '编制检查报告'
+            },
+            content: {
+                ru: `
                 <h3>Назначение акта осмотра</h3>
                 <p>Акт осмотра составляется в случае, если при частичной выдаче обнаружена недостача, излишки, пересорт или повреждение материала. Это касается как ТМЦ, прошедших ВК, так и не прошедших. При обнаружении несоответствий необходимо вызвать сотрудника Бизнес-Тренд для совместного осмотра этих ТМЦ.</p>
                 
@@ -610,11 +1923,51 @@ const warehouseData = {
                 </ol>
                 
                 <p>На основании предоставленной информации Отдел Учета составляет Акт Осмотра и направляет его для подписи полевому сотруднику и сотруднику Бизнес-Тренда.</p>
+            `,
+                en: `
+                <h3>Purpose of Inspection Act</h3>
+                <p>An Inspection Act is prepared if during partial issuance a shortage, surplus, mis-sorted items, or material damage is detected. This applies to both materials that have passed QC and those that have not. When discrepancies are detected, it is necessary to call a Business-Trend employee for joint inspection of these materials.</p>
+                
+                <h3>Actions When Discrepancies Are Detected</h3>
+                
+                <p>When discrepancies are detected, the field employee must post the following information to the group <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Inspection Acts"</a>:</p>
+                
+                <ol>
+                    <li>Photo of materials</li>
+                    <li>GM number and PL</li>
+                    <li>Material name according to Cargo Unit Statement</li>
+                    <li>Description of the discrepancy</li>
+                </ol>
+                
+                <p>Based on the provided information, the Accounting Department prepares the Inspection Act and sends it for signature to the field employee and Business-Trend employee.</p>
+            `,
+                zh: `
+                <h3>检查报告的用途</h3>
+                <p>如在部分发放时发现短缺、多余、错配或材料损坏，需编制检查报告。这适用于已通过质量控制和未通过质量控制的材料。发现不符项时，需联系Business-Trend员工共同检查这些材料。</p>
+                
+                <h3>发现不符项时的处理</h3>
+                
+                <p>发现不符项时，现场员工需将以下信息发布至群组 <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"材料检查报告"</a>：</p>
+                
+                <ol>
+                    <li>材料照片</li>
+                    <li>GM编号和装箱单</li>
+                    <li>根据货物单位清单的材料名称</li>
+                    <li>不符项描述</li>
+                </ol>
+                
+                <p>根据提供的信息，会计部门编制检查报告并发送给现场员工和Business-Trend员工签字。</p>
             `
+            }
         },
         '3.4': {
-            title: 'Составление Акта о Повреждении ТМЦ',
-            content: `
+            title: {
+                ru: 'Составление Акта о Повреждении ТМЦ',
+                en: 'Preparation of Act of Material Damage',
+                zh: '编制材料损坏报告'
+            },
+            content: {
+                ru: `
                 <p>При приемке, выдаче и перемещении ТМЦ по площадке может возникнуть порча/бой материала. В этом случае необходимо составить Акт о Повреждении ТМЦ.</p>
                 
                 <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
@@ -628,12 +1981,48 @@ const warehouseData = {
                 </ol>
                 
                 <p>На основании вышеизложенных данных Отдел Учета подготавливает Акт о Повреждении ТМЦ и направляет полевому сотруднику на подпись.</p>
+            `,
+                en: `
+                <p>During acceptance, issuance, and transfer of materials on the site, material damage/breakage may occur. In this case, it is necessary to prepare an Act of Material Damage.</p>
+                
+                <p>Information about Material Damage during cargo handling operations must be sent to the group <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / Damage Acts</a> in the following format:</p>
+                
+                <ol>
+                    <li>Photo of the damage</li>
+                    <li>Photo of the pass of the riggers/forklift operator who performed the cargo handling operations</li>
+                    <li>Photo of the request for which cargo was issued and photo of the vehicle</li>
+                    <li>Description of exactly how the material damage occurred</li>
+                    <li>Description of the materials – GM number, PL, quantity of damaged materials</li>
+                </ol>
+                
+                <p>Based on the above data, the Accounting Department prepares the Act of Material Damage and sends it to the field employee for signature.</p>
+            `,
+                zh: `
+                <p>在场地进行材料验收、发放和转移时，可能发生材料损坏/破损。在此情况下，需编制材料损坏报告。</p>
+                
+                <p>装卸作业中材料损坏信息需按以下格式发送至群组 <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / 损坏报告</a>：</p>
+                
+                <ol>
+                    <li>损坏照片</li>
+                    <li>进行装卸作业的索具工/叉车操作员的通行证照片</li>
+                    <li>发放货物的申请照片和车辆照片</li>
+                    <li>材料损坏发生过程的详细描述</li>
+                    <li>材料描述 – GM编号、装箱单、损坏材料数量</li>
+                </ol>
+                
+                <p>根据上述数据，会计部门编制材料损坏报告并发送给现场员工签字。</p>
             `
+            }
         },
         // Глава 4: Документация
         '4.1': {
-            title: 'Правила оформления ТН',
-            content: `
+            title: {
+                ru: 'Правила оформления ТН',
+                en: 'Transportation Bill Formatting Rules',
+                zh: '运输单格式规则'
+            },
+            content: {
+                ru: `
                 <h3>Общие требования</h3>
                 <p>Транспортная накладная в редакции Постановления Правительства РФ от 30.11.2021 №2116 состоит из 12 пунктов.</p>
                 
@@ -674,11 +2063,101 @@ const warehouseData = {
                     <img src="images/image_19_1.png" alt="Пример заполненной ТН - вторая страница" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заполненной транспортной накладной</em></p>
                 </div>
+            `,
+                en: `
+                <h3>General Requirements</h3>
+                <p>The Transportation Bill in the version of the Decree of the Government of the Russian Federation dated 30.11.2021 No. 2116 consists of 12 items.</p>
+                
+                <p>In the TB, attention should be paid to the presence of:</p>
+                
+                <h3>Mandatory Items for Verification</h3>
+                
+                <h4>a) TB Number</h4>
+                <p>Check for the presence of the transportation bill number.</p>
+                
+                <h4>b) Item 2 "Consignor"</h4>
+                <p>Should indicate LLC "Chinese National Chemical Engineering and Construction Corporation Seven".</p>
+                
+                <h4>c) Item 3 "Cargo"</h4>
+                <p>Cargo name and number of units. GM numbers may be present. If information is missing or incorrect, it is necessary to add it by hand, write "Believe corrected", and sign.</p>
+                
+                <div class="image-container">
+                    <img src="images/image_17_1.png" alt="Example of TB Item 3" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of TB Item 3 with corrections</em></p>
+                </div>
+                
+                <h4>d) Item 4 "Accompanying Documents"</h4>
+                <p>PL numbers must be present. If information is missing, it is necessary to add it by hand, write "Believe corrected", and sign.</p>
+                
+                <h4>e) Item 8 "Cargo Acceptance"</h4>
+                <p>There should be a driver's signature for cargo acceptance from the consignor.</p>
+                <p><strong style="color: #dc2626;">WITHOUT THIS SIGNATURE, DO NOT SIGN THE TB</strong></p>
+                
+                <h4>f) Item 10 "Cargo Issuance"</h4>
+                <p>Driver's signature for cargo issuance.</p>
+                <p><strong style="color: #dc2626;">WITHOUT THIS SIGNATURE, DO NOT SIGN THE TB</strong></p>
+                
+                <p>Additionally for item 10: verify the number of cargo units (should match item 3), enter the material acceptance date, vehicle arrival and departure time, name stamp, signature and seal.</p>
+                
+                <h3>Example of Completed TB</h3>
+                <div class="image-container">
+                    <img src="images/image_18_1.png" alt="Example of Completed TB - First Page" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_19_1.png" alt="Example of Completed TB - Second Page" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Completed Transportation Bill</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>一般要求</h3>
+                <p>根据俄罗斯联邦政府2021年11月30日第2116号法令版本的运输单包含12项。</p>
+                
+                <p>运输单中需注意以下内容：</p>
+                
+                <h3>必检项目</h3>
+                
+                <h4>a) 运输单号</h4>
+                <p>检查是否存在运输单号。</p>
+                
+                <h4>b) 第2项"发货人"</h4>
+                <p>应标注"中国化学工程第七建设有限公司"。</p>
+                
+                <h4>c) 第3项"货物"</h4>
+                <p>货物名称和件数。可能包含GM编号。如信息缺失或不正确，需手写补充，标注"更正无误"，并签字。</p>
+                
+                <div class="image-container">
+                    <img src="images/image_17_1.png" alt="运输单第3项示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>带更正的运输单第3项示例</em></p>
+                </div>
+                
+                <h4>d) 第4项"随附文件"</h4>
+                <p>必须包含装箱单编号。如信息缺失，需手写补充，标注"更正无误"，并签字。</p>
+                
+                <h4>e) 第8项"货物接收"</h4>
+                <p>应有司机从发货人处接收货物的签名。</p>
+                <p><strong style="color: #dc2626;">无此签名，不得签署运输单</strong></p>
+                
+                <h4>f) 第10项"货物发放"</h4>
+                <p>司机发放货物的签名。</p>
+                <p><strong style="color: #dc2626;">无此签名，不得签署运输单</strong></p>
+                
+                <p>第10项补充：核对货物单位数量（应与第3项一致），填写材料验收日期、车辆到达和离开时间、姓名印章、签名和公章。</p>
+                
+                <h3>已填写运输单示例</h3>
+                <div class="image-container">
+                    <img src="images/image_18_1.png" alt="已填写运输单示例 - 第一页" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <img src="images/image_19_1.png" alt="已填写运输单示例 - 第二页" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>已填写运输单示例</em></p>
+                </div>
             `
+            }
         },
         '4.2': {
-            title: 'Правила Оформления CMR',
-            content: `
+            title: {
+                ru: 'Правила Оформления CMR',
+                en: 'CMR Formatting Rules',
+                zh: 'CMR格式规则'
+            },
+            content: {
+                ru: `
                 <h3>Обязательные пункты для проверки</h3>
                 <p>В CMR необходимо обращать внимание на наличие:</p>
                 
@@ -705,11 +2184,73 @@ const warehouseData = {
                     <img src="images/image_20_1.png" alt="Пример CMR" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример оформления CMR</em></p>
                 </div>
+            `,
+                en: `
+                <h3>Mandatory Items for Verification</h3>
+                <p>In CMR, attention should be paid to the presence of:</p>
+                
+                <h4>a) CMR Number</h4>
+                <p>Check for the presence of the international consignment note number.</p>
+                
+                <h4>b) Item 2 "Consignee"</h4>
+                <p>Should indicate LLC "BHK"/ "VSS" LLC.</p>
+                
+                <h4>c) Item 5 "Attached Documents"</h4>
+                <p>PL Number must be present.</p>
+                
+                <h4>d) Items 6, 7, 8, 9</h4>
+                <p>Cargo name, type of packaging, quantity and weight.</p>
+                
+                <h4>e) Original Seal</h4>
+                <p>We always take the ORIGINAL for provision to the customer. If drivers demand to give them the original – do not sign the documents.</p>
+                
+                <h4>f) Item 24</h4>
+                <p>Enter the acceptance date, arrival and departure time, place name stamp, SS7 seal and signature.</p>
+                
+                <h3>Example of CMR Formatting</h3>
+                <div class="image-container">
+                    <img src="images/image_20_1.png" alt="Example of CMR" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of CMR Formatting</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>必检项目</h3>
+                <p>CMR中需注意以下内容：</p>
+                
+                <h4>a) CMR编号</h4>
+                <p>检查是否存在国际货运单编号。</p>
+                
+                <h4>b) 第2项"收货人"</h4>
+                <p>应标注"BHK有限责任公司"/"VSS有限责任公司"。</p>
+                
+                <h4>c) 第5项"随附文件"</h4>
+                <p>必须包含装箱单编号。</p>
+                
+                <h4>d) 第6、7、8、9项</h4>
+                <p>货物名称、包装类型、数量和重量。</p>
+                
+                <h4>e) 原始印章</h4>
+                <p>我们始终保留原件以提供给客户。如司机要求将原件交给他们，不得签署文件。</p>
+                
+                <h4>f) 第24项</h4>
+                <p>填写验收日期、到达和离开时间、姓名印章、SS7公章和签名。</p>
+                
+                <h3>CMR格式示例</h3>
+                <div class="image-container">
+                    <img src="images/image_20_1.png" alt="CMR示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>CMR格式示例</em></p>
+                </div>
             `
+            }
         },
         '4.3': {
-            title: 'Правила заполнения «Ведомости на перемещение и приемку ТМЦ»',
-            content: `
+            title: {
+                ru: 'Правила заполнения «Ведомости на перемещение и приемку ТМЦ»',
+                en: 'Rules for Filling Out "Transfer and Acceptance Statement for Materials"',
+                zh: '填写"材料转移和验收清单"规则'
+            },
+            content: {
+                ru: `
                 <p>Ведомость на перемещение и приемку заполняется в трех случаях:</p>
                 
                 <ol>
@@ -754,11 +2295,109 @@ const warehouseData = {
                     <img src="images/4.3.png" alt="Пример ведомости на перемещение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример ведомости на перемещение и приемку ТМЦ</em></p>
                 </div>
+            `,
+                en: `
+                <p>The Transfer and Acceptance Statement is filled out in three cases:</p>
+                
+                <ol>
+                    <li><strong>Transfer of materials between warehouses.</strong> For example, transfer from S23-1 to Hangar 08-07. Or from S23-2 to S23-5. Or from hangar 08-01 to hangar 07-10.</li>
+                    <li><strong>Transfer of materials within a warehouse.</strong> For example, transfer within one hangar 08-01. Or within warehouse S23-1.</li>
+                    <li><strong>When accepting a large number of cargo units placed in different warehouse cells.</strong> Mostly applicable to hangar warehouses. For example, acceptance of 20 GMs in 20 different cells. When accepting this type, the warehouse keeper fills out this Statement and sends it to Accounting in the group "TB for Accounting" together with TB, photos, and complete acceptance information.</li>
+                </ol>
+                
+                <h3>Must be specified:</h3>
+                
+                <h4>a) Type of transfer</h4>
+                <p>It is necessary to underline the type of material transfer.</p>
+                
+                <h4>b) Transfer date</h4>
+                <p>Specify the date of the transfer.</p>
+                
+                <h4>c) Sender warehouse</h4>
+                <p>Specify the sender warehouse if transfer is made between warehouses.</p>
+                
+                <h4>d) Receiver warehouse</h4>
+                <p>Specify the receiver warehouse, which is the warehouse where the transfer is made, or where the material is accepted.</p>
+                
+                <h4>e) Responsible person's full name</h4>
+                <p>Specify Last Name First Name Middle Initial.</p>
+                
+                <h4>f) Cargo unit numbers</h4>
+                <p>Specify cargo unit numbers.</p>
+                
+                <h4>g) Material name and characteristics</h4>
+                <p>If possible, specify the name and characteristics of materials that will help Accounting identify the GM. You can write a general nomenclature name (pipe, cable, electrical, fire parts, ZRA, etc.) if there is no PL on the GM that specifies the material name.</p>
+                
+                <h4>h) Storage cell/lot (from)</h4>
+                <p>Specify the storage cell/lot from which the material is sent in case of transfer between warehouses and within a warehouse.</p>
+                
+                <h4>i) Storage cell/lot (to)</h4>
+                <p>Specify the storage cell/lot where the material is received.</p>
+                
+                <h4>j) PL number, TB number, notes</h4>
+                <p>Specify the PL number if it is placed on the material, TB number (in case of material acceptance in a hangar), notes (additional information helping to identify the material in 1C).</p>
+                
+                <div class="image-container">
+                    <img src="images/4.3.png" alt="Example of Transfer Statement" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Transfer and Acceptance Statement for Materials</em></p>
+                </div>
+            `,
+                zh: `
+                <p>转移和验收清单在以下三种情况下填写：</p>
+                
+                <ol>
+                    <li><strong>仓库间材料转移。</strong> 例如，从S23-1转移至机库08-07。或从S23-2转移至S23-5。或从机库08-01转移至机库07-10。</li>
+                    <li><strong>仓库内材料转移。</strong> 例如，在机库08-01内转移。或在仓库S23-1内转移。</li>
+                    <li><strong>验收大量放置在不同仓库单元中的货物单位时。</strong> 主要适用于机库仓库。例如，在20个不同单元中验收20个GM。验收此类材料时，仓库管理员填写此清单，并将其与运输单、照片和完整验收信息一起发送至会计部门的"待核算运输单"群组。</li>
+                </ol>
+                
+                <h3>必须注明：</h3>
+                
+                <h4>a) 转移类型</h4>
+                <p>需标注材料转移类型。</p>
+                
+                <h4>b) 转移日期</h4>
+                <p>注明转移日期。</p>
+                
+                <h4>c) 发货仓库</h4>
+                <p>如为仓库间转移，需注明发货仓库。</p>
+                
+                <h4>d) 收货仓库</h4>
+                <p>注明收货仓库，即进行转移的仓库或接收材料的仓库。</p>
+                
+                <h4>e) 负责人姓名</h4>
+                <p>注明姓氏、名字和中间名首字母。</p>
+                
+                <h4>f) 货物单位编号</h4>
+                <p>注明货物单位编号。</p>
+                
+                <h4>g) 材料名称和特征</h4>
+                <p>如可能，注明有助于会计部门识别GM的材料名称和特征。如GM上无指定材料名称的装箱单，可标注一般名称（管道、电缆、电气、消防零件、ZRA等）。</p>
+                
+                <h4>h) 存储单元/场地（来源）</h4>
+                <p>如为仓库间或仓库内转移，需注明材料发出的存储单元/场地。</p>
+                
+                <h4>i) 存储单元/场地（去向）</h4>
+                <p>注明材料接收的存储单元/场地。</p>
+                
+                <h4>j) 装箱单编号、运输单编号、备注</h4>
+                <p>如材料上贴有装箱单，需注明装箱单编号；如为机库验收材料，需注明运输单编号；备注（有助于在1C系统中识别材料的补充信息）。</p>
+                
+                <div class="image-container">
+                    <img src="images/4.3.png" alt="转移清单示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>材料转移和验收清单示例</em></p>
+                </div>
             `
+            }
         },
         '4.4': {
-            title: 'Содержание Упаковочного Листа (УЛ)',
-            content: `
+            title: {
+                ru: 'Содержание Упаковочного Листа (УЛ)',
+                en: 'Contents of Packing List (PL)',
+                zh: '装箱单（PL）内容'
+            },
+            content: {
+                ru: `
                 <h3>Назначение упаковочного листа</h3>
                 <p>Упаковочный лист содержит список грузовых мест, их общее содержимое, массогабаритные характеристики, коды хранения и т.д. Упаковочный Лист должен прилагаться к ТН. Если в ТН в пункте 3 прописано только количество ГМ и не прописаны номера ГМ, а в пункте 4 присутствует номер УЛ, то следует при приемке соотносить принимаемые ГМ (которые должны иметь наклеенные УЛ и Ведомости Грузового Места) с содержанием УЛ.</p>
                 
@@ -807,11 +2446,117 @@ const warehouseData = {
                     <img src="images/image_23_1.png" alt="Пример упаковочного листа" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример упаковочного листа</em></p>
                 </div>
+            `,
+                en: `
+                <h3>Purpose of Packing List</h3>
+                <p>The Packing List contains a list of cargo units, their general contents, weight and dimensional characteristics, storage codes, etc. The Packing List must be attached to the TB. If in the TB item 3 only the number of GMs is specified and GM numbers are not specified, and item 4 contains a PL number, then during acceptance the accepted GMs (which should have attached PLs and Cargo Unit Statements) should be correlated with the PL contents.</p>
+                
+                <h3>Packing List Contents</h3>
+                
+                <h4>a) Packing List Number</h4>
+                <p>Must match item 4 of the shipping document ("Accompanying Documents").</p>
+                
+                <h4>b) Unique Cargo Unit Identifier (UCUI)</h4>
+                <p>The number of UCUIs must match the physical number of cargo units.</p>
+                
+                <h4>c) Tag Number</h4>
+                <p>Materials are assigned a tag number. One tag number can refer to many nomenclature positions. For example, "TAG-001" for a drilling rig, where spare parts such as rotor, anchor bolts, measuring instruments, drill bits also have "TAG-001". In such cases, the material should be identified by its Name and Supplier Article Number. For metal structures, the tag number is individual and used in the assembly diagram. For example, a beam with tag number EPS-0000-12200-11-4303-111-87-149-001 is present at the site in a single copy.</p>
+                
+                <div class="image-container">
+                    <img src="images/image_22_1.png" alt="Example of Tag Number on Material" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Tag Number on Material</em></p>
+                </div>
+                
+                <h4>d) Supplier Article Number</h4>
+                <p>Relevant when identification by TAG number and material description is impossible.</p>
+                
+                <h4>e) Product Name and Characteristics</h4>
+                <p>Main marker for identifying contents.</p>
+                
+                <h4>f) Unit of Measurement for this Nomenclature Position</h4>
+                <p>Standard "pcs.". For pipe products "m" is relevant. For complete materials "set".</p>
+                
+                <h4>g) Quantity</h4>
+                <p>Quantity per nomenclature position.</p>
+                
+                <h4>h) Dimensional Sizes</h4>
+                <p>Sizes are indicated for each cargo unit, which may contain several (many) nomenclature positions.</p>
+                <p>For foreign materials arriving by air, physical marking is often absent. In such cases, sizes and weight specified in the packing list are important tools for identifying cargo units for subsequent marking.</p>
+                
+                <h4>i) Gross Weight</h4>
+                <p>Gross weight of the cargo unit.</p>
+                
+                <h4>j) Storage Code</h4>
+                <p>See <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">chapter "Storage" 🔗</a>.</p>
+                
+                <h4>k) Stacking Index</h4>
+                <p>If kg is indicated, this is the number of kg that can be placed on top of the GM. If a number (0, 1, 2) is indicated, this is the number of GMs with the same weight that can be placed on top of the GM. With a stacking index of 0, placing anything on top of the GM is prohibited.</p>
+                
+                <div class="image-container">
+                    <img src="images/image_23_1.png" alt="Example of Packing List" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Packing List</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>装箱单的用途</h3>
+                <p>装箱单包含货物单位列表、其总内容、重量和尺寸特性、存储代码等。装箱单必须附在运输单上。如运输单第3项仅标注GM数量而未标注GM编号，且第4项包含装箱单编号，验收时需将接受的GM（应贴有装箱单和货物单位清单）与装箱单内容对应。</p>
+                
+                <h3>装箱单内容</h3>
+                
+                <h4>a) 装箱单编号</h4>
+                <p>必须与发货文件第4项（"随附文件"）一致。</p>
+                
+                <h4>b) 货物单位唯一标识符（UCUI）</h4>
+                <p>UCUI数量必须与实际货物单位数量一致。</p>
+                
+                <h4>c) 标签编号</h4>
+                <p>材料分配有标签编号。一个标签编号可对应多个名称位置。例如，钻机的"TAG-001"，其中转子、锚栓、测量仪器、钻头等备件也使用"TAG-001"。在此情况下，材料应通过其名称和供应商货号识别。对于金属结构，标签编号是唯一的，用于装配图。例如，标签编号为EPS-0000-12200-11-4303-111-87-149-001的梁在现场仅有一件。</p>
+                
+                <div class="image-container">
+                    <img src="images/image_22_1.png" alt="材料上标签编号示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>材料上标签编号示例</em></p>
+                </div>
+                
+                <h4>d) 供应商货号</h4>
+                <p>当无法通过TAG编号和材料描述识别时使用。</p>
+                
+                <h4>e) 产品名称和特征</h4>
+                <p>识别内容的主要标记。</p>
+                
+                <h4>f) 该名称位置的计量单位</h4>
+                <p>标准为"件"。管材产品使用"米"。成套材料使用"套"。</p>
+                
+                <h4>g) 数量</h4>
+                <p>每个名称位置的数量。</p>
+                
+                <h4>h) 尺寸规格</h4>
+                <p>尺寸针对每个货物单位标注，一个货物单位可能包含多个（许多）名称位置。</p>
+                <p>对于空运到达的国外材料，通常缺少物理标记。在此情况下，装箱单中标注的尺寸和重量是识别货物单位以便后续标记的重要工具。</p>
+                
+                <h4>i) 毛重</h4>
+                <p>货物单位的毛重。</p>
+                
+                <h4>j) 存储代码</h4>
+                <p>参见 <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节"存储" 🔗</a>。</p>
+                
+                <h4>k) 堆码指数</h4>
+                <p>如标注为公斤，则为可在GM顶部放置的公斤数。如标注为数字（0、1、2），则为可在GM顶部放置的相同重量GM数量。堆码指数为0时，禁止在GM顶部放置任何物品。</p>
+                
+                <div class="image-container">
+                    <img src="images/image_23_1.png" alt="装箱单示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>装箱单示例</em></p>
+                </div>
             `
+            }
         },
         '4.5': {
-            title: 'Содержание Ведомости Грузового места',
-            content: `
+            title: {
+                ru: 'Содержание Ведомости Грузового места',
+                en: 'Contents of Cargo Unit Statement',
+                zh: '货物单位清单内容'
+            },
+            content: {
+                ru: `
                 <h3>Назначение ведомости грузового места</h3>
                 <p>Ведомость грузового места содержит подробную информацию о каждом грузовом месте, включая все номенклатурные позиции, их количество, вес, размеры и другие характеристики.</p>
                 
@@ -855,11 +2600,107 @@ const warehouseData = {
                     <img src="images/image_25_1.png" alt="Пример ведомости грузового места" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример ведомости грузового места</em></p>
                 </div>
+            `,
+                en: `
+                <h3>Purpose of Cargo Unit Statement</h3>
+                <p>The Cargo Unit Statement contains detailed information about each cargo unit, including all nomenclature positions, their quantity, weight, dimensions and other characteristics.</p>
+                
+                <h3>Cargo Unit Statement Contents</h3>
+                
+                <h4>a) Packing List Number</h4>
+                <p>Must match item 4 of the shipping document ("Accompanying Documents").</p>
+                
+                <h4>b) Cargo Unit Dimensional Sizes</h4>
+                <p>Cargo unit dimensions in centimeters (length x width x height).</p>
+                
+                <h4>c) Storage Code</h4>
+                <p>See <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">chapter "Storage" 🔗</a>.</p>
+                
+                <h4>d) Stacking Index</h4>
+                <p>If kg is indicated, this is the number of kg that can be placed on top of the GM. If a number (0, 1, 2) is indicated, this is the number of GMs with the same weight that can be placed on top of the GM. With a stacking index of 0, placing anything on top of the GM is prohibited.</p>
+                
+                <h4>e) Tag Number</h4>
+                <p>Materials are assigned a tag number. One tag number can refer to many nomenclature positions. In such cases, the material should be identified by its Name and Supplier Article Number.</p>
+                
+                <h4>f) Supplier Article Number</h4>
+                <p>Relevant when identification by tag number and material description is impossible.</p>
+                
+                <h4>g) Unique Cargo Unit Identifier (UCUI)</h4>
+                <p>UCUI should not be repeated for each individual delivery, but duplicates for different packing lists may occur, which requires verification of UCUI-PL.</p>
+                
+                <h4>h) Product Name</h4>
+                <p>Detailed description of the material and its characteristics.</p>
+                
+                <h4>i) Units of Measurement</h4>
+                <p>May not match units in requests (for example, pipes arrive in pieces, issued in meters).</p>
+                
+                <h4>j) Quantity</h4>
+                <p>Quantity per each nomenclature position.</p>
+                
+                <h4>k) Gross Weight</h4>
+                <p>Total weight of the cargo unit.</p>
+                
+                <h3>Example of Cargo Unit Statement</h3>
+                <div class="image-container">
+                    <img src="images/image_25_1.png" alt="Example of Cargo Unit Statement" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Cargo Unit Statement</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>货物单位清单的用途</h3>
+                <p>货物单位清单包含每个货物单位的详细信息，包括所有名称位置、其数量、重量、尺寸和其他特征。</p>
+                
+                <h3>货物单位清单内容</h3>
+                
+                <h4>a) 装箱单编号</h4>
+                <p>必须与发货文件第4项（"随附文件"）一致。</p>
+                
+                <h4>b) 货物单位尺寸规格</h4>
+                <p>货物单位尺寸（厘米）（长 x 宽 x 高）。</p>
+                
+                <h4>c) 存储代码</h4>
+                <p>参见 <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节"存储" 🔗</a>。</p>
+                
+                <h4>d) 堆码指数</h4>
+                <p>如标注为公斤，则为可在GM顶部放置的公斤数。如标注为数字（0、1、2），则为可在GM顶部放置的相同重量GM数量。堆码指数为0时，禁止在GM顶部放置任何物品。</p>
+                
+                <h4>e) 标签编号</h4>
+                <p>材料分配有标签编号。一个标签编号可对应多个名称位置。在此情况下，材料应通过其名称和供应商货号识别。</p>
+                
+                <h4>f) 供应商货号</h4>
+                <p>当无法通过标签编号和材料描述识别时使用。</p>
+                
+                <h4>g) 货物单位唯一标识符（UCUI）</h4>
+                <p>UCUI不应在每次单独交货中重复，但不同装箱单可能出现重复，这需要核对UCUI-装箱单。</p>
+                
+                <h4>h) 产品名称</h4>
+                <p>材料的详细描述及其特征。</p>
+                
+                <h4>i) 计量单位</h4>
+                <p>可能与申请中的单位不一致（例如，管道以件到达，以米发放）。</p>
+                
+                <h4>j) 数量</h4>
+                <p>每个名称位置的数量。</p>
+                
+                <h4>k) 毛重</h4>
+                <p>货物单位的总重量。</p>
+                
+                <h3>货物单位清单示例</h3>
+                <div class="image-container">
+                    <img src="images/image_25_1.png" alt="货物单位清单示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>货物单位清单示例</em></p>
+                </div>
             `
+            }
         },
         '4.6': {
-            title: 'Содержание Shipping Mark',
-            content: `
+            title: {
+                ru: 'Содержание Shipping Mark',
+                en: 'Contents of Shipping Mark',
+                zh: 'Shipping Mark内容'
+            },
+            content: {
+                ru: `
                 <h3>Назначение Shipping Mark</h3>
                 <p>Shipping Mark/Грузовая маркировка присутствует только на импортных поставках. В отличие от «Ведомость Грузового Места» в нем НЕ содержится подробное описание каждой номенклатурной позиции и количества материала по номенклатуре. Подробное описание пунктов смотрите в главе <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание УЛ» 🔗</a>. Они пересекаются.</p>
                 
@@ -889,11 +2730,79 @@ const warehouseData = {
                     <img src="images/image_26_1.png" alt="Пример Shipping Mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример грузовой маркировки</em></p>
                 </div>
+            `,
+                en: `
+                <h3>Purpose of Shipping Mark</h3>
+                <p>Shipping Mark/Cargo Marking is present only on import deliveries. Unlike "Cargo Unit Statement", it does NOT contain a detailed description of each nomenclature position and quantity of material by nomenclature. For detailed description of items, see chapter <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Contents of PL" 🔗</a>. They overlap.</p>
+                
+                <h3>Shipping Mark Contents</h3>
+                
+                <h4>a) Consignee</h4>
+                <p>LLC "Chinese National Chemical Engineering and Construction Corporation Seven"</p>
+                
+                <h4>b) Tag Number</h4>
+                
+                <h4>c) Name of Supplied Product</h4>
+                
+                <h4>d) Cargo Unit Number</h4>
+                
+                <h4>e) Cargo Unit Dimensions</h4>
+                
+                <h4>d) Gross Weight</h4>
+                
+                <h4>e) PL Number</h4>
+                
+                <h4>f) Stacking Index</h4>
+                
+                <h4>g) Storage Code</h4>
+                
+                <h3>Example of Shipping Mark</h3>
+                <div class="image-container">
+                    <img src="images/image_26_1.png" alt="Example of Shipping Mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Cargo Marking</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>Shipping Mark的用途</h3>
+                <p>Shipping Mark/货物标记仅出现在进口交货中。与"货物单位清单"不同，它不包含每个名称位置和按名称的材料数量的详细描述。详细项目说明，参见章节 <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">"装箱单内容" 🔗</a>。它们有重叠。</p>
+                
+                <h3>Shipping Mark内容</h3>
+                
+                <h4>a) 收货人</h4>
+                <p>中国化学工程第七建设有限公司</p>
+                
+                <h4>b) 标签编号</h4>
+                
+                <h4>c) 供应产品名称</h4>
+                
+                <h4>d) 货物单位编号</h4>
+                
+                <h4>e) 货物单位尺寸</h4>
+                
+                <h4>d) 毛重</h4>
+                
+                <h4>e) 装箱单编号</h4>
+                
+                <h4>f) 堆码指数</h4>
+                
+                <h4>g) 存储代码</h4>
+                
+                <h3>Shipping Mark示例</h3>
+                <div class="image-container">
+                    <img src="images/image_26_1.png" alt="Shipping Mark示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>货物标记示例</em></p>
+                </div>
             `
+            }
         },
         '4.7': {
-            title: 'Содержание Заявки на Выдачу',
-            content: `
+            title: {
+                ru: 'Содержание Заявки на Выдачу',
+                en: 'Contents of Issuance Request',
+                zh: '发放申请内容'
+            },
+            content: {
+                ru: `
                 <p>Заявка на выдачу формируется строительным блоком в 1С, затем подтверждается и визируется отделом учета. После подтверждения материалы могут быть получены полностью или частично.</p>
                 
                 <h3>Содержимое заявки на выдачу</h3>
@@ -929,11 +2838,91 @@ const warehouseData = {
                     <img src="images/image_28_1.png" alt="Пример заявки на выдачу ТМЦ со склада" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример заявки на выдачу ТМЦ со склада</em></p>
                 </div>
+            `,
+                en: `
+                <p>The Issuance Request is formed by the construction unit in 1C, then confirmed and approved by the accounting department. After confirmation, materials can be received completely or partially.</p>
+                
+                <h3>Issuance Request Contents</h3>
+                
+                <h4>a) Request number and date</h4>
+                <p>The date of request formation in 1C may not coincide with the date of its confirmation and approval by the accounting department (item k).</p>
+                
+                <h4>b) Title and applicant</h4>
+                <p>The applicant's name must match the organization name on the badge.</p>
+                
+                <h4>c) TAG number</h4>
+                <p>Materials are assigned a TAG number. One TAG number can refer to many nomenclature positions. In such cases, the material should be identified by its Name and Supplier Article Number.</p>
+                
+                <h4>d) Article Number (Supplier Article Number)</h4>
+                <p>Relevant when identification by TAG number and material name is impossible.</p>
+                
+                <h4>e) Material name</h4>
+                <p>Detailed description of the material and its characteristics.</p>
+                
+                <h4>f) Unit of measurement</h4>
+                <p>The unit of measurement in the request may not match the unit of measurement in the warehouse file (for example, cable tray arrives in pieces, issued in meters).</p>
+                
+                <h4>g) Requested and approved quantity</h4>
+                <p>Usually match, always use the approved quantity.</p>
+                
+                <h4>h) Notes</h4>
+                <p>In notes, the GM number to be issued is specified. If only the GM number is present, the GM is issued completely without unpacking. If the GM number comes with a note "partial issuance", as in the example below, this means that this GM needs to be unpacked and only those nomenclature positions that are present in the request in the quantity specified in the request should be issued. For more details, see subsection "Partial Issuance".</p>
+                
+                <h4>i) Issued by, Full Name</h4>
+                <p>The receiver signs and puts the date for received positions, records the actually issued quantity if it is less than requested.</p>
+                
+                <div class="image-container">
+                    <img src="images/image_28_1.png" alt="Example of Material Issuance Request from Warehouse" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Material Issuance Request from Warehouse</em></p>
+                </div>
+            `,
+                zh: `
+                <p>发放申请由建筑单位在1C系统中形成，然后由会计部门确认和批准。确认后，材料可全部或部分领取。</p>
+                
+                <h3>发放申请内容</h3>
+                
+                <h4>a) 申请编号和日期</h4>
+                <p>1C系统中申请形成的日期可能与会计部门确认和批准的日期不一致（第k项）。</p>
+                
+                <h4>b) 标题和申请人</h4>
+                <p>申请人名称必须与证件上的组织名称一致。</p>
+                
+                <h4>c) TAG编号</h4>
+                <p>材料分配有TAG编号。一个TAG编号可对应多个名称位置。在此情况下，材料应通过其名称和供应商货号识别。</p>
+                
+                <h4>d) 货号（供应商货号）</h4>
+                <p>当无法通过TAG编号和材料名称识别时使用。</p>
+                
+                <h4>e) 材料名称</h4>
+                <p>材料的详细描述及其特征。</p>
+                
+                <h4>f) 计量单位</h4>
+                <p>申请中的计量单位可能与仓库档案中的计量单位不一致（例如，电缆桥架以件到达，以米发放）。</p>
+                
+                <h4>g) 申请数量和批准数量</h4>
+                <p>通常一致，始终使用批准数量。</p>
+                
+                <h4>h) 备注</h4>
+                <p>备注中注明待发放的GM编号。如仅存在GM编号，则GM完整发放，无需拆包。如GM编号带有"部分发放"备注（如下例），则需拆包此GM，仅发放申请中存在且数量与申请一致的名称位置。详情参见"部分发放"小节。</p>
+                
+                <h4>i) 发放人，姓名</h4>
+                <p>接收人签字并标注接收位置的日期，如实际发放数量少于申请数量，需记录实际发放数量。</p>
+                
+                <div class="image-container">
+                    <img src="images/image_28_1.png" alt="仓库材料发放申请示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>仓库材料发放申请示例</em></p>
+                </div>
             `
+            }
         },
         '4.8': {
-            title: 'Содержание и Правила заполнения Пропуска на Вывоз',
-            content: `
+            title: {
+                ru: 'Содержание и Правила заполнения Пропуска на Вывоз',
+                en: 'Contents and Rules for Filling Out Exit Pass',
+                zh: '离场通行证内容和填写规则'
+            },
+            content: {
+                ru: `
                 <h3>Назначение пропуска на вывоз</h3>
                 <p>Пропуск на вывоз материала заполняется для каждого ТС, покидающего площадку с грузом на основании «Заявки на Выдачу».</p>
                 
@@ -987,11 +2976,127 @@ const warehouseData = {
                     <img src="images/4.8.png" alt="Пример пропуска на вывоз" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     <p><em>Пример пропуска на вывоз материала</em></p>
                 </div>
+            `,
+                en: `
+                <h3>Purpose of Exit Pass</h3>
+                <p>The Exit Pass for material is filled out for each vehicle leaving the site with cargo based on the "Issuance Request".</p>
+                
+                <h3>Rules for Filling Out Exit Pass</h3>
+                
+                <h4>a) Material Exit Pass Number</h4>
+                <p>Filled out independently with indication of issuance location. For example 2025.09.26-1/C23-1, where 2025.09.26 is the date, 1 is the sequential number of issuance issued from this location per day, C23-1 is the location from which issuance was made. The pass is filled out for each vehicle leaving the site, leaving the site with cargo according to the Issuance Request.</p>
+                
+                <h4>b) Receiver</h4>
+                <p>CC7 construction team or construction contractor. For example, CC7-C9 (ninth team) or "ASP-Aqua".</p>
+                
+                <h4>c) Vehicle Number</h4>
+                <p>Vehicle number on which materials are loaded. The pass is filled out for each vehicle leaving the site with cargo according to the Issuance Request.</p>
+                
+                <h4>d) Signing Time</h4>
+                <p>Signing time is set before vehicle departure after verification of manifest with physical contents. Receivers are given 10 minutes to leave the warehouse. If within 10 minutes the Receiver does not leave the warehouse, security does not release this vehicle and sends it for additional inspection to avoid unauthorized "additional loading".</p>
+                
+                <h4>e) Export Date</h4>
+                <p>Date of material export.</p>
+                
+                <h4>f) Warehouse from which issuance is made</h4>
+                <p>Specify the warehouse from which materials are issued.</p>
+                
+                <h4>g) Issuance Request Number</h4>
+                <p>Materials according to different requests may be loaded on the vehicle, in such case this item will have several numbers.</p>
+                
+                <h4>h) GM Number</h4>
+                <p>GM number specified in the "Notes" column in the Issuance Request.</p>
+                
+                <h4>i) Storage cell, lot</h4>
+                <p>Storage cell, lot from which materials are issued.</p>
+                
+                <h4>j) Position number in request</h4>
+                <p>Specified during partial material issuance.</p>
+                
+                <h4>k) Quantity</h4>
+                <p>For complete GM issuance, write the number of GMs. For partial issuance from GM, write the quantity issued per each nomenclature position.</p>
+                
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/image_29_2.png" alt="Example of Exit Pass Filling" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>In case there are many nomenclature positions and they go in the request without gaps, in item g it is possible to write position "1-10", and in item h do not write the quantity. This is relevant only if nomenclature positions are issued completely.</p>
+                
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/image_29_1.png" alt="Example of Exit Pass Filling" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Exit Pass Filling</em></p>
+                </div>
+                
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/4.8.png" alt="Example of Exit Pass" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Material Exit Pass</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>离场通行证的用途</h3>
+                <p>材料离场通行证为每辆根据"发放申请"载货离开场地的车辆填写。</p>
+                
+                <h3>离场通行证填写规则</h3>
+                
+                <h4>a) 材料离场通行证编号</h4>
+                <p>独立填写，需注明发放地点。例如2025.09.26-1/C23-1，其中2025.09.26为日期，1为该地点当日发放的序号，C23-1为进行发放的地点。通行证为每辆根据发放申请载货离开场地的车辆填写。</p>
+                
+                <h4>b) 接收人</h4>
+                <p>CC7建筑团队或建筑承包商。例如，CC7-C9（第九团队）或"ASP-Aqua"。</p>
+                
+                <h4>c) 车辆编号</h4>
+                <p>装载材料的车辆编号。通行证为每辆根据发放申请载货离开场地的车辆填写。</p>
+                
+                <h4>d) 签字时间</h4>
+                <p>签字时间在车辆离场前，在核对清单与实际装载后设置。接收人有10分钟时间离开仓库。如10分钟内接收人未离开仓库，安保不放行该车辆，并送交额外检查，以避免未经授权的"额外装载"。</p>
+                
+                <h4>e) 离场日期</h4>
+                <p>材料离场日期。</p>
+                
+                <h4>f) 进行发放的仓库</h4>
+                <p>注明进行材料发放的仓库。</p>
+                
+                <h4>g) 发放申请编号</h4>
+                <p>车辆上可能装载不同申请的材料，在此情况下，此项将包含多个编号。</p>
+                
+                <h4>h) GM编号</h4>
+                <p>发放申请"备注"栏中注明的GM编号。</p>
+                
+                <h4>i) 存储单元、场地</h4>
+                <p>进行材料发放的存储单元、场地。</p>
+                
+                <h4>j) 申请中的位置编号</h4>
+                <p>部分材料发放时注明。</p>
+                
+                <h4>k) 数量</h4>
+                <p>完整GM发放时，填写GM数量。从GM部分发放时，填写每个名称位置的发放数量。</p>
+                
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/image_29_2.png" alt="离场通行证填写示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>如名称位置较多且申请中连续无间隔，可在第g项中标注位置"1-10"，第h项中不填写数量。这仅适用于名称位置完整发放的情况。</p>
+                
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/image_29_1.png" alt="离场通行证填写示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>离场通行证填写示例</em></p>
+                </div>
+                
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/4.8.png" alt="离场通行证示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>材料离场通行证示例</em></p>
+                </div>
             `
+            }
         },
         '4.9': {
-            title: 'СОДЕРЖАНИЕ И ПРАВИЛА ЗАПОЛНЕНИЯ ИНВЕНТАРИЗАЦИОННОГО ЛИСТА',
-            content: `
+            title: {
+                ru: 'СОДЕРЖАНИЕ И ПРАВИЛА ЗАПОЛНЕНИЯ ИНВЕНТАРИЗАЦИОННОГО ЛИСТА',
+                en: 'Contents and Rules for Filling Out Inventory List',
+                zh: '盘点清单内容和填写规则'
+            },
+            content: {
+                ru: `
                 <h3>Правила заполнения инвентаризационного листа</h3>
                 
                 <p>На площадке действуют две формы Инвентаризационного Листа – для открытых площадок и для ангарных складов.</p>
@@ -1037,12 +3142,112 @@ const warehouseData = {
                 <div class="image-container" style="margin: 15px 0;">
                     <img src="images/4.9-2.png" alt="Инвентаризационный лист для открытых площадок" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                 </div>
+            `,
+                en: `
+                <h3>Rules for Filling Out Inventory List</h3>
+                
+                <p>Two forms of Inventory List are in effect at the site – for open sites and for hangar warehouses.</p>
+                
+                <h3>Contents:</h3>
+                
+                <h4>a) Site / Hangar where inventory is conducted</h4>
+                <p>Specify the name of the site or hangar where inventory is conducted.</p>
+                
+                <h4>b) GM Number</h4>
+                <p>Specify the cargo unit number.</p>
+                
+                <h4>c) Bin / Lot where recounting is performed</h4>
+                <p>Specify the bin or lot where material recounting is performed.</p>
+                
+                <h4>d) Packing List Number</h4>
+                <p>Specify the packing list number.</p>
+                
+                <h4>e) Material Description</h4>
+                <p>Describe in detail the material being inventoried.</p>
+                
+                <h4>f) Material Quantity</h4>
+                <p>Specify the material quantity based on recounting results.</p>
+                
+                <h4>g) Comments</h4>
+                <p>Weight and dimensional characteristics, condition, other notes.</p>
+                
+                <h4>h) Inventory Date, Responsible Person's Full Name and Signature</h4>
+                <p>Specify the inventory date, full name and put the signature of the responsible person.</p>
+                
+                <h4>i) Start and End Time of Recounting</h4>
+                <p>Specify the exact start and end time of the recounting process.</p>
+                
+                <h4>j) Full Name and Signature of Person Conducting Recounting</h4>
+                <p>Specify the full name and put the signature of the person who directly conducted the recounting.</p>
+                
+                <h3>Inventory List for Hangar Warehouses:</h3>
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/4.9-1.png" alt="Inventory List for Hangar Warehouses" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h3>Inventory List for Open Sites:</h3>
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/4.9-2.png" alt="Inventory List for Open Sites" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+            `,
+                zh: `
+                <h3>盘点清单填写规则</h3>
+                
+                <p>场地使用两种盘点清单格式 – 用于露天场地和机库仓库。</p>
+                
+                <h3>内容：</h3>
+                
+                <h4>a) 进行盘点的场地/机库</h4>
+                <p>注明进行盘点的场地或机库名称。</p>
+                
+                <h4>b) GM编号</h4>
+                <p>注明货物单位编号。</p>
+                
+                <h4>c) 进行重新清点的货位/场地</h4>
+                <p>注明进行材料重新清点的货位或场地。</p>
+                
+                <h4>d) 装箱单编号</h4>
+                <p>注明装箱单编号。</p>
+                
+                <h4>e) 材料描述</h4>
+                <p>详细描述正在盘点的材料。</p>
+                
+                <h4>f) 材料数量</h4>
+                <p>根据重新清点结果注明材料数量。</p>
+                
+                <h4>g) 备注</h4>
+                <p>重量和尺寸特性、状态、其他说明。</p>
+                
+                <h4>h) 盘点日期、负责人姓名和签名</h4>
+                <p>注明盘点日期、姓名并签署负责人签名。</p>
+                
+                <h4>i) 重新清点的开始和结束时间</h4>
+                <p>注明重新清点过程的准确开始和结束时间。</p>
+                
+                <h4>j) 进行重新清点的人员姓名和签名</h4>
+                <p>注明直接进行重新清点的人员姓名并签署签名。</p>
+                
+                <h3>机库仓库盘点清单：</h3>
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/4.9-1.png" alt="机库仓库盘点清单" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h3>露天场地盘点清单：</h3>
+                <div class="image-container" style="margin: 15px 0;">
+                    <img src="images/4.9-2.png" alt="露天场地盘点清单" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
             `
+            }
         },
         // Глава 5: Правила предоставления информации в отдел учета
         '5.0': {
-            title: 'Правила предоставления информации в отдел учета',
-            content: `
+            title: {
+                ru: 'Правила предоставления информации в отдел учета',
+                en: 'Rules for Providing Information to Accounting Department',
+                zh: '向会计部门提供信息的规则'
+            },
+            content: {
+                ru: `
                 <h3>5.0 ПРАВИЛА ПРЕДОСТАВЛЕНИЯ ИНФОРМАЦИИ В ОТДЕЛ УЧЕТА</h3>
                 
                 <p>Отдел Учета работает в потоковом режиме, и делает проводки в момент поступления информации в группах. Все ТН должны быть оприходованы в 1С до конца рабочего дня. Все выдачи также должны быть проведены до конца рабочего дня. Все Акты должны быть оформлены до конца рабочего дня.</p>
@@ -1056,12 +3261,48 @@ const warehouseData = {
                 <p>Использование нестандартных символов, замена букв на цифры и подобные манипуляции ведут к ошибкам в работе с 1С, искажению информации и увеличению трудозатрат ваших Коллег.</p>
                 
                 <p>Информацию необходимо выкладывать одним постом, вместив в него всю информацию. Выкладывать информацию частично запрещено, так как это приводит к путанице в процессе проводок.</p>
+            `,
+                en: `
+                <h3>5.0 RULES FOR PROVIDING INFORMATION TO ACCOUNTING DEPARTMENT</h3>
+                
+                <p>The Accounting Department works in a flow mode and makes entries at the moment information is received in groups. All TBs must be posted in 1C by the end of the working day. All issuances must also be processed by the end of the working day. All Acts must be prepared by the end of the working day.</p>
+                
+                <p>In this regard, information must be sent immediately upon completion of unloading/loading/transfer and TBs/Requests/Transfer Statements should not be accumulated to ensure a continuous and uniform process of material accounting during the working day.</p>
+                
+                <p>Information provided to the Accounting Department must be clear, well-readable, specific and unambiguous. Photos must be provided in HD quality, without the need to rotate photos to read information.</p>
+                
+                <p>If you see that Chinese Colleagues violate these requirements – it is necessary to make a remark to them with a request to provide information in accordance with our requirements.</p>
+                
+                <p>Use of non-standard symbols, replacement of letters with numbers and similar manipulations lead to errors in working with 1C, distortion of information and increase in labor costs of your Colleagues.</p>
+                
+                <p>Information must be posted in one post, including all information. Posting information partially is prohibited, as this leads to confusion in the posting process.</p>
+            `,
+                zh: `
+                <h3>5.0 向会计部门提供信息的规则</h3>
+                
+                <p>会计部门以流程模式工作，在群组收到信息时立即进行记账。所有运输单必须在工作日内录入1C系统。所有发放也必须在工作日内处理。所有报告必须在工作日内编制。</p>
+                
+                <p>因此，信息需在卸货/装货/转移完成后立即发送，不得积压运输单/申请/转移清单，以确保工作日内材料核算的连续性和均匀性。</p>
+                
+                <p>向会计部门提供的信息必须清晰、可读、具体且明确。照片需以高清质量提供，无需旋转照片即可阅读信息。</p>
+                
+                <p>如发现中国同事违反这些要求，需向其提出意见，要求按照我们的要求提供信息。</p>
+                
+                <p>使用非标准符号、用数字替换字母等操作会导致1C系统工作错误、信息失真并增加同事的工作量。</p>
+                
+                <p>信息需在一个帖子中发布，包含所有信息。禁止部分发布信息，因为这会导致记账过程混乱。</p>
             `
+            }
         },
         // Глава 5.1: Информационные группы
         '5.1': {
-            title: 'Детальное описание информационных групп',
-            content: `
+            title: {
+                ru: 'Детальное описание информационных групп',
+                en: 'Detailed Description of Information Groups',
+                zh: '信息群组详细说明'
+            },
+            content: {
+                ru: `
                 <h3>5.1 ИНФОРМАЦИОННЫЕ ГРУППЫ</h3>
                 
                 <p>Ниже представлен полный список информационных групп с их описанием и ссылками для вступления:</p>
@@ -1220,11 +3461,337 @@ const warehouseData = {
                         <img src="images/arm2.png" alt="Пример постинга ЗРА" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
                     </div>
                 </div>
+            `,
+                en: `
+                <h3>5.1 INFORMATION GROUPS</h3>
+                
+                <p>Below is a complete list of information groups with their descriptions and links to join:</p>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4>1. <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">OPERATIONAL OFFICERS</a></h4>
+                    <p><strong>Purpose:</strong> Information group for operational issue resolution.</p>
+                    <p><strong>Features:</strong> Provision of reports from sites at 9:00, 14:00, 17:00 for monitoring the work process at the site.</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_33_1.png" alt="Example of Report in Operational Officers Group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Report in Operational Officers Group</em></p>
+                </div>
+                    
+                    <h4>2. <a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">CRAZY. SITE</a></h4>
+                    <p><strong>Purpose:</strong> Daily reports on accepted vehicles. Urgent requests from MSK management, general announcements.</p>
+                    
+                    <h4>3. <a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">INFORMATION. READ ME!</a></h4>
+                    <p><strong>Purpose:</strong> Group for posting important information and updates.</p>
+                    
+                    <h4>4. <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">DOCUMENTS FOR VERIFICATION</a></h4>
+                    <p><strong>Purpose:</strong> Posting TBs for suppliers listed in the verification list in the "Information. Read Me!" group. The title page of the TB is posted in a readable format. TB number and supplier name are written in text. Information is sent BEFORE vehicle unloading. Without Accounting Department approval (thumbs up reaction) do not unload the vehicle. If the reaction is a stop sign, the vehicle is put on hold until all nuances with the supplier are clarified.</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_33_2.png" alt="Example of Document Verification" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Document Verification</em></p>
+                </div>
+                    
+                    <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / Damage Acts</a></h4>
+                    <p><strong>Purpose:</strong> Posting information on M7 acts during material acceptance with identified discrepancies (surpluses, shortages, mis-sorted items, material damage, packaging damage), as well as acts on material damage that occurred during issuance/transfer of materials on the site.</p>
+                    <p><strong>To prepare Act M-7, the warehouse keeper must provide photos and information to the group "M-7 / Damage Acts" in the following format:</strong></p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>Photo of the front page of the TB showing the TB number and driver's full name</li>
+                        <li>Photo of the vehicle tractor with a readable license plate</li>
+                        <li>Photo of the discrepancy</li>
+                        <li>Text stating the TB number, date and time of start and end of unloading</li>
+                        <li>Text with detailed description of the discrepancy. If shortage – in what quantity and which GM numbers are missing, if surplus – which specific GM is extra. If damage – what damage to which GM, etc. The TB must specify the PL for complete material identification</li>
+                    </ol>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_34_1.png" alt="Example of Act M-7 Preparation" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Act M-7 Preparation</em></p>
+                </div>
+                    
+                    <h4>6. <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">FOR TB FOR ACCOUNTING</a></h4>
+                    <p><strong>Purpose:</strong> Posting information on delivery (per each vehicle) after unloading.</p>
+                    <p>Photos of the title side of the TB, photos of unloaded material in general view, photos of damaged material in case of Act M-7 preparation, photos of PL/Cargo Unit Statement/Shipping Mark/Marking of each GM are provided. Without photos of received material and its marking, the Accounting Department has no right to accept the material.</p>
+                    <p>Text stating 1. TB number, 2. warehouse and location where materials were unloaded. 3. Write "Act M-7" if such was prepared. Also, indicate Chinese Colleague if such performed acceptance.</p>
+                    <p>Reactions to field employee messages are not relevant, these are internal Accounting Department designations for posting status in 1C.</p>
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_35_1.png" alt="Example of Pipe Product Acceptance Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Pipe Product Acceptance Posting</em></p>
+                    </div>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_35_2.png" alt="Example of Cable Product Acceptance Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Cable Product Acceptance Posting</em></p>
+                    </div>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_36_1.png" alt="Example of Container Acceptance Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Container Acceptance Posting</em></p>
+                    </div>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_36_2.png" alt="Example of Acceptance Posting with Act M-7 Preparation" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Acceptance Posting with Act M-7 Preparation</em></p>
+                    </div>
+                    
+                    <h4>7. <a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">REQUEST VERIFICATION BEFORE ISSUANCE</a></h4>
+                    <p><strong>Purpose:</strong> Photos of issuance requests are sent to this group before issuance. The Accounting Department generates a 1C export with current balances for each request.</p>
+                    <p>The Issuance Request must be photographed so that the Request Number and top lines of nomenclature positions are clearly visible. Without receiving and verifying current balances from 1C with data in the request, material issuance is prohibited.</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_37_1.png" alt="Example of Request Verification Before Issuance" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Request Verification Before Issuance</em></p>
+                    </div>
+                    
+                    <h4>8. <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">MATERIAL ISSUANCE BY REQUESTS</a></h4>
+                    <p><strong>Purpose:</strong> After verifying current balances for the material issuance request through the "Request Verification Before Issuance" group and loading materials, it is necessary to post to the "Material Issuance by Requests" group information of the following content:</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>Complete photo of the first page of the Issuance Request + all pages with marks on receipt of issued materials in readable, uncropped, non-inverted form. Signatures of persons receiving materials with indication of quantity of received materials and date must be visible</li>
+                        <li>Complete photo of "Material Exit Pass" with signatures of warehouse keeper and person receiving cargo</li>
+                        <li>Photos of received materials and their PL/Cargo Unit Statement/Shipping Mark/Marking of each GM. Without these photos, the Accounting Department has no right to write off materials</li>
+                        <li>Photo of the pass of the person receiving cargo. The construction team and contractor must match the "Applicant (Subcontractor)" item in the Issuance Request</li>
+                        <li>Text stating Request number, quantity (and name if possible) of issued GMs, numbers of released GMs, if possible and applicable. Also, state Chinese Colleague who performed issuance, if it was done by CC</li>
+                    </ol>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_37_2.png" alt="Example of Material Issuance by Requests" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Material Issuance by Requests</em></p>
+                    </div>
+                    
+                    <h4>9. <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">LOST ITEMS</a></h4>
+                    <p><strong>Purpose:</strong> This group is intended for operational processing of Warehouse requests for searching cargo units, their accounting, as well as sending PLs and Cargo Unit Statements for marking GMs without the need to search for a free Accounting employee.</p>
+                    
+                    <p><strong>Requests must be sent to the specified group in the following cases:</strong></p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>GM is missing at the storage location specified in the request and it is necessary to check its location. The request must specify the Request number and GM or attach a photo of the Request and highlight the GM to search, indicating a brief description.</li>
+                        <li>Packing list is missing or damaged and GM needs to be re-marked.</li>
+                    </ol>
+                    
+                    <p><strong>Request Examples:</strong></p>
+                    <p>"GM No. 5-2-8 is missing in request No. SS7-UIO-16400-c12-253, please help in search"</p>
+                    <p>"PL needed for GM No. 5-2-8"</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_38_1.png" alt="Example of Request to LOST ITEMS Group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>Example of Request to LOST ITEMS Group</em></p>
+                    </div>
+                    
+                    <p><strong>As a result, the Accounting Department provides PLs and information on material movement at the site to simplify its search.</strong></p>
+                    <p><em>Reactions to field employee messages are not relevant, these are internal Accounting Department designations.</em></p>
+                    
+                    <h4>10. <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">IC GROUP</a></h4>
+                    <p><strong>Purpose:</strong> This group is created for the Incoming Control group for operational information exchange in this direction, namely – assignment of inspections, planning of incoming control, resource allocation for conducting incoming control, etc.</p>
+                    
+                    <h4>11. <a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">TRANSFERS</a></h4>
+                    <p><strong>Purpose:</strong> All Transfer and Acceptance Statements for materials are posted in this group (See Chapter 4.3 Rules for Filling Out "Transfer and Acceptance Statement for Materials"). Data on transfers within a warehouse with assignment of a new storage address are published. Relevant for transfers within a warehouse (location), as well as for transfers between warehouses (locations).</p>
+                    
+                    <h4>12. <a href="https://teams.microsoft.com/l/message/19:a383eea2-9fcf-4e39-870f-3d5c53abacf9_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912665617?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">MATERIAL INVENTORY</a></h4>
+                    <p><strong>Purpose:</strong> Group is intended for posting inventory lists and information exchange in this direction. See Chapter 4.9 Contents and Rules for Filling Out Inventory List.</p>
+                    
+                    <h4>13. <a href="https://max.ru/join/HJ3DPOkt4dEMTy-UTtvCOLyL0F4yxouSVMKMlF1WpO8" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">WORK SCHEDULE</a></h4>
+                    <p><strong>Purpose:</strong> Chat created for centralized information exchange regarding work on Saturdays/Sundays/Holidays.</p>
+                    <p><strong>Message Format:</strong> Messages are submitted in the format "Overtime work 18.10".</p>
+                    <p><strong>Procedure:</strong> If a like is set, you can work on this day, if not, additional contact is made for clarification.</p>
+                    <p><strong>Additionally:</strong> Also, messages about annual leave and unpaid leave are posted here.</p>
+                    
+                    <h4>14. <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">MATERIAL INSPECTION ACTS</a></h4>
+                    <p><strong>Purpose:</strong> Material inspection acts are posted in this group.</p>
+                    <p><strong>Preparation Conditions:</strong> An Inspection Act is prepared if during partial issuance a shortage, surplus, mis-sorted items, or material damage is detected. This applies to both materials that have passed QC and those that have not. When discrepancies are detected, it is necessary to call a Business-Trend employee for joint inspection of these materials.</p>
+                    <p><strong>Information Submission Format:</strong> When the above discrepancies are detected, the field employee must post to the "Material Inspection Acts" group the following information:</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>Photo of materials</li>
+                        <li>GM number, PL</li>
+                        <li>Material name according to Cargo Unit Statement</li>
+                        <li>Description of the discrepancy</li>
+                    </ol>
+                    <p><strong>Act Processing:</strong> Based on the above data, the Accounting Department prepares the Inspection Act and sends it for signature to the field employee and Business-Trend employee.</p>
+                    
+                    <h4>15. <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ZRA FOR HI / VALVES</a></h4>
+                    <p><strong>Purpose:</strong> Group is intended for information exchange on transfer to hydrotesting of ZRA (Shut-off and Control Valves).</p>
+                    
+                    <h4>16. <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ZRA TRANSFERS (TESTING)</a></h4>
+                    <p><strong>Purpose:</strong> Group created to display Exit Passes for ZRA (Shut-off and Control Valves) for hydrotesting and transfer statements from hydrotesting.</p>
+                    <p><strong>Message Format:</strong> The message must specify:</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>Photo of "Exit Passes" in case of issuance from warehouse/Transfer Statement in case of transfer from Hydrotesting</li>
+                        <li>Photo of Packing Lists/Cargo Unit Statements/Shipping Marks in case of shipment from warehouse</li>
+                        <li>Write in text according to examples below</li>
+                    </ol>
+                    <p><strong>Posting Example:</strong></p>
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/arm1.png" alt="Example of ZRA Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <img src="images/arm2.png" alt="Example of ZRA Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    </div>
+                </div>
+            `,
+                zh: `
+                <h3>5.1 信息群组</h3>
+                
+                <p>以下是信息群组的完整列表，包含其说明和加入链接：</p>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4>1. <a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">运营专员</a></h4>
+                    <p><strong>用途：</strong>用于快速解决问题的信息群组。</p>
+                    <p><strong>特点：</strong>在9:00、14:00、17:00提供场地报告，用于监控场地工作流程。</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_33_1.png" alt="运营专员群组报告示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>运营专员群组报告示例</em></p>
+                </div>
+                    
+                    <h4>2. <a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">疯狂。场地</a></h4>
+                    <p><strong>用途：</strong>已接收车辆的每日报告。MSK管理层的紧急请求，一般公告。</p>
+                    
+                    <h4>3. <a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">信息。请阅读！</a></h4>
+                    <p><strong>用途：</strong>用于发布重要信息和更新的群组。</p>
+                    
+                    <h4>4. <a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">待检查文件</a></h4>
+                    <p><strong>用途：</strong>发布"信息。请阅读！"群组中检查列表中供应商的运输单。以可读格式发布运输单首页。文字说明运输单号和供应商名称。信息在车辆卸货前发送。未经会计部门批准（点赞反应）不得卸货。如反应为停止标志，车辆暂停，直至与供应商的所有问题澄清。</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_33_2.png" alt="文件检查示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>文件检查示例</em></p>
+                </div>
+                    
+                    <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / 损坏报告</a></h4>
+                    <p><strong>用途：</strong>发布材料验收时发现不符项的M7报告信息（多余、短缺、错配、材料损坏、包装损坏），以及发放/场地转移过程中发生的材料损坏报告。</p>
+                    <p><strong>为编制M-7报告，仓库管理员必须按以下格式向群组"M-7 / 损坏报告"提供照片和信息：</strong></p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>运输单首页照片，显示运输单号和司机姓名</li>
+                        <li>车辆牵引车照片，车牌清晰可见</li>
+                        <li>不符项照片</li>
+                        <li>文字说明运输单号、卸货开始和结束的日期和时间</li>
+                        <li>文字详细描述不符项。如为短缺 – 说明短缺数量和缺失的GM编号，如为多余 – 说明具体多余的GM。如为损坏 – 说明哪个GM的何种损坏等。运输单中必须注明装箱单以便完整识别材料</li>
+                    </ol>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_34_1.png" alt="M-7报告编制示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>M-7报告编制示例</em></p>
+                </div>
+                    
+                    <h4>6. <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">待核算运输单</a></h4>
+                    <p><strong>用途：</strong>卸货后发布交货信息（每辆车）。</p>
+                    <p>提供运输单首页照片、卸货材料总体照片、如编制M-7报告则提供损坏材料照片、每个GM的装箱单/货物单位清单/Shipping Mark/标记照片。无接收材料和标记照片，会计部门无权接收材料。</p>
+                    <p>文字说明：1. 运输单号，2. 卸货材料的仓库和地点。3. 如已编制，需标注"报告M-7"。如由中国同事进行验收，也需说明。</p>
+                    <p>对现场员工消息的反应不相关，这些是会计部门在1C系统中记账状态的内部标识。</p>
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_35_1.png" alt="管材产品验收发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>管材产品验收发布示例</em></p>
+                    </div>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_35_2.png" alt="电缆产品验收发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>电缆产品验收发布示例</em></p>
+                    </div>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_36_1.png" alt="集装箱验收发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>集装箱验收发布示例</em></p>
+                    </div>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_36_2.png" alt="编制M-7报告的验收发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>编制M-7报告的验收发布示例</em></p>
+                    </div>
+                    
+                    <h4>7. <a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">发放前申请验证</a></h4>
+                    <p><strong>用途：</strong>发放前将发放申请照片发送至此群组。会计部门生成1C系统的导出，包含每个申请的当前余额。</p>
+                    <p>发放申请需拍摄，确保申请编号和名称位置的前几行清晰可见。未从1C系统获取并核对当前余额与申请数据，禁止发放材料。</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_37_1.png" alt="发放前申请验证示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>发放前申请验证示例</em></p>
+                    </div>
+                    
+                    <h4>8. <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">按申请发放材料</a></h4>
+                    <p><strong>用途：</strong>通过"发放前申请验证"群组验证材料发放申请的当前余额并装货后，需向"按申请发放材料"群组发布以下内容的信息：</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>发放申请首页完整照片 + 所有带有已发放材料接收标记的页面，可读、未裁剪、未翻转。必须可见接收材料人员的签名，注明接收材料数量和日期</li>
+                        <li>带有仓库管理员和货物接收人签名的"材料离场通行证"完整照片</li>
+                        <li>接收材料及其每个GM的装箱单/货物单位清单/Shipping Mark/标记的照片。无这些照片，会计部门无权核销材料</li>
+                        <li>货物接收人的通行证照片。建筑团队和承包商必须与发放申请中的"申请人（分包商）"项一致</li>
+                        <li>文字说明申请编号、已发放GM的数量（如可能，包括名称）、已释放GM的编号（如可能且适用）。如由中国同事执行发放，也需说明</li>
+                    </ol>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_37_2.png" alt="按申请发放材料示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>按申请发放材料示例</em></p>
+                    </div>
+                    
+                    <h4>9. <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">丢失物品</a></h4>
+                    <p><strong>用途：</strong>此群组用于快速处理仓库查找货物单位、核算以及发送装箱单和货物单位清单以标记GM的请求，无需查找空闲的会计员工。</p>
+                    
+                    <p><strong>在以下情况下需向指定群组发送请求：</strong></p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>GM在申请中指定的存储位置缺失，需检查其位置。请求中需注明申请编号和GM，或附上申请照片并标注待查找的GM，注明简要描述。</li>
+                        <li>装箱单缺失或损坏，GM需要重新标记。</li>
+                    </ol>
+                    
+                    <p><strong>请求示例：</strong></p>
+                    <p>"申请编号SS7-UIO-16400-c12-253中缺失GM №5-2-8，请协助查找"</p>
+                    <p>"需要GM №5-2-8的装箱单"</p>
+                    
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/image_38_1.png" alt="丢失物品群组请求示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <p><em>丢失物品群组请求示例</em></p>
+                    </div>
+                    
+                    <p><strong>结果，会计部门提供装箱单和场地材料移动信息，以简化查找。</strong></p>
+                    <p><em>对现场员工消息的反应不相关，这些是会计部门的内部标识。</em></p>
+                    
+                    <h4>10. <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">IC群组</a></h4>
+                    <p><strong>用途：</strong>此群组为来料检验群组创建，用于此方向的快速信息交换，即 – 检验分配、来料检验计划、来料检验资源分配等。</p>
+                    
+                    <h4>11. <a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">转移</a></h4>
+                    <p><strong>用途：</strong>此群组发布所有材料转移和验收清单（参见章节4.3填写"材料转移和验收清单"规则）。发布仓库内转移数据，并分配新存储地址。适用于仓库内转移（地点），以及仓库间转移（地点）。</p>
+                    
+                    <h4>12. <a href="https://teams.microsoft.com/l/message/19:a383eea2-9fcf-4e39-870f-3d5c53abacf9_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912665617?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">材料盘点</a></h4>
+                    <p><strong>用途：</strong>群组用于发布盘点清单和此方向的信息交换。参见章节4.9盘点清单内容和填写规则。</p>
+                    
+                    <h4>13. <a href="https://max.ru/join/HJ3DPOkt4dEMTy-UTtvCOLyL0F4yxouSVMKMlF1WpO8" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">工作安排</a></h4>
+                    <p><strong>用途：</strong>创建的聊天用于集中交换周六/周日/节假日工作信息。</p>
+                    <p><strong>消息格式：</strong>消息以"加班工作18.10"格式提交。</p>
+                    <p><strong>程序：</strong>如已设置点赞，可在此日工作，如未设置，需额外联系以澄清。</p>
+                    <p><strong>补充：</strong>此外，此处还发布年假和无薪假消息。</p>
+                    
+                    <h4>14. <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">材料检查报告</a></h4>
+                    <p><strong>用途：</strong>此群组发布材料检查报告。</p>
+                    <p><strong>编制条件：</strong>如在部分发放时发现短缺、多余、错配或材料损坏，需编制检查报告。这适用于已通过质量控制和未通过质量控制的材料。发现不符项时，需联系Business-Trend员工共同检查这些材料。</p>
+                    <p><strong>信息提交格式：</strong>发现上述不符项时，现场员工需向"材料检查报告"群组发布以下信息：</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>材料照片</li>
+                        <li>GM编号、装箱单</li>
+                        <li>根据货物单位清单的材料名称</li>
+                        <li>不符项描述</li>
+                    </ol>
+                    <p><strong>报告处理：</strong>根据上述数据，会计部门编制检查报告并发送给现场员工和Business-Trend员工签字。</p>
+                    
+                    <h4>15. <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">用于水压试验的ZRA / 阀门</a></h4>
+                    <p><strong>用途：</strong>群组用于交换转移到水压试验的ZRA（截止调节阀）信息。</p>
+                    
+                    <h4>16. <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ZRA转移（试验）</a></h4>
+                    <p><strong>用途：</strong>创建的群组用于显示用于水压试验的ZRA（截止调节阀）离场通行证和从水压试验的转移清单。</p>
+                    <p><strong>消息格式：</strong>消息中需注明：</p>
+                    <ol style="margin: 10px 0; padding-left: 20px;">
+                        <li>从仓库发放时的"离场通行证"照片/从水压试验转移时的转移清单照片</li>
+                        <li>从仓库发货时的装箱单/货物单位清单/Shipping Marks照片</li>
+                        <li>按以下示例文字说明</li>
+                    </ol>
+                    <p><strong>发布示例：</strong></p>
+                    <div class="image-container" style="margin: 15px 0;">
+                        <img src="images/arm1.png" alt="ZRA发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                        <img src="images/arm2.png" alt="ZRA发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    </div>
+                </div>
             `
+            }
         },
         '5.2': {
-            title: 'Перечень групп',
-            content: `
+            title: {
+                ru: 'Перечень групп',
+                en: 'List of Groups',
+                zh: '群组列表'
+            },
+            content: {
+                ru: `
                 <h3>5.2 ПЕРЕЧЕНЬ ГРУПП</h3>
                 
                 <p>Ниже представлен полный перечень всех информационных групп с прямыми ссылками для быстрого доступа:</p>
@@ -1255,11 +3822,81 @@ const warehouseData = {
                 <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
                     <p><strong>💡 Совет:</strong> Для получения подробной информации о назначении и правилах использования каждой группы, перейдите в раздел <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "Детальное описание информационных групп" 🔗</a>.</p>
                 </div>
+            `,
+                en: `
+                <h3>5.2 LIST OF GROUPS</h3>
+                
+                <p>Below is a complete list of all information groups with direct links for quick access:</p>
+                
+                <div style="margin: 20px 0;">
+                    <h4>Information Groups:</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">1. OPERATIONAL OFFICERS</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">2. CRAZY. SITE</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">3. INFORMATION. READ ME!</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">4. DOCUMENTS FOR VERIFICATION</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">5. M-7 / Damage Acts</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">6. FOR TB FOR ACCOUNTING</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">7. REQUEST VERIFICATION BEFORE ISSUANCE</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">8. MATERIAL ISSUANCE BY REQUESTS</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">9. LOST ITEMS</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">10. IC GROUP</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">11. TRANSFERS</a></li>
+                        <li style="margin: 10px 0;"><a href="https://teams.microsoft.com/l/message/19:a383eea2-9fcf-4e39-870f-3d5c53abacf9_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912665617?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">12. MATERIAL INVENTORY</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HJ3DPOkt4dEMTy-UTtvCOLyL0F4yxouSVMKMlF1WpO8" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">13. WORK SCHEDULE</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">14. MATERIAL INSPECTION ACTS</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">15. ZRA FOR HI / VALVES</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">16. ZRA TRANSFERS (TESTING)</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">17. MATERIAL RETURN TO WAREHOUSE</a></li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
+                    <p><strong>💡 Tip:</strong> For detailed information on the purpose and usage rules of each group, go to section <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "Detailed Description of Information Groups" 🔗</a>.</p>
+                </div>
+            `,
+                zh: `
+                <h3>5.2 群组列表</h3>
+                
+                <p>以下是所有信息群组的完整列表，包含快速访问的直接链接：</p>
+                
+                <div style="margin: 20px 0;">
+                    <h4>信息群组：</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/LKsu74vfEKoJCa5SdggIfbG0-OAUj_Xy_TSxqcS2Q00" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">1. 运营专员</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/bMV-CA4fWBQyL9r7R9grMbHTJByE8Jh06QvRkiFW2xk" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">2. 疯狂。场地</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HGORdXUfqF6zy0x8xnqCRdY8znVtij5bchtc4hK3AaU" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">3. 信息。请阅读！</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/NGo0fZVP0zrCLgcrE5g494_rXWzx0eEo8ny0RuqPw7w" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">4. 待检查文件</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">5. M-7 / 损坏报告</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">6. 待核算运输单</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">7. 发放前申请验证</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">8. 按申请发放材料</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">9. 丢失物品</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">10. IC群组</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/-_LBqqcIpcKTMRJjj8pHN5fxdmpMQOqlY3y9zKyjR-0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">11. 转移</a></li>
+                        <li style="margin: 10px 0;"><a href="https://teams.microsoft.com/l/message/19:a383eea2-9fcf-4e39-870f-3d5c53abacf9_b0e49231-9ee7-4aec-b33f-dca486c5c65c@unq.gbl.spaces/1759912665617?context=%7B%22contextType%22%3A%22chat%22%7D" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">12. 材料盘点</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/HJ3DPOkt4dEMTy-UTtvCOLyL0F4yxouSVMKMlF1WpO8" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">13. 工作安排</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">14. 材料检查报告</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">15. 用于水压试验的ZRA / 阀门</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">16. ZRA转移（试验）</a></li>
+                        <li style="margin: 10px 0;"><a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">17. 材料退回仓库</a></li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
+                    <p><strong>💡 提示：</strong>要获取每个群组的用途和使用规则的详细信息，请转到章节 <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "信息群组详细说明" 🔗</a>。</p>
+                </div>
             `
+            }
         },
         '5.3': {
-            title: 'Полезные ссылки',
-            content: `
+            title: {
+                ru: 'Полезные ссылки',
+                en: 'Useful Links',
+                zh: '有用链接'
+            },
+            content: {
+                ru: `
                 <h3>5.3 ПОЛЕЗНЫЕ ССЫЛКИ</h3>
                 
                 <p>В данном разделе собраны полезные ссылки для быстрого доступа к важным ресурсам и системам.</p>
@@ -1278,47 +3915,629 @@ const warehouseData = {
                 <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #28a745;">
                     <p><strong>💡 Примечание:</strong> Данный раздел будет дополняться по мере появления новых полезных ресурсов и ссылок.</p>
                 </div>
+            `,
+                en: `
+                <h3>5.3 USEFUL LINKS</h3>
+                
+                <p>This section contains useful links for quick access to important resources and systems.</p>
+                
+                <div style="margin: 20px 0;">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1CD7d3T1QVWLJHrPMUyD-CQBv8LhWBUjk/edit?gid=1486374551#gid=1486374551" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📦 Warehouse Capacity</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🚛 Dispatch Table</a></li>
+                        <li style="margin: 10px 0;"><a href="https://drive.google.com/drive/folders/1WEGxMYp8Ockkv1aKnxubz2sg4lvbvXnF" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🗺️ Warehouse Maps</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1y03T2JasqOd7AMUjEhPm1qvFX4RwjnwT/edit?gid=1336949133#gid=1336949133" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📞 Warehouse Contacts</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1Ksengfzhqwu7sXiHpHyoPf5tnQd5L9Ai/edit?gid=763753371#gid=763753371" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📋 Supplier Verification List</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1MfCMgEFtFrTynlRB2aUz0X4MxGwuVUva0cyyxeeywEE/edit?gid=0#gid=0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🔧 Warehouse Consumables</a></li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #28a745;">
+                    <p><strong>💡 Note:</strong> This section will be updated as new useful resources and links become available.</p>
+                </div>
+            `,
+                zh: `
+                <h3>5.3 有用链接</h3>
+                
+                <p>本节包含快速访问重要资源和系统的有用链接。</p>
+                
+                <div style="margin: 20px 0;">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1CD7d3T1QVWLJHrPMUyD-CQBv8LhWBUjk/edit?gid=1486374551#gid=1486374551" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📦 仓库容量</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1_3yw0wras6aP1Mfi_0k157Ja9whFUSgZk6vMLXsOB8A/edit?gid=884478862#gid=884478862" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🚛 调度表</a></li>
+                        <li style="margin: 10px 0;"><a href="https://drive.google.com/drive/folders/1WEGxMYp8Ockkv1aKnxubz2sg4lvbvXnF" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🗺️ 仓库地图</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1y03T2JasqOd7AMUjEhPm1qvFX4RwjnwT/edit?gid=1336949133#gid=1336949133" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📞 仓库联系方式</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1Ksengfzhqwu7sXiHpHyoPf5tnQd5L9Ai/edit?gid=763753371#gid=763753371" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">📋 供应商核对清单</a></li>
+                        <li style="margin: 10px 0;"><a href="https://docs.google.com/spreadsheets/d/1MfCMgEFtFrTynlRB2aUz0X4MxGwuVUva0cyyxeeywEE/edit?gid=0#gid=0" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🔧 仓库消耗品</a></li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #28a745;">
+                    <p><strong>💡 注意：</strong>随着新的有用资源和链接的出现，本节将不断更新。</p>
+                </div>
             `
+            }
         },
         // Глава 6: Общие хозяйственные вопросы
         '6.1': {
-            title: 'ЗАЯВКИ НА КАНЦЕЛЯРИЮ И РАСХОДНЫЕ МАТЕРИАЛЫ',
-            content: `
+            title: {
+                ru: 'ЗАЯВКИ НА КАНЦЕЛЯРИЮ И РАСХОДНЫЕ МАТЕРИАЛЫ',
+                en: 'REQUESTS FOR STATIONERY AND CONSUMABLES',
+                zh: '文具和消耗品申请'
+            },
+            content: {
+                ru: `
                 <h3>Заявка на канцелярию</h3>
                 <p>Заявка на канцелярию ежемесячно приходит на заполнение в общей группе СС7 в которую Вас добавили сотрудники HR. Полевые сотрудники должны определиться с наименованием и количеством требуемой канцелярии, предоставить данные по потребности на сотрудника учета – Сафина Ирика.</p>
                 
                 <h3>Расходные материалы</h3>
                 <p>Расходные материалы (брус, инструмент, гвозди, тенты и тд) запрашиваются через диспетчеров. Диспетчеры направляют письменный запрос (email) на китайских коллег.</p>
+            `,
+                en: `
+                <h3>Stationery Request</h3>
+                <p>The stationery request comes monthly for completion in the general CC7 group to which HR employees have added you. Field employees must determine the name and quantity of required stationery and provide demand data to the accounting employee – Safina Irika.</p>
+                
+                <h3>Consumables</h3>
+                <p>Consumables (beams, tools, nails, tarps, etc.) are requested through dispatchers. Dispatchers send a written request (email) to Chinese colleagues.</p>
+            `,
+                zh: `
+                <h3>文具申请</h3>
+                <p>文具申请每月在HR员工将您添加的CC7总群组中发布，供填写。现场员工需确定所需文具的名称和数量，并向会计员工萨菲娜·伊里卡提供需求数据。</p>
+                
+                <h3>消耗品</h3>
+                <p>消耗品（横梁、工具、钉子、防水布等）通过调度员申请。调度员向中国同事发送书面请求（电子邮件）。</p>
             `
+            }
         },
         '6.2': {
-            title: 'ВРЕМЯ ТРУДА И ОТДЫХА',
-            content: `
+            title: {
+                ru: 'ВРЕМЯ ТРУДА И ОТДЫХА',
+                en: 'WORK AND REST TIME',
+                zh: '工作和休息时间'
+            },
+            content: {
+                ru: `
                 <h3>Режим работы</h3>
                 <p>Начало рабочего дня определено в 8.00 утра. В это время каждый полевой сотрудник должен быть на своей локации и готов к работе. Обеденное время – с 12.00 до 13.00. Окончание рабочего времени – 18.00.</p>
                 
                 <h3>Перерывы</h3>
                 <p>Также предусмотрены перерывы на 15 минут в 10.00 и 15.00.</p>
+            `,
+                en: `
+                <h3>Work Schedule</h3>
+                <p>The start of the working day is set at 8:00 AM. At this time, each field employee must be at their location and ready to work. Lunch time is from 12:00 to 13:00. End of working time is 18:00.</p>
+                
+                <h3>Breaks</h3>
+                <p>15-minute breaks are also provided at 10:00 and 15:00.</p>
+            `,
+                zh: `
+                <h3>工作时间</h3>
+                <p>工作日开始时间为上午8:00。此时，每位现场员工必须在其地点并准备就绪。午餐时间为12:00至13:00。工作结束时间为18:00。</p>
+                
+                <h3>休息</h3>
+                <p>在10:00和15:00还提供15分钟休息时间。</p>
             `
+            }
         },
         '6.3': {
-            title: 'ОФОРМЛЕНИЕ ОТПУСКА И ОТПУСКА БЕЗ СОХРАНЕНИЯ ЗАРАБОТНОЙ ПЛАТЫ',
-            content: `
+            title: {
+                ru: 'ОФОРМЛЕНИЕ ОТПУСКА И ОТПУСКА БЕЗ СОХРАНЕНИЯ ЗАРАБОТНОЙ ПЛАТЫ',
+                en: 'VACATION AND UNPAID LEAVE APPLICATION',
+                zh: '休假和无薪假申请'
+            },
+            content: {
+                ru: `
                 <h3>Обычный отпуск</h3>
                 <p>Заявление на отпуск должно быть предоставлено за 2 недели до первого дня выхода в отпуск.</p>
                 
                 <h3>Отпуск без сохранения заработной платы</h3>
                 <p>Если необходимо взять отпуск без сохранения заработной платы - необходимо заполнить заявление на отпуск без содержания. Бланки заявлений должны быть на локациях. Оригинал передавайте на С2.3-1 в 9 вагончик (тут также есть пустые бланки для полевиков). Заявление необходимо предоставлять заблаговременно за 2 дня до планируемого выходного, для того, чтобы собрать необходимые подписи и сдать заявление в Отдел Кадров.</p>
+            `,
+                en: `
+                <h3>Regular Vacation</h3>
+                <p>The vacation application must be submitted 2 weeks before the first day of vacation.</p>
+                
+                <h3>Unpaid Leave</h3>
+                <p>If it is necessary to take unpaid leave - it is necessary to fill out an unpaid leave application. Application forms should be available at locations. Submit the original to C2.3-1 in trailer 9 (there are also blank forms for field workers here). The application must be submitted in advance 2 days before the planned day off, in order to collect the necessary signatures and submit the application to the HR Department.</p>
+            `,
+                zh: `
+                <h3>常规休假</h3>
+                <p>休假申请必须在休假第一天前2周提交。</p>
+                
+                <h3>无薪假</h3>
+                <p>如需申请无薪假，需填写无薪假申请。申请表应在各地点提供。原件提交至C2.3-1的9号拖车（此处也有现场员工的空白表格）。申请需在计划休息日前2天提前提交，以便收集必要的签名并将申请提交至人力资源部。</p>
             `
+            }
         },
         '6.4': {
-            title: 'ПЕРЕДАЧА ДОКУМЕНТОВ В УЧЕТ',
-            content: `
+            title: {
+                ru: 'ПЕРЕДАЧА ДОКУМЕНТОВ В УЧЕТ',
+                en: 'DOCUMENT TRANSFER TO ACCOUNTING',
+                zh: '文件移交会计部门'
+            },
+            content: {
+                ru: `
                 <p>Данный раздел находится в разработке и будет обновлен в ближайшее время.</p>
+            `,
+                en: `
+                <p>This section is under development and will be updated soon.</p>
+            `,
+                zh: `
+                <p>本节正在开发中，将很快更新。</p>
             `
+            }
         }
     }
 };
+
+// Система переводов (i18n)
+const translations = {
+    ru: {
+        // UI элементы
+        appTitle: 'Справочник СКЛАД',
+        searchPlaceholder: '🔍 Поиск по справочнику...',
+        searchAriaLabel: 'Поиск по справочнику кладовщика',
+        installApp: 'Установить приложение',
+        installAppAria: 'Установить приложение на устройство',
+        home: 'Главная',
+        back: '← Назад',
+        next: 'Далее →',
+        backAria: 'Перейти к предыдущему разделу',
+        homeAria: 'Вернуться на главную страницу',
+        nextAria: 'Перейти к следующему разделу',
+        feedback: '💬 Отзывы и предложения',
+        footerText: 'Special thanks to Egor Sataev © 2025 Справочник СКЛАД',
+        imageModalAlt: 'Увеличенное изображение',
+        closeWindow: 'Закрыть окно',
+        backToChapters: '← Назад к главам',
+        sectionNotFound: 'Раздел не найден:',
+        chooseSubsection: 'Выберите подраздел из списка ниже:',
+        nothingFound: 'Ничего не найдено',
+        section: 'Раздел',
+        sectionContent: 'Содержимое раздела',
+        // Форма обратной связи
+        feedbackTitle: '💬 Отзывы и предложения',
+        feedbackDescription: 'Ваше мнение очень важно для нас! Поделитесь своими мыслями, предложениями или сообщите об ошибках.',
+        feedbackNameLabel: 'Ваше имя (необязательно):',
+        feedbackNamePlaceholder: 'Введите ваше имя',
+        feedbackEmailLabel: 'Ваш email (необязательно):',
+        feedbackEmailPlaceholder: 'your.email@example.com',
+        feedbackMessageLabel: 'Сообщение:',
+        feedbackMessagePlaceholder: 'Напишите ваш отзыв, предложение или сообщение об ошибке...',
+        feedbackSubmit: 'Отправить',
+        feedbackSending: 'Отправка...',
+        feedbackSuccess: 'Спасибо! Ваш отзыв успешно отправлен.',
+        feedbackError: 'Произошла ошибка при отправке отзыва. Пожалуйста, попробуйте позже.',
+        feedbackRequired: 'Пожалуйста, заполните поле сообщения',
+        feedbackFormError: 'Ошибка: элементы формы не найдены. Пожалуйста, обновите страницу.'
+    },
+    en: {
+        // UI elements
+        appTitle: 'WAREHOUSE GUIDE',
+        searchPlaceholder: '🔍 Search the guide...',
+        searchAriaLabel: 'Search warehouse guide',
+        installApp: 'Install App',
+        installAppAria: 'Install app on device',
+        home: 'Home',
+        back: '← Back',
+        next: 'Next →',
+        backAria: 'Go to previous section',
+        homeAria: 'Return to home page',
+        nextAria: 'Go to next section',
+        feedback: '💬 Feedback & Suggestions',
+        footerText: 'Special thanks to Egor Sataev © 2025 WAREHOUSE GUIDE',
+        imageModalAlt: 'Enlarged image',
+        closeWindow: 'Close window',
+        backToChapters: '← Back to chapters',
+        sectionNotFound: 'Section not found:',
+        chooseSubsection: 'Choose a subsection from the list below:',
+        nothingFound: 'Nothing found',
+        section: 'Section',
+        sectionContent: 'Section content',
+        // Feedback form
+        feedbackTitle: '💬 Feedback & Suggestions',
+        feedbackDescription: 'Your opinion is very important to us! Share your thoughts, suggestions, or report errors.',
+        feedbackNameLabel: 'Your name (optional):',
+        feedbackNamePlaceholder: 'Enter your name',
+        feedbackEmailLabel: 'Your email (optional):',
+        feedbackEmailPlaceholder: 'your.email@example.com',
+        feedbackMessageLabel: 'Message:',
+        feedbackMessagePlaceholder: 'Write your feedback, suggestion, or error report...',
+        feedbackSubmit: 'Send',
+        feedbackSending: 'Sending...',
+        feedbackSuccess: 'Thank you! Your feedback has been sent successfully.',
+        feedbackError: 'An error occurred while sending feedback. Please try again later.',
+        feedbackRequired: 'Please fill in the message field',
+        feedbackFormError: 'Error: form elements not found. Please refresh the page.'
+    },
+    zh: {
+        // UI 元素
+        appTitle: '仓库指南',
+        searchPlaceholder: '🔍 搜索指南...',
+        searchAriaLabel: '搜索仓库指南',
+        installApp: '安装应用',
+        installAppAria: '在设备上安装应用',
+        home: '首页',
+        back: '← 返回',
+        next: '下一步 →',
+        backAria: '转到上一节',
+        homeAria: '返回首页',
+        nextAria: '转到下一节',
+        feedback: '💬 反馈和建议',
+        footerText: '特别感谢 Egor Sataev © 2025 仓库指南',
+        imageModalAlt: '放大图像',
+        closeWindow: '关闭窗口',
+        backToChapters: '← 返回章节',
+        sectionNotFound: '未找到部分:',
+        chooseSubsection: '从下面的列表中选择一个子部分:',
+        nothingFound: '未找到',
+        section: '部分',
+        sectionContent: '部分内容',
+        // 反馈表单
+        feedbackTitle: '💬 反馈和建议',
+        feedbackDescription: '您的意见对我们非常重要！分享您的想法、建议或报告错误。',
+        feedbackNameLabel: '您的姓名（可选）:',
+        feedbackNamePlaceholder: '输入您的姓名',
+        feedbackEmailLabel: '您的电子邮件（可选）:',
+        feedbackEmailPlaceholder: 'your.email@example.com',
+        feedbackMessageLabel: '消息:',
+        feedbackMessagePlaceholder: '写下您的反馈、建议或错误报告...',
+        feedbackSubmit: '发送',
+        feedbackSending: '发送中...',
+        feedbackSuccess: '谢谢！您的反馈已成功发送。',
+        feedbackError: '发送反馈时发生错误。请稍后再试。',
+        feedbackRequired: '请填写消息字段',
+        feedbackFormError: '错误：未找到表单元素。请刷新页面。'
+    }
+};
+
+// Текущий язык (по умолчанию русский, или из localStorage)
+let currentLanguage = localStorage.getItem('appLanguage') || 'ru';
+
+// Функция получения перевода
+function t(key) {
+    return translations[currentLanguage][key] || translations['ru'][key] || key;
+}
+
+// Функция получения переведенного значения (для совместимости со старой и новой структурой)
+function getTranslatedValue(obj, lang = currentLanguage) {
+    if (!obj) return '';
+    // Если это объект с переводами (новая структура)
+    if (typeof obj === 'object' && (obj.ru || obj.en || obj.zh)) {
+        return obj[lang] || obj.ru || obj.en || obj.zh || '';
+    }
+    // Если это строка (старая структура)
+    if (typeof obj === 'string') {
+        return obj;
+    }
+    return '';
+}
+
+// Функция переключения языка
+function changeLanguage(lang) {
+    if (!translations[lang]) {
+        console.error('Language not supported:', lang);
+        return;
+    }
+    currentLanguage = lang;
+    localStorage.setItem('appLanguage', lang);
+    document.documentElement.lang = lang;
+    
+    // Обновляем переключатель языка
+    updateLanguageSelector();
+    
+    updateUI();
+    // Перерисовываем текущий контент с новым языком
+    if (currentView === 'chapters') {
+        renderChapters();
+    } else if (currentContentId) {
+        showContentDirect(currentContentId);
+    }
+    
+    // Закрываем dropdown
+    const dropdown = document.getElementById('languageDropdown');
+    const selector = document.querySelector('.language-selector');
+    if (dropdown) {
+        dropdown.classList.remove('show');
+        dropdown.style.display = 'none';
+        dropdown.style.visibility = 'hidden';
+        // Возвращаем dropdown обратно в селектор при закрытии
+        if (dropdown.parentNode === document.body && selector) {
+            selector.appendChild(dropdown);
+        }
+        document.body.classList.remove('language-dropdown-open');
+    }
+}
+
+// Обновление переключателя языка
+function updateLanguageSelector() {
+    const flagMap = {
+        'ru': '🇷🇺',
+        'en': '🇬🇧',
+        'zh': '🇨🇳'
+    };
+    const nameMap = {
+        'ru': 'Русский',
+        'en': 'English',
+        'zh': '中文'
+    };
+    
+    const flagEl = document.getElementById('currentLanguageFlag');
+    const nameEl = document.getElementById('currentLanguageName');
+    
+    if (flagEl) flagEl.textContent = flagMap[currentLanguage] || '🇷🇺';
+    if (nameEl) nameEl.textContent = nameMap[currentLanguage] || 'Русский';
+    
+    // Обновляем активный элемент в dropdown
+    const options = document.querySelectorAll('.language-option');
+    options.forEach(option => {
+        option.classList.remove('active');
+        const langCode = option.getAttribute('onclick')?.match(/'(\w+)'/)?.[1];
+        if (langCode === currentLanguage) {
+            option.classList.add('active');
+        }
+    });
+}
+
+// Переключение dropdown языка
+function toggleLanguageDropdown(event) {
+    if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
+    
+    const dropdown = document.getElementById('languageDropdown');
+    const selector = document.querySelector('.language-selector');
+    const btn = document.querySelector('.language-btn');
+    
+    if (dropdown && selector && btn) {
+        const isShowing = dropdown.classList.contains('show');
+        
+        if (!isShowing) {
+            // Получаем позицию кнопки для fixed позиционирования
+            const btnRect = btn.getBoundingClientRect();
+            
+            // Перемещаем dropdown в body, если он еще не там (для избежания проблем со stacking context)
+            if (dropdown.parentNode !== document.body) {
+                document.body.appendChild(dropdown);
+            }
+            
+            // Добавляем класс на body для CSS правил (до показа dropdown)
+            document.body.classList.add('language-dropdown-open');
+            
+            // Вычисляем ширину dropdown (равна ширине кнопки или минимум 150px)
+            const dropdownWidth = Math.max(btnRect.width, 150);
+            
+            // Устанавливаем базовую позицию для fixed dropdown
+            let topPos = btnRect.bottom + 8;
+            let leftPos = btnRect.left;
+            
+            // Устанавливаем стили для получения размеров
+            dropdown.style.cssText = `
+                position: fixed !important;
+                top: ${topPos}px;
+                left: ${leftPos}px;
+                width: ${dropdownWidth}px;
+                display: block;
+                visibility: hidden;
+                z-index: 2147483647 !important;
+                margin: 0 !important;
+                transform: none !important;
+            `;
+            dropdown.classList.add('show');
+            
+            // Получаем реальные размеры dropdown
+            const dropdownRect = dropdown.getBoundingClientRect();
+            const dropdownHeight = dropdownRect.height;
+            
+            // Проверяем границы экрана и корректируем позицию
+            // Если выходит за правый край
+            if (leftPos + dropdownWidth > window.innerWidth - 10) {
+                leftPos = window.innerWidth - dropdownWidth - 10;
+            }
+            
+            // Если выходит за левый край
+            if (leftPos < 10) {
+                leftPos = 10;
+            }
+            
+            // Если выходит за нижний край - показываем сверху
+            if (topPos + dropdownHeight > window.innerHeight - 10) {
+                topPos = btnRect.top - dropdownHeight - 8;
+                if (topPos < 10) {
+                    topPos = 10;
+                }
+            }
+            
+            // Устанавливаем финальную позицию и делаем видимым
+            dropdown.style.cssText = `
+                position: fixed !important;
+                top: ${topPos}px;
+                left: ${leftPos}px;
+                width: ${dropdownWidth}px;
+                display: block !important;
+                visibility: visible;
+                z-index: 2147483647 !important;
+                margin: 0 !important;
+                transform: none !important;
+            `;
+        } else {
+            dropdown.classList.remove('show');
+            dropdown.style.display = 'none';
+            dropdown.style.visibility = 'hidden';
+            // Возвращаем dropdown обратно в селектор при закрытии
+            if (dropdown.parentNode === document.body && selector) {
+                selector.appendChild(dropdown);
+            }
+            document.body.classList.remove('language-dropdown-open');
+        }
+    }
+}
+
+// Закрытие dropdown при клике вне его
+document.addEventListener('click', function(event) {
+    const selector = document.querySelector('.language-selector');
+    const dropdown = document.getElementById('languageDropdown');
+    const btn = document.querySelector('.language-btn');
+    
+    if (selector && dropdown && btn) {
+        // Проверяем, был ли клик внутри селектора или dropdown
+        const clickedInside = selector.contains(event.target) || dropdown.contains(event.target);
+        
+        if (!clickedInside && dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+            dropdown.style.display = 'none';
+            dropdown.style.visibility = 'hidden';
+            // Возвращаем dropdown обратно в селектор при закрытии
+            if (dropdown.parentNode === document.body && selector) {
+                selector.appendChild(dropdown);
+            }
+            document.body.classList.remove('language-dropdown-open');
+        }
+    }
+});
+
+// Функция для выбора языка (вызывается из HTML onclick)
+function selectLanguage(lang, event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+    }
+    
+    console.log('selectLanguage called with:', lang);
+    
+    if (!lang || !translations[lang]) {
+        console.error('Invalid language:', lang);
+        return false;
+    }
+    
+    changeLanguage(lang);
+    return false;
+}
+
+// Функция для инициализации обработчиков языка (теперь не нужна, но оставляем для совместимости)
+function initLanguageHandlers() {
+    console.log('Language handlers: using inline onclick handlers');
+}
+
+// Закрытие dropdown при клике вне его (с задержкой, чтобы не мешать кликам по опциям)
+document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('languageDropdown');
+    const selector = document.querySelector('.language-selector');
+    const btn = document.querySelector('.language-btn');
+    
+    // Не закрываем, если клик был по кнопке или внутри dropdown
+    if (btn && btn.contains(event.target)) {
+        return;
+    }
+    
+    if (dropdown && dropdown.contains(event.target)) {
+        return;
+    }
+    
+    // Закрываем dropdown при клике вне его
+    if (selector && !selector.contains(event.target) && dropdown && dropdown.classList.contains('show')) {
+        setTimeout(() => {
+            dropdown.classList.remove('show');
+        }, 100);
+    }
+}, false);
+
+// Обновление UI элементов
+function updateUI() {
+    // Заголовок приложения
+    const appTitle = document.querySelector('.header-text h1');
+    if (appTitle) appTitle.textContent = t('appTitle');
+    
+    // Поиск
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.placeholder = t('searchPlaceholder');
+        searchInput.setAttribute('aria-label', t('searchAriaLabel'));
+    }
+    
+    // Кнопка установки
+    const installBtn = document.getElementById('installBtn');
+    if (installBtn) {
+        installBtn.textContent = t('installApp');
+        installBtn.setAttribute('aria-label', t('installAppAria'));
+    }
+    
+    // Кнопки навигации
+    const prevBtn = document.getElementById('prevBtn');
+    if (prevBtn) {
+        prevBtn.textContent = t('back');
+        prevBtn.setAttribute('aria-label', t('backAria'));
+    }
+    
+    const homeBtn = document.querySelector('.home-btn');
+    if (homeBtn) {
+        homeBtn.textContent = '🏠 ' + t('home');
+        homeBtn.setAttribute('aria-label', t('homeAria'));
+    }
+    
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) {
+        nextBtn.textContent = t('next');
+        nextBtn.setAttribute('aria-label', t('nextAria'));
+    }
+    
+    // Хлебные крошки
+    const breadcrumbHome = document.querySelector('.breadcrumb-item');
+    if (breadcrumbHome && breadcrumbHome.onclick) {
+        breadcrumbHome.textContent = t('home');
+    }
+    
+    // Кнопка обратной связи
+    const feedbackBtn = document.querySelector('.feedback-btn');
+    if (feedbackBtn) feedbackBtn.textContent = t('feedback');
+    
+    // Футер
+    const footerText = document.querySelector('.footer p');
+    if (footerText) {
+        footerText.innerHTML = t('footerText') + ' <button class="feedback-btn" onclick="openFeedbackModal()">' + t('feedback') + '</button>';
+    }
+    
+    // Модальное окно изображений
+    const modalImage = document.getElementById('modalImage');
+    if (modalImage) modalImage.alt = t('imageModalAlt');
+    
+    // Обновление формы обратной связи
+    updateFeedbackForm();
+}
+
+// Обновление формы обратной связи
+function updateFeedbackForm() {
+    const feedbackTitle = document.querySelector('#feedbackModal h2');
+    if (feedbackTitle) feedbackTitle.textContent = t('feedbackTitle');
+    
+    const feedbackDesc = document.querySelector('#feedbackModal .feedback-form p');
+    if (feedbackDesc) feedbackDesc.textContent = t('feedbackDescription');
+    
+    const nameLabel = document.querySelector('label[for="feedbackName"]');
+    if (nameLabel) nameLabel.textContent = t('feedbackNameLabel');
+    
+    const nameInput = document.getElementById('feedbackName');
+    if (nameInput) nameInput.placeholder = t('feedbackNamePlaceholder');
+    
+    const emailLabel = document.querySelector('label[for="feedbackEmail"]');
+    if (emailLabel) emailLabel.textContent = t('feedbackEmailLabel');
+    
+    const emailInput = document.getElementById('feedbackEmail');
+    if (emailInput) emailInput.placeholder = t('feedbackEmailPlaceholder');
+    
+    const messageLabel = document.querySelector('label[for="feedbackMessage"]');
+    if (messageLabel) {
+        messageLabel.innerHTML = t('feedbackMessageLabel') + ' <span style="color: #ef4444;">*</span>';
+    }
+    
+    const messageInput = document.getElementById('feedbackMessage');
+    if (messageInput) messageInput.placeholder = t('feedbackMessagePlaceholder');
+    
+    const submitBtn = document.getElementById('feedbackSubmitBtn');
+    if (submitBtn) submitBtn.textContent = t('feedbackSubmit');
+}
 
 // Глобальные переменные
 let currentView = 'chapters';
@@ -1386,6 +4605,16 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error in showVersionInfo:', e);
         }
         
+        // Инициализация языка
+        try {
+            document.documentElement.lang = currentLanguage;
+            updateLanguageSelector();
+            updateUI();
+            initLanguageHandlers(); // Инициализируем обработчики кликов для опций языка
+        } catch (e) {
+            console.error('Error in language initialization:', e);
+        }
+        
         // Проверяем URL и инициализируем соответствующее состояние
         const hash = window.location.hash;
         const contentId = hash.startsWith('#') ? hash.substring(1) : hash;
@@ -1404,10 +4633,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Также пытаемся восстановить состояние, только если навигация не была обработана через popstate
         if (!navigationHandled) {
-            try {
-                restoreState();
-            } catch (e) {
-                console.error('Error in restoreState:', e);
+        try {
+            restoreState();
+        } catch (e) {
+            console.error('Error in restoreState:', e);
             }
         } else {
             console.log('Navigation already handled by popstate, skipping restoreState');
@@ -1459,8 +4688,9 @@ function renderChapters() {
                 chapterCard.onclick = () => navigateTo(chapter.id);
                 
                 // ТОЛЬКО НАЗВАНИЕ ГЛАВЫ - БЕЗ ОПИСАНИЯ И ПОДГЛАВ
+                const chapterTitle = getTranslatedValue(chapter.title);
                 chapterCard.innerHTML = `
-                    <h2><span class="icon">${chapter.icon}</span> ${chapter.title}</h2>
+                    <h2><span class="icon">${chapter.icon}</span> ${chapterTitle}</h2>
                 `;
                 
                 chaptersView.appendChild(chapterCard);
@@ -1489,7 +4719,7 @@ function showContent(contentId) {
     if (content) {
         const state = { type: 'content', id: contentId, _programmatic: true };
         const url = `#${contentId}`;
-        history.pushState(state, content.title, url);
+        history.pushState(state, getTranslatedValue(content.title), url);
         console.log('History updated for content:', contentId);
     }
 }
@@ -1520,7 +4750,7 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
     if (chapter) {
         const state = { type: 'chapter', id: chapterId, _programmatic: true };
         const url = `#${chapterId}`;
-        history.pushState(state, chapter.title, url);
+        history.pushState(state, getTranslatedValue(chapter.title), url);
         console.log('History updated for chapter:', chapterId);
     }
 }
@@ -1549,22 +4779,25 @@ function searchContent(query) {
     
     // Поиск по главам и подглавам
     warehouseData.chapters.forEach(chapter => {
-        if (chapter.title.toLowerCase().includes(query) || 
-            chapter.description.toLowerCase().includes(query)) {
+        const chapterTitle = getTranslatedValue(chapter.title);
+        const chapterDesc = getTranslatedValue(chapter.description);
+        if (chapterTitle.toLowerCase().includes(query) || 
+            chapterDesc.toLowerCase().includes(query)) {
             results.push({
                 type: 'chapter',
-                title: chapter.title,
-                description: chapter.description,
+                title: chapterTitle,
+                description: chapterDesc,
                 id: chapter.id
             });
         }
         
         chapter.subchapters.forEach(sub => {
-            if (sub.title.toLowerCase().includes(query)) {
+            const subTitle = getTranslatedValue(sub.title);
+            if (subTitle.toLowerCase().includes(query)) {
                 results.push({
                     type: 'subchapter',
-                    title: `${sub.id} ${sub.title}`,
-                    description: `Раздел: ${chapter.title}`,
+                    title: `${sub.id} ${subTitle}`,
+                    description: `${t('section')}: ${chapterTitle}`,
                     id: sub.id
                 });
             }
@@ -1574,12 +4807,14 @@ function searchContent(query) {
     // Поиск по содержимому
     Object.keys(warehouseData.content).forEach(key => {
         const content = warehouseData.content[key];
-        if (content.title.toLowerCase().includes(query) || 
-            content.content.toLowerCase().includes(query)) {
+        const contentTitle = getTranslatedValue(content.title);
+        const contentText = getTranslatedValue(content.content);
+        if (contentTitle.toLowerCase().includes(query) || 
+            contentText.toLowerCase().includes(query)) {
             results.push({
                 type: 'content',
-                title: content.title,
-                description: 'Содержимое раздела',
+                title: contentTitle,
+                description: t('sectionContent'),
                 id: key
             });
         }
@@ -1593,7 +4828,7 @@ function displaySearchResults(results) {
     const searchResults = document.getElementById('searchResults');
     
     if (results.length === 0) {
-        searchResults.innerHTML = '<div class="search-result"><p>Ничего не найдено</p></div>';
+        searchResults.innerHTML = '<div class="search-result"><p>' + t('nothingFound') + '</p></div>';
     } else {
         searchResults.innerHTML = results.map(result => `
             <div class="search-result" onclick="handleSearchResult('${result.id}', '${result.type}')">
@@ -2047,7 +5282,7 @@ function showUpdateNotification() {
                     // Отправляем сообщение новому Service Worker для активации
                     registration.waiting.postMessage({ type: 'SKIP_WAITING' });
                 }
-                // Обновляем страницу для применения нового Service Worker
+        // Обновляем страницу для применения нового Service Worker
                 setTimeout(() => {
                     window.location.reload(true); // Принудительная перезагрузка без кэша
                 }, 100);
@@ -2191,10 +5426,10 @@ function showContentWithoutHistory(contentId) {
     currentContentId = contentId;
     chaptersView.style.display = 'none';
     contentView.style.display = 'block';
-    contentTitle.textContent = content.title;
+    contentTitle.textContent = getTranslatedValue(content.title);
     
     // Загружаем контент с обычными изображениями (без lazy loading)
-    contentBody.innerHTML = content.content;
+    contentBody.innerHTML = getTranslatedValue(content.content);
     
     // Находим название главы и ID главы для хлебных крошек
     let chapterTitle = '';
@@ -2202,14 +5437,14 @@ function showContentWithoutHistory(contentId) {
     warehouseData.chapters.forEach(chapter => {
         chapter.subchapters.forEach(sub => {
             if (sub.id === contentId) {
-                chapterTitle = chapter.title;
+                chapterTitle = getTranslatedValue(chapter.title);
                 chapterId = chapter.id;
             }
         });
     });
     
     // Показываем хлебные крошки
-    updateBreadcrumbs(chapterTitle, content.title, chapterId);
+    updateBreadcrumbs(chapterTitle, getTranslatedValue(content.title), chapterId);
     
     updateNavigationButtons();
     currentView = 'content';
@@ -2267,13 +5502,13 @@ function showChapterWithoutHistory(chapterId) {
     chaptersView.style.display = 'grid';
     
     // Показываем хлебные крошки
-    updateBreadcrumbs(chapter.title, '', chapter.id);
+    updateBreadcrumbs(getTranslatedValue(chapter.title), '', chapter.id);
     
     // Кнопка "Назад к главам"
     const backButton = document.createElement('div');
     backButton.style.marginBottom = '20px';
     backButton.innerHTML = `
-        <button class="back-btn" onclick="navigateTo('chapters')">← Назад к главам</button>
+        <button class="back-btn" onclick="navigateTo('chapters')">${t('backToChapters')}</button>
     `;
     chaptersView.appendChild(backButton);
     
@@ -2283,8 +5518,9 @@ function showChapterWithoutHistory(chapterId) {
         subchapterCard.className = 'subchapter-card';
         subchapterCard.onclick = () => showContentDirect(subchapter.id);
         
+        const subTitle = getTranslatedValue(subchapter.title);
         subchapterCard.innerHTML = `
-            <h3>${subchapter.id} ${subchapter.title}</h3>
+            <h3>${subchapter.id} ${subTitle}</h3>
         `;
         
         chaptersView.appendChild(subchapterCard);
@@ -2318,14 +5554,14 @@ document.addEventListener('click', function(event) {
         console.log('Internal link clicked:', href, 'contentId:', contentId, '- opening in new window');
         
         // Определяем заголовок для нового окна
-        let titleToShow = 'Справочник кладовщика';
+        let titleToShow = t('appTitle');
         const content = warehouseData.content[contentId];
         if (content) {
-            titleToShow = `Справочник кладовщика - ${content.title}`;
+            titleToShow = `${t('appTitle')} - ${getTranslatedValue(content.title)}`;
         } else {
             const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
             if (chapter) {
-                titleToShow = `Справочник кладовщика - ${chapter.title}`;
+                titleToShow = `${t('appTitle')} - ${getTranslatedValue(chapter.title)}`;
             }
         }
         
@@ -2336,18 +5572,22 @@ document.addEventListener('click', function(event) {
             let contentToShow = '';
             const content = warehouseData.content[contentId];
             if (content) {
-                contentToShow = `<h2>${content.title}</h2>${content.content}`;
-                console.log('Content created for new window:', content.title);
+                const contentTitle = getTranslatedValue(content.title);
+                const contentBody = getTranslatedValue(content.content);
+                contentToShow = `<h2>${contentTitle}</h2>${contentBody}`;
+                console.log('Content created for new window:', contentTitle);
             } else {
                 const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
                 if (chapter) {
-                    contentToShow = `<h2>${chapter.title}</h2><p>Выберите подраздел из списка ниже:</p>`;
+                    const chapterTitle = getTranslatedValue(chapter.title);
+                    contentToShow = `<h2>${chapterTitle}</h2><p>${t('chooseSubsection')}</p>`;
                     chapter.subchapters.forEach(sub => {
-                        contentToShow += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo('${sub.id}')"><h4>${sub.title}</h4></div>`;
+                        const subTitle = getTranslatedValue(sub.title);
+                        contentToShow += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo('${sub.id}')"><h4>${sub.id} ${subTitle}</h4></div>`;
                     });
-                    console.log('Chapter created for new window:', chapter.title);
+                    console.log('Chapter created for new window:', chapterTitle);
                 } else {
-                    contentToShow = '<p>Раздел не найден: ' + contentId + '</p>';
+                    contentToShow = '<p>' + t('sectionNotFound') + ' ' + contentId + '</p>';
                     console.log('Content not found for ID:', contentId);
                 }
             }
@@ -2555,7 +5795,7 @@ document.addEventListener('click', function(event) {
                         <div class="content-body">
                             <a href="#" class="back-btn" onclick="window.close()">
                                 <span style="font-size: 18px;">✕</span>
-                                <span>Закрыть окно</span>
+                                <span>${t('closeWindow')}</span>
                             </a>
                             <div id="content">${contentToShow}</div>
                         </div>
@@ -2564,7 +5804,7 @@ document.addEventListener('click', function(event) {
                         <div style="text-align: center; margin-top: 30px; padding: 20px;">
                             <a href="#" class="back-btn" onclick="window.close()">
                                 <span style="font-size: 18px;">✕</span>
-                                <span>Закрыть окно</span>
+                                <span>${t('closeWindow')}</span>
                             </a>
                         </div>
                     </div>
@@ -2581,7 +5821,20 @@ document.addEventListener('click', function(event) {
                         
                         // Данные для навигации в новом окне
                         const warehouseData = ${JSON.stringify(warehouseData)};
+                        const currentLanguage = '${currentLanguage}';
                         console.log('warehouseData loaded:', warehouseData);
+                        
+                        // Функция получения переведенного значения
+                        function getTranslatedValue(obj, lang = currentLanguage) {
+                            if (!obj) return '';
+                            if (typeof obj === 'object' && (obj.ru || obj.en || obj.zh)) {
+                                return obj[lang] || obj.ru || obj.en || obj.zh || '';
+                            }
+                            if (typeof obj === 'string') {
+                                return obj;
+                            }
+                            return '';
+                        }
                         
                         // Простая функция навигации
                         function navigateTo(contentId) {
@@ -2593,8 +5846,10 @@ document.addEventListener('click', function(event) {
                                 console.log('Found content:', content);
                                 const contentDiv = document.getElementById('content');
                                 if (contentDiv) {
-                                    contentDiv.innerHTML = '<h2>' + content.title + '</h2>' + content.content;
-                                    document.title = 'Справочник кладовщика - ' + content.title;
+                                    const contentTitle = getTranslatedValue(content.title);
+                                    const contentBody = getTranslatedValue(content.content);
+                                    contentDiv.innerHTML = '<h2>' + contentTitle + '</h2>' + contentBody;
+                                    document.title = t('appTitle') + ' - ' + contentTitle;
                                     console.log('Content displayed successfully');
                                 }
                                 return;
@@ -2604,14 +5859,16 @@ document.addEventListener('click', function(event) {
                             const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
                             if (chapter) {
                                 console.log('Found chapter:', chapter);
-                                let contentHtml = '<h2>' + chapter.title + '</h2><p>Выберите подраздел из списка ниже:</p>';
+                                const chapterTitle = getTranslatedValue(chapter.title);
+                                let contentHtml = '<h2>' + chapterTitle + '</h2><p>' + t('chooseSubsection') + '</p>';
                                 chapter.subchapters.forEach(sub => {
-                                    contentHtml += '<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo(\\'' + sub.id + '\\')"><h4>' + sub.title + '</h4></div>';
+                                    const subTitle = getTranslatedValue(sub.title);
+                                    contentHtml += '<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo(\\'' + sub.id + '\\')"><h4>' + sub.id + ' ' + subTitle + '</h4></div>';
                                 });
                                 const contentDiv = document.getElementById('content');
                                 if (contentDiv) {
                                     contentDiv.innerHTML = contentHtml;
-                                    document.title = 'Справочник кладовщика - ' + chapter.title;
+                                    document.title = t('appTitle') + ' - ' + chapterTitle;
                                     console.log('Chapter displayed successfully');
                                 }
                                 return;
@@ -2620,7 +5877,7 @@ document.addEventListener('click', function(event) {
                             console.log('Content not found for ID:', contentId);
                             const contentDiv = document.getElementById('content');
                             if (contentDiv) {
-                                contentDiv.innerHTML = '<p>Раздел не найден: ' + contentId + '</p>';
+                                contentDiv.innerHTML = '<p>' + t('sectionNotFound') + ' ' + contentId + '</p>';
                             }
                         }
                         
@@ -2792,8 +6049,8 @@ function showContentDirect(contentId) {
     currentContentId = contentId;
     chaptersView.style.display = 'none';
     contentView.style.display = 'block';
-    contentTitle.textContent = content.title;
-    contentBody.innerHTML = content.content;
+    contentTitle.textContent = getTranslatedValue(content.title);
+    contentBody.innerHTML = getTranslatedValue(content.content);
     
     // Находим название главы и ID главы для хлебных крошек
     let chapterTitle = '';
@@ -2801,13 +6058,13 @@ function showContentDirect(contentId) {
     warehouseData.chapters.forEach(chapter => {
         chapter.subchapters.forEach(sub => {
             if (sub.id === contentId) {
-                chapterTitle = chapter.title;
+                chapterTitle = getTranslatedValue(chapter.title);
                 chapterId = chapter.id;
             }
         });
     });
     
-    updateBreadcrumbs(chapterTitle, content.title, chapterId);
+    updateBreadcrumbs(chapterTitle, getTranslatedValue(content.title), chapterId);
     updateNavigationButtons();
     currentView = 'content';
     saveCurrentState();
@@ -2861,12 +6118,13 @@ function showChapterDirect(chapterId) {
     contentView.style.display = 'block';
     
     // Устанавливаем заголовок
-    contentTitle.textContent = chapter.title;
+    contentTitle.textContent = getTranslatedValue(chapter.title);
     
     // Создаем контент с подразделами
-    let contentHtml = `<p>Выберите подраздел из списка ниже:</p>`;
+    let contentHtml = `<p>${t('chooseSubsection')}</p>`;
     chapter.subchapters.forEach(sub => {
-        contentHtml += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="showContentDirect('${sub.id}')"><h4>${sub.title}</h4></div>`;
+        const subTitle = getTranslatedValue(sub.title);
+        contentHtml += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="showContentDirect('${sub.id}')"><h4>${sub.id} ${subTitle}</h4></div>`;
     });
     
     contentBody.innerHTML = contentHtml;
@@ -2876,7 +6134,7 @@ function showChapterDirect(chapterId) {
     currentContentId = null;
     
     // Обновляем хлебные крошки
-    updateBreadcrumbs(chapter.title, '', chapterId);
+    updateBreadcrumbs(getTranslatedValue(chapter.title), '', chapterId);
     
     // Скрываем навигационные кнопки для глав
     updateNavigationButtons();
@@ -2971,7 +6229,7 @@ async function submitFeedback(event) {
     // Проверка существования элементов
     if (!submitBtn || !messageDiv || !form || !messageInput) {
         console.error('Feedback form elements not found');
-        alert('Ошибка: элементы формы не найдены. Пожалуйста, обновите страницу.');
+        alert(t('feedbackFormError'));
         return;
     }
     
@@ -2982,13 +6240,13 @@ async function submitFeedback(event) {
     
     // Проверка обязательного поля
     if (!message) {
-        showFeedbackMessage('Пожалуйста, заполните поле сообщения', 'error');
+        showFeedbackMessage(t('feedbackRequired'), 'error');
         return;
     }
     
     // Отключаем кнопку отправки
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Отправка...';
+    submitBtn.textContent = t('feedbackSending');
     
     try {
         // Проверяем, инициализирован ли EmailJS
@@ -3046,7 +6304,9 @@ async function submitFeedback(event) {
         }
         
         // Показываем сообщение об успехе
-        showFeedbackMessage('Спасибо! Ваш отзыв успешно отправлен. Мы обязательно его рассмотрим.' + (email ? ' На ваш email отправлено подтверждение.' : ''), 'success');
+        const successMsg = t('feedbackSuccess');
+        const confirmMsg = email ? (currentLanguage === 'ru' ? ' На ваш email отправлено подтверждение.' : currentLanguage === 'en' ? ' A confirmation has been sent to your email.' : ' 已向您的电子邮件发送确认。') : '';
+        showFeedbackMessage(successMsg + confirmMsg, 'success');
         
         // Очищаем форму через 2 секунды
         setTimeout(() => {
@@ -3060,7 +6320,7 @@ async function submitFeedback(event) {
         console.error('Error sending feedback:', error);
         
         // Показываем сообщение об ошибке
-        let errorMessage = 'Произошла ошибка при отправке отзыва. ';
+        let errorMessage = t('feedbackError');
         
         if (error.text) {
             errorMessage += error.text;
