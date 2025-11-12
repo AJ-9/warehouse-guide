@@ -2033,7 +2033,7 @@ const warehouseData = {
                 <h4>a) Номер ТН</h4>
                 <p>Проверить наличие номера транспортной накладной.</p>
                 
-                <h4>b) Пункт 2 «Грузоотправитель»</h4>
+                <h4>b) Пункт 2 «Грузополучатель»</h4>
                 <p>Должна стоять ООО «Китайская национальная химическая инженерная и строительная корпорация севен».</p>
                 
                 <h4>c) Пункт 3 «Груз»</h4>
@@ -2075,7 +2075,7 @@ const warehouseData = {
                 <h4>a) TB Number</h4>
                 <p>Check for the presence of the transportation bill number.</p>
                 
-                <h4>b) Item 2 "Consignor"</h4>
+                <h4>b) Item 2 "Consignee"</h4>
                 <p>Should indicate LLC "Chinese National Chemical Engineering and Construction Corporation Seven".</p>
                 
                 <h4>c) Item 3 "Cargo"</h4>
@@ -2117,7 +2117,7 @@ const warehouseData = {
                 <h4>a) 运输单号</h4>
                 <p>检查是否存在运输单号。</p>
                 
-                <h4>b) 第2项"发货人"</h4>
+                <h4>b) 第2项"收货人"</h4>
                 <p>应标注"中国化学工程第七建设有限公司"。</p>
                 
                 <h4>c) 第3项"货物"</h4>
