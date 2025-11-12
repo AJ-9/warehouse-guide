@@ -204,6 +204,30 @@ const warehouseData = {
             ]
         },
         {
+            id: 'chapter7',
+            title: {
+                ru: 'Возврат ТМЦ на склад',
+                en: 'Material Return to Warehouse',
+                zh: '材料退回仓库'
+            },
+            icon: '↩️',
+            description: {
+                ru: 'Процедуры возврата материалов на склад',
+                en: 'Procedures for returning materials to warehouse',
+                zh: '材料退回仓库程序'
+            },
+            subchapters: [
+                { 
+                    id: '7.0', 
+                    title: {
+                        ru: 'Возврат ТМЦ на склад',
+                        en: 'Material Return to Warehouse',
+                        zh: '材料退回仓库'
+                    }
+                }
+            ]
+        },
+        {
             id: 'chapter4',
             title: {
                 ru: 'Документация и правила ее оформления',
@@ -2011,6 +2035,81 @@ const warehouseData = {
                 </ol>
                 
                 <p>根据上述数据，会计部门编制材料损坏报告并发送给现场员工签字。</p>
+            `
+            }
+        },
+        '7.0': {
+            title: {
+                ru: 'Возврат ТМЦ на склад',
+                en: 'Material Return to Warehouse',
+                zh: '材料退回仓库'
+            },
+            content: {
+                ru: `
+                <p>В случае невозможности или отсутствия необходимости вовлечения выданного материала в монтаж, строительный блок инициирует возврат ранее выданных ТМЦ на склад на основании Акта Осмотра.</p>
+                
+                <p>На основании подписанного Акта осмотра Руководитель отдела складского хозяйства дает указание о приемке ТМЦ на склад, согласовываются сроки, когда склад готов принять ТМЦ, указанные в Акте осмотра.</p>
+                
+                <h3>По прибытию ТМЦ на склад полевой сотрудник обязан:</h3>
+                
+                <ol>
+                    <li>Отправить фото Акта Осмотра на проверку в группу <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Возврат ТМЦ на склад»</a></li>
+                    <li>После подтверждения от сотрудника Отдела Учета о том, что данный Акт согласован с руководством, принять материал на хранение. ГМ должны быть приняты с полным пересчетом содержимого, а также должен произвестись осмотр ТМЦ на наличие повреждений. Содержимое должно полностью соответствовать содержанию Акта Осмотра.</li>
+                    <li>После пересчета содержимого подписать Акт Осмотра</li>
+                    <li>Направить фото Акта Осмотра, фото ТМЦ и его маркировки, а также место хранения ТМЦ в группу <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Возврат ТМЦ на склад»</a></li>
+                </ol>
+                
+                <h3>Важные требования:</h3>
+                
+                <ul>
+                    <li>ТМЦ, непригодные для дальнейшего использования на склад не принимаются</li>
+                    <li>ТМЦ должны быть однозначно идентифицируемые, каждое возвращаемое ГМ должно быть промаркировано</li>
+                    <li>ТМЦ принимаются на склад в соответствии с Актом осмотра. Далее Отделом Учета составляется акт приема-передачи на возвращаемые ТМЦ и принимаются на баланс в 1С.</li>
+                </ul>
+            `,
+                en: `
+                <p>In case of impossibility or lack of necessity to involve the issued material in installation, the construction unit initiates the return of previously issued materials to the warehouse based on the Inspection Act.</p>
+                
+                <p>Based on the signed Inspection Act, the Head of the Warehouse Department gives instructions for material acceptance to the warehouse, and deadlines are agreed upon when the warehouse is ready to accept the materials specified in the Inspection Act.</p>
+                
+                <h3>Upon arrival of materials at the warehouse, the field employee must:</h3>
+                
+                <ol>
+                    <li>Send a photo of the Inspection Act for verification to the group <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Return to Warehouse"</a></li>
+                    <li>After confirmation from the Accounting Department employee that this Act has been approved by management, accept the material for storage. GMs must be accepted with a complete recount of contents, and an inspection of materials for damage must be performed. The contents must fully correspond to the contents of the Inspection Act.</li>
+                    <li>After recounting the contents, sign the Inspection Act</li>
+                    <li>Send a photo of the Inspection Act, photos of materials and their marking, as well as the storage location of materials to the group <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Return to Warehouse"</a></li>
+                </ol>
+                
+                <h3>Important Requirements:</h3>
+                
+                <ul>
+                    <li>Materials unsuitable for further use are not accepted to the warehouse</li>
+                    <li>Materials must be unambiguously identifiable, each returned GM must be marked</li>
+                    <li>Materials are accepted to the warehouse in accordance with the Inspection Act. Then the Accounting Department prepares an acceptance-transfer act for returned materials and they are accepted on the balance in 1C.</li>
+                </ul>
+            `,
+                zh: `
+                <p>如无法或无需将已发放材料用于安装，建筑单位根据检查报告启动将先前发放的材料退回仓库。</p>
+                
+                <p>根据已签署的检查报告，仓库部门负责人指示将材料接收至仓库，并商定仓库准备接收检查报告中指定材料的期限。</p>
+                
+                <h3>材料到达仓库后，现场员工必须：</h3>
+                
+                <ol>
+                    <li>将检查报告照片发送至群组 <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"材料退回仓库"</a> 进行验证</li>
+                    <li>在会计部门员工确认该报告已获管理层批准后，接收材料进行存储。GM必须完整重新清点内容后接收，并需检查材料是否有损坏。内容必须与检查报告内容完全一致。</li>
+                    <li>重新清点内容后，签署检查报告</li>
+                    <li>将检查报告照片、材料及其标记照片以及材料存储位置发送至群组 <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"材料退回仓库"</a></li>
+                </ol>
+                
+                <h3>重要要求：</h3>
+                
+                <ul>
+                    <li>不适合继续使用的材料不接受退回仓库</li>
+                    <li>材料必须可明确识别，每个退回的GM必须标记</li>
+                    <li>材料根据检查报告接收至仓库。随后会计部门编制退回材料的验收移交报告，并在1C系统中接受入账。</li>
+                </ul>
             `
             }
         },
@@ -6100,6 +6199,14 @@ function showChapterDirect(chapterId) {
     const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
     if (!chapter) {
         console.error('Chapter not found:', chapterId);
+        return;
+    }
+    
+    // Специальная обработка для chapter7 - сразу показываем контент
+    if (chapterId === 'chapter7' && chapter.subchapters.length === 1) {
+        const subchapterId = chapter.subchapters[0].id;
+        console.log('Chapter7 detected, showing content directly:', subchapterId);
+        showContentDirect(subchapterId);
         return;
     }
     
