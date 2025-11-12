@@ -228,6 +228,54 @@ const warehouseData = {
             ]
         },
         {
+            id: 'chapter8',
+            title: {
+                ru: 'Выдача Запорно-Регулирующей Арматуры (ЗРА) для гидроиспытаний',
+                en: 'Issuance of Shut-off and Control Valves (ZRA) for Hydrotesting',
+                zh: '截止调节阀（ZRA）用于水压试验的发放'
+            },
+            icon: '🔩',
+            description: {
+                ru: 'Процедуры выдачи и возврата ЗРА для проведения гидроиспытаний',
+                en: 'Procedures for issuance and return of ZRA for hydrotesting',
+                zh: '用于进行水压试验的ZRA发放和退回程序'
+            },
+            subchapters: [
+                { 
+                    id: '8.1', 
+                    title: {
+                        ru: 'Проверка ЗРА перед отправкой',
+                        en: 'ZRA Verification Before Shipment',
+                        zh: '发货前ZRA验证'
+                    }
+                },
+                { 
+                    id: '8.2', 
+                    title: {
+                        ru: 'Отправка ЗРА на гидроиспытания',
+                        en: 'Shipment of ZRA for Hydrotesting',
+                        zh: 'ZRA发货进行水压试验'
+                    }
+                },
+                { 
+                    id: '8.3', 
+                    title: {
+                        ru: 'Проверка грузомест на соответствие с УЛ после проведения гидроиспытаний',
+                        en: 'Verification of Cargo Units for Compliance with PL After Hydrotesting',
+                        zh: '水压试验后货物单位与装箱单符合性验证'
+                    }
+                },
+                { 
+                    id: '8.4', 
+                    title: {
+                        ru: 'Приемка ЗРА прошедшего ГИ на складе',
+                        en: 'Acceptance of ZRA That Passed Hydrotesting at Warehouse',
+                        zh: '仓库接收通过水压试验的ZRA'
+                    }
+                }
+            ]
+        },
+        {
             id: 'chapter4',
             title: {
                 ru: 'Документация и правила ее оформления',
@@ -722,7 +770,7 @@ const warehouseData = {
                 <p>При обнаружении несоответствий после заезда ТС на площадку, необходимо:</p>
                 <ol>
                     <li>Зафиксировать эти несоответствия на фото</li>
-                    <li>С подробным описанием скинуть данные в группу <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank">«М-7 / Акты о повреждениях»</a></li>
+                    <li>С подробным описанием скинуть данные в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank">«М-7 / Акты о повреждениях»</a></li>
                 </ol>
                 
                 <p>Отдел Учета подготовит Акт М7 и направит его в адрес поставщика.</p>
@@ -798,7 +846,7 @@ const warehouseData = {
                 <p>При подаче информации в Отдел Учета кладовщик должен убедиться в полноте, понятности, читаемости, конкретности и однозначности предоставляемой информации.</p>
                 
                 <h3>Формат предоставления информации</h3>
-                <p>Для составления Акта М-7 кладовщик обязан предоставить фото и информацию в группу <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank">«М-7 / Акты о повреждениях»</a> в формате:</p>
+                <p>Для составления Акта М-7 кладовщик обязан предоставить фото и информацию в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank">«М-7 / Акты о повреждениях»</a> в формате:</p>
                 <ol>
                     <li>Фото лицевой страницы ТН, где видны номер ТН, ФИО водителя</li>
                     <li>Фото тягача ТС с читаемым гос номером</li>
@@ -928,7 +976,7 @@ const warehouseData = {
                 </ul>
                 
                 <h3>Повреждения при ПРР</h3>
-                <p>Если в ходе выгрузки груз был поврежден при ПРР, то в этом случае необходимо составить Акт о Повреждении ТМЦ.</p>
+                <p>Если в ходе выгрузки груз был поврежден при ПРР, то в этом случае необходимо составить <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акт о Повреждении ТМЦ</a>.</p>
             `,
                 en: `
                 <h3>Equipment Order</h3>
@@ -1000,7 +1048,7 @@ const warehouseData = {
             },
             content: {
                 ru: `
-                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
+                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
                 
                 <ol>
                     <li>Фото повреждения</li>
@@ -1011,7 +1059,7 @@ const warehouseData = {
                 </ol>
                 
                 <h3>Обработка акта</h3>
-                <p>На основании вышеизложенных данных Отдел Учета подготавливает Акт о Повреждении ТМЦ и направляет полевому сотруднику на подпись.</p>
+                <p>На основании вышеизложенных данных Отдел Учета подготавливает <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акт о Повреждении ТМЦ</a> и направляет полевому сотруднику на подпись.</p>
             `,
                 en: `
                 <p>Information about Material Damage during Cargo Handling Operations must be sent to the group <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">M-7 / Damage Acts</a> in the following format:</p>
@@ -1485,10 +1533,10 @@ const warehouseData = {
             content: {
                 ru: `
                 <h3>Повреждения при складских операциях</h3>
-                <p>Повреждение ТМЦ может произойти при складских операциях, связанных с перемещением и проведением ПРР. В таких случаях необходимо составить «Акт о Повреждении ТМЦ».</p>
+                <p>Повреждение ТМЦ может произойти при складских операциях, связанных с перемещением и проведением ПРР. В таких случаях необходимо составить <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акт о Повреждении ТМЦ»</a>.</p>
                 
                 <h3>Информация о повреждении</h3>
-                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
+                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
                 
                 <ol>
                     <li>Фото повреждения</li>
@@ -1499,7 +1547,7 @@ const warehouseData = {
                 </ol>
                 
                 <h3>Обработка акта</h3>
-                <p>На основании предоставленных данных Отдел Учета составляет «Акт о Повреждении ТМЦ» и направляет его полевому сотруднику для подписи.</p>
+                <p>На основании предоставленных данных Отдел Учета составляет <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акт о Повреждении ТМЦ»</a> и направляет его полевому сотруднику для подписи.</p>
             `,
                 en: `
                 <h3>Damage During Warehouse Operations</h3>
@@ -1847,7 +1895,7 @@ const warehouseData = {
                 <p>После пересчета необходимо маркером прописать на ГМ «Посчитано» на двух смежных сторонах.</p>
                 
                 <h3>Обнаружение несоответствий</h3>
-                <p>В случае обнаружения несоответствий при пересчете (недостача, излишки, пересорт, порча/бой) необходимо составить Акт Осмотра (см <a href="#3.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 3.3 «Составление Акта Осмотра» 🔗</a>). Акт необходимо отправить в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a>. На ГМ с несоответствиями маркером написать с двух смежных сторон «Посчитано, составлен Акт». Также необходимо убедиться, что ГМ возможно идентифицировать (наклеен УЛ/Ведомость ГМ/ГМ промаркировано).</p>
+                <p>В случае обнаружения несоответствий при пересчете (недостача, излишки, пересорт, порча/бой) необходимо составить Акт Осмотра. Акт необходимо отправить в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a>. На ГМ с несоответствиями маркером написать с двух смежных сторон «Посчитано, составлен Акт». Также необходимо убедиться, что ГМ возможно идентифицировать (наклеен УЛ/Ведомость ГМ/ГМ промаркировано).</p>
                 
                 <h3>Пример Частичной Выдачи</h3>
                 <p>ГМ № 1 (ранее выдача с этого места не производилась) по системе 1С содержит 5 номенклатурных позиций болтов. Каждая по 10 шт. По Заявке на Выдачу необходимо выдать 3 номенклатурные позиции по 3шт. В этом случае необходимо разукомплектовать ГМ № 1, выдать из него 9 болтов (по 3 шт каждого наименования).</p>
@@ -1856,7 +1904,7 @@ const warehouseData = {
                 
                 <p>Если по физике все сошлось, и в ГМ остался 41 болт, то можно постить выдачу в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Выдача ТМЦ по Заявкам»</a>. На ГМ маркером написать «Посчитано»</p>
                 
-                <p>Если по физике остатки ТМЦ не сошлись с тем, что должно остаться по системе 1С, то необходимо запостить выдачу в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Выдача ТМЦ по Заявкам»</a>, а затем составить Акт Осмотра. На ГМ маркером написать «Посчитано. Составлен Акт»</p>
+                <p>Если по физике остатки ТМЦ не сошлись с тем, что должно остаться по системе 1С, то необходимо запостить выдачу в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Выдача ТМЦ по Заявкам»</a>, а затем составить Акт Осмотра и отправить в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a>. На ГМ маркером написать «Посчитано. Составлен Акт»</p>
                 
                 <h3>Остальные позиции</h3>
                 <p>Остальные номенклатурные позиции, не фигурирующие в этой заявке, должны остаться в ящике на прежнем месте хранения, либо должны быть перемещены в другое место хранения (к примеру, контейнер/ангар) с последующим заполнением Ведомости на перемещение.</p>
@@ -1876,7 +1924,7 @@ const warehouseData = {
                 <p>After recounting, it is necessary to write "Counted" on the GM with a marker on two adjacent sides.</p>
                 
                 <h3>Discrepancy Detection</h3>
-                <p>If discrepancies are detected during recounting (shortage, surplus, mis-sorted items, damage/breakage), it is necessary to prepare an Inspection Act (see <a href="#3.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 3.3 "Preparation of Inspection Act" 🔗</a>). The Act must be sent to the group <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Inspection Acts"</a>. On GMs with discrepancies, write with a marker on two adjacent sides "Counted, Act prepared". It is also necessary to ensure that the GM can be identified (PL/GM Statement is attached/GM is marked).</p>
+                <p>If discrepancies are detected during recounting (shortage, surplus, mis-sorted items, damage/breakage), it is necessary to prepare an Inspection Act. The Act must be sent to the group <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Inspection Acts"</a>. On GMs with discrepancies, write with a marker on two adjacent sides "Counted, Act prepared". It is also necessary to ensure that the GM can be identified (PL/GM Statement is attached/GM is marked).</p>
                 
                 <h3>Partial Issuance Example</h3>
                 <p>GM No. 1 (previously no issuance was made from this location) according to the 1C system contains 5 nomenclature positions of bolts. Each has 10 pieces. According to the Issuance Request, it is necessary to issue 3 nomenclature positions of 3 pieces each. In this case, it is necessary to unpack GM No. 1 and issue 9 bolts from it (3 pieces of each name).</p>
@@ -1905,7 +1953,7 @@ const warehouseData = {
                 <p>重新清点后，需用记号笔在GM的两个相邻面上标注"已清点"。</p>
                 
                 <h3>发现不符项</h3>
-                <p>如重新清点时发现不符项（短缺、多余、错配、损坏/破损），需编制检查报告（参见 <a href="#3.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节3.3"编制检查报告" 🔗</a>）。报告需发送至群组 <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"材料检查报告"</a>。对于存在不符项的GM，用记号笔在两个相邻面上标注"已清点，已编制报告"。还需确保GM可识别（已粘贴装箱单/GM清单/GM已标记）。</p>
+                <p>如重新清点时发现不符项（短缺、多余、错配、损坏/破损），需编制检查报告。报告需发送至群组 <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"材料检查报告"</a>。对于存在不符项的GM，用记号笔在两个相邻面上标注"已清点，已编制报告"。还需确保GM可识别（已粘贴装箱单/GM清单/GM已标记）。</p>
                 
                 <h3>部分发放示例</h3>
                 <p>GM № 1（此前未从此位置发放）根据1C系统包含5个名称位置的螺栓。每个10件。根据发放申请，需发放3个名称位置，每个3件。在此情况下，需拆包GM № 1，从中发放9个螺栓（每个名称3件）。</p>
@@ -1992,9 +2040,9 @@ const warehouseData = {
             },
             content: {
                 ru: `
-                <p>При приемке, выдаче и перемещении ТМЦ по площадке может возникнуть порча/бой материала. В этом случае необходимо составить Акт о Повреждении ТМЦ.</p>
+                <p>При приемке, выдаче и перемещении ТМЦ по площадке может возникнуть порча/бой материала. В этом случае необходимо составить <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акт о Повреждении ТМЦ</a>.</p>
                 
-                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
+                <p>Информацию о Повреждении ТМЦ при ПРР необходимо направлять в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a> в формате:</p>
                 
                 <ol>
                     <li>Фото повреждения</li>
@@ -2004,7 +2052,7 @@ const warehouseData = {
                     <li>Описание ТМЦ – номер ГМ, УЛ, количество поврежденного ТМЦ</li>
                 </ol>
                 
-                <p>На основании вышеизложенных данных Отдел Учета подготавливает Акт о Повреждении ТМЦ и направляет полевому сотруднику на подпись.</p>
+                <p>На основании вышеизложенных данных Отдел Учета подготавливает <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акт о Повреждении ТМЦ</a> и направляет полевому сотруднику на подпись.</p>
             `,
                 en: `
                 <p>During acceptance, issuance, and transfer of materials on the site, material damage/breakage may occur. In this case, it is necessary to prepare an Act of Material Damage.</p>
@@ -2053,10 +2101,10 @@ const warehouseData = {
                 <h3>По прибытию ТМЦ на склад полевой сотрудник обязан:</h3>
                 
                 <ol>
-                    <li>Отправить фото Акта Осмотра на проверку в группу <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Возврат ТМЦ на склад»</a></li>
-                    <li>После подтверждения от сотрудника Отдела Учета о том, что данный Акт согласован с руководством, принять материал на хранение. ГМ должны быть приняты с полным пересчетом содержимого, а также должен произвестись осмотр ТМЦ на наличие повреждений. Содержимое должно полностью соответствовать содержанию Акта Осмотра.</li>
-                    <li>После пересчета содержимого подписать Акт Осмотра</li>
-                    <li>Направить фото Акта Осмотра, фото ТМЦ и его маркировки, а также место хранения ТМЦ в группу <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Возврат ТМЦ на склад»</a></li>
+                    <li>Отправить фото <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акта Осмотра</a> на проверку в группу <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Возврат ТМЦ на склад»</a></li>
+                    <li>После подтверждения от сотрудника Отдела Учета о том, что данный Акт согласован с руководством, принять материал на хранение. ГМ должны быть приняты с полным пересчетом содержимого, а также должен произвестись осмотр ТМЦ на наличие повреждений. Содержимое должно полностью соответствовать содержанию <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акта Осмотра</a>.</li>
+                    <li>После пересчета содержимого подписать <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акт Осмотра</a></li>
+                    <li>Направить фото <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Акта Осмотра</a>, фото ТМЦ и его маркировки, а также место хранения ТМЦ в группу <a href="https://max.ru/join/0iTrekxICkpxlcHTlbX4YPjeNi9vQOEi0jKhELKX6gE" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Возврат ТМЦ на склад»</a></li>
                 </ol>
                 
                 <h3>Важные требования:</h3>
@@ -2110,6 +2158,270 @@ const warehouseData = {
                     <li>材料必须可明确识别，每个退回的GM必须标记</li>
                     <li>材料根据检查报告接收至仓库。随后会计部门编制退回材料的验收移交报告，并在1C系统中接受入账。</li>
                 </ul>
+            `
+            }
+        },
+        '8.1': {
+            title: {
+                ru: 'Проверка ЗРА перед отправкой',
+                en: 'ZRA Verification Before Shipment',
+                zh: '发货前ZRA验证'
+            },
+            content: {
+                ru: `
+                <h3>Этап 1. Отправка ЗРА на гидроиспытания</h3>
+                
+                <h3>1.1 Проверка ЗРА перед отправкой</h3>
+                
+                <p>Строители создают заявку на проведение гидроиспытаний для ЗРА.</p>
+                
+                <p>До отправки ЗРА на гидроиспытания необходимо проверить количество ЗРА и их Таговые номера в каждом Грузовом Месте (ГМ) на соответствие Упаковочному Листу (УЛ). Также производится визуальный осмотр на предмет наличия повреждений.</p>
+                
+                <p>Для этой цели распечатываются списки для предварительной проверки и передаются бригаде Китайских Коллег (КК) для выполнения. Проверенные ГМ помечаются краской.</p>
+                
+                <p>КК на ежедневной основе размещают результаты проведенной проверки в группе <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«ЗРА для ГИ»</a> в таком формате:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_1.png" alt="Пример размещения результатов проверки ЗРА" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Пример размещения результатов проверки ЗРА</em></p>
+                </div>
+                
+                <p><strong style="color: #dc2626;">Отгрузка ЗРА на гидроиспытания производится только после проверки всех ГМ Китайскими коллегами. Без проверки ГМ отправляются только по прямому указанию Руководителя!</strong></p>
+            `,
+                en: `
+                <h3>Stage 1. Shipment of ZRA for Hydrotesting</h3>
+                
+                <h3>1.1 ZRA Verification Before Shipment</h3>
+                
+                <p>Construction workers create a request for hydrotesting of ZRA.</p>
+                
+                <p>Before shipping ZRA for hydrotesting, it is necessary to verify the quantity of ZRA and their Tag Numbers in each Cargo Unit (GM) for compliance with the Packing List (PL). A visual inspection is also performed for damage.</p>
+                
+                <p>For this purpose, preliminary verification lists are printed and given to the Chinese Colleagues (CC) team for execution. Verified GMs are marked with paint.</p>
+                
+                <p>CC daily post the results of the verification in the group <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"ZRA for HI"</a> in the following format:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_1.png" alt="Example of ZRA Verification Results Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of ZRA Verification Results Posting</em></p>
+                </div>
+                
+                <p><strong style="color: #dc2626;">Shipment of ZRA for hydrotesting is performed only after verification of all GMs by Chinese colleagues. Without verification, GMs are shipped only by direct instruction from the Manager!</strong></p>
+            `,
+                zh: `
+                <h3>阶段1. ZRA发货进行水压试验</h3>
+                
+                <h3>1.1 发货前ZRA验证</h3>
+                
+                <p>建筑工人创建ZRA水压试验申请。</p>
+                
+                <p>发货进行水压试验前，需验证每个货物单位（GM）中ZRA的数量及其标签编号是否与装箱单（PL）一致。同时进行目视检查以发现损坏。</p>
+                
+                <p>为此，打印初步验证清单并交给中国同事（CC）团队执行。已验证的GM用油漆标记。</p>
+                
+                <p>CC每日在群组 <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"用于水压试验的ZRA"</a> 中按以下格式发布验证结果：</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_1.png" alt="ZRA验证结果发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>ZRA验证结果发布示例</em></p>
+                </div>
+                
+                <p><strong style="color: #dc2626;">ZRA发货进行水压试验仅在中国同事验证所有GM后进行。未经验证的GM仅按经理直接指示发货！</strong></p>
+            `
+            }
+        },
+        '8.2': {
+            title: {
+                ru: 'Отправка ЗРА на гидроиспытания',
+                en: 'Shipment of ZRA for Hydrotesting',
+                zh: 'ZRA发货进行水压试验'
+            },
+            content: {
+                ru: `
+                <h3>1.2 Отправка ЗРА на гидроиспытания</h3>
+                
+                <p>Проверенные ГМ отгружаются на транспортное средство (ТС), делаются фото УЛ грузовых мест, заполняется пропуск на вывоз.</p>
+                
+                <p>В Пропуске на вывоз указываются выданные грузоместа, их количество. В разделе «номер заявки» прописывается «ЗРА по заявке №___» в графе «Грузополучатель» пишем «ЯСИ» (Ямал Строй Инвест).</p>
+                
+                <p>Образец оформления Манифеста на вывоз ЗРА по заявке:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_2.png" alt="Образец оформления Манифеста на вывоз ЗРА" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Образец оформления Манифеста на вывоз ЗРА</em></p>
+                </div>
+                
+                <p>После того, как ТС уезжает со склада, кладовщик размещает информацию по отправленной машине в группу <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Перемещение ЗРА на испытания и между складами»</a> прикладывая фото УЛ на ГМ с видимыми номерами ГМ, а также фото заполненного и подписанного Пропуска на вывоз с указанием времени убытия ТС на ЯСИ в следующем формате:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_3.png" alt="Пример размещения информации об отправке ЗРА" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Пример размещения информации об отправке ЗРА</em></p>
+                </div>
+            `,
+                en: `
+                <h3>1.2 Shipment of ZRA for Hydrotesting</h3>
+                
+                <p>Verified GMs are loaded onto a vehicle (VS), photos of PLs of cargo units are taken, and an exit pass is filled out.</p>
+                
+                <p>The Exit Pass indicates the issued cargo units and their quantity. In the "request number" section, "ZRA by request No.___" is written, and in the "Consignee" field, "YASI" (Yamal Stroy Invest) is written.</p>
+                
+                <p>Sample of Exit Pass for ZRA by request:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_2.png" alt="Sample of Exit Pass for ZRA" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Sample of Exit Pass for ZRA</em></p>
+                </div>
+                
+                <p>After the vehicle leaves the warehouse, the warehouse keeper posts information about the dispatched vehicle to the group <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"ZRA Transfer for Testing and Between Warehouses"</a> attaching photos of PLs on GMs with visible GM numbers, as well as a photo of the filled and signed Exit Pass with indication of the vehicle departure time to YASI in the following format:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_3.png" alt="Example of ZRA Shipment Information Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of ZRA Shipment Information Posting</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>1.2 ZRA发货进行水压试验</h3>
+                
+                <p>已验证的GM装载到车辆（VS）上，拍摄货物单位装箱单照片，填写离场通行证。</p>
+                
+                <p>离场通行证中注明已发放的货物单位及其数量。在"申请编号"部分填写"ZRA按申请编号___"，在"收货人"栏填写"YASI"（亚马尔建设投资）。</p>
+                
+                <p>ZRA按申请离场通行证示例：</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_2.png" alt="ZRA离场通行证示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>ZRA离场通行证示例</em></p>
+                </div>
+                
+                <p>车辆离开仓库后，仓库管理员将已发送车辆的信息发布至群组 <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"ZRA转移进行试验和仓库间转移"</a>，附上GM上装箱单照片（GM编号可见），以及填写并签字的离场通行证照片（注明车辆前往YASI的离场时间），格式如下：</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_3.png" alt="ZRA发货信息发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>ZRA发货信息发布示例</em></p>
+                </div>
+            `
+            }
+        },
+        '8.3': {
+            title: {
+                ru: 'Проверка грузомест на соответствие с УЛ после проведения гидроиспытаний',
+                en: 'Verification of Cargo Units for Compliance with PL After Hydrotesting',
+                zh: '水压试验后货物单位与装箱单符合性验证'
+            },
+            content: {
+                ru: `
+                <h3>Этап 2. Проверка грузомест на соответствие с УЛ после проведения гидроиспытаний</h3>
+                
+                <p>Кладовщики, находящиеся на постоянной основе в цехе ГИ «Ямалстройинвест» (Далее ЯСИ), осуществляют проверку ГМ после проведения ГИ чтобы убедиться, что содержимое не стало отличаться от содержимого до проведения ГИ. Кладовщики проверяют количество задвижек, соответствие таговых номеров содержанию УЛ, а также отсутствие повреждений на задвижках.</p>
+                
+                <p>Если выявлены какие-либо расхождения, то об этом сообщается в группу <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«ЗРА для ГИ»</a>, далее ждем решения ситуации. Если не удалось прояснить причину несоответствия, то кладовщики получают команду на создание «Акта осмотра» с фотофиксацией и описанием выявленных расхождений. Запрос на создание акта осмотра направляется сотрудникам учета в специально созданную группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a> / <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты о повреждениях»</a>.</p>
+                
+                <p>Если все хорошо, то заполняется ведомость на перемещение с указанием номеров ГМ, таговых номеров ГМ. Правая часть при этом остаётся пустой и будет задействована на следующем этапе.</p>
+                
+                <p>ТС грузится испытанными ящиками, водитель расписывается внизу ведомости о том, что принял груз к перевозке.</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_4.png" alt="Пример заполненной ведомости на перемещение" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Пример заполненной ведомости на перемещение</em></p>
+                </div>
+                
+                <p>Далее ТС уезжает на склад, а отправивший её кладовщик размещает информацию о данном факте в группе <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«ЗРА для ГИ»</a> с прикреплением фото ведомости, фото УЛ на ГМ и информацией в следующем формате:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_5.png" alt="Пример размещения информации о проверке после ГИ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Пример размещения информации о проверке после ГИ</em></p>
+                </div>
+            `,
+                en: `
+                <h3>Stage 2. Verification of Cargo Units for Compliance with PL After Hydrotesting</h3>
+                
+                <p>Warehouse keepers permanently located at the hydrotesting workshop "Yamalstroyinvest" (hereinafter YASI) perform verification of GMs after hydrotesting to ensure that the contents have not changed from the contents before hydrotesting. Warehouse keepers verify the quantity of valves, compliance of tag numbers with PL contents, as well as absence of damage on valves.</p>
+                
+                <p>If any discrepancies are identified, this is reported to the group <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"ZRA for HI"</a>, then we wait for resolution of the situation. If it was not possible to clarify the cause of the discrepancy, warehouse keepers receive a command to create an "Inspection Act" with photo documentation and description of identified discrepancies. The request for creating an inspection act is sent to accounting employees in a specially created group.</p>
+                
+                <p>If everything is good, a transfer statement is filled out indicating GM numbers and GM tag numbers. The right part remains empty and will be used at the next stage.</p>
+                
+                <p>The vehicle is loaded with tested boxes, and the driver signs at the bottom of the statement that he has accepted the cargo for transportation.</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_4.png" alt="Example of Completed Transfer Statement" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Completed Transfer Statement</em></p>
+                </div>
+                
+                <p>Then the vehicle leaves for the warehouse, and the warehouse keeper who sent it posts information about this fact in the group <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"ZRA for HI"</a> with attached photos of the statement, photos of PLs on GMs, and information in the following format:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_5.png" alt="Example of Post-Hydrotesting Verification Information Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of Post-Hydrotesting Verification Information Posting</em></p>
+                </div>
+            `,
+                zh: `
+                <h3>阶段2. 水压试验后货物单位与装箱单符合性验证</h3>
+                
+                <p>常驻水压试验车间"亚马尔建设投资"（以下简称YASI）的仓库管理员在水压试验后对GM进行验证，以确保内容与水压试验前的内容未发生变化。仓库管理员验证阀门数量、标签编号与装箱单内容的一致性，以及阀门上是否有损坏。</p>
+                
+                <p>如发现任何不符项，需报告至群组 <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"用于水压试验的ZRA"</a>，然后等待情况解决。如无法澄清不符项原因，仓库管理员收到命令创建"检查报告"，附照片记录和已发现不符项的描述。创建检查报告的请求发送给会计部门员工，在专门创建的群组中。</p>
+                
+                <p>如一切正常，填写转移清单，注明GM编号和GM标签编号。右侧部分保持空白，将在下一阶段使用。</p>
+                
+                <p>车辆装载已测试的箱子，司机在清单底部签字，确认已接受货物进行运输。</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_4.png" alt="已填写转移清单示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>已填写转移清单示例</em></p>
+                </div>
+                
+                <p>随后车辆前往仓库，发送车辆的仓库管理员在群组 <a href="https://max.ru/join/GthBIiEsWBKpGwnJ168IeW1npGXAc21MYANTRZ2LyIs" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"用于水压试验的ZRA"</a> 中发布此信息，附上清单照片、GM上装箱单照片，格式如下：</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_5.png" alt="水压试验后验证信息发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>水压试验后验证信息发布示例</em></p>
+                </div>
+            `
+            }
+        },
+        '8.4': {
+            title: {
+                ru: 'Приемка ЗРА прошедшего ГИ на складе',
+                en: 'Acceptance of ZRA That Passed Hydrotesting at Warehouse',
+                zh: '仓库接收通过水压试验的ZRA'
+            },
+            content: {
+                ru: `
+                <h3>Этап 3. Приемка ЗРА прошедшего ГИ на складе</h3>
+                
+                <p>ТС поступает на площадку, где выгружается. При приемке кладовщик сверяет номера ГМ в ведомости на перемещение, выгружает авто, затем в ведомости на перемещение проставляет фактические лоты хранения, на которые он разместил груз и подает информацию в группу <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Перемещения ЗРА»</a> в следующем формате:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_6.png" alt="Пример размещения информации о приемке ЗРА на складе" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Пример размещения информации о приемке ЗРА на складе</em></p>
+                </div>
+                
+                <p>На этом процесс отправки и приемки ЗРА с ГИ завершен.</p>
+            `,
+                en: `
+                <h3>Stage 3. Acceptance of ZRA That Passed Hydrotesting at Warehouse</h3>
+                
+                <p>The vehicle arrives at the site where it is unloaded. During acceptance, the warehouse keeper verifies GM numbers in the transfer statement, unloads the vehicle, then in the transfer statement enters the actual storage lots where he placed the cargo and submits information to the group <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"ZRA Transfers"</a> in the following format:</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_6.png" alt="Example of ZRA Acceptance at Warehouse Information Posting" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>Example of ZRA Acceptance at Warehouse Information Posting</em></p>
+                </div>
+                
+                <p>At this point, the process of shipment and acceptance of ZRA from hydrotesting is completed.</p>
+            `,
+                zh: `
+                <h3>阶段3. 仓库接收通过水压试验的ZRA</h3>
+                
+                <p>车辆到达场地并卸货。验收时，仓库管理员核对转移清单中的GM编号，卸车，然后在转移清单中填写实际放置货物的存储场地，并向群组 <a href="https://max.ru/join/b-_S5PvokzvD4U_SzItya48Csch0-mVikRebSnEA3lo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"ZRA转移"</a> 提交信息，格式如下：</p>
+                
+                <div class="image-container">
+                    <img src="images/VALVES_6.png" alt="仓库接收ZRA信息发布示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                    <p><em>仓库接收ZRA信息发布示例</em></p>
+                </div>
+                
+                <p>至此，ZRA从水压试验的发送和接收过程完成。</p>
             `
             }
         },
@@ -2536,7 +2848,7 @@ const warehouseData = {
                 <p>Вес брутто грузового места.</p>
                 
                 <h4>j) Код хранения</h4>
-                <p>См. <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">главу «Хранение» 🔗</a>.</p>
+                <p>См. <a href="#" onclick="event.preventDefault(); navigateTo('chapter2'); return false;" style="color: #2563eb; text-decoration: none; font-weight: 600; cursor: pointer;">главу «Хранение» 🔗</a>.</p>
                 
                 <h4>k) Индекс штабелирования</h4>
                 <p>Если указаны кг, то это количество кг, которые допустимо поставить на ГМ сверху. Если указана цифра (0, 1, 2), то это количество ГМ с таким же весом, которые допустимо поставить на ГМ сверху. При индексе штабелирования 0 ставить что-либо на ГМ сверху запрещено.</p>
@@ -2586,7 +2898,7 @@ const warehouseData = {
                 <p>Gross weight of the cargo unit.</p>
                 
                 <h4>j) Storage Code</h4>
-                <p>See <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">chapter "Storage" 🔗</a>.</p>
+                <p>See <a href="#" onclick="event.preventDefault(); navigateTo('chapter2'); return false;" style="color: #2563eb; text-decoration: none; font-weight: 600; cursor: pointer;">chapter "Storage" 🔗</a>.</p>
                 
                 <h4>k) Stacking Index</h4>
                 <p>If kg is indicated, this is the number of kg that can be placed on top of the GM. If a number (0, 1, 2) is indicated, this is the number of GMs with the same weight that can be placed on top of the GM. With a stacking index of 0, placing anything on top of the GM is prohibited.</p>
@@ -2636,7 +2948,7 @@ const warehouseData = {
                 <p>货物单位的毛重。</p>
                 
                 <h4>j) 存储代码</h4>
-                <p>参见 <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节"存储" 🔗</a>。</p>
+                <p>参见 <a href="#" onclick="event.preventDefault(); navigateTo('chapter2'); return false;" style="color: #2563eb; text-decoration: none; font-weight: 600; cursor: pointer;">章节"存储" 🔗</a>。</p>
                 
                 <h4>k) 堆码指数</h4>
                 <p>如标注为公斤，则为可在GM顶部放置的公斤数。如标注为数字（0、1、2），则为可在GM顶部放置的相同重量GM数量。堆码指数为0时，禁止在GM顶部放置任何物品。</p>
@@ -2668,7 +2980,7 @@ const warehouseData = {
                 <p>Размеры грузового места в сантиметрах (длина x ширина x высота).</p>
                 
                 <h4>c) Код хранения</h4>
-                <p>См. <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">главу «Хранение» 🔗</a>.</p>
+                <p>См. <a href="#" onclick="event.preventDefault(); navigateTo('chapter2'); return false;" style="color: #2563eb; text-decoration: none; font-weight: 600; cursor: pointer;">главу «Хранение» 🔗</a>.</p>
                 
                 <h4>d) Индекс штабелирования</h4>
                 <p>Если указаны кг, то это количество кг, которые допустимо поставить на ГМ сверху. Если указана цифра (0, 1, 2), то это количество ГМ с таким же весом, которые допустимо поставить на ГМ сверху. При индексе штабелирования 0 ставить что-либо на ГМ сверху запрещено.</p>
@@ -2713,7 +3025,7 @@ const warehouseData = {
                 <p>Cargo unit dimensions in centimeters (length x width x height).</p>
                 
                 <h4>c) Storage Code</h4>
-                <p>See <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">chapter "Storage" 🔗</a>.</p>
+                <p>See <a href="#" onclick="event.preventDefault(); navigateTo('chapter2'); return false;" style="color: #2563eb; text-decoration: none; font-weight: 600; cursor: pointer;">chapter "Storage" 🔗</a>.</p>
                 
                 <h4>d) Stacking Index</h4>
                 <p>If kg is indicated, this is the number of kg that can be placed on top of the GM. If a number (0, 1, 2) is indicated, this is the number of GMs with the same weight that can be placed on top of the GM. With a stacking index of 0, placing anything on top of the GM is prohibited.</p>
@@ -2758,7 +3070,7 @@ const warehouseData = {
                 <p>货物单位尺寸（厘米）（长 x 宽 x 高）。</p>
                 
                 <h4>c) 存储代码</h4>
-                <p>参见 <a href="#chapter2" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节"存储" 🔗</a>。</p>
+                <p>参见 <a href="#" onclick="event.preventDefault(); navigateTo('chapter2'); return false;" style="color: #2563eb; text-decoration: none; font-weight: 600; cursor: pointer;">章节"存储" 🔗</a>。</p>
                 
                 <h4>d) 堆码指数</h4>
                 <p>如标注为公斤，则为可在GM顶部放置的公斤数。如标注为数字（0、1、2），则为可在GM顶部放置的相同重量GM数量。堆码指数为0时，禁止在GM顶部放置任何物品。</p>
@@ -3430,9 +3742,9 @@ const warehouseData = {
                     <p><em>Пример проверки документов</em></p>
                 </div>
                     
-                    <h4>5. <a href="https://max.ru/join/_NSzWmrkJgnaXRkNsTYrPuJzX65KGq6ibbleJz-_bCo" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a></h4>
+                    <h4>5. <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">М-7 / Акты о повреждениях</a></h4>
                     <p><strong>Назначение:</strong> Постинг информации по актам М7 при приемке ТМЦ с выявленными несоответствиями (излишки, недостачи, пересорт, повреждение ТМЦ, повреждение упаковки), а также по актам о повреждениях ТМЦ, возникших в процессе выдачи/перемещения ТМЦ по площадке.</p>
-                    <p><strong>Для составления Акта М-7 кладовщик обязан предоставить фото и информацию в группу «М-7 / Акты о повреждениях» в формате:</strong></p>
+                    <p><strong>Для составления Акта М-7 кладовщик обязан предоставить фото и информацию в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«М-7 / Акты о повреждениях»</a> в формате:</strong></p>
                     <ol style="margin: 10px 0; padding-left: 20px;">
                         <li>Фото лицевой страницы ТН, где видны номер ТН, ФИО водителя</li>
                         <li>Фото тягача ТС с читаемым гос номером</li>
@@ -3534,7 +3846,7 @@ const warehouseData = {
                     <h4>14. <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">АКТЫ ОСМОТРА ТМЦ</a></h4>
                     <p><strong>Назначение:</strong> В данной группе постятся акты осмотра ТМЦ.</p>
                     <p><strong>Условия составления:</strong> Акт Осмотра составляется в случае, если при частичной выдаче обнаружена недостача, излишки, пересорт или повреждение материала. Это касается как ТМЦ, прошедших ВК, так и не прошедших. При обнаружении несоответствий необходимо вызвать сотрудника Бизнес-Тренд для совместного осмотра этих ТМЦ.</p>
-                    <p><strong>Формат предоставления информации:</strong> При обнаружении вышеизложенных несоответствий полевой сотрудник должен запостить в группу «Акты осмотра ТМЦ» следующую информацию:</p>
+                    <p><strong>Формат предоставления информации:</strong> При обнаружении вышеизложенных несоответствий полевой сотрудник должен запостить в группу <a href="https://max.ru/join/SOZ2VyNPU4VTl_uxEIxcBZW_KFoRByFzzfnwPixfw7A" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Акты осмотра ТМЦ»</a> следующую информацию:</p>
                     <ol style="margin: 10px 0; padding-left: 20px;">
                         <li>Фото ТМЦ</li>
                         <li>Номер ГМ, УЛ</li>
@@ -4563,7 +4875,7 @@ function updateUI() {
         installBtn.setAttribute('aria-label', t('installAppAria'));
     }
     
-    // Кнопки навигации
+    // Кнопки навигации (нижние)
     const prevBtn = document.getElementById('prevBtn');
     if (prevBtn) {
         prevBtn.textContent = t('back');
@@ -4580,6 +4892,25 @@ function updateUI() {
     if (nextBtn) {
         nextBtn.textContent = t('next');
         nextBtn.setAttribute('aria-label', t('nextAria'));
+    }
+    
+    // Кнопки навигации (верхние)
+    const prevBtnTop = document.getElementById('prevBtnTop');
+    if (prevBtnTop) {
+        prevBtnTop.textContent = t('back');
+        prevBtnTop.setAttribute('aria-label', t('backAria'));
+    }
+    
+    const homeBtnTop = document.querySelector('.home-btn-top');
+    if (homeBtnTop) {
+        homeBtnTop.textContent = '🏠 ' + t('home');
+        homeBtnTop.setAttribute('aria-label', t('homeAria'));
+    }
+    
+    const nextBtnTop = document.getElementById('nextBtnTop');
+    if (nextBtnTop) {
+        nextBtnTop.textContent = t('next');
+        nextBtnTop.setAttribute('aria-label', t('nextAria'));
     }
     
     // Хлебные крошки
@@ -4985,10 +5316,14 @@ function setupPWA() {
 function updateNavigationButtons() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
+    const prevBtnTop = document.getElementById('prevBtnTop');
+    const nextBtnTop = document.getElementById('nextBtnTop');
     
     if (!currentContentId) {
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (prevBtnTop) prevBtnTop.style.display = 'none';
+        if (nextBtnTop) nextBtnTop.style.display = 'none';
         return;
     }
     
@@ -4996,18 +5331,22 @@ function updateNavigationButtons() {
     const allContentIds = Object.keys(warehouseData.content).sort();
     const currentIndex = allContentIds.indexOf(currentContentId);
     
-    // Показываем/скрываем кнопку "Назад"
+    // Показываем/скрываем кнопку "Назад" (нижняя и верхняя)
     if (currentIndex > 0) {
-        prevBtn.style.display = 'flex';
+        if (prevBtn) prevBtn.style.display = 'flex';
+        if (prevBtnTop) prevBtnTop.style.display = 'flex';
     } else {
-        prevBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (prevBtnTop) prevBtnTop.style.display = 'none';
     }
     
-    // Показываем/скрываем кнопку "Далее"
+    // Показываем/скрываем кнопку "Далее" (нижняя и верхняя)
     if (currentIndex < allContentIds.length - 1) {
-        nextBtn.style.display = 'flex';
+        if (nextBtn) nextBtn.style.display = 'flex';
+        if (nextBtnTop) nextBtnTop.style.display = 'flex';
     } else {
-        nextBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (nextBtnTop) nextBtnTop.style.display = 'none';
     }
 }
 
