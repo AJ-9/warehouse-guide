@@ -527,37 +527,102 @@
             transform: none !important;
         }
 
+        /* Компактная верхняя панель навигации */
+        .navigation-buttons-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            gap: 8px;
+        }
+
+        .nav-btn-top {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            min-width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .nav-btn-top:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .nav-btn-top:active {
+            transform: translateY(0);
+        }
+
+        .prev-btn-top {
+            background: #6b7280;
+        }
+
+        .prev-btn-top:hover {
+            background: #4b5563;
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.25);
+        }
+
+        .home-btn-top {
+            background: #10b981;
+        }
+
+        .home-btn-top:hover {
+            background: #059669;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+        }
+
+        .next-btn-top {
+            background: #3b82f6;
+        }
+
+        .next-btn-top:hover {
+            background: #2563eb;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
         .navigation-buttons {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 2px solid #e5e7eb;
-            gap: 10px;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #e5e7eb;
+            gap: 8px;
         }
 
         .nav-btn {
             background: #3b82f6;
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 6px 12px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 1.4rem;
+            font-size: 1rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            min-width: 80px;
+            transition: all 0.2s ease;
+            min-width: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 4px;
         }
 
         .nav-btn:hover {
             background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
 
         .nav-btn:active {
@@ -570,7 +635,7 @@
 
         .prev-btn:hover {
             background: #4b5563;
-            box-shadow: 0 8px 20px rgba(107, 114, 128, 0.3);
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.25);
         }
 
         .home-btn {
@@ -579,7 +644,7 @@
 
         .home-btn:hover {
             background: #059669;
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
         }
 
         .next-btn {
@@ -588,10 +653,22 @@
 
         .next-btn:hover {
             background: #2563eb;
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
 
         @media (max-width: 768px) {
+            .navigation-buttons-top {
+                flex-direction: row;
+                gap: 6px;
+            }
+
+            .nav-btn-top {
+                flex: 1;
+                min-width: auto;
+                font-size: 0.9rem;
+                padding: 5px 10px;
+            }
+
             .navigation-buttons {
                 flex-direction: column;
                 gap: 8px;
@@ -1411,6 +1488,11 @@
         <div id="contentView" class="content-view">
             <div class="content-header">
                 <h2 id="contentTitle"></h2>
+            </div>
+            <div class="navigation-buttons-top">
+                <button id="prevBtnTop" class="nav-btn-top prev-btn-top" onclick="navigateToPrevious()" style="display: none;" aria-label="Перейти к предыдущему разделу">← Назад</button>
+                <button class="nav-btn-top home-btn-top" onclick="showChapters()" aria-label="Вернуться на главную страницу">🏠 Главная</button>
+                <button id="nextBtnTop" class="nav-btn-top next-btn-top" onclick="navigateToNext()" style="display: none;" aria-label="Перейти к следующему разделу">Далее →</button>
             </div>
             <div id="contentBody" class="content-body"></div>
             <div class="navigation-buttons">
