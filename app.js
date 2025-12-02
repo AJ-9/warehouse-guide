@@ -4,6 +4,94 @@
 const warehouseData = {
     chapters: [
         {
+            id: 'chapter4',
+            title: {
+                ru: 'Документация и правила ее оформления',
+                en: 'Documentation and Documentation Rules',
+                zh: '文件和文件规则'
+            },
+            icon: '📋',
+            description: {
+                ru: 'Правила оформления всех видов документов',
+                en: 'Rules for processing all types of documents',
+                zh: '所有类型文件的处理规则'
+            },
+            subchapters: [
+                { 
+                    id: '1.1', 
+                    title: {
+                        ru: 'Правила оформления ТН',
+                        en: 'Transportation Bill (TB) Processing Rules',
+                        zh: '运输单（TB）处理规则'
+                    }
+                },
+                { 
+                    id: '1.2', 
+                    title: {
+                        ru: 'Правила Оформления CMR',
+                        en: 'CMR Processing Rules',
+                        zh: 'CMR处理规则'
+                    }
+                },
+                { 
+                    id: '1.3', 
+                    title: {
+                        ru: 'Правила заполнения Ведомости на перемещение',
+                        en: 'Rules for Filling Movement Statement',
+                        zh: '移动报表填写规则'
+                    }
+                },
+                { 
+                    id: '1.4', 
+                    title: {
+                        ru: 'Содержание Упаковочного Листа (УЛ)',
+                        en: 'Packing List (PL) Contents',
+                        zh: '装箱单（PL）内容'
+                    }
+                },
+                { 
+                    id: '1.5', 
+                    title: {
+                        ru: 'Содержание Ведомости Грузового места',
+                        en: 'Cargo Unit Statement Contents',
+                        zh: '货物单位报表内容'
+                    }
+                },
+                { 
+                    id: '1.6', 
+                    title: {
+                        ru: 'Содержание Shipping Mark',
+                        en: 'Shipping Mark Contents',
+                        zh: '运输标记内容'
+                    }
+                },
+                { 
+                    id: '1.7', 
+                    title: {
+                        ru: 'Содержание Заявки на Выдачу',
+                        en: 'Issuance Request Contents',
+                        zh: '发放申请内容'
+                    }
+                },
+                { 
+                    id: '1.8', 
+                    title: {
+                        ru: 'Содержание и Правила заполнения Пропуска на Вывоз',
+                        en: 'Export Permit Contents and Filling Rules',
+                        zh: '出口许可证内容和填写规则'
+                    }
+                },
+                { 
+                    id: '1.9', 
+                    title: {
+                        ru: 'Содержание и Правила заполнения Инвентаризационного листа',
+                        en: 'Inventory List Contents and Filling Rules',
+                        zh: '库存清单内容和填写规则'
+                    }
+                }
+            ]
+        },
+        {
             id: 'chapter1',
             title: {
                 ru: 'Процесс приемки',
@@ -18,7 +106,7 @@ const warehouseData = {
             },
             subchapters: [
                 { 
-                    id: '1.1', 
+                    id: '2.1', 
                     title: {
                         ru: 'Заезд ТС на площадку',
                         en: 'Vehicle Arrival at Site',
@@ -26,7 +114,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.2', 
+                    id: '2.2', 
                     title: {
                         ru: 'Правила предоставления информации в Отдел Учета',
                         en: 'Rules for Providing Information to Accounting Department',
@@ -34,7 +122,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.3', 
+                    id: '2.3', 
                     title: {
                         ru: 'Проверка Документов перед выгрузкой',
                         en: 'Document Verification Before Unloading',
@@ -42,7 +130,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.4', 
+                    id: '2.4', 
                     title: {
                         ru: 'Начало выгрузки',
                         en: 'Start of Unloading',
@@ -50,7 +138,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.5', 
+                    id: '2.5', 
                     title: {
                         ru: 'Работа с Несоответствиями при Приемке ТМЦ',
                         en: 'Handling Discrepancies During Material Acceptance',
@@ -58,7 +146,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.6', 
+                    id: '2.6', 
                     title: {
                         ru: 'Составление Акта М7',
                         en: 'Preparation of Act M7',
@@ -66,7 +154,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.7', 
+                    id: '2.7', 
                     title: {
                         ru: 'Выгрузка ТС',
                         en: 'Vehicle Unloading',
@@ -74,7 +162,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.8', 
+                    id: '2.8', 
                     title: {
                         ru: 'Составление Акта о Повреждении ТМЦ',
                         en: 'Preparation of Material Damage Act',
@@ -82,7 +170,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '1.9', 
+                    id: '2.9', 
                     title: {
                         ru: 'Предоставление информации о выгруженном ТС в Отдел Учета',
                         en: 'Providing Information on Unloaded Vehicle to Accounting Department',
@@ -106,7 +194,7 @@ const warehouseData = {
             },
             subchapters: [
                 { 
-                    id: '2.1', 
+                    id: '3.1', 
                     title: {
                         ru: 'Общие положения по хранению ТМЦ',
                         en: 'General Provisions for Material Storage',
@@ -114,7 +202,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '2.2', 
+                    id: '3.2', 
                     title: {
                         ru: 'Коды хранения ТМЦ',
                         en: 'Material Storage Codes',
@@ -122,7 +210,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '2.3', 
+                    id: '3.3', 
                     title: {
                         ru: 'Перемещение ТМЦ между складами, перемещение ТМЦ по складу',
                         en: 'Material Movement Between Warehouses, Material Movement Within Warehouse',
@@ -130,7 +218,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '2.4', 
+                    id: '3.4', 
                     title: {
                         ru: 'Составление Акта о Повреждении ТМЦ',
                         en: 'Preparation of Material Damage Act',
@@ -138,11 +226,51 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '2.5', 
+                    id: '3.5', 
                     title: {
                         ru: 'Перенаправление ТМЦ со склада для выгрузки на территории завода',
                         en: 'Redirecting Materials from Warehouse for Unloading at Plant Territory',
                         zh: '从仓库重定向材料到工厂区域卸货'
+                    }
+                }
+            ]
+        },
+        {
+            id: 'chapter9',
+            title: {
+                ru: 'Входной контроль',
+                en: 'Incoming Inspection',
+                zh: '来料检验'
+            },
+            icon: '📝',
+            description: {
+                ru: 'Краткая памятка по подготовке и проведению процедуры входного контроля ТМЦ',
+                en: 'Brief checklist for preparing and performing incoming inspection of materials',
+                zh: '用于准备和执行材料来料检验的简要提示'
+            },
+            subchapters: [
+                {
+                    id: '4.1', 
+                    title: {
+                        ru: 'Порядок проведения входного контроля',
+                        en: 'Procedure for Conducting Incoming Inspection',
+                        zh: '来料检验执行程序'
+                    }
+                },
+                { 
+                    id: '4.2', 
+                    title: {
+                        ru: 'Завершение процедуры входного контроля',
+                        en: 'Completion of Incoming Inspection Procedure',
+                        zh: '来料检验程序完成'
+                    }
+                },
+                { 
+                    id: '4.3', 
+                    title: {
+                        ru: 'Отчёт о проведённой инспекции',
+                        en: 'Inspection Report',
+                        zh: '检验报告'
                     }
                 }
             ]
@@ -162,7 +290,7 @@ const warehouseData = {
             },
             subchapters: [
                 { 
-                    id: '3.0', 
+                    id: '5.0', 
                     title: {
                         ru: 'Общие сведения',
                         en: 'General Information',
@@ -170,7 +298,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '3.1', 
+                    id: '5.1', 
                     title: {
                         ru: 'Выдача по Заявке на Выдачу целыми ГМ',
                         en: 'Issuance by Request for Complete Cargo Units',
@@ -178,7 +306,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '3.2', 
+                    id: '5.2', 
                     title: {
                         ru: 'Частичная Выдача',
                         en: 'Partial Issuance',
@@ -186,7 +314,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '3.3', 
+                    id: '5.3', 
                     title: {
                         ru: 'Составление Акта Осмотра',
                         en: 'Preparation of Inspection Act',
@@ -194,35 +322,11 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '3.4', 
+                    id: '5.4', 
                     title: {
                         ru: 'Составление Акта о Повреждении ТМЦ',
                         en: 'Preparation of Material Damage Act',
                         zh: '编制材料损坏报告'
-                    }
-                }
-            ]
-        },
-        {
-            id: 'chapter7',
-            title: {
-                ru: 'Возврат ТМЦ на склад',
-                en: 'Material Return to Warehouse',
-                zh: '材料退回仓库'
-            },
-            icon: '↩️',
-            description: {
-                ru: 'Процедуры возврата материалов на склад',
-                en: 'Procedures for returning materials to warehouse',
-                zh: '材料退回仓库程序'
-            },
-            subchapters: [
-                { 
-                    id: '7.0', 
-                    title: {
-                        ru: 'Возврат ТМЦ на склад',
-                        en: 'Material Return to Warehouse',
-                        zh: '材料退回仓库'
                     }
                 }
             ]
@@ -242,7 +346,7 @@ const warehouseData = {
             },
             subchapters: [
                 { 
-                    id: '8.1', 
+                    id: '6.1', 
                     title: {
                         ru: 'Проверка ЗРА перед отправкой',
                         en: 'ZRA Verification Before Shipment',
@@ -250,7 +354,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '8.2', 
+                    id: '6.2', 
                     title: {
                         ru: 'Отправка ЗРА на гидроиспытания',
                         en: 'Shipment of ZRA for Hydrotesting',
@@ -258,7 +362,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '8.3', 
+                    id: '6.3', 
                     title: {
                         ru: 'Проверка грузомест на соответствие с УЛ после проведения гидроиспытаний',
                         en: 'Verification of Cargo Units for Compliance with PL After Hydrotesting',
@@ -266,7 +370,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '8.4', 
+                    id: '6.4', 
                     title: {
                         ru: 'Приемка ЗРА прошедшего ГИ на складе',
                         en: 'Acceptance of ZRA That Passed Hydrotesting at Warehouse',
@@ -276,137 +380,25 @@ const warehouseData = {
             ]
         },
         {
-            id: 'chapter4',
+            id: 'chapter7',
             title: {
-                ru: 'Документация и правила ее оформления',
-                en: 'Documentation and Documentation Rules',
-                zh: '文件和文件规则'
+                ru: 'Возврат ТМЦ на склад',
+                en: 'Material Return to Warehouse',
+                zh: '材料退回仓库'
             },
-            icon: '📋',
+            icon: '↩️',
             description: {
-                ru: 'Правила оформления всех видов документов',
-                en: 'Rules for processing all types of documents',
-                zh: '所有类型文件的处理规则'
+                ru: 'Процедуры возврата материалов на склад',
+                en: 'Procedures for returning materials to warehouse',
+                zh: '材料退回仓库程序'
             },
             subchapters: [
-                { 
-                    id: '4.1', 
+                {
+                    id: '7.0', 
                     title: {
-                        ru: 'Правила оформления ТН',
-                        en: 'Transportation Bill (TB) Processing Rules',
-                        zh: '运输单（TB）处理规则'
-                    }
-                },
-                { 
-                    id: '4.2', 
-                    title: {
-                        ru: 'Правила Оформления CMR',
-                        en: 'CMR Processing Rules',
-                        zh: 'CMR处理规则'
-                    }
-                },
-                { 
-                    id: '4.3', 
-                    title: {
-                        ru: 'Правила заполнения Ведомости на перемещение',
-                        en: 'Rules for Filling Movement Statement',
-                        zh: '移动报表填写规则'
-                    }
-                },
-                { 
-                    id: '4.4', 
-                    title: {
-                        ru: 'Содержание Упаковочного Листа (УЛ)',
-                        en: 'Packing List (PL) Contents',
-                        zh: '装箱单（PL）内容'
-                    }
-                },
-                { 
-                    id: '4.5', 
-                    title: {
-                        ru: 'Содержание Ведомости Грузового места',
-                        en: 'Cargo Unit Statement Contents',
-                        zh: '货物单位报表内容'
-                    }
-                },
-                { 
-                    id: '4.6', 
-                    title: {
-                        ru: 'Содержание Shipping Mark',
-                        en: 'Shipping Mark Contents',
-                        zh: '运输标记内容'
-                    }
-                },
-                { 
-                    id: '4.7', 
-                    title: {
-                        ru: 'Содержание Заявки на Выдачу',
-                        en: 'Issuance Request Contents',
-                        zh: '发放申请内容'
-                    }
-                },
-                { 
-                    id: '4.8', 
-                    title: {
-                        ru: 'Содержание и Правила заполнения Пропуска на Вывоз',
-                        en: 'Export Permit Contents and Filling Rules',
-                        zh: '出口许可证内容和填写规则'
-                    }
-                },
-                { 
-                    id: '4.9', 
-                    title: {
-                        ru: 'Содержание и Правила заполнения Инвентаризационного листа',
-                        en: 'Inventory List Contents and Filling Rules',
-                        zh: '库存清单内容和填写规则'
-                    }
-                }
-            ]
-        },
-        {
-            id: 'chapter5',
-            title: {
-                ru: 'Информационные группы и полезные ссылки',
-                en: 'Information Groups and Useful Links',
-                zh: '信息组和有用链接'
-            },
-            icon: '💬',
-            description: {
-                ru: 'Правила работы с отделом учета и функционал информационных групп',
-                en: 'Rules for working with accounting department and information groups functionality',
-                zh: '与会计部门合作的规则和信息组功能'
-            },
-            subchapters: [
-                { 
-                    id: '5.0', 
-                    title: {
-                        ru: 'Правила предоставления информации в отдел учета',
-                        en: 'Rules for Providing Information to Accounting Department',
-                        zh: '向会计部门提供信息的规则'
-                    }
-                },
-                { 
-                    id: '5.1', 
-                    title: {
-                        ru: 'Детальное описание информационных групп',
-                        en: 'Detailed Description of Information Groups',
-                        zh: '信息组详细说明'
-                    }
-                },
-                { 
-                    id: '5.2', 
-                    title: {
-                        ru: 'Перечень групп',
-                        en: 'List of Groups',
-                        zh: '组列表'
-                    }
-                },
-                { 
-                    id: '5.3', 
-                    title: {
-                        ru: 'Полезные ссылки',
-                        en: 'Useful Links',
-                        zh: '有用链接'
+                        ru: 'Возврат ТМЦ на склад',
+                        en: 'Material Return to Warehouse',
+                        zh: '材料退回仓库'
                     }
                 }
             ]
@@ -426,7 +418,7 @@ const warehouseData = {
             },
             subchapters: [
                 { 
-                    id: '6.1', 
+                    id: '8.1', 
                     title: {
                         ru: 'ЗАЯВКИ НА КАНЦЕЛЯРИЮ И РАСХОДНЫЕ МАТЕРИАЛЫ',
                         en: 'REQUESTS FOR STATIONERY AND CONSUMABLES',
@@ -434,7 +426,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '6.2', 
+                    id: '8.2', 
                     title: {
                         ru: 'ВРЕМЯ ТРУДА И ОТДЫХА',
                         en: 'WORKING HOURS AND REST',
@@ -442,7 +434,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '6.3', 
+                    id: '8.3', 
                     title: {
                         ru: 'ОФОРМЛЕНИЕ ОТПУСКА И ОТПУСКА БЕЗ СОХРАНЕНИЯ ЗАРАБОТНОЙ ПЛАТЫ',
                         en: 'VACATION AND UNPAID LEAVE PROCESSING',
@@ -450,7 +442,7 @@ const warehouseData = {
                     }
                 },
                 { 
-                    id: '6.4', 
+                    id: '8.4', 
                     title: {
                         ru: 'ПЕРЕДАЧА ДОКУМЕНТОВ В УЧЕТ',
                         en: 'DOCUMENT TRANSFER TO ACCOUNTING',
@@ -458,10 +450,58 @@ const warehouseData = {
                     }
                 }
             ]
+        },
+        {
+            id: 'chapter5',
+            title: {
+                ru: 'Информационные группы и полезные ссылки',
+                en: 'Information Groups and Useful Links',
+                zh: '信息组和有用链接'
+            },
+            icon: '💬',
+            description: {
+                ru: 'Правила работы с отделом учета и функционал информационных групп',
+                en: 'Rules for working with accounting department and information groups functionality',
+                zh: '与会计部门合作的规则和信息组功能'
+            },
+            subchapters: [
+                { 
+                    id: '9.0', 
+                    title: {
+                        ru: 'Правила предоставления информации в отдел учета',
+                        en: 'Rules for Providing Information to Accounting Department',
+                        zh: '向会计部门提供信息的规则'
+                    }
+                },
+                { 
+                    id: '9.1', 
+                    title: {
+                        ru: 'Детальное описание информационных групп',
+                        en: 'Detailed Description of Information Groups',
+                        zh: '信息组详细说明'
+                    }
+                },
+                { 
+                    id: '9.2', 
+                    title: {
+                        ru: 'Перечень групп',
+                        en: 'List of Groups',
+                        zh: '组列表'
+                    }
+                },
+                { 
+                    id: '9.3', 
+                    title: {
+                        ru: 'Полезные ссылки',
+                        en: 'Useful Links',
+                        zh: '有用链接'
+                    }
+                }
+            ]
         }
     ],
     content: {
-        '1.1': {
+        '2.1': {
             title: {
                 ru: 'Заезд ТС на площадку',
                 en: 'Vehicle Arrival at Site',
@@ -524,7 +564,7 @@ const warehouseData = {
             `
             }
         },
-        '1.2': {
+        '2.2': {
             title: {
                 ru: 'Правила предоставления информации в Отдел Учета',
                 en: 'Rules for Providing Information to Accounting Department',
@@ -611,7 +651,7 @@ const warehouseData = {
             `
             }
         },
-        '1.3': {
+        '2.3': {
             title: {
                 ru: 'Проверка Документов перед выгрузкой',
                 en: 'Document Verification Before Unloading',
@@ -698,7 +738,7 @@ const warehouseData = {
             `
             }
         },
-        '1.4': {
+        '2.4': {
             title: {
                 ru: 'Начало выгрузки',
                 en: 'Start of Unloading',
@@ -749,7 +789,7 @@ const warehouseData = {
             `
             }
         },
-        '1.5': {
+        '2.5': {
             title: {
                 ru: 'Работа с Несоответствиями при Приемке ТМЦ',
                 en: 'Handling Discrepancies During Material Acceptance',
@@ -824,7 +864,7 @@ const warehouseData = {
             `
             }
         },
-        '1.6': {
+        '2.6': {
             title: {
                 ru: 'Составление Акта М7',
                 en: 'Preparation of Act M7',
@@ -941,7 +981,7 @@ const warehouseData = {
             `
             }
         },
-        '1.7': {
+        '2.7': {
             title: {
                 ru: 'Выгрузка ТС',
                 en: 'Vehicle Unloading',
@@ -1040,7 +1080,7 @@ const warehouseData = {
             `
             }
         },
-        '1.8': {
+        '2.8': {
             title: {
                 ru: 'Составление Акта о Повреждении ТМЦ',
                 en: 'Preparation of Act of Material Damage',
@@ -1091,7 +1131,7 @@ const warehouseData = {
             `
             }
         },
-        '1.9': {
+        '2.9': {
             title: {
                 ru: 'Предоставление информации о выгруженном ТС в Отдел Учета',
                 en: 'Providing Information on Unloaded Vehicle to Accounting Department',
@@ -1184,8 +1224,8 @@ const warehouseData = {
             `
             }
         },
-        // Глава 2: Хранение материала
-        '2.1': {
+        // Глава 3: Хранение материала
+        '3.1': {
             title: {
                 ru: 'Общие положения по хранению ТМЦ',
                 en: 'General Provisions for Material Storage',
@@ -1296,7 +1336,7 @@ const warehouseData = {
             `
             }
         },
-        '2.2': {
+        '3.2': {
             title: {
                 ru: 'Коды хранения ТМЦ',
                 en: 'Material Storage Codes',
@@ -1305,7 +1345,7 @@ const warehouseData = {
             content: {
                 ru: `
                 <h3>Коды хранения</h3>
-                <p>ТМЦ выгружаются и хранятся на площадках согласно кодам хранения. Информация по кодам хранения присутствует в Упаковочном Листе и в Ведомости Грузового Места (см. <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">Главу «Содержание Упаковочного Листа (УЛ)» 🔗</a> и <a href="#4.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание Ведомости Грузового места» 🔗</a>).</p>
+                <p>ТМЦ выгружаются и хранятся на площадках согласно кодам хранения. Информация по кодам хранения присутствует в Упаковочном Листе и в Ведомости Грузового Места (см. <a href="#1.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">Главу «Содержание Упаковочного Листа (УЛ)» 🔗</a> и <a href="#1.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание Ведомости Грузового места» 🔗</a>).</p>
                 
                 <div class="table-container" style="overflow-x: auto; margin: 20px 0;">
                     <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
@@ -1353,7 +1393,7 @@ const warehouseData = {
             `,
                 en: `
                 <h3>Storage Codes</h3>
-                <p>Materials are unloaded and stored on sites according to storage codes. Information on storage codes is present in the Packing List and in the Cargo Unit Statement (see <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">Chapter "Contents of Packing List (PL)" 🔗</a> and <a href="#4.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Contents of Cargo Unit Statement" 🔗</a>).</p>
+                <p>Materials are unloaded and stored on sites according to storage codes. Information on storage codes is present in the Packing List and in the Cargo Unit Statement (see <a href="#1.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">Chapter "Contents of Packing List (PL)" 🔗</a> and <a href="#1.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Contents of Cargo Unit Statement" 🔗</a>).</p>
                 
                 <div class="table-container" style="overflow-x: auto; margin: 20px 0;">
                     <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
@@ -1401,7 +1441,7 @@ const warehouseData = {
             `,
                 zh: `
                 <h3>存储代码</h3>
-                <p>材料根据存储代码在场地卸货和存储。存储代码信息见装箱单和货物单位清单（参见 <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节"装箱单（PL）内容" 🔗</a> 和 <a href="#4.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">"货物单位清单内容" 🔗</a>）。</p>
+                <p>材料根据存储代码在场地卸货和存储。存储代码信息见装箱单和货物单位清单（参见 <a href="#1.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节"装箱单（PL）内容" 🔗</a> 和 <a href="#1.5" style="color: #2563eb; text-decoration: none; font-weight: 600;">"货物单位清单内容" 🔗</a>）。</p>
                 
                 <div class="table-container" style="overflow-x: auto; margin: 20px 0;">
                     <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
@@ -1449,7 +1489,7 @@ const warehouseData = {
             `
             }
         },
-        '2.3': {
+        '3.3': {
             title: {
                 ru: 'Перемещение ТМЦ между складами, перемещение ТМЦ по складу',
                 en: 'Material Transfer Between Warehouses, Material Transfer Within Warehouse',
@@ -1461,7 +1501,7 @@ const warehouseData = {
                 <p>Для перемещения материала со склада необходимо предварительно убедиться в его наличии на лоте хранения и доступе для ПРР. Кладовщик должен заказать технику для проведения ПРР и транспортировки ТМЦ, учитывая габариты материала и место его расположения. Техника заказывается через диспетчеров.</p>
                 
                 <h3>После погрузки</h3>
-                <p>После погрузки ТМЦ необходимо заполнить «Ведомость на перемещение и приемку» (см. <a href="#4.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.3 🔗</a>).</p>
+                <p>После погрузки ТМЦ необходимо заполнить «Ведомость на перемещение и приемку» (см. <a href="#1.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 1.3 🔗</a>).</p>
                 
                 <h3>После выгрузки</h3>
                 <p>После выгрузки ТМЦ на принимающем складе или ячейке необходимо сделать фото Упаковочного Листа (УЛ) или Ведомостей ГМ по каждому грузовому месту для учета.</p>
@@ -1483,7 +1523,7 @@ const warehouseData = {
                 <p>To transfer material from the warehouse, it is necessary to first verify its presence at the storage lot and access for cargo handling operations. The warehouse keeper must order equipment for conducting cargo handling operations and transporting materials, taking into account the material dimensions and its location. Equipment is ordered through dispatchers.</p>
                 
                 <h3>After Loading</h3>
-                <p>After loading materials, it is necessary to fill out the "Transfer and Acceptance Statement" (see <a href="#4.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 4.3 🔗</a>).</p>
+                <p>After loading materials, it is necessary to fill out the "Transfer and Acceptance Statement" (see <a href="#1.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 1.3 🔗</a>).</p>
                 
                 <h3>After Unloading</h3>
                 <p>After unloading materials at the receiving warehouse or cell, it is necessary to take photos of the Packing List (PL) or GM Statements for each cargo unit for accounting.</p>
@@ -1505,7 +1545,7 @@ const warehouseData = {
                 <p>从仓库转移材料前，需先确认其在存储场地的存在以及可进行装卸作业。仓库管理员必须根据材料尺寸和位置订购装卸作业和运输设备。设备通过调度员订购。</p>
                 
                 <h3>装货后</h3>
-                <p>装货后，需填写"转移和验收清单"（参见 <a href="#4.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节4.3 🔗</a>）。</p>
+                <p>装货后，需填写"转移和验收清单"（参见 <a href="#1.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节1.3 🔗</a>）。</p>
                 
                 <h3>卸货后</h3>
                 <p>在接收仓库或单元卸货后，需为每个货物单位拍摄装箱单（PL）或GM清单照片以供核算。</p>
@@ -1524,7 +1564,7 @@ const warehouseData = {
             `
             }
         },
-        '2.4': {
+        '3.4': {
             title: {
                 ru: 'Составление Акта о Повреждении ТМЦ',
                 en: 'Preparation of Act of Material Damage',
@@ -1587,7 +1627,7 @@ const warehouseData = {
             `
             }
         },
-        '2.5': {
+        '3.5': {
             title: {
                 ru: 'Перенаправление ТМЦ со склада для выгрузки на территории завода',
                 en: 'Redirecting Materials from Warehouse for Unloading at Plant Territory',
@@ -1617,8 +1657,8 @@ const warehouseData = {
             `
             }
         },
-        // Глава 3: Выдача материала в монтаж
-        '3.0': {
+        // Глава 5: Выдача материала в монтаж
+        '5.0': {
             title: {
                 ru: 'Общие сведения',
                 en: 'General Information',
@@ -1627,7 +1667,7 @@ const warehouseData = {
             content: {
                 ru: `
                 <h3>Процедура выдачи материалов</h3>
-                <p>Выдача материала в монтаж проводится по Заявкам на Выдачу (См. <a href="#4.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.7 «Содержание Заявки на выдачу» 🔗</a>).</p>
+                <p>Выдача материала в монтаж проводится по Заявкам на Выдачу (См. <a href="#1.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 1.7 «Содержание Заявки на выдачу» 🔗</a>).</p>
                 
                 <h3>Формирование заявки</h3>
                 <p>Заявка на выдачу формируется строительным блоком в 1С, затем подтверждается и визируется отделом учета.</p>
@@ -1642,7 +1682,7 @@ const warehouseData = {
             `,
                 en: `
                 <h3>Material Issuance Procedure</h3>
-                <p>Material issuance for installation is conducted according to Issuance Requests (See <a href="#4.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 4.7 "Contents of Issuance Request" 🔗</a>).</p>
+                <p>Material issuance for installation is conducted according to Issuance Requests (See <a href="#1.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 1.7 "Contents of Issuance Request" 🔗</a>).</p>
                 
                 <h3>Request Formation</h3>
                 <p>The issuance request is formed by the construction unit in 1C, then confirmed and approved by the accounting department.</p>
@@ -1657,7 +1697,7 @@ const warehouseData = {
             `,
                 zh: `
                 <h3>材料发放程序</h3>
-                <p>材料发放用于安装需根据发放申请进行（参见 <a href="#4.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节4.7"发放申请内容" 🔗</a>）。</p>
+                <p>材料发放用于安装需根据发放申请进行（参见 <a href="#1.7" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节1.7"发放申请内容" 🔗</a>）。</p>
                 
                 <h3>申请形成</h3>
                 <p>发放申请由建筑单位在1C系统中形成，然后由会计部门确认和批准。</p>
@@ -1672,7 +1712,7 @@ const warehouseData = {
             `
             }
         },
-        '3.1': {
+        '5.1': {
             title: {
                 ru: 'Выдача по Заявке на Выдачу целыми ГМ',
                 en: 'Issuance by Issuance Request for Whole Cargo Units',
@@ -1716,7 +1756,7 @@ const warehouseData = {
                 <p>Сфотографировать ТМЦ, погруженные на ТС.</p>
                 
                 <h4>7. ЗАПОЛНЕНИЕ ПРОПУСКА НА ВЫВОЗ</h4>
-                <p>Заполнить Пропуск на вывоз (см. <a href="#4.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 4.8 🔗</a>).</p>
+                <p>Заполнить Пропуск на вывоз (см. <a href="#1.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">раздел 1.8 🔗</a>).</p>
                 
                 <h4>8. ПОСТИНГ ИНФОРМАЦИИ О ВЫДАЧЕ</h4>
                 <p>Разместить информацию о выдаче в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«ВЫДАЧА ТМЦ ПО ЗАЯВКАМ»</a>. Информация должна включать:</p>
@@ -1781,7 +1821,7 @@ const warehouseData = {
                 <p>Photograph materials loaded onto the vehicle.</p>
                 
                 <h4>7. FILLING OUT EXIT PASS</h4>
-                <p>Fill out the Exit Pass (see <a href="#4.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 4.8 🔗</a>).</p>
+                <p>Fill out the Exit Pass (see <a href="#1.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">section 1.8 🔗</a>).</p>
                 
                 <h4>8. POSTING ISSUANCE INFORMATION</h4>
                 <p>Post issuance information to the group <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"MATERIAL ISSUANCE BY REQUESTS"</a>. Information must include:</p>
@@ -1846,7 +1886,7 @@ const warehouseData = {
                 <p>拍摄已装到车辆上的材料。</p>
                 
                 <h4>7. 填写离场通行证</h4>
-                <p>填写离场通行证（参见 <a href="#4.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节4.8 🔗</a>）。</p>
+                <p>填写离场通行证（参见 <a href="#1.8" style="color: #2563eb; text-decoration: none; font-weight: 600;">章节1.8 🔗</a>）。</p>
                 
                 <h4>8. 发布发放信息</h4>
                 <p>将发放信息发布至群组 <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"按申请发放材料"</a>。信息需包括：</p>
@@ -1876,7 +1916,7 @@ const warehouseData = {
             `
             }
         },
-        '3.2': {
+        '5.2': {
             title: {
                 ru: 'Частичная Выдача',
                 en: 'Partial Issuance',
@@ -1900,7 +1940,7 @@ const warehouseData = {
                 <h3>Пример Частичной Выдачи</h3>
                 <p>ГМ № 1 (ранее выдача с этого места не производилась) по системе 1С содержит 5 номенклатурных позиций болтов. Каждая по 10 шт. По Заявке на Выдачу необходимо выдать 3 номенклатурные позиции по 3шт. В этом случае необходимо разукомплектовать ГМ № 1, выдать из него 9 болтов (по 3 шт каждого наименования).</p>
                 
-                <p>После выдачи необходимо досчитать ТМЦ в ГМ. В ГМ №1 должен остаться 41 болт - 2 номенклатурные позиции по 10 штук и 3 номенклатурные позиции по 4 штуки.</p>
+                <p>После выдачи необходимо досчитать ТМЦ в ГМ. В ГМ №1 должен остаться 41 болт - 2 номенклатурные позиции по 10 штук и 3 номенклатурные позиции по 7 штук.</p>
                 
                 <p>Если по физике все сошлось, и в ГМ остался 41 болт, то можно постить выдачу в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Выдача ТМЦ по Заявкам»</a>. На ГМ маркером написать «Посчитано»</p>
                 
@@ -1929,7 +1969,7 @@ const warehouseData = {
                 <h3>Partial Issuance Example</h3>
                 <p>GM No. 1 (previously no issuance was made from this location) according to the 1C system contains 5 nomenclature positions of bolts. Each has 10 pieces. According to the Issuance Request, it is necessary to issue 3 nomenclature positions of 3 pieces each. In this case, it is necessary to unpack GM No. 1 and issue 9 bolts from it (3 pieces of each name).</p>
                 
-                <p>After issuance, it is necessary to recount the materials in the GM. GM No. 1 should have 41 bolts remaining - 2 nomenclature positions of 10 pieces each and 3 nomenclature positions of 4 pieces each.</p>
+                <p>After issuance, it is necessary to recount the materials in the GM. GM No. 1 should have 41 bolts remaining - 2 nomenclature positions of 10 pieces each and 3 nomenclature positions of 7 pieces each.</p>
                 
                 <p>If physically everything matches and 41 bolts remain in the GM, then the issuance can be posted to the group <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Material Issuance by Requests"</a>. Write "Counted" on the GM with a marker.</p>
                 
@@ -1958,7 +1998,7 @@ const warehouseData = {
                 <h3>部分发放示例</h3>
                 <p>GM № 1（此前未从此位置发放）根据1C系统包含5个名称位置的螺栓。每个10件。根据发放申请，需发放3个名称位置，每个3件。在此情况下，需拆包GM № 1，从中发放9个螺栓（每个名称3件）。</p>
                 
-                <p>发放后，需重新清点GM中的材料。GM №1应剩余41个螺栓 - 2个名称位置各10件，3个名称位置各4件。</p>
+                <p>发放后，需重新清点GM中的材料。GM №1应剩余41个螺栓 - 2个名称位置各10件，3个名称位置各7件。</p>
                 
                 <p>如实际清点一致，GM中剩余41个螺栓，则可发布发放信息至群组 <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"按申请发放材料"</a>。用记号笔在GM上标注"已清点"。</p>
                 
@@ -1972,7 +2012,7 @@ const warehouseData = {
             `
             }
         },
-        '3.3': {
+        '5.3': {
             title: {
                 ru: 'Составление Акта Осмотра',
                 en: 'Preparation of Inspection Act',
@@ -2032,7 +2072,7 @@ const warehouseData = {
             `
             }
         },
-        '3.4': {
+        '5.4': {
             title: {
                 ru: 'Составление Акта о Повреждении ТМЦ',
                 en: 'Preparation of Act of Material Damage',
@@ -2161,7 +2201,7 @@ const warehouseData = {
             `
             }
         },
-        '8.1': {
+        '6.1': {
             title: {
                 ru: 'Проверка ЗРА перед отправкой',
                 en: 'ZRA Verification Before Shipment',
@@ -2230,7 +2270,7 @@ const warehouseData = {
             `
             }
         },
-        '8.2': {
+        '6.2': {
             title: {
                 ru: 'Отправка ЗРА на гидроиспытания',
                 en: 'Shipment of ZRA for Hydrotesting',
@@ -2302,7 +2342,7 @@ const warehouseData = {
             `
             }
         },
-        '8.3': {
+        '6.3': {
             title: {
                 ru: 'Проверка грузомест на соответствие с УЛ после проведения гидроиспытаний',
                 en: 'Verification of Cargo Units for Compliance with PL After Hydrotesting',
@@ -2380,7 +2420,7 @@ const warehouseData = {
             `
             }
         },
-        '8.4': {
+        '6.4': {
             title: {
                 ru: 'Приемка ЗРА прошедшего ГИ на складе',
                 en: 'Acceptance of ZRA That Passed Hydrotesting at Warehouse',
@@ -2425,8 +2465,369 @@ const warehouseData = {
             `
             }
         },
-        // Глава 4: Документация
+        // Глава 9: Памятка по входному контролю
         '4.1': {
+            title: {
+                ru: 'Порядок проведения входного контроля',
+                en: 'Procedure for Conducting Incoming Inspection',
+                zh: '来料检验执行程序'
+            },
+            content: {
+                ru: `
+                <h3>Порядок проведения входного контроля</h3>
+                <h4>1.1 Оповещение</h4>
+                <p>После занесения грузовых мест в систему учёта отдел QA/QC направляет уведомление на электронную почту с указанием планируемых даты и времени инспекции. Инспекции делятся на номерные и безномерные:</p>
+                <ul>
+                    <li>номерные заявки — комиссия Бизнес Тренд, Русская лаборатория, СС7;</li>
+                    <li>безномерные заявки — комиссия Бизнес Тренд, Песко, БХК.</li>
+                </ul>
+                
+                <div class="image-container">
+                    <img src="images/iC-4.png" alt="Пример уведомления QA/QC" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.2 Обработка информации</h4>
+                <p>При получении уведомления о процедуре и дате проведения инспекции, сотрудниками учёта формируется выгрузка об оприходовании МТР в информационной системе 1С с занесением в общую ведомость с разбивкой по вкладкам каждой комиссии. Реестр ВК 11.08 , находящуюся на сетевом ресурсе (OneDrive - PESCO Energy & Resources\\13. Склад\\12. Входной контроль\\Реестр учета)</p>
+                <p><strong>Выгрузка содержит:</strong></p>
+                <ul>
+                    <li>местоположения по адресному хранению (склад, ячейка);</li>
+                    <li>массо-габаритных характеристик (при необходимости);</li>
+                    <li>номера упаковочного листа на партию; номера грузовых мест; артикула товара;</li>
+                    <li>заявки субподрядчика (при наличии);</li>
+                    <li>номенклатуры с заявленным количеством и актуальными остатками.</li>
+                </ul>
+                <p>При отсутствии информации о заявленных упаковочных листах в системе 1С, по любой из причин (не загружен в систему отделом material management, составлен Акт М7, невозможно идентифицировать ТМЦ при приёмке и т.д. за исключением того, что ТМЦ еще не поступили на проект БХК), сотрудник учёта собирает информацию на сетевом ресурсе Отчет по поступлениям ТС 2025 и группе <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">Для ТН для учёта</a>, о принятых грузовых местах согласно упаковочного листа и транспортной накладной.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-5.png" alt="Пример выгрузки по МТР" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.3 Утренняя сверка с QA/QC</h4>
+                <p>Сотрудник учёта проводит сверку с QA/QC и ООО «Бизнес Тренд» (08:00–09:00) в Teams/Max по актуальности комиссий и времени инспекций. Информация транслируется в группу склада <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«IC Group»</a>.</p>
+                
+                <h4>1.4 Подготовка к инспекции</h4>
+                <p>Сотрудник склада, получивший список, должен:</p>
+                <ul>
+                    <li>подготовить ГМ, при необходимости заранее запросить технику у диспетчеров:
+                        <ul>
+                            <li><a href="tel:+79812348559">+7 (981) 234-85-59 Полозова Анастасия</a></li>
+                            <li><a href="tel:+79811493686">+7 (981) 149-36-86 Стрюкова Ольга</a></li>
+                            <li><a href="tel:+79817232891">+7 (981) 723-28-91 Амелина Ксения</a></li>
+                        </ul>
+                    </li>
+                    <li>привлечь разнорабочих при необходимости;</li>
+                    <li>убедиться в наличии специнструмента, при необходимости получить у ответственного за инвентарь (<a href="https://docs.google.com/spreadsheets/d/1MfCMgEFtFrTynlRB2aUz0X4MxGwuVUva0cyyxeeywEE/htmlview" target="_blank">ссылка</a>).</li>
+                </ul>
+                
+                <div class="image-container">
+                    <img src="images/iC-6.png" alt="Подготовка грузовых мест к инспекции" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.5 Проведение инспекции</h4>
+                <p>Комиссия организует вскрытие упаковки и внутреннюю растарку для пересчёта, идентификации и оценки качества номенклатуры.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-7.png" alt="Процесс вскрытия упаковки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                <div class="image-container">
+                    <img src="images/iC-8.png" alt="Оценка качества ТМЦ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>При трудностях с поиском ГМ сотрудник склада обращается к учётчику в группе <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Потеряшки»</a> (Max) за информацией:</p>
+                <ul>
+                    <li>Движение товара в системе 1С;</li>
+                    <li>Акт М7, при необходимости;</li>
+                    <li>ТрН;</li>
+                    <li>Фото разгруженного товара в склад;</li>
+                    <li>Заявку на выдачу, если было согласование «БЕЗ ВК», и товар покинул складские площади, манифест</li>
+                </ul>
+            `,
+                en: `
+                <h3>Procedure for Conducting Incoming Inspection</h3>
+                <h4>1.1 Notification</h4>
+                <p>After entering cargo units into the accounting system, the QA/QC department sends a notification by email indicating the planned date and time of inspection. Inspections are divided into numbered and unnumbered:</p>
+                <ul>
+                    <li>numbered applications — commission Business Trend, Russian Laboratory, SS7;</li>
+                    <li>unnumbered applications — commission Business Trend, Pesco, BHK.</li>
+                </ul>
+                
+                <div class="image-container">
+                    <img src="images/iC-4.png" alt="Example of QA/QC notification" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.2 Information Processing</h4>
+                <p>Upon receiving notification about the procedure and inspection date, accounting staff generate a report on MTR posting in the 1C information system with entry into the general statement with breakdown by tabs for each commission. Register VK 11.08, located on the network resource (OneDrive - PESCO Energy & Resources\\13. Warehouse\\12. Incoming Inspection\\Accounting Register)</p>
+                <p><strong>Report contains:</strong></p>
+                <ul>
+                    <li>location by address storage (warehouse, cell);</li>
+                    <li>mass-dimensional characteristics (if necessary);</li>
+                    <li>packing list number per batch; cargo unit numbers; product article;</li>
+                    <li>subcontractor application (if available);</li>
+                    <li>nomenclature with declared quantity and current balances.</li>
+                </ul>
+                <p>In the absence of information about declared packing lists in the 1C system, for any reason (not loaded into the system by the material management department, Act M7 drawn up, impossible to identify materials during acceptance, etc., except when materials have not yet arrived at the BKhK project), the accounting employee collects information from the network resource "Report on TS Receipts 2025" and the group <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">FOR TB FOR ACCOUNTING</a> about accepted cargo units according to the packing list and transport invoice.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-5.png" alt="Example of MTR report" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.3 Morning Verification with QA/QC</h4>
+                <p>The accounting employee conducts verification with QA/QC and LLC "Business Trend" (08:00–09:00) in Teams/Max on the relevance of commissions and inspection times. Information is broadcast to the warehouse group <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"IC Group"</a>.</p>
+                
+                <h4>1.4 Preparation for Inspection</h4>
+                <p>The warehouse employee who received the list must:</p>
+                <ul>
+                    <li>prepare cargo units, if necessary, request equipment from dispatchers in advance:
+                        <ul>
+                            <li><a href="tel:+79812348559">+7 (981) 234-85-59 Polozova Anastasia</a></li>
+                            <li><a href="tel:+79811493686">+7 (981) 149-36-86 Stryukova Olga</a></li>
+                            <li><a href="tel:+79817232891">+7 (981) 723-28-91 Amelina Ksenia</a></li>
+                        </ul>
+                    </li>
+                    <li>attract laborers if necessary;</li>
+                    <li>ensure availability of special tools, if necessary, obtain from the person responsible for inventory (<a href="https://docs.google.com/spreadsheets/d/1MfCMgEFtFrTynlRB2aUz0X4MxGwuVUva0cyyxeeywEE/htmlview" target="_blank">link</a>).</li>
+                </ul>
+                
+                <div class="image-container">
+                    <img src="images/iC-6.png" alt="Preparation of cargo units for inspection" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.5 Conducting Inspection</h4>
+                <p>The commission organizes package opening and internal unpacking for recounting, identification, and quality assessment of nomenclature.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-7.png" alt="Package opening process" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                <div class="image-container">
+                    <img src="images/iC-8.png" alt="Material quality assessment" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>If there are difficulties finding cargo units, the warehouse employee contacts the accountant in the <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Lost Items"</a> group (Max) for information:</p>
+                <ul>
+                    <li>Product movement in the 1C system;</li>
+                    <li>Act M7, if necessary;</li>
+                    <li>TrN;</li>
+                    <li>Photos of unloaded goods in the warehouse;</li>
+                    <li>Issuance request, if there was approval "WITHOUT QC", and the goods left the warehouse area, manifest</li>
+                </ul>
+            `,
+                zh: `
+                <h3>来料检验执行程序</h3>
+                <h4>1.1 通知</h4>
+                <p>将货物单位录入会计系统后，QA/QC部门通过电子邮件发送通知，注明计划的检验日期和时间。检验分为编号和无编号：</p>
+                <ul>
+                    <li>编号申请 — 委员会：Business Trend、俄罗斯实验室、SS7；</li>
+                    <li>无编号申请 — 委员会：Business Trend、Pesco、BHK。</li>
+                </ul>
+                
+                <div class="image-container">
+                    <img src="images/iC-4.png" alt="QA/QC通知示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.2 信息处理</h4>
+                <p>收到关于程序和检验日期的通知后，会计人员生成1C信息系统中的MTR入账报告，并录入总清单，按每个委员会分标签。登记册VK 11.08，位于网络资源上（OneDrive - PESCO Energy & Resources\\13. 仓库\\12. 来料检验\\会计登记册）</p>
+                <p><strong>报告包含：</strong></p>
+                <ul>
+                    <li>按地址存储的位置（仓库、单元格）；</li>
+                    <li>质量尺寸特征（如需要）；</li>
+                    <li>每批装箱单号；货物单位编号；产品货号；</li>
+                    <li>分包商申请（如有）；</li>
+                    <li>具有声明数量和当前余额的命名。</li>
+                </ul>
+                <p>如果1C系统中缺少声明装箱单的信息，无论出于何种原因（未由材料管理部门加载到系统、已编制M7法案、验收时无法识别材料等，但材料尚未到达BKhK项目的情况除外），会计员工从网络资源"2025年TS接收报告"和群组 <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">待核算运输单</a> 收集信息，关于根据装箱单和运输发票接受的货物单位。</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-5.png" alt="MTR报告示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.3 与QA/QC的晨间核对</h4>
+                <p>会计员工与QA/QC和有限责任公司"Business Trend"（08:00–09:00）在Teams/Max中进行核对，了解委员会和检验时间的相关性。信息会广播到仓库组 <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"IC Group"</a>。</p>
+                
+                <h4>1.4 检验准备</h4>
+                <p>收到清单的仓库员工必须：</p>
+                <ul>
+                    <li>准备货物单位，如需要，提前向调度员请求设备：
+                        <ul>
+                            <li><a href="tel:+79812348559">+7 (981) 234-85-59 Polozova Anastasia</a></li>
+                            <li><a href="tel:+79811493686">+7 (981) 149-36-86 Stryukova Olga</a></li>
+                            <li><a href="tel:+79817232891">+7 (981) 723-28-91 Amelina Ksenia</a></li>
+                        </ul>
+                    </li>
+                    <li>如需要，吸引临时工；</li>
+                    <li>确保有专用工具，如需要，从负责库存的人员处获取（<a href="https://docs.google.com/spreadsheets/d/1MfCMgEFtFrTynlRB2aUz0X4MxGwuVUva0cyyxeeywEE/htmlview" target="_blank">链接</a>）。</li>
+                </ul>
+                
+                <div class="image-container">
+                    <img src="images/iC-6.png" alt="货物单位检验准备" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.5 进行检验</h4>
+                <p>委员会组织包装打开和内部拆包，以便重新计数、识别和评估命名质量。</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-7.png" alt="包装打开过程" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                <div class="image-container">
+                    <img src="images/iC-8.png" alt="材料质量评估" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>如果查找货物单位有困难，仓库员工会在 <a href="https://max.ru/join/__LL0tn1cahYVmhaaCyMzBWoEEzH5sWtiKqw3YLkX2Q" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"丢失物品"</a> 群组（Max）中联系会计，获取以下信息：</p>
+                <ul>
+                    <li>1C系统中的产品移动；</li>
+                    <li>M7法案（如需要）；</li>
+                    <li>TrN；</li>
+                    <li>仓库中卸货货物的照片；</li>
+                    <li>发放申请（如已批准"无QC"且货物已离开仓库区域），清单</li>
+                </ul>
+            `
+            }
+        },
+        '4.2': {
+            title: {
+                ru: 'Завершение процедуры входного контроля',
+                en: 'Completion of Incoming Inspection Procedure',
+                zh: '来料检验程序完成'
+            },
+            content: {
+                ru: `
+                <h3>Завершение процедуры входного контроля</h3>
+                <h4>2.1 Восстановление упаковки</h4>
+                <p>По окончании инспекции номенклатура возвращается в ГМ, заводская упаковка восстанавливается. Ответственность несёт сотрудник склада.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-9.png" alt="Восстановление упаковки после инспекции" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>В случае необходимости перемещения ТМЦ, смотри раздел <a href="#1.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Правила заполнения «Ведомости на перемещение и приемку ТМЦ»</a>.</p>
+                
+                <h4>2.2 Маркировка грузового места</h4>
+                <p>При необходимости замены ведомости грузового места по разным причинам: (отсутствует физически, повреждено, указаны некорректные данные) кладовщик запрашивает, а учётчик распечатывает актуальные листы и передает на ламинацию и дальнейшую расклейку сотруднику склада.</p>
+            `,
+                en: `
+                <h3>Completion of Incoming Inspection Procedure</h3>
+                <h4>2.1 Packaging Restoration</h4>
+                <p>Upon completion of inspection, nomenclature is returned to cargo units, factory packaging is restored. Responsibility lies with the warehouse employee.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-9.png" alt="Packaging restoration after inspection" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>In case it is necessary to transfer materials, see section <a href="#1.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Rules for Filling Out \"Transfer and Acceptance Statement for Materials\""</a>.</p>
+                
+                <h4>2.2 Cargo Unit Marking</h4>
+                <p>If it is necessary to replace the cargo unit statement for various reasons: (physically missing, damaged, incorrect data indicated) the warehouse keeper requests, and the accountant prints current sheets and transfers them for lamination and further affixing to the warehouse employee.</p>
+            `,
+                zh: `
+                <h3>来料检验程序完成</h3>
+                <h4>2.1 包装恢复</h4>
+                <p>检验完成后，命名返回到货物单位，工厂包装得到恢复。责任由仓库员工承担。</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-9.png" alt="检验后包装恢复" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>如需转移材料，请参阅章节 <a href="#1.3" style="color: #2563eb; text-decoration: none; font-weight: 600;">"填写\"材料转移和验收清单\"规则"</a>。</p>
+                
+                <h4>2.2 货物单位标记</h4>
+                <p>如需因各种原因更换货物单位清单：（物理缺失、损坏、数据不正确）仓库管理员请求，会计打印当前清单并转交给仓库员工进行层压和粘贴。</p>
+            `
+            }
+        },
+        '4.3': {
+            title: {
+                ru: 'Отчёт о проведённой инспекции',
+                en: 'Inspection Report',
+                zh: '检验报告'
+            },
+            content: {
+                ru: `
+                <h3>Отчёт о проведённой инспекции</h3>
+                <h4>3.1 Результат инспекции</h4>
+                <p>По завершении инспекции отчёт отправляется в <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«IC Group»</a> в формате:</p>
+                <ul>
+                    <li>номер/название заявки;</li>
+                    <li>номер упаковочного листа, номер ГМ;</li>
+                    <li>замечания (недостача, пересорт, несоответствие и т.д.);</li>
+                    <li>процент вскрытых ящиков с указанием номеров ГМ и причин невскрытия остальных;</li>
+                    <li>наличие представителя поставщика и сроки устранения замечаний.</li>
+                </ul>
+                <p>Если ГМ имеет заводскую консервацию, приёмка проводится по количеству, комплектности, качеству упаковки и условиям хранения.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-11.png" alt="Пример отчёта по инспекции" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>При наличии специальной заводской консервации грузового места, целостность которой нельзя нарушать, комиссией по входному контролю производится приемка по количеству и комплектности поставленных оборудования и материалов, качеству упаковки и соответствию условий хранения.</p>
+                
+                <h4>3.2 Учёт несоответствий</h4>
+                <p>Сотрудник учёта, закрепленный для работы с инспекцией по ВК, по окончании инспекции заносит данные о пройденной инспекции на основании отчёта от полевого сотрудника в реестр ВК: Реестр ВК 11.08</p>
+                <ul>
+                    <li>Дата проведения инспекции;</li>
+                    <li>Результат;</li>
+                    <li>Выявленные замечания по грузовым местам;</li>
+                    <li>Состав комиссии (при необходимости)</li>
+                </ul>
+            `,
+                en: `
+                <h3>Inspection Report</h3>
+                <h4>3.1 Inspection Result</h4>
+                <p>Upon completion of inspection, the report is sent to <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"IC Group"</a> in the format:</p>
+                <ul>
+                    <li>application number/name;</li>
+                    <li>packing list number, cargo unit number;</li>
+                    <li>remarks (shortage, misgrading, non-compliance, etc.);</li>
+                    <li>percentage of opened boxes with indication of cargo unit numbers and reasons for not opening the rest;</li>
+                    <li>presence of supplier representative and deadlines for eliminating remarks.</li>
+                </ul>
+                <p>If cargo unit has factory preservation, acceptance is conducted by quantity, completeness, packaging quality, and storage conditions.</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-11.png" alt="Example of inspection report" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>In the presence of special factory preservation of the cargo unit, the integrity of which cannot be violated, the incoming inspection commission performs acceptance by quantity and completeness of supplied equipment and materials, packaging quality and compliance with storage conditions.</p>
+                
+                <h4>3.2 Non-compliance Accounting</h4>
+                <p>The accounting employee assigned to work with QC inspection, upon completion of inspection, enters data about the completed inspection based on the report from the field employee into the QC register: Register VK 11.08</p>
+                <ul>
+                    <li>Inspection date;</li>
+                    <li>Result;</li>
+                    <li>Identified remarks on cargo units;</li>
+                    <li>Commission composition (if necessary)</li>
+                </ul>
+            `,
+                zh: `
+                <h3>检验报告</h3>
+                <h4>3.1 检验结果</h4>
+                <p>检验完成后，报告以以下格式发送到 <a href="https://max.ru/join/clTILsQtTWFlCQpAk5wfZcMqebgxndQ2-BVXJxSAtUA" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"IC Group"</a>：</p>
+                <ul>
+                    <li>申请编号/名称；</li>
+                    <li>装箱单号、货物单位编号；</li>
+                    <li>备注（短缺、错级、不符合等）；</li>
+                    <li>已打开箱子的百分比，注明货物单位编号和未打开其余箱子的原因；</li>
+                    <li>供应商代表的存在和消除备注的期限。</li>
+                </ul>
+                <p>如果货物单位有工厂保存，则按数量、完整性、包装质量和存储条件进行验收。</p>
+                
+                <div class="image-container">
+                    <img src="images/iC-11.png" alt="检验报告示例" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>如货物单位具有特殊工厂保存，其完整性不可破坏，来料检验委员会按供应设备和材料的数量和完整性、包装质量以及存储条件符合性进行验收。</p>
+                
+                <h4>3.2 不符合项会计</h4>
+                <p>负责QC检验工作的会计员工，在检验完成后，根据现场员工的报告将已完成的检验数据录入QC登记册：登记册VK 11.08</p>
+                <ul>
+                    <li>检验日期；</li>
+                    <li>结果；</li>
+                    <li>货物单位发现的备注；</li>
+                    <li>委员会组成（如需要）</li>
+                </ul>
+            `
+            }
+        },
+        // Глава 1: Документация
+        '1.1': {
             title: {
                 ru: 'Правила оформления ТН',
                 en: 'Transportation Bill Formatting Rules',
@@ -2561,7 +2962,7 @@ const warehouseData = {
             `
             }
         },
-        '4.2': {
+        '1.2': {
             title: {
                 ru: 'Правила Оформления CMR',
                 en: 'CMR Formatting Rules',
@@ -2654,7 +3055,7 @@ const warehouseData = {
             `
             }
         },
-        '4.3': {
+        '1.3': {
             title: {
                 ru: 'Правила заполнения «Ведомости на перемещение и приемку ТМЦ»',
                 en: 'Rules for Filling Out "Transfer and Acceptance Statement for Materials"',
@@ -2667,7 +3068,7 @@ const warehouseData = {
                 <ol>
                     <li><strong>Перемещение ТМЦ между складами.</strong> Например, перемещение с С23-1 на Ангар 08-07. Либо с С23-2 на С23-5. Либо с ангара 08-01 на ангар 07-10.</li>
                     <li><strong>Перемещение ТМЦ внутри склада.</strong> Например, перемещение в рамках одного ангара 08-01. Либо по складу С23-1.</li>
-                    <li><strong>При приемке большого количества грузомест, размещающихся в разных складских ячейках.</strong> Применимо по большей части к ангарным складам. Например, приемка 20 ГМ на 20 разных ячеек. При приемке подобного рода кладовщик заполняет данную Ведомость и пересылает ее в Учет в группу «ТН для учета» вместе с ТН, фото, и полной информацией по приемке.</li>
+                    <li><strong>При приемке большого количества грузомест, размещающихся в разных складских ячейках.</strong> Применимо по большей части к ангарным складам. Например, приемка 20 ГМ на 20 разных ячеек. При приемке подобного рода кладовщик заполняет данную Ведомость и пересылает ее в Учет в группу <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Для ТН для учёта»</a> вместе с ТН, фото, и полной информацией по приемке.</li>
                 </ol>
                 
                 <h3>Необходимо указывать:</h3>
@@ -2713,7 +3114,7 @@ const warehouseData = {
                 <ol>
                     <li><strong>Transfer of materials between warehouses.</strong> For example, transfer from S23-1 to Hangar 08-07. Or from S23-2 to S23-5. Or from hangar 08-01 to hangar 07-10.</li>
                     <li><strong>Transfer of materials within a warehouse.</strong> For example, transfer within one hangar 08-01. Or within warehouse S23-1.</li>
-                    <li><strong>When accepting a large number of cargo units placed in different warehouse cells.</strong> Mostly applicable to hangar warehouses. For example, acceptance of 20 GMs in 20 different cells. When accepting this type, the warehouse keeper fills out this Statement and sends it to Accounting in the group "TB for Accounting" together with TB, photos, and complete acceptance information.</li>
+                    <li><strong>When accepting a large number of cargo units placed in different warehouse cells.</strong> Mostly applicable to hangar warehouses. For example, acceptance of 20 GMs in 20 different cells. When accepting this type, the warehouse keeper fills out this Statement and sends it to Accounting in the group <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"FOR TB FOR ACCOUNTING"</a> together with TB, photos, and complete acceptance information.</li>
                 </ol>
                 
                 <h3>Must be specified:</h3>
@@ -2759,7 +3160,7 @@ const warehouseData = {
                 <ol>
                     <li><strong>仓库间材料转移。</strong> 例如，从S23-1转移至机库08-07。或从S23-2转移至S23-5。或从机库08-01转移至机库07-10。</li>
                     <li><strong>仓库内材料转移。</strong> 例如，在机库08-01内转移。或在仓库S23-1内转移。</li>
-                    <li><strong>验收大量放置在不同仓库单元中的货物单位时。</strong> 主要适用于机库仓库。例如，在20个不同单元中验收20个GM。验收此类材料时，仓库管理员填写此清单，并将其与运输单、照片和完整验收信息一起发送至会计部门的"待核算运输单"群组。</li>
+                    <li><strong>验收大量放置在不同仓库单元中的货物单位时。</strong> 主要适用于机库仓库。例如，在20个不同单元中验收20个GM。验收此类材料时，仓库管理员填写此清单，并将其与运输单、照片和完整验收信息一起发送至会计部门的 <a href="https://max.ru/join/R8kKygonM4Fs4at-maxqOYJROyHVlb2jEFTOD2qYJAM" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">"待核算运输单"</a> 群组。</li>
                 </ol>
                 
                 <h3>必须注明：</h3>
@@ -2801,7 +3202,7 @@ const warehouseData = {
             `
             }
         },
-        '4.4': {
+        '1.4': {
             title: {
                 ru: 'Содержание Упаковочного Листа (УЛ)',
                 en: 'Contents of Packing List (PL)',
@@ -2960,7 +3361,7 @@ const warehouseData = {
             `
             }
         },
-        '4.5': {
+        '1.5': {
             title: {
                 ru: 'Содержание Ведомости Грузового места',
                 en: 'Contents of Cargo Unit Statement',
@@ -3104,7 +3505,7 @@ const warehouseData = {
             `
             }
         },
-        '4.6': {
+        '1.6': {
             title: {
                 ru: 'Содержание Shipping Mark',
                 en: 'Contents of Shipping Mark',
@@ -3113,7 +3514,7 @@ const warehouseData = {
             content: {
                 ru: `
                 <h3>Назначение Shipping Mark</h3>
-                <p>Shipping Mark/Грузовая маркировка присутствует только на импортных поставках. В отличие от «Ведомость Грузового Места» в нем НЕ содержится подробное описание каждой номенклатурной позиции и количества материала по номенклатуре. Подробное описание пунктов смотрите в главе <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание УЛ» 🔗</a>. Они пересекаются.</p>
+                <p>Shipping Mark/Грузовая маркировка присутствует только на импортных поставках. В отличие от «Ведомость Грузового Места» в нем НЕ содержится подробное описание каждой номенклатурной позиции и количества материала по номенклатуре. Подробное описание пунктов смотрите в главе <a href="#1.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Содержание УЛ» 🔗</a>. Они пересекаются.</p>
                 
                 <h3>Содержимое Shipping Mark</h3>
                 
@@ -3144,7 +3545,7 @@ const warehouseData = {
             `,
                 en: `
                 <h3>Purpose of Shipping Mark</h3>
-                <p>Shipping Mark/Cargo Marking is present only on import deliveries. Unlike "Cargo Unit Statement", it does NOT contain a detailed description of each nomenclature position and quantity of material by nomenclature. For detailed description of items, see chapter <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Contents of PL" 🔗</a>. They overlap.</p>
+                <p>Shipping Mark/Cargo Marking is present only on import deliveries. Unlike "Cargo Unit Statement", it does NOT contain a detailed description of each nomenclature position and quantity of material by nomenclature. For detailed description of items, see chapter <a href="#1.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">"Contents of PL" 🔗</a>. They overlap.</p>
                 
                 <h3>Shipping Mark Contents</h3>
                 
@@ -3175,7 +3576,7 @@ const warehouseData = {
             `,
                 zh: `
                 <h3>Shipping Mark的用途</h3>
-                <p>Shipping Mark/货物标记仅出现在进口交货中。与"货物单位清单"不同，它不包含每个名称位置和按名称的材料数量的详细描述。详细项目说明，参见章节 <a href="#4.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">"装箱单内容" 🔗</a>。它们有重叠。</p>
+                <p>Shipping Mark/货物标记仅出现在进口交货中。与"货物单位清单"不同，它不包含每个名称位置和按名称的材料数量的详细描述。详细项目说明，参见章节 <a href="#1.4" style="color: #2563eb; text-decoration: none; font-weight: 600;">"装箱单内容" 🔗</a>。它们有重叠。</p>
                 
                 <h3>Shipping Mark内容</h3>
                 
@@ -3206,7 +3607,7 @@ const warehouseData = {
             `
             }
         },
-        '4.7': {
+        '1.7': {
             title: {
                 ru: 'Содержание Заявки на Выдачу',
                 en: 'Contents of Issuance Request',
@@ -3326,7 +3727,7 @@ const warehouseData = {
             `
             }
         },
-        '4.8': {
+        '1.8': {
             title: {
                 ru: 'Содержание и Правила заполнения Пропуска на Вывоз',
                 en: 'Contents and Rules for Filling Out Exit Pass',
@@ -3500,7 +3901,7 @@ const warehouseData = {
             `
             }
         },
-        '4.9': {
+        '1.9': {
             title: {
                 ru: 'СОДЕРЖАНИЕ И ПРАВИЛА ЗАПОЛНЕНИЯ ИНВЕНТАРИЗАЦИОННОГО ЛИСТА',
                 en: 'Contents and Rules for Filling Out Inventory List',
@@ -3651,7 +4052,7 @@ const warehouseData = {
             }
         },
         // Глава 5: Правила предоставления информации в отдел учета
-        '5.0': {
+        '9.0': {
             title: {
                 ru: 'Правила предоставления информации в отдел учета',
                 en: 'Rules for Providing Information to Accounting Department',
@@ -3659,7 +4060,7 @@ const warehouseData = {
             },
             content: {
                 ru: `
-                <h3>5.0 ПРАВИЛА ПРЕДОСТАВЛЕНИЯ ИНФОРМАЦИИ В ОТДЕЛ УЧЕТА</h3>
+                <h3>1. ПРАВИЛА ПРЕДОСТАВЛЕНИЯ ИНФОРМАЦИИ В ОТДЕЛ УЧЕТА</h3>
                 
                 <p>Отдел Учета работает в потоковом режиме, и делает проводки в момент поступления информации в группах. Все ТН должны быть оприходованы в 1С до конца рабочего дня. Все выдачи также должны быть проведены до конца рабочего дня. Все Акты должны быть оформлены до конца рабочего дня.</p>
                 
@@ -3674,7 +4075,7 @@ const warehouseData = {
                 <p>Информацию необходимо выкладывать одним постом, вместив в него всю информацию. Выкладывать информацию частично запрещено, так как это приводит к путанице в процессе проводок.</p>
             `,
                 en: `
-                <h3>5.0 RULES FOR PROVIDING INFORMATION TO ACCOUNTING DEPARTMENT</h3>
+                <h3>1. RULES FOR PROVIDING INFORMATION TO ACCOUNTING DEPARTMENT</h3>
                 
                 <p>The Accounting Department works in a flow mode and makes entries at the moment information is received in groups. All TBs must be posted in 1C by the end of the working day. All issuances must also be processed by the end of the working day. All Acts must be prepared by the end of the working day.</p>
                 
@@ -3689,7 +4090,7 @@ const warehouseData = {
                 <p>Information must be posted in one post, including all information. Posting information partially is prohibited, as this leads to confusion in the posting process.</p>
             `,
                 zh: `
-                <h3>5.0 向会计部门提供信息的规则</h3>
+                <h3>1. 向会计部门提供信息的规则</h3>
                 
                 <p>会计部门以流程模式工作，在群组收到信息时立即进行记账。所有运输单必须在工作日内录入1C系统。所有发放也必须在工作日内处理。所有报告必须在工作日内编制。</p>
                 
@@ -3706,7 +4107,7 @@ const warehouseData = {
             }
         },
         // Глава 5.1: Информационные группы
-        '5.1': {
+        '9.1': {
             title: {
                 ru: 'Детальное описание информационных групп',
                 en: 'Detailed Description of Information Groups',
@@ -3714,7 +4115,7 @@ const warehouseData = {
             },
             content: {
                 ru: `
-                <h3>5.1 ИНФОРМАЦИОННЫЕ ГРУППЫ</h3>
+                <h3>2. ИНФОРМАЦИОННЫЕ ГРУППЫ</h3>
                 
                 <p>Ниже представлен полный список информационных групп с их описанием и ссылками для вступления:</p>
                 
@@ -3793,7 +4194,7 @@ const warehouseData = {
                     </div>
                     
                     <h4>8. <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">ВЫДАЧА ТМЦ ПО ЗАЯВКАМ</a></h4>
-                    <p><strong>Назначение:</strong> После осуществления проверки актуальных остатков по заявке на выдачу ТМЦ через группу «Проверка заявок перед выдачей» и осуществления погрузки ТМЦ, необходимо запостить в группу «Выдача ТМЦ по заявкам» информацию следующего содержания:</p>
+                    <p><strong>Назначение:</strong> После осуществления проверки актуальных остатков по заявке на выдачу ТМЦ через группу <a href="https://max.ru/join/Grxqwg0iOhtNMvh2Cc1d5TKayp2yaPSgvDVs3e6wjpI" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Проверка заявок перед выдачей»</a> и осуществления погрузки ТМЦ, необходимо запостить в группу <a href="https://max.ru/join/HDjV25JnnpTX2Eif3VA2wEFIhps5Y7-Dsgz9NtpxT7U" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">«Выдача ТМЦ по заявкам»</a> информацию следующего содержания:</p>
                     <ol style="margin: 10px 0; padding-left: 20px;">
                         <li>Полное фото первой страницы Заявки на выдачу + все страницы с отметками о получении выданных ТМЦ в читаемом, не обрезанном, не перевернутом виде. Должны быть видны подписи забирающих материал лиц с указанием количества забранного ТМЦ и даты</li>
                         <li>Полное фото «Пропуск на вывоз ТМЦ» с подписями кладовщика и лица, забирающего груз</li>
@@ -3874,7 +4275,7 @@ const warehouseData = {
                 </div>
             `,
                 en: `
-                <h3>5.1 INFORMATION GROUPS</h3>
+                <h3>2. INFORMATION GROUPS</h3>
                 
                 <p>Below is a complete list of information groups with their descriptions and links to join:</p>
                 
@@ -4034,7 +4435,7 @@ const warehouseData = {
                 </div>
             `,
                 zh: `
-                <h3>5.1 信息群组</h3>
+                <h3>2. 信息群组</h3>
                 
                 <p>以下是信息群组的完整列表，包含其说明和加入链接：</p>
                 
@@ -4195,7 +4596,7 @@ const warehouseData = {
             `
             }
         },
-        '5.2': {
+        '9.2': {
             title: {
                 ru: 'Перечень групп',
                 en: 'List of Groups',
@@ -4203,7 +4604,7 @@ const warehouseData = {
             },
             content: {
                 ru: `
-                <h3>5.2 ПЕРЕЧЕНЬ ГРУПП</h3>
+                <h3>3. ПЕРЕЧЕНЬ ГРУПП</h3>
                 
                 <p>Ниже представлен полный перечень всех информационных групп с прямыми ссылками для быстрого доступа:</p>
                 
@@ -4231,11 +4632,11 @@ const warehouseData = {
                 </div>
                 
                 <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
-                    <p><strong>💡 Совет:</strong> Для получения подробной информации о назначении и правилах использования каждой группы, перейдите в раздел <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "Детальное описание информационных групп" 🔗</a>.</p>
+                    <p><strong>💡 Совет:</strong> Для получения подробной информации о назначении и правилах использования каждой группы, перейдите в раздел <a href="#9.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">9.1 "Детальное описание информационных групп" 🔗</a>.</p>
                 </div>
             `,
                 en: `
-                <h3>5.2 LIST OF GROUPS</h3>
+                <h3>3. LIST OF GROUPS</h3>
                 
                 <p>Below is a complete list of all information groups with direct links for quick access:</p>
                 
@@ -4263,11 +4664,11 @@ const warehouseData = {
                 </div>
                 
                 <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
-                    <p><strong>💡 Tip:</strong> For detailed information on the purpose and usage rules of each group, go to section <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "Detailed Description of Information Groups" 🔗</a>.</p>
+                    <p><strong>💡 Tip:</strong> For detailed information on the purpose and usage rules of each group, go to section <a href="#9.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">9.1 "Detailed Description of Information Groups" 🔗</a>.</p>
                 </div>
             `,
                 zh: `
-                <h3>5.2 群组列表</h3>
+                <h3>3. 群组列表</h3>
                 
                 <p>以下是所有信息群组的完整列表，包含快速访问的直接链接：</p>
                 
@@ -4295,12 +4696,12 @@ const warehouseData = {
                 </div>
                 
                 <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb;">
-                    <p><strong>💡 提示：</strong>要获取每个群组的用途和使用规则的详细信息，请转到章节 <a href="#5.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">5.1 "信息群组详细说明" 🔗</a>。</p>
+                    <p><strong>💡 提示：</strong>要获取每个群组的用途和使用规则的详细信息，请转到章节 <a href="#9.1" style="color: #2563eb; text-decoration: none; font-weight: 600;">9.1 "信息群组详细说明" 🔗</a>。</p>
                 </div>
             `
             }
         },
-        '5.3': {
+        '9.3': {
             title: {
                 ru: 'Полезные ссылки',
                 en: 'Useful Links',
@@ -4308,7 +4709,7 @@ const warehouseData = {
             },
             content: {
                 ru: `
-                <h3>5.3 ПОЛЕЗНЫЕ ССЫЛКИ</h3>
+                <h3>4. ПОЛЕЗНЫЕ ССЫЛКИ</h3>
                 
                 <p>В данном разделе собраны полезные ссылки для быстрого доступа к важным ресурсам и системам.</p>
                 
@@ -4328,7 +4729,7 @@ const warehouseData = {
                 </div>
             `,
                 en: `
-                <h3>5.3 USEFUL LINKS</h3>
+                <h3>4. USEFUL LINKS</h3>
                 
                 <p>This section contains useful links for quick access to important resources and systems.</p>
                 
@@ -4348,7 +4749,7 @@ const warehouseData = {
                 </div>
             `,
                 zh: `
-                <h3>5.3 有用链接</h3>
+                <h3>4. 有用链接</h3>
                 
                 <p>本节包含快速访问重要资源和系统的有用链接。</p>
                 
@@ -4370,7 +4771,7 @@ const warehouseData = {
             }
         },
         // Глава 6: Общие хозяйственные вопросы
-        '6.1': {
+        '8.1': {
             title: {
                 ru: 'ЗАЯВКИ НА КАНЦЕЛЯРИЮ И РАСХОДНЫЕ МАТЕРИАЛЫ',
                 en: 'REQUESTS FOR STATIONERY AND CONSUMABLES',
@@ -4400,7 +4801,7 @@ const warehouseData = {
             `
             }
         },
-        '6.2': {
+        '8.2': {
             title: {
                 ru: 'ВРЕМЯ ТРУДА И ОТДЫХА',
                 en: 'WORK AND REST TIME',
@@ -4430,7 +4831,7 @@ const warehouseData = {
             `
             }
         },
-        '6.3': {
+        '8.3': {
             title: {
                 ru: 'ОФОРМЛЕНИЕ ОТПУСКА И ОТПУСКА БЕЗ СОХРАНЕНИЯ ЗАРАБОТНОЙ ПЛАТЫ',
                 en: 'VACATION AND UNPAID LEAVE APPLICATION',
@@ -4460,7 +4861,7 @@ const warehouseData = {
             `
             }
         },
-        '6.4': {
+        '8.4': {
             title: {
                 ru: 'ПЕРЕДАЧА ДОКУМЕНТОВ В УЧЕТ',
                 en: 'DOCUMENT TRANSFER TO ACCOUNTING',
@@ -4832,29 +5233,6 @@ function initLanguageHandlers() {
     console.log('Language handlers: using inline onclick handlers');
 }
 
-// Закрытие dropdown при клике вне его (с задержкой, чтобы не мешать кликам по опциям)
-document.addEventListener('click', function(event) {
-    const dropdown = document.getElementById('languageDropdown');
-    const selector = document.querySelector('.language-selector');
-    const btn = document.querySelector('.language-btn');
-    
-    // Не закрываем, если клик был по кнопке или внутри dropdown
-    if (btn && btn.contains(event.target)) {
-        return;
-    }
-    
-    if (dropdown && dropdown.contains(event.target)) {
-        return;
-    }
-    
-    // Закрываем dropdown при клике вне его
-    if (selector && !selector.contains(event.target) && dropdown && dropdown.classList.contains('show')) {
-        setTimeout(() => {
-            dropdown.classList.remove('show');
-        }, 100);
-    }
-}, false);
-
 // Обновление UI элементов
 function updateUI() {
     // Заголовок приложения
@@ -4974,7 +5352,6 @@ let currentView = 'chapters';
 let searchResults = [];
 let currentContentId = null;
 let isNavigating = false; // Флаг для предотвращения конфликтов навигации
-let navigationHandled = false; // Флаг для предотвращения вызова restoreState после popstate
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
@@ -5047,29 +5424,23 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Проверяем URL и инициализируем соответствующее состояние
         const hash = window.location.hash;
-        const contentId = hash.startsWith('#') ? hash.substring(1) : hash;
+        const rawContentId = hash.startsWith('#') ? hash.substring(1) : hash;
+        const contentId = rawContentId?.trim() || '';
         console.log('Initial URL hash:', hash, 'contentId:', contentId);
         
-        // Используем новую систему навигации для инициализации
-        if (contentId === 'chapters' || contentId === '') {
-            console.log('Initializing with chapters');
-            showChaptersDirect();
-            navigationHandled = true; // Отмечаем, что навигация обработана
-        } else {
-            console.log('Initializing with contentId:', contentId);
+        if (contentId && contentId !== 'chapters') {
+            console.log('Initializing with specific contentId:', contentId);
             navigateTo(contentId);
-            navigationHandled = true; // Отмечаем, что навигация обработана
-        }
-        
-        // Также пытаемся восстановить состояние, только если навигация не была обработана через popstate
-        if (!navigationHandled) {
-        try {
-            restoreState();
-        } catch (e) {
-            console.error('Error in restoreState:', e);
-            }
+        } else if (contentId === 'chapters') {
+            console.log('Initializing with chapters hash');
+            showChaptersDirect();
         } else {
-            console.log('Navigation already handled by popstate, skipping restoreState');
+            console.log('No hash provided, attempting to restore state');
+            const restored = restoreState();
+            if (!restored) {
+                console.log('Nothing to restore, showing chapters');
+                showChaptersDirect();
+            }
         }
         
     } catch (error) {
@@ -5189,6 +5560,11 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
+    
+    if (!searchInput || !searchResults) {
+        console.warn('Search elements not found, skipping search initialization');
+        return;
+    }
     
     searchInput.addEventListener('input', function() {
         const query = this.value.toLowerCase().trim();
@@ -5385,6 +5761,11 @@ function setupImageModal() {
     const captionText = document.getElementById('caption');
     const closeBtn = document.getElementsByClassName('close')[0];
 
+    if (!modal || !modalImg || !captionText || !closeBtn) {
+        console.warn('Image modal elements not found, skipping modal setup');
+        return;
+    }
+
     // Обработчик клика на изображения
     document.addEventListener('click', function(e) {
         if (e.target.tagName === 'IMG' && e.target.closest('.content-body')) {
@@ -5446,19 +5827,22 @@ function restoreState() {
     if (savedView === 'content' && savedContent && warehouseData.content[savedContent]) {
         console.log('Restoring content:', savedContent);
         showContentDirect(savedContent);
+        return true;
     } else if (savedView === 'subchapters' && savedContent) {
         console.log('Restoring subchapters for chapter:', savedContent);
         // savedContent содержит ID главы
         const chapter = warehouseData.chapters.find(ch => ch.id === savedContent);
         if (chapter) {
             showChapterDirect(savedContent);
-        } else {
-            showChaptersDirect();
+            return true;
         }
-    } else {
-        console.log('Showing chapters');
+    } else if (savedView === 'chapters') {
+        console.log('Restoring chapters view');
         showChaptersDirect();
+        return true;
     }
+
+    return false;
 }
 
 // Функция для кликабельной шапки
@@ -5576,22 +5960,13 @@ if ('serviceWorker' in navigator) {
             .then((registration) => {
                 console.log('SW registered: ', registration);
                 
-                // Проверяем обновления каждые 10 секунд для установленного PWA
-                // Сохраняем ссылку на interval для возможной очистки
-                const updateInterval = setInterval(() => {
+                const requestUpdate = () => {
                     registration.update().then(() => {
-                        console.log('Update check completed');
+                        console.log('Service Worker update check completed');
                     }).catch((error) => {
                         console.error('Update check error:', error);
                     });
-                }, 10000); // Проверка каждые 10 секунд
-                
-                // Очищаем interval при выгрузке страницы (предотвращение утечек памяти)
-                window.addEventListener('beforeunload', () => {
-                    if (updateInterval) {
-                        clearInterval(updateInterval);
-                    }
-                });
+                };
                 
                 // Обработка обновлений Service Worker
                 registration.addEventListener('updatefound', () => {
@@ -5611,28 +5986,24 @@ if ('serviceWorker' in navigator) {
                                 // Первая установка
                                 console.log('Service Worker installed for the first time');
                             }
-                        } else if (newWorker.state === 'activated') {
-                            // Новый Service Worker активирован, перезагружаем страницу
-                            console.log('New Service Worker activated, reloading page');
-                            window.location.reload();
                         }
                     });
                 });
                 
                 // Принудительная проверка обновлений при каждом запуске
-                registration.update();
+                requestUpdate();
                 
                 // Проверка обновлений при фокусе окна (когда пользователь возвращается к приложению)
                 window.addEventListener('focus', () => {
                     console.log('Window focused, checking for updates...');
-                    registration.update();
+                    requestUpdate();
                 });
                 
                 // Проверка обновлений при видимости страницы
                 document.addEventListener('visibilitychange', () => {
                     if (!document.hidden) {
                         console.log('Page visible, checking for updates...');
-                        registration.update();
+                        requestUpdate();
                     }
                 });
             })
@@ -5824,9 +6195,6 @@ window.addEventListener('popstate', function(event) {
         return;
     }
     
-    // Устанавливаем флаг, что навигация обработана
-    navigationHandled = true;
-    
     // Обрабатываем навигацию браузера
     const hash = window.location.hash;
     let contentId = '';
@@ -5981,453 +6349,54 @@ function showChapterWithoutHistory(chapterId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Глобальный обработчик кликов по ссылкам для навигации
-document.addEventListener('click', function(event) {
-    const link = event.target.closest('a[href^="#"]');
-    if (link && !link.hasAttribute('target')) {
-        event.preventDefault();
-        const href = link.getAttribute('href');
-        const contentId = href.substring(1);
-        
-        console.log('Internal link clicked:', href, 'contentId:', contentId, '- opening in new window');
-        
-        // Определяем заголовок для нового окна
-        let titleToShow = t('appTitle');
-        const content = warehouseData.content[contentId];
-        if (content) {
-            titleToShow = `${t('appTitle')} - ${getTranslatedValue(content.title)}`;
-        } else {
-            const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
-            if (chapter) {
-                titleToShow = `${t('appTitle')} - ${getTranslatedValue(chapter.title)}`;
-            }
-        }
-        
-        // Открываем внутренние ссылки в новом окне
-        const newWindow = window.open('', '_blank');
-        if (newWindow) {
-            // Определяем контент для отображения
-            let contentToShow = '';
-            const content = warehouseData.content[contentId];
-            if (content) {
-                const contentTitle = getTranslatedValue(content.title);
-                const contentBody = getTranslatedValue(content.content);
-                contentToShow = `<h2>${contentTitle}</h2>${contentBody}`;
-                console.log('Content created for new window:', contentTitle);
-            } else {
-                const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
-                if (chapter) {
-                    const chapterTitle = getTranslatedValue(chapter.title);
-                    contentToShow = `<h2>${chapterTitle}</h2><p>${t('chooseSubsection')}</p>`;
-                    chapter.subchapters.forEach(sub => {
-                        const subTitle = getTranslatedValue(sub.title);
-                        contentToShow += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo('${sub.id}')"><h4>${sub.id} ${subTitle}</h4></div>`;
-                    });
-                    console.log('Chapter created for new window:', chapterTitle);
-                } else {
-                    contentToShow = '<p>' + t('sectionNotFound') + ' ' + contentId + '</p>';
-                    console.log('Content not found for ID:', contentId);
-                }
-            }
-            
-            // Создаем HTML структуру с готовым контентом
-            const htmlContent = `
-                <!DOCTYPE html>
-                <html lang="ru">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>${titleToShow}</title>
-                    <base href="${window.location.href.replace(/\/[^\/]*$/, '/')}">
-                    <style>
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                        }
-
-                        body {
-                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                            line-height: 1.6;
-                            color: #1f2937;
-                            background: url('images/wallpapers.jpg') center center / cover no-repeat fixed;
-                            background-attachment: fixed;
-                            -webkit-background-attachment: fixed;
-                            min-height: 100vh;
-                        }
-
-                        .container {
-                            max-width: 1200px;
-                            margin: 0 auto;
-                            padding: 20px;
-                            padding-bottom: 100px;
-                        }
-
-                        .content-body {
-                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-                            border-radius: 25px;
-                            padding: 30px;
-                            margin-bottom: 20px;
-                            box-shadow: 
-                                0 15px 50px rgba(0, 0, 0, 0.15),
-                                0 8px 25px rgba(0, 0, 0, 0.1),
-                                0 0 0 2px rgba(0, 0, 0, 0.8),
-                                inset 0 2px 4px rgba(255, 255, 255, 0.3);
-                            border: 2px solid rgba(0, 0, 0, 0.9);
-                            line-height: 1.8;
-                        }
-
-                        .back-btn {
-                            display: inline-flex;
-                            align-items: center;
-                            gap: 8px;
-                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-                            color: #1f2937;
-                            padding: 14px 28px;
-                            text-decoration: none;
-                            border-radius: 20px;
-                            margin-bottom: 25px;
-                            font-weight: 700;
-                            font-size: 16px;
-                            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                            box-shadow: 
-                                0 8px 25px rgba(0, 0, 0, 0.15),
-                                0 4px 12px rgba(0, 0, 0, 0.1),
-                                0 0 0 2px rgba(0, 0, 0, 0.1),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-                            border: 2px solid rgba(0, 0, 0, 0.1);
-                            backdrop-filter: blur(10px);
-                            -webkit-backdrop-filter: blur(10px);
-                            position: relative;
-                            overflow: hidden;
-                        }
-
-                        .back-btn::before {
-                            content: '';
-                            position: absolute;
-                            top: 0;
-                            left: -100%;
-                            width: 100%;
-                            height: 100%;
-                            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-                            transition: left 0.5s ease;
-                        }
-
-                        .back-btn:hover::before {
-                            left: 100%;
-                        }
-
-                        .back-btn:hover {
-                            transform: translateY(-3px) scale(1.02);
-                            box-shadow: 
-                                0 15px 35px rgba(0, 0, 0, 0.2),
-                                0 8px 20px rgba(0, 0, 0, 0.15),
-                                0 0 0 3px rgba(0, 0, 0, 0.15),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-                            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
-                            color: #111827;
-                        }
-
-                        .back-btn:active {
-                            transform: translateY(-1px) scale(0.98);
-                            transition: all 0.1s ease;
-                        }
-
-                        h1, h2, h3, h4 { color: #000000; }
-                        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-                        h2 { font-size: 2rem; margin: 30px 0 15px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
-                        h3 { font-size: 18px; margin: 30px 0 15px 0; color: #000000; }
-                        h4 { font-size: 1.25rem; margin: 20px 0 8px 0; }
-                        p { margin-bottom: 15px; color: #000000; font-size: 18px; }
-                        ul, ol { margin: 15px 0; padding-left: 30px; }
-                        li { margin-bottom: 8px; color: #000000; font-size: 18px; }
-                        a { color: #2563eb; text-decoration: none; font-weight: 600; }
-                        a:hover { text-decoration: underline; }
-                        .image-container { margin: 15px 0; text-align: center; }
-                        img { max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-                        img:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); }
-                        .image-caption { font-style: italic; color: #6b7280; margin-top: 5px; }
-                        table { width: 100%; border-collapse: collapse; border: 1px solid #ddd; margin: 20px 0; }
-                        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-                        th { background-color: #f8f9fa; font-weight: 600; }
-                        .table-container { overflow-x: auto; margin: 20px 0; }
-                        
-                        /* Стили для модального окна изображений */
-                        .modal {
-                            display: none;
-                            position: fixed;
-                            z-index: 1000;
-                            left: 0;
-                            top: 0;
-                            width: 100%;
-                            height: 100%;
-                            overflow: auto;
-                            background-color: rgba(0, 0, 0, 0.9);
-                            animation: fadeIn 0.3s ease;
-                        }
-                        
-                        .modal-content {
-                            margin: auto;
-                            display: block;
-                            width: 90%;
-                            max-width: 1200px;
-                            max-height: 90%;
-                            object-fit: contain;
-                            animation: zoomIn 0.3s ease;
-                        }
-                        
-                        .close {
-                            position: absolute;
-                            bottom: 20px;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            color: #ff0000;
-                            font-size: 30px;
-                            font-weight: bold;
-                            transition: 0.3s;
-                            cursor: pointer;
-                            z-index: 1001;
-                            width: 50px;
-                            height: 50px;
-                            background-color: white;
-                            border: 2px solid #ff0000;
-                            border-radius: 50%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-                        }
-                        
-                        .close:hover,
-                        .close:focus {
-                            color: #cc0000;
-                            border-color: #cc0000;
-                            text-decoration: none;
-                            transform: translateX(-50%) scale(1.1);
-                        }
-                        
-                        #caption {
-                            margin: auto;
-                            display: block;
-                            width: 80%;
-                            max-width: 700px;
-                            text-align: center;
-                            color: #ccc;
-                            padding: 10px 0;
-                            height: 150px;
-                        }
-                        
-                        @keyframes fadeIn {
-                            from { opacity: 0; }
-                            to { opacity: 1; }
-                        }
-                        
-                        @keyframes zoomIn {
-                            from { transform: scale(0.5); }
-                            to { transform: scale(1); }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="container">
-                        <div class="content-body">
-                            <a href="#" class="back-btn" onclick="window.close()">
-                                <span style="font-size: 18px;">✕</span>
-                                <span>${t('closeWindow')}</span>
-                            </a>
-                            <div id="content">${contentToShow}</div>
-                        </div>
-                        
-                        <!-- Кнопка закрытия внизу -->
-                        <div style="text-align: center; margin-top: 30px; padding: 20px;">
-                            <a href="#" class="back-btn" onclick="window.close()">
-                                <span style="font-size: 18px;">✕</span>
-                                <span>${t('closeWindow')}</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Модальное окно для просмотра изображений -->
-                    <div id="imageModal" class="modal">
-                        <span class="close">&times;</span>
-                        <img class="modal-content" id="modalImage" alt="Увеличенное изображение">
-                        <div id="caption"></div>
-                    </div>
-                    
-                    <script>
-                        console.log('Script loaded in new window');
-                        
-                        // Данные для навигации в новом окне
-                        const warehouseData = ${JSON.stringify(warehouseData)};
-                        const currentLanguage = '${currentLanguage}';
-                        console.log('warehouseData loaded:', warehouseData);
-                        
-                        // Функция получения переведенного значения
-                        function getTranslatedValue(obj, lang = currentLanguage) {
-                            if (!obj) return '';
-                            if (typeof obj === 'object' && (obj.ru || obj.en || obj.zh)) {
-                                return obj[lang] || obj.ru || obj.en || obj.zh || '';
-                            }
-                            if (typeof obj === 'string') {
-                                return obj;
-                            }
-                            return '';
-                        }
-                        
-                        // Простая функция навигации
-                        function navigateTo(contentId) {
-                            console.log('navigateTo called with:', contentId);
-                            
-                            // Проверяем, является ли это контентом
+// Упрощенная навигация по внутренним ссылкам без открытия нового окна
+function handleInternalLinkNavigation(contentId, updateHistory = true) {
+    if (!contentId) {
+        return;
+    }
+    
+    if (contentId === 'chapters') {
+        updateHistory ? showChapters() : showChaptersDirect();
+        return;
+    }
+    
                             const content = warehouseData.content[contentId];
                             if (content) {
-                                console.log('Found content:', content);
-                                const contentDiv = document.getElementById('content');
-                                if (contentDiv) {
-                                    const contentTitle = getTranslatedValue(content.title);
-                                    const contentBody = getTranslatedValue(content.content);
-                                    contentDiv.innerHTML = '<h2>' + contentTitle + '</h2>' + contentBody;
-                                    document.title = t('appTitle') + ' - ' + contentTitle;
-                                    console.log('Content displayed successfully');
-                                }
+        updateHistory ? showContent(contentId) : showContentDirect(contentId);
                                 return;
                             }
                             
-                            // Проверяем, является ли это главой
                             const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
                             if (chapter) {
-                                console.log('Found chapter:', chapter);
-                                const chapterTitle = getTranslatedValue(chapter.title);
-                                let contentHtml = '<h2>' + chapterTitle + '</h2><p>' + t('chooseSubsection') + '</p>';
-                                chapter.subchapters.forEach(sub => {
-                                    const subTitle = getTranslatedValue(sub.title);
-                                    contentHtml += '<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="navigateTo(\\'' + sub.id + '\\')"><h4>' + sub.id + ' ' + subTitle + '</h4></div>';
-                                });
-                                const contentDiv = document.getElementById('content');
-                                if (contentDiv) {
-                                    contentDiv.innerHTML = contentHtml;
-                                    document.title = t('appTitle') + ' - ' + chapterTitle;
-                                    console.log('Chapter displayed successfully');
-                                }
+        updateHistory ? showChapter(contentId) : showChapterDirect(contentId);
                                 return;
                             }
                             
-                            console.log('Content not found for ID:', contentId);
-                            const contentDiv = document.getElementById('content');
-                            if (contentDiv) {
-                                contentDiv.innerHTML = '<p>' + t('sectionNotFound') + ' ' + contentId + '</p>';
-                            }
-                        }
-                        
-                        // Обработчик кликов по ссылкам
+    console.warn('Unknown internal link target:', contentId);
+}
+
+// Обработчик кликов по внутренним ссылкам
                         document.addEventListener('click', function(event) {
-                            console.log('Click event:', event.target);
-                            
                             const link = event.target.closest('a[href^="#"]');
-                            if (link) {
-                                event.preventDefault();
-                                const href = link.getAttribute('href');
-                                const contentId = href.substring(1);
-                                
-                                console.log('Link clicked:', href, 'contentId:', contentId);
-                                
-                                // Навигация
-                                navigateTo(contentId);
-                            }
-                        });
-                        
-                        // Настройка модального окна для изображений
-                        let imageModalInitialized = false;
-                        function setupImageModal() {
-                            // Предотвращаем множественную инициализацию
-                            if (imageModalInitialized) {
+    if (!link) {
                                 return;
                             }
                             
-                            const modal = document.getElementById('imageModal');
-                            const modalImg = document.getElementById('modalImage');
-                            const captionText = document.getElementById('caption');
-                            const closeBtn = document.getElementsByClassName('close')[0];
-                            
-                            if (!modal || !modalImg || !captionText || !closeBtn) {
-                                console.error('Modal elements not found');
+    const targetAttr = (link.getAttribute('target') || '').toLowerCase();
+    if (targetAttr && targetAttr !== '_self') {
+        // Уважаем явно заданные цели (например, _blank)
                                 return;
                             }
                             
-                            // Обработчик клика на изображения (только если это не ссылка)
-                            document.addEventListener('click', function(e) {
-                                // Проверяем, что клик был по изображению, а не по ссылке
-                                if (e.target.tagName === 'IMG' && 
-                                    e.target.closest('.content-body') && 
-                                    !e.target.closest('a')) {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    modal.style.display = 'block';
-                                    modalImg.src = e.target.src;
-                                    captionText.innerHTML = e.target.alt || '';
-                                }
-                            }, true); // Используем capture phase для приоритета
-                            
-                            // Закрытие модального окна
-                            closeBtn.onclick = function() {
-                                modal.style.display = 'none';
-                            };
-                            
-                            // Закрытие при клике вне изображения
-                            modal.onclick = function(e) {
-                                if (e.target === modal) {
-                                    modal.style.display = 'none';
-                                }
-                            };
-                            
-                            // Закрытие по клавише Escape
-                            document.addEventListener('keydown', function(e) {
-                                if (e.key === 'Escape' && modal.style.display === 'block') {
-                                    modal.style.display = 'none';
-                                }
-                            });
-                            
-                            imageModalInitialized = true;
-                        }
-                        
-                        // Инициализация модального окна после загрузки DOM
-                        if (document.readyState === 'loading') {
-                            document.addEventListener('DOMContentLoaded', setupImageModal);
-                        } else {
-                            setupImageModal();
-                        }
-                        
-                        console.log('Event listeners attached');
-                    </script>
-                </body>
-                </html>
-            `;
-            
-            // Записываем HTML в новое окно
-            newWindow.document.write(htmlContent);
-            newWindow.document.close();
-        } else {
-            console.log('Failed to open new window, falling back to same window navigation');
-            // Fallback: если не удалось открыть новое окно, используем обычную навигацию
-            const content = warehouseData.content[contentId];
-            if (content) {
-                showContentDirect(contentId);
-            } else {
-                const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
-                if (chapter) {
-                    showChapterDirect(contentId);
-                } else if (contentId === 'chapters') {
-                    showChaptersDirect();
-                } else {
-                    console.log('Unknown content ID:', contentId);
-                }
-            }
-        }
-    }
+    event.preventDefault();
+    const href = link.getAttribute('href') || '';
+    const contentId = href.replace(/^#/, '').trim();
+    console.log('Internal link clicked:', href, 'contentId:', contentId);
+    handleInternalLinkNavigation(contentId);
 });
 
-// Новая универсальная функция навигации
-function navigateTo(contentId) {
+// Новая универсальная функция навигации (глобальная для использования в onclick)
+window.navigateTo = function navigateTo(contentId) {
     console.log('navigateTo called with:', contentId);
     
     // Обрабатываем пустые или неопределенные состояния
@@ -6462,7 +6431,7 @@ function navigateTo(contentId) {
     
     console.log('Unknown content ID:', contentId, 'showing chapters as fallback');
     showChaptersDirect();
-}
+};
 
 // Прямые функции навигации без обновления истории
 function showContentDirect(contentId) {
@@ -6781,7 +6750,7 @@ async function submitFeedback(event) {
     } finally {
         // Восстанавливаем кнопку отправки
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Отправить';
+        submitBtn.textContent = t('feedbackSubmit');
     }
 }
 
