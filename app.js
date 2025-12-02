@@ -4921,7 +4921,15 @@ const translations = {
         feedbackSuccess: 'Спасибо! Ваш отзыв успешно отправлен.',
         feedbackError: 'Произошла ошибка при отправке отзыва. Пожалуйста, попробуйте позже.',
         feedbackRequired: 'Пожалуйста, заполните поле сообщения',
-        feedbackFormError: 'Ошибка: элементы формы не найдены. Пожалуйста, обновите страницу.'
+        feedbackFormError: 'Ошибка: элементы формы не найдены. Пожалуйста, обновите страницу.',
+        // Выбор роли
+        roleSelectionTitle: 'Выбери свою роль',
+        roleAccountant: 'учетчик',
+        roleWarehouseman: 'кладовщик',
+        developmentTitle: 'Раздел находится в разработке',
+        developmentText: 'Скоро здесь будет много полезного',
+        backToRoleSelection: 'Вернуться к выбору роли',
+        backToRole: 'к выбору роли'
     },
     en: {
         // UI elements
@@ -4960,7 +4968,15 @@ const translations = {
         feedbackSuccess: 'Thank you! Your feedback has been sent successfully.',
         feedbackError: 'An error occurred while sending feedback. Please try again later.',
         feedbackRequired: 'Please fill in the message field',
-        feedbackFormError: 'Error: form elements not found. Please refresh the page.'
+        feedbackFormError: 'Error: form elements not found. Please refresh the page.',
+        // Role selection
+        roleSelectionTitle: 'Choose your role',
+        roleAccountant: 'Accountant',
+        roleWarehouseman: 'Warehouseman',
+        developmentTitle: 'Section is under development',
+        developmentText: 'Soon there will be a lot of useful content here',
+        backToRoleSelection: 'Back to role selection',
+        backToRole: 'to role selection'
     },
     zh: {
         // UI 元素
@@ -4999,7 +5015,15 @@ const translations = {
         feedbackSuccess: '谢谢！您的反馈已成功发送。',
         feedbackError: '发送反馈时发生错误。请稍后再试。',
         feedbackRequired: '请填写消息字段',
-        feedbackFormError: '错误：未找到表单元素。请刷新页面。'
+        feedbackFormError: '错误：未找到表单元素。请刷新页面。',
+        // 角色选择
+        roleSelectionTitle: '选择您的角色',
+        roleAccountant: '会计',
+        roleWarehouseman: '仓库管理员',
+        developmentTitle: '部分正在开发中',
+        developmentText: '很快这里会有很多有用的内容',
+        backToRoleSelection: '返回角色选择',
+        backToRole: '返回角色选择'
     }
 };
 
@@ -5313,6 +5337,121 @@ function updateUI() {
     
     // Обновление формы обратной связи
     updateFeedbackForm();
+    updateRoleSelectionUI();
+}
+
+// Обновление UI выбора роли
+function updateRoleSelectionUI() {
+    const roleSelectionTitle = document.getElementById('roleSelectionTitle');
+    if (roleSelectionTitle) roleSelectionTitle.textContent = t('roleSelectionTitle');
+    
+    const roleAccountant = document.getElementById('roleAccountant');
+    if (roleAccountant) roleAccountant.textContent = t('roleAccountant');
+    
+    const roleWarehouseman = document.getElementById('roleWarehouseman');
+    if (roleWarehouseman) roleWarehouseman.textContent = t('roleWarehouseman');
+    
+    const developmentTitle = document.getElementById('developmentTitle');
+    if (developmentTitle) developmentTitle.textContent = t('developmentTitle');
+    
+    const developmentText = document.getElementById('developmentText');
+    if (developmentText) developmentText.textContent = t('developmentText');
+    
+    const backToRoleSelection = document.getElementById('backToRoleSelection');
+    if (backToRoleSelection) backToRoleSelection.textContent = t('backToRoleSelection');
+    
+    const backToRoleBtnText = document.getElementById('backToRoleBtnText');
+    if (backToRoleBtnText) backToRoleBtnText.textContent = t('backToRole');
+    
+    const backToRoleBtn = document.getElementById('backToRoleBtn');
+    if (backToRoleBtn) backToRoleBtn.setAttribute('aria-label', t('backToRoleSelection'));
+}
+
+// Функции для работы с ролями
+function selectRole(role) {
+    localStorage.setItem('warehouseGuide_selectedRole', role);
+    
+    if (role === 'warehouseman') {
+        showWarehousemanView();
+        // Если приложение еще не инициализировано, инициализируем его
+        if (!isWarehousemanAppInitialized) {
+            setTimeout(() => {
+                initializeWarehousemanApp();
+            }, 100);
+        }
+    } else if (role === 'accountant') {
+        showDevelopmentScreen();
+    }
+}
+
+function showRoleSelection() {
+    const roleSelectionScreen = document.getElementById('roleSelectionScreen');
+    const warehousemanView = document.getElementById('warehousemanView');
+    const developmentScreen = document.getElementById('developmentScreen');
+    
+    if (roleSelectionScreen) roleSelectionScreen.classList.remove('hidden');
+    if (warehousemanView) warehousemanView.classList.add('hidden');
+    if (developmentScreen) developmentScreen.classList.add('hidden');
+    
+    localStorage.removeItem('warehouseGuide_selectedRole');
+}
+
+function showWarehousemanView() {
+    const roleSelectionScreen = document.getElementById('roleSelectionScreen');
+    const warehousemanView = document.getElementById('warehousemanView');
+    const developmentScreen = document.getElementById('developmentScreen');
+    
+    if (roleSelectionScreen) roleSelectionScreen.classList.add('hidden');
+    if (warehousemanView) warehousemanView.classList.remove('hidden');
+    if (developmentScreen) developmentScreen.classList.add('hidden');
+    
+    // Инициализация приложения происходит в основной инициализации при загрузке страницы
+    // При переключении ролей инициализация не требуется, так как приложение уже загружено
+}
+
+function showDevelopmentScreen() {
+    const roleSelectionScreen = document.getElementById('roleSelectionScreen');
+    const warehousemanView = document.getElementById('warehousemanView');
+    const developmentScreen = document.getElementById('developmentScreen');
+    
+    if (roleSelectionScreen) roleSelectionScreen.classList.add('hidden');
+    if (warehousemanView) warehousemanView.classList.add('hidden');
+    if (developmentScreen) developmentScreen.classList.remove('hidden');
+}
+
+function initializeWarehousemanApp() {
+    // Проверяем, что все элементы существуют
+    const chaptersView = document.getElementById('chaptersView');
+    const contentView = document.getElementById('contentView');
+    
+    if (!chaptersView || !contentView) {
+        console.error('Required elements not found!');
+        return;
+    }
+    
+    // Устанавливаем флаг инициализации
+    isWarehousemanAppInitialized = true;
+    
+    // Проверяем URL и инициализируем соответствующее состояние
+    const hash = window.location.hash;
+    const rawContentId = hash.startsWith('#') ? hash.substring(1) : hash;
+    const contentId = rawContentId?.trim() || '';
+    console.log('Initial URL hash:', hash, 'contentId:', contentId);
+    
+    if (contentId && contentId !== 'chapters') {
+        console.log('Initializing with specific contentId:', contentId);
+        navigateTo(contentId);
+    } else if (contentId === 'chapters') {
+        console.log('Initializing with chapters hash');
+        showChaptersDirect();
+    } else {
+        console.log('No hash provided, attempting to restore state');
+        const restored = restoreState();
+        if (!restored) {
+            console.log('Nothing to restore, showing chapters');
+            showChaptersDirect();
+        }
+    }
 }
 
 // Обновление формы обратной связи
@@ -5352,104 +5491,117 @@ let currentView = 'chapters';
 let searchResults = [];
 let currentContentId = null;
 let isNavigating = false; // Флаг для предотвращения конфликтов навигации
+let isWarehousemanAppInitialized = false; // Флаг инициализации приложения для кладовщика
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing app...');
     
     try {
-        // Проверяем, что все элементы существуют
-        const chaptersView = document.getElementById('chaptersView');
-        const contentView = document.getElementById('contentView');
-        
-        if (!chaptersView || !contentView) {
-            console.error('Required elements not found!');
-            return;
-        }
-        
-        console.log('Elements found, proceeding with initialization...');
-        
-        // Принудительное обновление Service Worker при запуске
-        try {
-            forceUpdateServiceWorker();
-        } catch (e) {
-            console.error('Error in forceUpdateServiceWorker:', e);
-        }
-        
-        try {
-            setupSearch();
-        } catch (e) {
-            console.error('Error in setupSearch:', e);
-        }
-        
-        try {
-            setupPWA();
-        } catch (e) {
-            console.error('Error in setupPWA:', e);
-        }
-        
-        try {
-            setupImageModal();
-        } catch (e) {
-            console.error('Error in setupImageModal:', e);
-        }
-        
-        try {
-            setupHeaderClick();
-        } catch (e) {
-            console.error('Error in setupHeaderClick:', e);
-        }
-        
-        try {
-            setupUpdateButton();
-        } catch (e) {
-            console.error('Error in setupUpdateButton:', e);
-        }
-        
-        try {
-            showVersionInfo(); // Показываем информацию о версии
-        } catch (e) {
-            console.error('Error in showVersionInfo:', e);
-        }
-        
-        // Инициализация языка
+        // Инициализация языка (должна быть первой)
         try {
             document.documentElement.lang = currentLanguage;
             updateLanguageSelector();
             updateUI();
-            initLanguageHandlers(); // Инициализируем обработчики кликов для опций языка
+            initLanguageHandlers();
         } catch (e) {
             console.error('Error in language initialization:', e);
         }
         
-        // Проверяем URL и инициализируем соответствующее состояние
-        const hash = window.location.hash;
-        const rawContentId = hash.startsWith('#') ? hash.substring(1) : hash;
-        const contentId = rawContentId?.trim() || '';
-        console.log('Initial URL hash:', hash, 'contentId:', contentId);
+        // Проверяем выбранную роль
+        const selectedRole = localStorage.getItem('warehouseGuide_selectedRole');
         
-        if (contentId && contentId !== 'chapters') {
-            console.log('Initializing with specific contentId:', contentId);
-            navigateTo(contentId);
-        } else if (contentId === 'chapters') {
-            console.log('Initializing with chapters hash');
-            showChaptersDirect();
-        } else {
-            console.log('No hash provided, attempting to restore state');
-            const restored = restoreState();
-            if (!restored) {
-                console.log('Nothing to restore, showing chapters');
-                showChaptersDirect();
+        if (!selectedRole) {
+            // Роль не выбрана - показываем экран выбора роли
+            console.log('No role selected, showing role selection screen');
+            showRoleSelection();
+            return;
+        }
+        
+        // Роль выбрана - показываем соответствующий экран
+        if (selectedRole === 'warehouseman') {
+            console.log('Warehouseman role selected');
+            showWarehousemanView();
+            
+            // Инициализируем функционал для кладовщика
+            try {
+                // Проверяем, что все элементы существуют
+                const chaptersView = document.getElementById('chaptersView');
+                const contentView = document.getElementById('contentView');
+                
+                if (!chaptersView || !contentView) {
+                    console.error('Required elements not found!');
+                    return;
+                }
+                
+                console.log('Elements found, proceeding with initialization...');
+                
+                // Принудительное обновление Service Worker при запуске
+                try {
+                    forceUpdateServiceWorker();
+                } catch (e) {
+                    console.error('Error in forceUpdateServiceWorker:', e);
+                }
+                
+                try {
+                    setupSearch();
+                } catch (e) {
+                    console.error('Error in setupSearch:', e);
+                }
+                
+                try {
+                    setupPWA();
+                } catch (e) {
+                    console.error('Error in setupPWA:', e);
+                }
+                
+                try {
+                    setupImageModal();
+                } catch (e) {
+                    console.error('Error in setupImageModal:', e);
+                }
+                
+                try {
+                    setupHeaderClick();
+                } catch (e) {
+                    console.error('Error in setupHeaderClick:', e);
+                }
+                
+                try {
+                    setupUpdateButton();
+                } catch (e) {
+                    console.error('Error in setupUpdateButton:', e);
+                }
+                
+                try {
+                    showVersionInfo();
+                } catch (e) {
+                    console.error('Error in showVersionInfo:', e);
+                }
+                
+                // Инициализируем состояние приложения
+                initializeWarehousemanApp();
+                
+            } catch (error) {
+                console.error('Critical error during initialization:', error);
+                try {
+                    renderChapters();
+                } catch (e) {
+                    console.error('Even renderChapters failed:', e);
+                }
             }
+        } else if (selectedRole === 'accountant') {
+            console.log('Accountant role selected');
+            showDevelopmentScreen();
         }
         
     } catch (error) {
         console.error('Critical error during initialization:', error);
-        // В случае критической ошибки, принудительно показываем главы
+        // В случае критической ошибки, показываем экран выбора роли
         try {
-            renderChapters();
+            showRoleSelection();
         } catch (e) {
-            console.error('Even renderChapters failed:', e);
+            console.error('Even showRoleSelection failed:', e);
         }
     }
 });
