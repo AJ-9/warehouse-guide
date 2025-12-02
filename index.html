@@ -1430,9 +1430,272 @@
                 min-width: 140px;
             }
         }
+
+        /* Стили для экрана выбора роли */
+        .role-selection-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 40px 20px;
+        }
+
+        .role-selection-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 50px;
+            text-align: center;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 1),
+                0 0 20px rgba(255, 255, 255, 0.8),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .role-selection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .role-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.15),
+                0 8px 25px rgba(0, 0, 0, 0.1),
+                0 0 0 2px rgba(0, 0, 0, 0.8),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(0, 0, 0, 0.9);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .role-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.2),
+                0 12px 35px rgba(0, 0, 0, 0.15),
+                0 0 0 3px rgba(0, 0, 0, 0.9),
+                0 0 20px rgba(59, 130, 246, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+        }
+
+        .role-card h2 {
+            font-size: 2rem;
+            color: #000000;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .role-card .role-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        /* Экран разработки для учетчика */
+        .development-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .development-message {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            border-radius: 25px;
+            padding: 60px 40px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.15),
+                0 8px 25px rgba(0, 0, 0, 0.1),
+                0 0 0 2px rgba(0, 0, 0, 0.8),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .development-message h2 {
+            font-size: 2rem;
+            color: #000000;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .development-message p {
+            font-size: 1.2rem;
+            color: #374151;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .back-to-role-selection {
+            margin-top: 30px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .back-to-role-selection:hover {
+            background: #2563eb;
+        }
+
+        /* Скрытие основного контента при выборе роли */
+        .warehouseman-view {
+            display: block;
+        }
+
+        .warehouseman-view.hidden {
+            display: none;
+        }
+
+        .role-selection-screen.hidden {
+            display: none;
+        }
+
+        .development-screen.hidden {
+            display: none;
+        }
+
+        /* Кнопка возврата к выбору роли */
+        .back-to-role-btn {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            color: #2563eb;
+            padding: 8px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-role-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        
+        .back-to-role-btn:active {
+            transform: translateY(0);
+        }
+        
+        .back-to-role-btn .icon {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-role-btn {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .role-selection-title {
+                font-size: 1.8rem;
+                padding: 15px 25px;
+                margin-bottom: 30px;
+            }
+
+            .role-selection-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .role-card {
+                padding: 30px 20px;
+                min-height: 150px;
+            }
+
+            .role-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .role-card .role-icon {
+                font-size: 3rem;
+                margin-bottom: 15px;
+            }
+
+            .development-message {
+                padding: 40px 25px;
+            }
+
+            .development-message h2 {
+                font-size: 1.5rem;
+            }
+
+            .development-message p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Экран выбора роли -->
+    <div id="roleSelectionScreen" class="role-selection-screen">
+        <h1 class="role-selection-title" id="roleSelectionTitle">Выбери свою роль</h1>
+        <div class="role-selection-grid">
+            <div class="role-card" onclick="selectRole('accountant')">
+                <div class="role-icon">📊</div>
+                <h2 id="roleAccountant">учетчик</h2>
+            </div>
+            <div class="role-card" onclick="selectRole('warehouseman')">
+                <div class="role-icon">📦</div>
+                <h2 id="roleWarehouseman">кладовщик</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран разработки для учетчика -->
+    <div id="developmentScreen" class="development-screen hidden">
+        <div class="development-message">
+            <h2 id="developmentTitle">Раздел находится в разработке</h2>
+            <p id="developmentText">Скоро здесь будет много полезного</p>
+            <button class="back-to-role-selection" onclick="showRoleSelection()" id="backToRoleSelection">Вернуться к выбору роли</button>
+        </div>
+    </div>
+
+    <!-- Основной контент для кладовщика -->
+    <div id="warehousemanView" class="warehouseman-view hidden">
     <div class="container">
         <div class="header">
             <div class="header-content">
@@ -1442,6 +1705,10 @@
                 </div>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
+                <button id="backToRoleBtn" class="back-to-role-btn" onclick="showRoleSelection()" aria-label="Вернуться к выбору роли" type="button">
+                    <span class="icon">🔄</span>
+                    <span id="backToRoleBtnText">к выбору роли</span>
+                </button>
                 <div class="language-selector">
                     <button class="language-btn" onclick="toggleLanguageDropdown(event)" aria-label="Выбрать язык" type="button">
                         <span class="language-flag" id="currentLanguageFlag">🇷🇺</span>
@@ -1507,6 +1774,7 @@
                 <button class="feedback-btn" onclick="openFeedbackModal()">💬 Отзывы и предложения</button>
             </p>
         </div>
+    </div>
     </div>
 
     <!-- Модальное окно для просмотра изображений -->
