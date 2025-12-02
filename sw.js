@@ -1,17 +1,9 @@
 // Версия кэша - ОБЯЗАТЕЛЬНО обновляйте при каждом изменении файлов!
 // Формат: v[версия]-[дата в формате YYYYMMDD]
-const CACHE_VERSION = 'v2.0.5-20251111';
+const CACHE_VERSION = 'v2.1.2-20251201';
 const CACHE_NAME = 'warehouse-guide-' + CACHE_VERSION;
 const STATIC_CACHE = 'warehouse-guide-static-' + CACHE_VERSION;
 const DYNAMIC_CACHE = 'warehouse-guide-dynamic-' + CACHE_VERSION;
-
-const urlsToCache = [
-  './',
-  './index.html',
-  './app.js',
-  './manifest.json',
-  './sw.js'
-];
 
 // Ресурсы, которые должны кэшироваться статически
 const staticAssets = [
@@ -21,6 +13,21 @@ const staticAssets = [
   './manifest.json',
   './sw.js'
 ];
+
+const normalizedStaticUrls = staticAssets.map(asset => new URL(asset, self.location).href);
+const normalizedStaticPaths = staticAssets.map(asset => {
+  const { pathname } = new URL(asset, self.location);
+  return pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname || '/';
+});
+
+function isStaticAssetRequest(request, url) {
+  const requestPath = url.pathname.endsWith('/') && url.pathname.length > 1
+    ? url.pathname.slice(0, -1)
+    : url.pathname || '/';
+  const matchesPath = normalizedStaticPaths.includes(requestPath);
+  const matchesUrl = normalizedStaticUrls.includes(request.url);
+  return matchesPath || matchesUrl || request.mode === 'navigate';
+}
 
 // Установка Service Worker
 self.addEventListener('install', function(event) {
@@ -35,15 +42,17 @@ self.addEventListener('install', function(event) {
         console.log('Opened static cache:', STATIC_CACHE);
         // Используем cache.addAll с обработкой ошибок для каждого файла
         return Promise.allSettled(
-          staticAssets.map(function(url) {
-            return fetch(url, { cache: 'no-store' })
+          staticAssets.map(function(asset) {
+            const requestUrl = new URL(asset, self.location).href;
+            const request = new Request(requestUrl, { cache: 'reload' });
+            return fetch(request)
               .then(function(response) {
                 if (response.ok) {
-                  return cache.put(url, response);
+                  return cache.put(request, response.clone());
                 }
               })
               .catch(function(error) {
-                console.warn('Failed to cache:', url, error);
+                console.warn('Failed to cache:', asset, error);
               });
           })
         );
@@ -106,7 +115,7 @@ self.addEventListener('fetch', function(event) {
   const url = new URL(request.url);
 
   // Стратегия для статических ресурсов (Network First с принудительным обновлением)
-  if (staticAssets.includes(url.pathname) || url.pathname === './' || url.pathname === '/') {
+  if (isStaticAssetRequest(request, url)) {
     event.respondWith(
       // Всегда пытаемся получить свежую версию из сети
       fetch(request, { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
