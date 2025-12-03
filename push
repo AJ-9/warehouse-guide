@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Универсальный скрипт для быстрой отправки на GitHub
+# Можно запускать из любой директории
+
+REPO_DIR="/Users/alikbidzhiev/Desktop/warehouse-guide-corrected 2"
+cd "$REPO_DIR" || exit 1
+
+# Получаем сообщение коммита из аргумента или используем автоматическое
+if [ -z "$1" ]; then
+    COMMIT_MSG="Update: $(date '+%Y-%m-%d %H:%M:%S')"
+else
+    COMMIT_MSG="$1"
+fi
+
+# Проверяем, есть ли изменения
+if [ -z "$(git status --porcelain)" ]; then
+    echo "✅ Нет изменений для отправки"
+    exit 0
+fi
+
+# Выполняем операции
+git add . && \
+git commit -m "$COMMIT_MSG" && \
+git push origin main && \
+echo "✅ Успешно отправлено на GitHub: https://github.com/AJ-9/warehouse-guide"
+
