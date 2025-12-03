@@ -1,0 +1,35 @@
+# Archives
+*.zip
+*.tar.gz
+*.tar
+
+# Logs
+*.log
+archive-log.txt
+archive-daemon.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if any)
+node_modules/
+
+# Backup files
+*.bak
+*.backup
+
+# Archive scripts output
+archives/
+

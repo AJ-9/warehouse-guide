@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест навигации в новом окне</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .test-link:hover {
+            background: #0056b3;
+        }
+        .instructions {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест навигации в новом окне</h1>
+    
+    <div class="instructions">
+        <h3>Инструкции для тестирования:</h3>
+        <ol>
+            <li>Откройте основное приложение в браузере</li>
+            <li>Нажмите на любую ссылку, чтобы открыть её в новом окне</li>
+            <li>В новом окне попробуйте нажать на ссылки внутри контента</li>
+            <li>Проверьте, работает ли навигация назад/вперед в новом окне</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h3>Тестовые ссылки для проверки:</h3>
+        <p>Эти ссылки должны открываться в новом окне с рабочей навигацией:</p>
+        
+        <a href="#chapters" class="test-link">Список глав</a>
+        <a href="#chapter1" class="test-link">Глава 1</a>
+        <a href="#content1" class="test-link">Контент 1</a>
+        
+        <h4>Ожидаемое поведение:</h4>
+        <ul>
+            <li>При клике на ссылку открывается новое окно</li>
+            <li>В новом окне отображается соответствующий контент</li>
+            <li>Ссылки внутри нового окна работают</li>
+            <li>Кнопки назад/вперед браузера работают в новом окне</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>Отладочная информация:</h3>
+        <p>Откройте консоль разработчика (F12) для просмотра отладочных сообщений.</p>
+        <p>В новом окне должны появляться сообщения о навигации и доступных ID контента.</p>
+    </div>
+
+    <script>
+        // Простой тест для проверки работы ссылок
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('test-link')) {
+                console.log('Тестовая ссылка нажата:', event.target.href);
+            }
+        });
+    </script>
+</body>
+</html>

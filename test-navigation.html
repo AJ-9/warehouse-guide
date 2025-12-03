@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест навигации</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .test-link { color: #2563eb; text-decoration: none; font-weight: 600; margin: 0 10px; }
+        .test-link:hover { text-decoration: underline; }
+        .log { background: #f5f5f5; padding: 10px; margin: 10px 0; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>Тест навигации браузера</h1>
+    
+    <div class="test-section">
+        <h2>Тестовые ссылки:</h2>
+        <a href="#4.4" class="test-link">Ссылка на раздел 4.4</a>
+        <a href="#chapter2" class="test-link">Ссылка на главу 2</a>
+        <a href="#chapters" class="test-link">Ссылка на главную</a>
+    </div>
+    
+    <div class="test-section">
+        <h2>Инструкции для тестирования:</h2>
+        <ol>
+            <li>Откройте консоль браузера (F12)</li>
+            <li>Кликните по любой ссылке выше</li>
+            <li>Используйте кнопку "назад" браузера или свайп</li>
+            <li>Проверьте логи в консоли</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h2>Ожидаемые логи:</h2>
+        <div class="log">
+            Link clicked: #4.4 contentId: 4.4<br>
+            navigateTo called with: 4.4<br>
+            Navigating to content: 4.4<br>
+            showContentDirect: 4.4<br>
+            History updated for content: 4.4
+        </div>
+        <div class="log">
+            popstate event: [object] hash: #4.4<br>
+            Processing popstate with contentId: 4.4<br>
+            navigateTo called with: 4.4<br>
+            Navigating to content: 4.4<br>
+            showContentDirect: 4.4
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Проверка URL:</h2>
+        <p>Текущий URL: <span id="current-url"></span></p>
+        <button onclick="document.getElementById('current-url').textContent = window.location.href">Обновить URL</button>
+    </div>
+
+    <script>
+        // Простая имитация функций навигации для тестирования
+        function navigateTo(contentId) {
+            console.log('navigateTo called with:', contentId);
+            
+            if (contentId === '4.4') {
+                console.log('Navigating to content:', contentId);
+                showContentDirect(contentId);
+            } else if (contentId === 'chapter2') {
+                console.log('Navigating to chapter:', contentId);
+                showChapterDirect(contentId);
+            } else if (contentId === 'chapters') {
+                console.log('Navigating to chapters');
+                showChaptersDirect();
+            } else {
+                console.log('Unknown content ID:', contentId);
+            }
+        }
+        
+        function showContentDirect(contentId) {
+            console.log('showContentDirect:', contentId);
+            document.body.style.backgroundColor = '#e8f4fd';
+        }
+        
+        function showChapterDirect(chapterId) {
+            console.log('showChapterDirect:', chapterId);
+            document.body.style.backgroundColor = '#f0f8e8';
+        }
+        
+        function showChaptersDirect() {
+            console.log('showChaptersDirect');
+            document.body.style.backgroundColor = '#fff8e8';
+        }
+        
+        // Обработчик кликов по ссылкам
+        document.addEventListener('click', function(event) {
+            const link = event.target.closest('a[href^="#"]');
+            if (link && !link.hasAttribute('target')) {
+                event.preventDefault();
+                const href = link.getAttribute('href');
+                const contentId = href.substring(1);
+                
+                console.log('Link clicked:', href, 'contentId:', contentId);
+                
+                // Обновляем историю
+                const state = { type: 'content', id: contentId, _programmatic: true };
+                history.pushState(state, contentId, href);
+                console.log('History updated for content:', contentId);
+                
+                // Навигация
+                navigateTo(contentId);
+            }
+        });
+        
+        // Обработчик popstate
+        window.addEventListener('popstate', function(event) {
+            console.log('popstate event:', event.state, 'hash:', window.location.hash);
+            
+            if (event.state && event.state._programmatic) {
+                console.log('Programmatic navigation, ignoring popstate');
+                return;
+            }
+            
+            const hash = window.location.hash;
+            const contentId = hash.startsWith('#') ? hash.substring(1) : hash;
+            
+            console.log('Processing popstate with contentId:', contentId);
+            navigateTo(contentId);
+        });
+        
+        // Обновляем URL при загрузке
+        document.getElementById('current-url').textContent = window.location.href;
+    </script>
+</body>
+</html>
