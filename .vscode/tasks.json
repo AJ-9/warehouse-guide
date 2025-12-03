@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Push to GitHub",
+            "type": "shell",
+            "command": "./push",
+            "args": ["${input:commitMessage}"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Push to GitHub (Auto Message)",
+            "type": "shell",
+            "command": "./push",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "commitMessage",
+            "type": "promptString",
+            "description": "Введите сообщение коммита",
+            "default": "Update: ${input:dateTime}"
+        },
+        {
+            "id": "dateTime",
+            "type": "command",
+            "command": "extension.commandvariable.dateTime",
+            "args": {
+                "format": "YYYY-MM-DD HH:mm:ss"
+            }
+        }
+    ]
+}

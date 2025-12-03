@@ -13,7 +13,7 @@ archive-daemon.log
 Thumbs.db
 
 # IDE files
-.vscode/
+# .vscode/  # Раскомментируйте, если не хотите сохранять настройки VS Code
 .idea/
 *.swp
 *.swo
