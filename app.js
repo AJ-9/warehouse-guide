@@ -7851,6 +7851,14 @@ if ('serviceWorker' in navigator) {
                         requestUpdate();
                     }
                 });
+                
+                // Периодическая проверка обновлений каждые 10 секунд
+                setInterval(() => {
+                    if (!document.hidden) {
+                        console.log('Periodic update check (every 10 seconds)...');
+                        requestUpdate();
+                    }
+                }, 10000); // 10 секунд
             })
             .catch((registrationError) => {
                 console.log('SW registration failed: ', registrationError);
