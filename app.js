@@ -4882,6 +4882,1185 @@ const warehouseData = {
     }
 };
 
+// Данные справочника для учетчика
+const accountantData = {
+    chapters: [
+        {
+            id: 'accountant-chapter1',
+            title: {
+                ru: 'Памятка по проверке а/м перед выгрузкой',
+                en: 'Vehicle Pre-Unloading Inspection Guide',
+                zh: '车辆卸货前检查指南'
+            },
+            icon: '🚚',
+            description: {
+                ru: 'Проверка загрузки поставки в 1С перед выгрузкой',
+                en: 'Checking shipment loading in 1C before unloading',
+                zh: '卸货前在1C中检查货物装载'
+            },
+            subchapters: [
+                {
+                    id: 'acc-1.1',
+                    title: {
+                        ru: 'Загрузка поставки соответствует ТН',
+                        en: 'Shipment Loading Matches Transport Bill',
+                        zh: '货物装载与运输单相符'
+                    }
+                },
+                {
+                    id: 'acc-1.2',
+                    title: {
+                        ru: 'Загрузка поставки не соответствует ТН',
+                        en: 'Shipment Loading Does Not Match Transport Bill',
+                        zh: '货物装载与运输单不符'
+                    }
+                },
+                {
+                    id: 'acc-1.3',
+                    title: {
+                        ru: 'Отсутствует загрузка поставки в 1С',
+                        en: 'Shipment Loading Missing in 1C',
+                        zh: '1C中缺少货物装载'
+                    }
+                }
+            ]
+        },
+        {
+            id: 'accountant-chapter2',
+            title: {
+                ru: 'Памятка по приемке ТМЦ',
+                en: 'Material Acceptance Guide',
+                zh: '材料验收指南'
+            },
+            icon: '📋',
+            description: {
+                ru: 'Процедуры приемки материалов на склад',
+                en: 'Material acceptance procedures at warehouse',
+                zh: '仓库材料验收程序'
+            },
+            subchapters: [
+                {
+                    id: 'acc-2.1',
+                    title: {
+                        ru: 'Вариант 1: данные 1С и ТН сходятся',
+                        en: 'Option 1: 1C Data and Transport Bill Match',
+                        zh: '选项1：1C数据与运输单相符'
+                    }
+                },
+                {
+                    id: 'acc-2.2',
+                    title: {
+                        ru: 'Вариант 2: данные 1С и ТН не сходятся',
+                        en: 'Option 2: 1C Data and Transport Bill Do Not Match',
+                        zh: '选项2：1C数据与运输单不符'
+                    }
+                },
+                {
+                    id: 'acc-2.3',
+                    title: {
+                        ru: 'Оформление Акта М-7',
+                        en: 'Act M-7 Preparation',
+                        zh: 'M-7报告编制'
+                    }
+                }
+            ]
+        }
+    ],
+    content: {
+        'accountant-chapter1': {
+            title: {
+                ru: 'Памятка по проверке а/м перед выгрузкой',
+                en: 'Vehicle Pre-Unloading Inspection Guide',
+                zh: '车辆卸货前检查指南'
+            },
+            content: {
+                ru: `
+                <h3>Памятка по проверке а/м перед выгрузкой</h3>
+                <p>При направлении кладовщиком в группу «проверка заявок перед выгрузкой» фотографии транспортной накладной, необходимо проверить загрузку поставки в 1С. Для этого зайти в раздел 1С Azolo «упаковочные листы». В строке поиска ввести номер ТН или номер УЛ, если ТН не находится.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-1.png" alt="1С Azolo упаковочные листы" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-2.png" alt="Поиск по номеру ТН или УЛ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>Возможные варианты:</strong></p>
+                
+                <h4>1.1 Загрузка поставки в 1С полностью соответствует информации в ТН</h4>
+                <p>Ставим отметку в группе «проверка перед выгрузкой»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-like.png" alt="Отметка в группе проверка перед выгрузкой" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.2 Загрузка поставки в 1С не соответствует информации в ТН</h4>
+                <p>Направляется письмо по электронной почте о выявленных расхождениях на адреса materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-4.png" alt="Письмо о расхождениях" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ ставим отметку в группе «проверка перед выгрузкой»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Отметка остановки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-6.png" alt="Отметка в группе" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ направляем в группу «тачки на стопе» фото ТН с кратким описанием замечания. Например, «Расхождение данных 1С и ТН CC7-STA-NNS-06 HEBEI».</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-7.png" alt="Сообщение в группу тачки на стопе" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>При устранении замечания необходимо написать в ответ на свое сообщение «выгружаем»</p>
+                
+                <h4>1.3 Если полностью отсутствует загрузка поставки в 1С</h4>
+                <p>Направляется письмо по электронной почте об отсутствии поставки в 1С Azolo на адреса materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-8.png" alt="Письмо об отсутствии поставки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Ставим отметку в группе «проверка перед выгрузкой»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Отметка остановки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ направляем в группу «тачки на стопе» фото ТН с кратким описанием ситуации. Например, «Отсутствует информация в 1С Azolo по ТН №8-1 от 18.08.2025 УЛ CC7-BCC-FORT-RUBCCE0146-8-1 Fortune Gas Cryogenic Group Co LTDI». При устранении замечания необходимо написать в ответ на свое сообщение «выгружаем»</p>
+            `,
+                en: `
+                <h3>Vehicle Pre-Unloading Inspection Guide</h3>
+                <p>When the warehouseman sends photos of the transport bill to the "pre-unloading application check" group, it is necessary to check the shipment loading in 1C. To do this, go to the 1C Azolo section "packing lists". In the search field, enter the transport bill number or packing list number if the transport bill is not found.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-1.png" alt="1C Azolo packing lists" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-2.png" alt="Search by transport bill or packing list number" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>Possible options:</strong></p>
+                
+                <h4>1.1 Shipment Loading in 1C Fully Matches Transport Bill Information</h4>
+                <p>Mark in the "pre-unloading check" group</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-like.png" alt="Mark in pre-unloading check group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.2 Shipment Loading in 1C Does Not Match Transport Bill Information</h4>
+                <p>Send an email about identified discrepancies to materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-4.png" alt="Discrepancy email" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ mark in the "pre-unloading check" group</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Stop mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-6.png" alt="Group mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ send to the "vehicles on stop" group a photo of the transport bill with a brief description of the remark. For example, "Discrepancy between 1C data and Transport Bill CC7-STA-NNS-06 HEBEI".</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-7.png" alt="Message to vehicles on stop group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>When the remark is resolved, you must write "unloading" in response to your message</p>
+                
+                <h4>1.3 If Shipment Loading is Completely Missing in 1C</h4>
+                <p>Send an email about missing shipment in 1C Azolo to materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-8.png" alt="Missing shipment email" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Mark in the "pre-unloading check" group</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Stop mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ send to the "vehicles on stop" group a photo of the transport bill with a brief description of the situation. For example, "Missing information in 1C Azolo for Transport Bill No. 8-1 dated 18.08.2025 PL CC7-BCC-FORT-RUBCCE0146-8-1 Fortune Gas Cryogenic Group Co LTDI". When the remark is resolved, you must write "unloading" in response to your message</p>
+            `,
+                zh: `
+                <h3>车辆卸货前检查指南</h3>
+                <p>当仓库管理员将运输单照片发送到"卸货前申请检查"组时，需要检查1C中的货物装载情况。为此，请进入1C Azolo部分"装箱单"。在搜索字段中输入运输单号或装箱单号（如果找不到运输单）。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-1.png" alt="1C Azolo装箱单" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-2.png" alt="按运输单或装箱单号搜索" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>可能的选项：</strong></p>
+                
+                <h4>1.1 1C中的货物装载完全符合运输单信息</h4>
+                <p>在"卸货前检查"组中标记</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-like.png" alt="在卸货前检查组中标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h4>1.2 1C中的货物装载与运输单信息不符</h4>
+                <p>将发现的差异发送电子邮件至 materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-4.png" alt="差异邮件" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ 在"卸货前检查"组中标记</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="停止标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-6.png" alt="组标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ 向"停止车辆"组发送运输单照片并附简要说明。例如，"1C数据与运输单CC7-STA-NNS-06 HEBEI不符"。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-7.png" alt="发送到停止车辆组的消息" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>解决备注后，必须在回复消息中写下"卸货"</p>
+                
+                <h4>1.3 如果1C中完全缺少货物装载</h4>
+                <p>将1C Azolo中缺少货物的信息发送电子邮件至 materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-8.png" alt="缺少货物邮件" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>在"卸货前检查"组中标记</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="停止标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ 向"停止车辆"组发送运输单照片并附简要情况说明。例如，"1C Azolo中缺少运输单№8-1（2025年8月18日）装箱单CC7-BCC-FORT-RUBCCE0146-8-1 Fortune Gas Cryogenic Group Co LTDI的信息"。解决备注后，必须在回复消息中写下"卸货"</p>
+            `
+            }
+        },
+        'acc-1.1': {
+            title: {
+                ru: 'Загрузка поставки соответствует ТН',
+                en: 'Shipment Loading Matches Transport Bill',
+                zh: '货物装载与运输单相符'
+            },
+            content: {
+                ru: `
+                <h4>1.1 Загрузка поставки в 1С полностью соответствует информации в ТН</h4>
+                <p>Ставим отметку в группе «проверка перед выгрузкой»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-like.png" alt="Отметка в группе проверка перед выгрузкой" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+            `,
+                en: `
+                <h4>1.1 Shipment Loading in 1C Fully Matches Transport Bill Information</h4>
+                <p>Mark in the "pre-unloading check" group</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-like.png" alt="Mark in pre-unloading check group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+            `,
+                zh: `
+                <h4>1.1 1C中的货物装载完全符合运输单信息</h4>
+                <p>在"卸货前检查"组中标记</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-like.png" alt="在卸货前检查组中标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+            `
+            }
+        },
+        'acc-1.2': {
+            title: {
+                ru: 'Загрузка поставки не соответствует ТН',
+                en: 'Shipment Loading Does Not Match Transport Bill',
+                zh: '货物装载与运输单不符'
+            },
+            content: {
+                ru: `
+                <h4>1.2 Загрузка поставки в 1С не соответствует информации в ТН</h4>
+                <p>Направляется письмо по электронной почте о выявленных расхождениях на адреса materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-4.png" alt="Письмо о расхождениях" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ ставим отметку в группе «проверка перед выгрузкой»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Отметка остановки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-6.png" alt="Отметка в группе" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ направляем в группу «тачки на стопе» фото ТН с кратким описанием замечания. Например, «Расхождение данных 1С и ТН CC7-STA-NNS-06 HEBEI».</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-7.png" alt="Сообщение в группу тачки на стопе" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>При устранении замечания необходимо написать в ответ на свое сообщение «выгружаем»</p>
+            `,
+            en: `
+                <h4>1.2 Shipment Loading in 1C Does Not Match Transport Bill Information</h4>
+                <p>Send an email about identified discrepancies to materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-4.png" alt="Discrepancy email" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ mark in the "pre-unloading check" group</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Stop mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-6.png" alt="Group mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ send to the "vehicles on stop" group a photo of the transport bill with a brief description of the remark. For example, "Discrepancy between 1C data and Transport Bill CC7-STA-NNS-06 HEBEI".</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-7.png" alt="Message to vehicles on stop group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>When the remark is resolved, you must write "unloading" in response to your message</p>
+            `,
+            zh: `
+                <h4>1.2 1C中的货物装载与运输单信息不符</h4>
+                <p>将发现的差异发送电子邮件至 materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-4.png" alt="差异邮件" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ 在"卸货前检查"组中标记</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="停止标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-6.png" alt="组标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ 向"停止车辆"组发送运输单照片并附简要说明。例如，"1C数据与运输单CC7-STA-NNS-06 HEBEI不符"。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-7.png" alt="发送到停止车辆组的消息" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>解决备注后，必须在回复消息中写下"卸货"</p>
+            `
+            }
+        },
+        'acc-1.3': {
+            title: {
+                ru: 'Отсутствует загрузка поставки в 1С',
+                en: 'Shipment Loading Missing in 1C',
+                zh: '1C中缺少货物装载'
+            },
+            content: {
+                ru: `
+                <h4>1.3 Если полностью отсутствует загрузка поставки в 1С</h4>
+                <p>Направляется письмо по электронной почте об отсутствии поставки в 1С Azolo на адреса materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-8.png" alt="Письмо об отсутствии поставки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Ставим отметку в группе «проверка перед выгрузкой»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Отметка остановки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ направляем в группу «тачки на стопе» фото ТН с кратким описанием ситуации. Например, «Отсутствует информация в 1С Azolo по ТН №8-1 от 18.08.2025 УЛ CC7-BCC-FORT-RUBCCE0146-8-1 Fortune Gas Cryogenic Group Co LTDI».</p>
+                
+                <p>При устранении замечания необходимо написать в ответ на свое сообщение «выгружаем»</p>
+            `,
+                en: `
+                <h4>1.3 If Shipment Loading is Completely Missing in 1C</h4>
+                <p>Send an email about missing shipment in 1C Azolo to materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-8.png" alt="Missing shipment email" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Mark in the "pre-unloading check" group</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="Stop mark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ send to the "vehicles on stop" group a photo of the transport bill with a brief description of the situation. For example, "Missing information in 1C Azolo for Transport Bill No. 8-1 dated 18.08.2025 PL CC7-BCC-FORT-RUBCCE0146-8-1 Fortune Gas Cryogenic Group Co LTDI".</p>
+                
+                <p>When the remark is resolved, you must write "unloading" in response to your message</p>
+            `,
+                zh: `
+                <h4>1.3 如果1C中完全缺少货物装载</h4>
+                <p>将1C Azolo中缺少货物的信息发送电子邮件至 materialmanagment@bccipmt.ru</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-8.png" alt="缺少货物邮件" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>在"卸货前检查"组中标记</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-stop.png" alt="停止标记" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>+ 向"停止车辆"组发送运输单照片并附简要情况说明。例如，"1C Azolo中缺少运输单№8-1（2025年8月18日）装箱单CC7-BCC-FORT-RUBCCE0146-8-1 Fortune Gas Cryogenic Group Co LTDI的信息"。</p>
+                
+                <p>解决备注后，必须在回复消息中写下"卸货"</p>
+            `
+            }
+        },
+        'accountant-chapter2': {
+            title: {
+                ru: 'Памятка по приемке ТМЦ',
+                en: 'Material Acceptance Guide',
+                zh: '材料验收指南'
+            },
+            content: {
+                ru: `
+                <h3>Памятка по приемке ТМЦ</h3>
+                <p>Кладовщик направляет в группу «для ТН для учета» фотографию транспортной накладной и поступивших грузовых мест по ней. Сотрудник учета проставляет реакцию <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"> на ту ТН, которую берет в работу.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-9.png" alt="Группа для ТН для учета" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Выбранную ТН необходимо сверить с загруженной поставкой в 1С. Поставки РФ ищутся по номеру ТН (если по ТН ничего не найдено, то необходимо искать по номеру УЛ), а импортные поставки – по номеру упаковочного листа (УЛ). Сверяется номер ГМ, вес ГМ.</p>
+                
+                <p><strong>Исключение.</strong> В CMR по импортным поставкам может быть указан только номер УЛ и общий тоннаж всех грузовых мест.</p>
+                
+                <p><strong>Возможно 2 варианта.</strong></p>
+                
+                <h4>Вариант 1: данные 1С и ТН сходятся</h4>
+                
+                <p><strong>1.</strong> Оформляем в 1С Azolo приемку материала на лоты хранения, которые указал кладовщик вместе с фотографиями ТН и грузовых мест. Для этого необходимо зайти в УЛ и там нажать кнопку создать на основании> поступление ТМЦ</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-10.png" alt="Создание поступления ТМЦ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>После этого вы попадете на следующее окно приемки ТМЦ. Здесь вам необходимо указать дату приемки ТМЦ (дата фактической выгрузки ТМЦ на складе), а также указать склад, на который была произведена выгрузка (склад и ячейки хранения сообщает кладовщик в группе ТН для учета)</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-11.png" alt="Окно приемки ТМЦ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Во второй вкладке перечислены все ГМ, которые есть по данному УЛ, если у вас пришла не вся поставка, то необходимо сделать частичную приемку, для этого вам надо удалить те ГМ, которые по факту поставки не пришли (выделяем ненужные ГМ и удаляем правой кнопкой мыши)</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-12.png" alt="Частичная приемка" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее для оставшихся ТМЦ необходимо указать ячейки хранения, для этого нажимаем на кнопку «скрыть панель по грузовым местам» выделяем все ГМ, нажимаем кнопку заполнить и выбираем ячейку, далее выбираем нужный лот хранения, он проставится автоматически</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-13.png" alt="Указание ячеек хранения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Если не все ГМ были приняты на одну ячейку хранения, то соответственно выбираем нужные ячейки для каждого ГМ, можно выделить частично ГМ и заполнить ячейки конкретно для них.</p>
+                
+                <p>После того как проставили склад, ячейки хранения и проверив себя на корректность заполнения, документ надо провести, нажав кнопку «провести»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-14.png" alt="Проведение документа" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее после проведения документа нажимаем кнопку <img src="images/receiving-button-create.png" alt="кнопка создать" style="width: 20px; height: 20px; vertical-align: middle;"> и нажимаем входной контроль</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-15.png" alt="Входной контроль" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Если по поставке не было замечаний и не требуется составлять актм7, то в появившемся окне надо нажать на кнопку «подтвердить» и после этого провести документ.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-16.png" alt="Подтверждение входного контроля" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h5>Как отражать поступления/перемещения в контейнеры:</h5>
+                <p>Обязательно указываем номер контейнера (кнт) в наименовании ячейки хранения, без пробелов между буквами и цифрами в номере контейнера. Если контейнер на 2 ярусе, то это также необходимо указывать в ячейке хранения, пример: Площадка C2.3-1 CA-11 кнт MSKU8073586 хранение или Площадка С2.3-1 CA-18 кнт PKEU5027302 ярус 2 хранение.</p>
+                
+                <p>Само поле контейнер используем только для указания объединенных грузовых мест (например, по документам должно быть два грузовых места, а по факту поступило одно ГМ с двумя номерами, в одном ящике или на одном паллете). Заводим поле контейнер как номер грузового места + номер грузового места, пример: 7128 +7127.</p>
+                
+                <h5>Как создавать новые места хранения, если они отсутствуют в 1С:</h5>
+                <p>В поступлении необходимо кликнуть два раза на пустое поле ячейки или на стрелку справа.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-17.png" alt="Создание ячейки хранения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>В открывшемся меню необходимо нажать «показать все»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-18.png" alt="Показать все" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее в появившемся поле нажать создать</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-19.png" alt="Создать ячейку" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее указываем склад, на котором вы создаете ячейку хранения, а также прописываем наименование ячейки, которую вам необходимо создать (пример, Площадка С2.3-5 LOT 4-1 хранение).</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="Наименование ячейки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>На этом этап приемки ТМЦ завершается.</p>
+                
+                <p><strong>2.</strong> После создания проводки приемки в 1С необходимо внести ТН в эксель отчет по поступлениям (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025) с указанием всей информации, которая требуется согласно таблице</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-21.png" alt="Эксель отчет по поступлениям" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Саму ТН отсканировать и прикрепить к проводке приемки в 1С Azolo, а также разместить в папку «Сканы ТН» по поставщику (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\3. ТН\\2025).</p>
+                
+                <p>Для прикрепления ТН необходимо в поступлении нажать на кнопку файл и перетащить туда отсканированную ТН</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-22.png" alt="Прикрепление ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> На все поступившие ТН за день необходимо составить реестр для последующей передачи в бухгалтерию (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр пе) на каждый новый реестр создается новый лист в файле «Реестр передачи ТН в докконтроль 2025»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-23.png" alt="Реестр передачи ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> После получения подписи на реестре о приеме документов, его необходимо отсканировать реестр и разместить его скан в сетевую папку (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025\\Сканы реестров ТН)</p>
+                
+                <h4>Вариант 2: данные 1С и ТН не сходятся/отсутствует загрузка УЛ в 1С</h4>
+                
+                <p><strong>1.</strong> Подготовить письмо на matmanagement@bccipmt.com с указанием несоответствий (расхождения по номерам ГМ, весу, количеству, и др) или отсутствия поставки в 1С Azolo. Если часть поставки можем принять к учету, то принимаем ее.</p>
+                
+                <p><strong>2.</strong> После необходимо внести ТН в эксель отчет по поступлениям (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025) с указанием всей информации, которая требуется согласно таблице</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="Эксель отчет по поступлениям" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Саму ТН отсканировать и разместить в папку «Сканы ТН» по поставщику (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\3. ТН\\2025).</p>
+                
+                <p><strong>4.</strong> На все поступившие ТН за день необходимо составить реестр для последующей передачи в бухгалтерию (реестр находится (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр пе) на каждый новый реестр создается новый лист в файле «Реестр передачи ТН в докконтроль 2025»</p>
+                
+                <p><strong>5.</strong> После получения подписи на реестре о приеме документов его необходимо отсканировать реестр и разместить его скан в сетевую папку (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025\\Сканы реестров ТН)</p>
+                
+                <p><strong>6.</strong> Отслеживать статус вашего запроса и по необходимости напоминать коллегам из ММ (продолжать переписку по проблеме) о необходимости внесения корректировок/загрузок в 1С Azolo</p>
+                
+                <p><strong>7.</strong> После внесения корректировок/загрузки УЛ в 1С сверяемся в том, что данные соответствуют поставке и ТН, принимаем поставку к учету.</p>
+                
+                <p><strong>8.</strong> Прикрепляем скан ТН к проводке приемки в 1С Azolo</p>
+                
+                <h4>Если имеем повреждения, выявленные при приемке ТМЦ, оформляется Акт М-7</h4>
+                
+                <p><strong>1.</strong> В группе «Акты М-7» ставим реакцию <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"> на ТН с актом м-7, что вы взяли ее в работу.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-25.png" alt="Группа Акты М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> Создание Акта М7. В поступлении по ТН с актом М-7 в графе комментарий ставим отметку «м-7», проводим поступление.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-26.png" alt="Комментарий м-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> При формировании документа «Входной контроль» во вкладке «Визуальный контроль» выбираем ГМ, по которым оформляем М-7, устанавливаем Замечание (выбираем из появившегося списка).</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-27.png" alt="Визуальный контроль" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-28.png" alt="Выбор замечания" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> Во вкладке «Данные М-7» заполняем: № Акта М-7, дату, время приемки, Подписанта, Кладовщика и водителя, нажимаем «Подтвердить», затем «Провести»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-29.png" alt="Данные М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> Распечатываем Акт М-7 из формата Excel, подписываем, сканируем.</p>
+                
+                <p><strong>6.</strong> Добавляем фото замечаний в папку (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\1. Акты\\Акты о повреждениях\\М-7_Акты о повреждениях по вине пост-ка,перевозчика\\2025), где сохранен Акт М-7 из формате Excel и объединяем их со сканом Акта М-7</p>
+                
+                <p><strong>7.</strong> Акты М-7 отправляем по эл.почте день в день на почту сотрудников QC (AMaksimov@bccipmt.com, KSkrementov@bccipmt.com). В копии письма обязательно указать "site_warehouse".</p>
+            `,
+                en: `
+                <h3>Material Acceptance Guide</h3>
+                <p>The warehouseman sends to the "for TB for accounting" group a photo of the transport bill and the received cargo units. The accounting employee marks with reaction <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"> the transport bill they are taking into work.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-9.png" alt="For TB for accounting group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>The selected transport bill must be verified with the loaded shipment in 1C. Russian shipments are searched by transport bill number (if nothing is found by transport bill, then search by packing list number), and import shipments - by packing list (PL) number. Cargo unit number and weight are verified.</p>
+                
+                <p><strong>Exception.</strong> In CMR for import shipments, only the PL number and total tonnage of all cargo units may be indicated.</p>
+                
+                <p><strong>Two options are possible.</strong></p>
+            `,
+                zh: `
+                <h3>材料验收指南</h3>
+                <p>仓库管理员向"用于会计的运输单"组发送运输单照片和收到的货物单位。会计员工用反应 <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"> 标记他们正在处理的运输单。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-9.png" alt="用于会计的运输单组" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>必须将选定的运输单与1C中加载的货物进行核对。俄罗斯货物按运输单号搜索（如果按运输单找不到，则按装箱单号搜索），进口货物按装箱单（PL）号搜索。核对货物单位号和重量。</p>
+                
+                <p><strong>例外。</strong> 对于进口货物的CMR，可能只标明装箱单号和所有货物单位的总吨位。</p>
+                
+                <p><strong>可能有两种情况。</strong></p>
+            `
+            }
+        },
+        'acc-2.1': {
+            title: {
+                ru: 'Вариант 1: данные 1С и ТН сходятся',
+                en: 'Option 1: 1C Data and Transport Bill Match',
+                zh: '选项1：1C数据与运输单相符'
+            },
+            content: {
+                ru: `
+                <h4>Вариант 1: данные 1С и ТН сходятся</h4>
+                <p><strong>1.</strong> Оформляем в 1С Azolo приемку материала на лоты хранения, которые указал кладовщик вместе с фотографиями ТН и грузовых мест. Для этого необходимо зайти в УЛ и там нажать кнопку создать на основании> поступление ТМЦ</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-10.png" alt="Создание поступления ТМЦ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>После этого вы попадете на следующее окно приемки ТМЦ. Здесь вам необходимо указать дату приемки ТМЦ (дата фактической выгрузки ТМЦ на складе), а также указать склад, на который была произведена выгрузка (склад и ячейки хранения сообщает кладовщик в группе ТН для учета)</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-11.png" alt="Окно приемки ТМЦ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Во второй вкладке перечислены все ГМ, которые есть по данному УЛ, если у вас пришла не вся поставка, то необходимо сделать частичную приемку, для этого вам надо удалить те ГМ, которые по факту поставки не пришли (выделяем ненужные ГМ и удаляем правой кнопкой мыши)</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-12.png" alt="Частичная приемка" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее для оставшихся ТМЦ необходимо указать ячейки хранения, для этого нажимаем на кнопку «скрыть панель по грузовым местам» выделяем все ГМ, нажимаем кнопку заполнить и выбираем ячейку, далее выбираем нужный лот хранения, он проставится автоматически</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-13.png" alt="Указание ячеек хранения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Если не все ГМ были приняты на одну ячейку хранения, то соответственно выбираем нужные ячейки для каждого ГМ, можно выделить частично ГМ и заполнить ячейки конкретно для них.</p>
+                
+                <p>После того как проставили склад, ячейки хранения и проверив себя на корректность заполнения, документ надо провести, нажав кнопку «провести»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-14.png" alt="Проведение документа" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее после проведения документа нажимаем кнопку <img src="images/receiving-button-create.png" alt="кнопка создать" style="width: 20px; height: 20px; vertical-align: middle;"> и нажимаем входной контроль</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-15.png" alt="Входной контроль" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Если по поставке не было замечаний и не требуется составлять актм7, то в появившемся окне надо нажать на кнопку «подтвердить» и после этого провести документ.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-16.png" alt="Подтверждение входного контроля" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h5>Как отражать поступления/перемещения в контейнеры:</h5>
+                <p>Обязательно указываем номер контейнера (кнт) в наименовании ячейки хранения, без пробелов между буквами и цифрами в номере контейнера. Если контейнер на 2 ярусе, то это также необходимо указывать в ячейке хранения, пример: Площадка C2.3-1 CA-11 кнт MSKU8073586 хранение или Площадка С2.3-1 CA-18 кнт PKEU5027302 ярус 2 хранение.</p>
+                
+                <p>Само поле контейнер используем только для указания объединенных грузовых мест (например, по документам должно быть два грузовых места, а по факту поступило одно ГМ с двумя номерами, в одном ящике или на одном паллете). Заводим поле контейнер как номер грузового места + номер грузового места, пример: 7128 +7127.</p>
+                
+                <h5>Как создавать новые места хранения, если они отсутствуют в 1С:</h5>
+                <p>В поступлении необходимо кликнуть два раза на пустое поле ячейки или на стрелку справа.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-17.png" alt="Создание ячейки хранения" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>В открывшемся меню необходимо нажать «показать все»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-18.png" alt="Показать все" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее в появившемся поле нажать создать</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-19.png" alt="Создать ячейку" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Далее указываем склад, на котором вы создаете ячейку хранения, а также прописываем наименование ячейки, которую вам необходимо создать (пример, Площадка С2.3-5 LOT 4-1 хранение).</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="Наименование ячейки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>На этом этап приемки ТМЦ завершается.</p>
+                
+                <p><strong>2.</strong> После создания проводки приемки в 1С необходимо внести ТН в эксель отчет по поступлениям (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025) с указанием всей информации, которая требуется согласно таблице</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-21.png" alt="Эксель отчет по поступлениям" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Саму ТН отсканировать и прикрепить к проводке приемки в 1С Azolo, а также разместить в папку «Сканы ТН» по поставщику (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\3. ТН\\2025).</p>
+                
+                <p>Для прикрепления ТН необходимо в поступлении нажать на кнопку файл и перетащить туда отсканированную ТН</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-22.png" alt="Прикрепление ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> На все поступившие ТН за день необходимо составить реестр для последующей передачи в бухгалтерию (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр пе) на каждый новый реестр создается новый лист в файле «Реестр передачи ТН в докконтроль 2025»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-23.png" alt="Реестр передачи ТН" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> После получения подписи на реестре о приеме документов, его необходимо отсканировать реестр и разместить его скан в сетевую папку (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025\\Сканы реестров ТН)</p>
+            `,
+            en: `
+                <h4>Option 1: 1C Data and Transport Bill Match</h4>
+                <p><strong>1.</strong> Process material acceptance in 1C Azolo for storage lots indicated by the warehouseman along with photos of transport bill and cargo units. To do this, go to the PL and click create based on> material receipt</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-10.png" alt="Creating material receipt" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>After this, you will see the material acceptance window. Here you need to specify the acceptance date (actual unloading date at warehouse) and the warehouse where unloading was performed (warehouse and storage cells are reported by the warehouseman in the TB for accounting group)</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-11.png" alt="Material acceptance window" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>The second tab lists all cargo units for this PL. If not all shipment arrived, you need to do partial acceptance by deleting cargo units that did not arrive (select unwanted cargo units and delete with right mouse button)</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-12.png" alt="Partial acceptance" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Next, for remaining materials, specify storage cells. Click "hide cargo unit panel", select all cargo units, click fill and select cell, then select required storage lot, it will be filled automatically</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-13.png" alt="Specifying storage cells" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>If not all cargo units were accepted to one storage cell, select appropriate cells for each cargo unit, you can partially select cargo units and fill cells specifically for them.</p>
+                
+                <p>After specifying warehouse, storage cells and checking correctness, the document must be posted by clicking "post"</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-14.png" alt="Posting document" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>After posting the document, click <img src="images/receiving-button-create.png" alt="create button" style="width: 20px; height: 20px; vertical-align: middle;"> and click incoming inspection</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-15.png" alt="Incoming inspection" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>If there were no remarks on the shipment and Act M7 is not required, click "confirm" in the appeared window and then post the document.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-16.png" alt="Confirming incoming inspection" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h5>How to reflect receipts/movements to containers:</h5>
+                <p>Always specify container number (cnt) in storage cell name, without spaces between letters and numbers in container number. If container is on 2nd tier, this must also be specified in storage cell, example: Platform C2.3-1 CA-11 cnt MSKU8073586 storage or Platform С2.3-1 CA-18 cnt PKEU5027302 tier 2 storage.</p>
+                
+                <p>The container field itself is used only for indicating combined cargo units (e.g., documents show two cargo units, but one cargo unit with two numbers arrived, in one box or on one pallet). Enter container field as cargo unit number + cargo unit number, example: 7128 +7127.</p>
+                
+                <h5>How to create new storage locations if they are missing in 1C:</h5>
+                <p>In receipt, double-click empty cell field or arrow on the right.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-17.png" alt="Creating storage cell" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>In opened menu, click "show all"</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-18.png" alt="Show all" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>In appeared field, click create</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-19.png" alt="Create cell" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Specify warehouse where you are creating storage cell and enter cell name you need to create (example, Platform С2.3-5 LOT 4-1 storage).</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="Cell name" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>This completes the material acceptance stage.</p>
+                
+                <p><strong>2.</strong> After creating acceptance posting in 1C, enter transport bill into Excel report on receipts (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\15. Register of document transfer to doc. control SS7\\2025) with all information required according to table</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-21.png" alt="Excel report on receipts" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Scan transport bill and attach to acceptance posting in 1C Azolo, and place in "Scanned TB" folder by supplier (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\3. TB\\2025).</p>
+                
+                <p>To attach transport bill, in receipt click file button and drag scanned transport bill there</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-22.png" alt="Attaching transport bill" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> For all transport bills received per day, create register for subsequent transfer to accounting (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\15. Register pe) for each new register create new sheet in file "Register of TB transfer to doc control 2025"</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-23.png" alt="Register of TB transfer" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> After receiving signature on register about document acceptance, scan register and place scan in network folder (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\15. Register of document transfer to doc. control SS7\\2025\\Scanned TB registers)</p>
+            `,
+            zh: `
+                <h4>选项1：1C数据与运输单相符</h4>
+                <p><strong>1.</strong> 在1C Azolo中处理材料验收，使用仓库管理员指定的存储批次以及运输单和货物单位的照片。为此，进入装箱单并点击基于创建>材料收货</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-10.png" alt="创建材料收货" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>之后，您将看到材料验收窗口。在此需要指定验收日期（仓库实际卸货日期）和执行卸货的仓库（仓库和存储单元由仓库管理员在用于会计的运输单组中报告）</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-11.png" alt="材料验收窗口" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>第二个选项卡列出了此装箱单的所有货物单位。如果未全部到达，需要部分验收，删除未到达的货物单位（选择不需要的货物单位并用右键删除）</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-12.png" alt="部分验收" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>接下来，对于剩余材料，指定存储单元。点击"隐藏货物单位面板"，选择所有货物单位，点击填充并选择单元，然后选择所需的存储批次，它将自动填充</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-13.png" alt="指定存储单元" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>如果并非所有货物单位都接受到一个存储单元，则分别为每个货物单位选择相应的单元，可以部分选择货物单位并专门为其填充单元。</p>
+                
+                <p>指定仓库、存储单元并检查正确性后，必须通过点击"过账"来过账文档</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-14.png" alt="过账文档" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>过账文档后，点击 <img src="images/receiving-button-create.png" alt="创建按钮" style="width: 20px; height: 20px; vertical-align: middle;"> 并点击来料检验</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-15.png" alt="来料检验" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>如果货物没有备注且不需要编制M7报告，则在出现的窗口中点击"确认"，然后过账文档。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-16.png" alt="确认来料检验" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <h5>如何反映到容器的收货/移动：</h5>
+                <p>始终在存储单元名称中指定容器号（cnt），容器号中的字母和数字之间没有空格。如果容器在2层，这也必须在存储单元中指定，示例：平台C2.3-1 CA-11 cnt MSKU8073586存储或平台С2.3-1 CA-18 cnt PKEU5027302层2存储。</p>
+                
+                <p>容器字段本身仅用于指示合并的货物单位（例如，文档显示两个货物单位，但到达了一个带有两个编号的货物单位，在一个箱子或一个托盘上）。输入容器字段作为货物单位号+货物单位号，示例：7128 +7127。</p>
+                
+                <h5>如果1C中缺少新存储位置，如何创建：</h5>
+                <p>在收货中，双击空单元字段或右侧的箭头。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-17.png" alt="创建存储单元" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>在打开的菜单中，点击"显示全部"</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-18.png" alt="显示全部" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>在出现的字段中，点击创建</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-19.png" alt="创建单元" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>指定您正在创建存储单元的仓库，并输入需要创建的单元名称（示例，平台С2.3-5 LOT 4-1存储）。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="单元名称" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>这完成了材料验收阶段。</p>
+                
+                <p><strong>2.</strong> 在1C中创建验收过账后，将运输单输入Excel收货报告（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\15. 文件传输到文档控制SS7的登记册\\2025），包含根据表格要求的所有信息</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-21.png" alt="Excel收货报告" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> 扫描运输单并附加到1C Azolo中的验收过账，并放置在供应商的"扫描运输单"文件夹中（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\3. 运输单\\2025）。</p>
+                
+                <p>要附加运输单，在收货中点击文件按钮并将扫描的运输单拖到那里</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-22.png" alt="附加运输单" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> 对于每天收到的所有运输单，创建登记册以便随后传输到会计（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\15. 登记册pe）对于每个新登记册，在文件"2025年运输单传输到文档控制登记册"中创建新工作表</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-23.png" alt="运输单传输登记册" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> 收到登记册上关于文件接收的签名后，扫描登记册并将扫描件放置在网络文件夹中（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\15. 文件传输到文档控制SS7的登记册\\2025\\扫描的运输单登记册）</p>
+            `
+            }
+        },
+        'acc-2.2': {
+            title: {
+                ru: 'Вариант 2: данные 1С и ТН не сходятся',
+                en: 'Option 2: 1C Data and Transport Bill Do Not Match',
+                zh: '选项2：1C数据与运输单不符'
+            },
+            content: {
+                ru: `
+                <h4>Вариант 2: данные 1С и ТН не сходятся/отсутствует загрузка УЛ в 1С</h4>
+                <p><strong>1.</strong> Подготовить письмо на matmanagement@bccipmt.com с указанием несоответствий (расхождения по номерам ГМ, весу, количеству, и др) или отсутствия поставки в 1С Azolo. Если часть поставки можем принять к учету, то принимаем ее.</p>
+                
+                <p><strong>2.</strong> После необходимо внести ТН в эксель отчет по поступлениям (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025) с указанием всей информации, которая требуется согласно таблице</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="Эксель отчет по поступлениям" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Саму ТН отсканировать и разместить в папку «Сканы ТН» по поставщику (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\3. ТН\\2025).</p>
+                
+                <p><strong>4.</strong> На все поступившие ТН за день необходимо составить реестр для последующей передачи в бухгалтерию (реестр находится (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр пе) на каждый новый реестр создается новый лист в файле «Реестр передачи ТН в докконтроль 2025»</p>
+                
+                <p><strong>5.</strong> После получения подписи на реестре о приеме документов его необходимо отсканировать реестр и разместить его скан в сетевую папку (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025\\Сканы реестров ТН)</p>
+                
+                <p><strong>6.</strong> Отслеживать статус вашего запроса и по необходимости напоминать коллегам из ММ (продолжать переписку по проблеме) о необходимости внесения корректировок/загрузок в 1С Azolo</p>
+                
+                <p><strong>7.</strong> После внесения корректировок/загрузки УЛ в 1С сверяемся в том, что данные соответствуют поставке и ТН, принимаем поставку к учету.</p>
+                
+                <p><strong>8.</strong> Прикрепляем скан ТН к проводке приемки в 1С Azolo</p>
+            `,
+            en: `
+                <h4>Option 2: 1C Data and Transport Bill Do Not Match/Missing PL Loading in 1C</h4>
+                <p><strong>1.</strong> Prepare email to matmanagement@bccipmt.com indicating discrepancies (differences in cargo unit numbers, weight, quantity, etc.) or missing shipment in 1C Azolo. If part of shipment can be accepted, accept it.</p>
+                
+                <p><strong>2.</strong> Then enter transport bill into Excel report on receipts (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\15. Register of document transfer to doc. control SS7\\2025) with all information required according to table</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="Excel report on receipts" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Scan transport bill and place in "Scanned TB" folder by supplier (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\3. TB\\2025).</p>
+                
+                <p><strong>4.</strong> For all transport bills received per day, create register for subsequent transfer to accounting (register is located (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\15. Register pe) for each new register create new sheet in file "Register of TB transfer to doc control 2025"</p>
+                
+                <p><strong>5.</strong> After receiving signature on register about document acceptance, scan register and place scan in network folder (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\15. Register of document transfer to doc. control SS7\\2025\\Scanned TB registers)</p>
+                
+                <p><strong>6.</strong> Track status of your request and remind MM colleagues as needed (continue correspondence on issue) about need for corrections/loads in 1C Azolo</p>
+                
+                <p><strong>7.</strong> After corrections/PL loading in 1C, verify that data matches shipment and transport bill, accept shipment for accounting.</p>
+                
+                <p><strong>8.</strong> Attach scanned transport bill to acceptance posting in 1C Azolo</p>
+            `,
+            zh: `
+                <h4>选项2：1C数据与运输单不符/1C中缺少装箱单加载</h4>
+                <p><strong>1.</strong> 准备发送至 matmanagement@bccipmt.com 的电子邮件，说明不符项（货物单位号、重量、数量等的差异）或1C Azolo中缺少货物。如果部分货物可以接受，则接受它。</p>
+                
+                <p><strong>2.</strong> 然后将运输单输入Excel收货报告（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\15. 文件传输到文档控制SS7的登记册\\2025），包含根据表格要求的所有信息</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-20.png" alt="Excel收货报告" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> 扫描运输单并放置在供应商的"扫描运输单"文件夹中（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\3. 运输单\\2025）。</p>
+                
+                <p><strong>4.</strong> 对于每天收到的所有运输单，创建登记册以便随后传输到会计（登记册位于（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\15. 登记册pe）对于每个新登记册，在文件"2025年运输单传输到文档控制登记册"中创建新工作表</p>
+                
+                <p><strong>5.</strong> 收到登记册上关于文件接收的签名后，扫描登记册并将扫描件放置在网络文件夹中（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\15. 文件传输到文档控制SS7的登记册\\2025\\扫描的运输单登记册）</p>
+                
+                <p><strong>6.</strong> 跟踪您的请求状态，并根据需要提醒MM同事（继续就问题进行通信）在1C Azolo中进行更正/加载的必要性</p>
+                
+                <p><strong>7.</strong> 在1C中进行更正/装箱单加载后，验证数据是否与货物和运输单匹配，接受货物进行会计处理。</p>
+                
+                <p><strong>8.</strong> 将扫描的运输单附加到1C Azolo中的验收过账</p>
+            `
+            }
+        },
+        'acc-2.3': {
+            title: {
+                ru: 'Оформление Акта М-7',
+                en: 'Act M-7 Preparation',
+                zh: 'M-7报告编制'
+            },
+            content: {
+                ru: `
+                <h4>Если имеем повреждения, выявленные при приемке ТМЦ, оформляется Акт М-7</h4>
+                <p><strong>1.</strong> В группе «Акты М-7» ставим реакцию <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"> на ТН с актом м-7, что вы взяли ее в работу.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-25.png" alt="Группа Акты М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> Создание Акта М7. В поступлении по ТН с актом М-7 в графе комментарий ставим отметку «м-7», проводим поступление.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-26.png" alt="Комментарий м-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> При формировании документа «Входной контроль» во вкладке «Визуальный контроль» выбираем ГМ, по которым оформляем М-7, устанавливаем Замечание (выбираем из появившегося списка).</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-27.png" alt="Визуальный контроль" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-28.png" alt="Выбор замечания" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> Во вкладке «Данные М-7» заполняем: № Акта М-7, дату, время приемки, Подписанта, Кладовщика и водителя, нажимаем «Подтвердить», затем «Провести»</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-29.png" alt="Данные М-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> Распечатываем Акт М-7 из формата Excel, подписываем, сканируем.</p>
+                
+                <p><strong>6.</strong> Добавляем фото замечаний в папку (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\1. Акты\\Акты о повреждениях\\М-7_Акты о повреждениях по вине пост-ка,перевозчика\\2025), где сохранен Акт М-7 из формате Excel и объединяем их со сканом Акта М-7</p>
+                
+                <p><strong>7.</strong> Акты М-7 отправляем по эл.почте день в день на почту сотрудников QC (AMaksimov@bccipmt.com, KSkrementov@bccipmt.com). В копии письма обязательно указать "site_warehouse".</p>
+            `,
+            en: `
+                <h4>If We Have Damage Identified During Material Acceptance, Act M-7 is Prepared</h4>
+                <p><strong>1.</strong> In "Act M-7" group, mark with reaction <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"> the transport bill with Act M-7 that you are taking into work.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-25.png" alt="Act M-7 group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> Creating Act M7. In receipt for transport bill with Act M-7, in comment field mark "m-7", post receipt.</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-26.png" alt="Comment m-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> When forming "Incoming Inspection" document, in "Visual Inspection" tab select cargo units for which we prepare M-7, set Remark (select from appeared list).</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-27.png" alt="Visual inspection" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-28.png" alt="Selecting remark" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> In "M-7 Data" tab fill: Act M-7 number, date, acceptance time, Signatory, Warehouseman and driver, click "Confirm", then "Post"</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-29.png" alt="M-7 data" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> Print Act M-7 from Excel format, sign, scan.</p>
+                
+                <p><strong>6.</strong> Add photos of remarks to folder (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Warehouse\\1. Acts\\Damage Acts\\M-7_Damage Acts due to supplier,carrier fault\\2025), where Act M-7 from Excel format is saved and combine them with scanned Act M-7</p>
+                
+                <p><strong>7.</strong> Send Act M-7 by email same day to QC employees (AMaksimov@bccipmt.com, KSkrementov@bccipmt.com). In email copy обязательно указать "site_warehouse".</p>
+            `,
+            zh: `
+                <h4>如果在材料验收期间发现损坏，则编制M-7报告</h4>
+                <p><strong>1.</strong> 在"M-7报告"组中，用反应 <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"> 标记您正在处理的带有M-7报告的运输单。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-25.png" alt="M-7报告组" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> 创建M7报告。在带有M-7报告的运输单的收货中，在注释字段中标记"m-7"，过账收货。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-26.png" alt="注释m-7" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> 在形成"来料检验"文档时，在"视觉检验"选项卡中选择我们要编制M-7的货物单位，设置备注（从出现的列表中选择）。</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-27.png" alt="视觉检验" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/receiving-28.png" alt="选择备注" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> 在"M-7数据"选项卡中填写：M-7报告编号、日期、验收时间、签署人、仓库管理员和司机，点击"确认"，然后"过账"</p>
+                
+                <div class="image-container">
+                    <img src="images/receiving-29.png" alt="M-7数据" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> 从Excel格式打印M-7报告，签名，扫描。</p>
+                
+                <p><strong>6.</strong> 将备注照片添加到文件夹（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\1. 报告\\损坏报告\\M-7_由于供应商、承运人过错的损坏报告\\2025），其中保存了来自Excel格式的M-7报告，并将它们与扫描的M-7报告合并</p>
+                
+                <p><strong>7.</strong> 当天通过电子邮件将M-7报告发送给QC员工（AMaksimov@bccipmt.com, KSkrementov@bccipmt.com）。在电子邮件副本中必须注明"site_warehouse"。</p>
+            `
+            }
+        }
+    }
+};
+
+// Функция получения текущих данных в зависимости от роли
+function getCurrentData() {
+    const selectedRole = localStorage.getItem('warehouseGuide_selectedRole');
+    return selectedRole === 'accountant' ? accountantData : warehouseData;
+}
+
 // Система переводов (i18n)
 const translations = {
     ru: {
@@ -4926,9 +6105,6 @@ const translations = {
         roleSelectionTitle: 'Выбери свою роль',
         roleAccountant: 'учетчик',
         roleWarehouseman: 'кладовщик',
-        developmentTitle: 'Раздел находится в разработке',
-        developmentText: 'Скоро здесь будет много полезного',
-        backToRoleSelection: 'Вернуться к выбору роли',
         backToRole: 'к выбору роли'
     },
     en: {
@@ -4973,9 +6149,6 @@ const translations = {
         roleSelectionTitle: 'Choose your role',
         roleAccountant: 'Accountant',
         roleWarehouseman: 'Warehouseman',
-        developmentTitle: 'Section is under development',
-        developmentText: 'Soon there will be a lot of useful content here',
-        backToRoleSelection: 'Back to role selection',
         backToRole: 'to role selection'
     },
     zh: {
@@ -5020,9 +6193,6 @@ const translations = {
         roleSelectionTitle: '选择您的角色',
         roleAccountant: '会计',
         roleWarehouseman: '仓库管理员',
-        developmentTitle: '部分正在开发中',
-        developmentText: '很快这里会有很多有用的内容',
-        backToRoleSelection: '返回角色选择',
         backToRole: '返回角色选择'
     }
 };
@@ -5351,15 +6521,6 @@ function updateRoleSelectionUI() {
     const roleWarehouseman = document.getElementById('roleWarehouseman');
     if (roleWarehouseman) roleWarehouseman.textContent = t('roleWarehouseman');
     
-    const developmentTitle = document.getElementById('developmentTitle');
-    if (developmentTitle) developmentTitle.textContent = t('developmentTitle');
-    
-    const developmentText = document.getElementById('developmentText');
-    if (developmentText) developmentText.textContent = t('developmentText');
-    
-    const backToRoleSelection = document.getElementById('backToRoleSelection');
-    if (backToRoleSelection) backToRoleSelection.textContent = t('backToRoleSelection');
-    
     const backToRoleBtnText = document.getElementById('backToRoleBtnText');
     if (backToRoleBtnText) backToRoleBtnText.textContent = t('backToRole');
     
@@ -5368,10 +6529,13 @@ function updateRoleSelectionUI() {
 }
 
 // Функции для работы с ролями
-function selectRole(role) {
+// Глобальная функция для выбора роли (доступна из HTML onclick)
+window.selectRole = function selectRole(role) {
+    console.log('selectRole called with:', role);
     localStorage.setItem('warehouseGuide_selectedRole', role);
     
     if (role === 'warehouseman') {
+        console.log('Showing warehouseman view');
         showWarehousemanView();
         // Если приложение еще не инициализировано, инициализируем его
         if (!isWarehousemanAppInitialized) {
@@ -5380,18 +6544,23 @@ function selectRole(role) {
             }, 100);
         }
     } else if (role === 'accountant') {
-        showDevelopmentScreen();
+        console.log('Showing accountant view');
+        showAccountantView();
+        // Инициализируем приложение для учетчика
+        setTimeout(() => {
+            initializeAccountantApp();
+        }, 100);
+    } else {
+        console.error('Unknown role:', role);
     }
-}
+};
 
 function showRoleSelection() {
     const roleSelectionScreen = document.getElementById('roleSelectionScreen');
     const warehousemanView = document.getElementById('warehousemanView');
-    const developmentScreen = document.getElementById('developmentScreen');
     
     if (roleSelectionScreen) roleSelectionScreen.classList.remove('hidden');
     if (warehousemanView) warehousemanView.classList.add('hidden');
-    if (developmentScreen) developmentScreen.classList.add('hidden');
     
     localStorage.removeItem('warehouseGuide_selectedRole');
 }
@@ -5399,24 +6568,60 @@ function showRoleSelection() {
 function showWarehousemanView() {
     const roleSelectionScreen = document.getElementById('roleSelectionScreen');
     const warehousemanView = document.getElementById('warehousemanView');
-    const developmentScreen = document.getElementById('developmentScreen');
     
     if (roleSelectionScreen) roleSelectionScreen.classList.add('hidden');
     if (warehousemanView) warehousemanView.classList.remove('hidden');
-    if (developmentScreen) developmentScreen.classList.add('hidden');
     
     // Инициализация приложения происходит в основной инициализации при загрузке страницы
     // При переключении ролей инициализация не требуется, так как приложение уже загружено
 }
 
-function showDevelopmentScreen() {
+function showAccountantView() {
+    console.log('showAccountantView called');
     const roleSelectionScreen = document.getElementById('roleSelectionScreen');
     const warehousemanView = document.getElementById('warehousemanView');
-    const developmentScreen = document.getElementById('developmentScreen');
     
-    if (roleSelectionScreen) roleSelectionScreen.classList.add('hidden');
-    if (warehousemanView) warehousemanView.classList.add('hidden');
-    if (developmentScreen) developmentScreen.classList.remove('hidden');
+    if (!roleSelectionScreen || !warehousemanView) {
+        console.error('Required elements not found in showAccountantView');
+        return;
+    }
+    
+    roleSelectionScreen.classList.add('hidden');
+    warehousemanView.classList.remove('hidden');
+    console.log('Accountant view shown');
+}
+
+function initializeAccountantApp() {
+    console.log('initializeAccountantApp called');
+    // Проверяем, что все элементы существуют
+    const chaptersView = document.getElementById('chaptersView');
+    const contentView = document.getElementById('contentView');
+    
+    if (!chaptersView || !contentView) {
+        console.error('Required elements not found!');
+        return;
+    }
+    
+    console.log('Rendering chapters for accountant...');
+    // Показываем главы для учетчика
+    renderChapters();
+    
+    // Проверяем URL и инициализируем соответствующее состояние
+    const hash = window.location.hash;
+    const rawContentId = hash.startsWith('#') ? hash.substring(1) : hash;
+    const contentId = rawContentId?.trim() || '';
+    console.log('Initial URL hash:', hash, 'contentId:', contentId);
+    
+    if (contentId && contentId !== 'chapters') {
+        console.log('Initializing with specific contentId:', contentId);
+        navigateTo(contentId);
+    } else if (contentId === 'chapters') {
+        console.log('Initializing with chapters hash');
+        showChaptersDirect();
+    } else {
+        console.log('No hash provided, showing chapters');
+        showChaptersDirect();
+    }
 }
 
 function initializeWarehousemanApp() {
@@ -5508,77 +6713,94 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error in language initialization:', e);
         }
         
-        // Проверяем выбранную роль
-        const selectedRole = localStorage.getItem('warehouseGuide_selectedRole');
+        // Всегда показываем экран выбора роли при входе
+        console.log('Showing role selection screen on app load');
+        showRoleSelection();
         
-        if (!selectedRole) {
-            // Роль не выбрана - показываем экран выбора роли
-            console.log('No role selected, showing role selection screen');
-            showRoleSelection();
-            return;
+        // Инициализируем базовые функции, которые нужны для работы приложения
+        try {
+            setupPWA();
+        } catch (e) {
+            console.error('Error in setupPWA:', e);
         }
         
-        // Роль выбрана - показываем соответствующий экран
+        try {
+            setupImageModal();
+        } catch (e) {
+            console.error('Error in setupImageModal:', e);
+        }
+        
+        try {
+            showVersionInfo();
+        } catch (e) {
+            console.error('Error in showVersionInfo:', e);
+        }
+        
+        // Проверяем выбранную роль для автоматического перехода (опционально)
+        // Можно закомментировать этот блок, если нужно всегда показывать выбор роли
+        /*
+        const selectedRole = localStorage.getItem('warehouseGuide_selectedRole');
+        
         if (selectedRole === 'warehouseman') {
             console.log('Warehouseman role selected');
             showWarehousemanView();
             
             // Инициализируем функционал для кладовщика
-            try {
-                // Проверяем, что все элементы существуют
-                const chaptersView = document.getElementById('chaptersView');
-                const contentView = document.getElementById('contentView');
-                
-                if (!chaptersView || !contentView) {
-                    console.error('Required elements not found!');
-                    return;
-                }
-                
-                console.log('Elements found, proceeding with initialization...');
-                
-                // Принудительное обновление Service Worker при запуске
-                try {
-                    forceUpdateServiceWorker();
-                } catch (e) {
-                    console.error('Error in forceUpdateServiceWorker:', e);
-                }
-                
-                try {
-                    setupSearch();
-                } catch (e) {
-                    console.error('Error in setupSearch:', e);
-                }
-                
-                try {
-                    setupPWA();
-                } catch (e) {
-                    console.error('Error in setupPWA:', e);
-                }
-                
-                try {
-                    setupImageModal();
-                } catch (e) {
-                    console.error('Error in setupImageModal:', e);
-                }
-                
-                try {
-                    setupHeaderClick();
-                } catch (e) {
-                    console.error('Error in setupHeaderClick:', e);
-                }
-                
-                try {
-                    setupUpdateButton();
-                } catch (e) {
-                    console.error('Error in setupUpdateButton:', e);
-                }
-                
-                try {
+    try {
+        // Проверяем, что все элементы существуют
+        const chaptersView = document.getElementById('chaptersView');
+        const contentView = document.getElementById('contentView');
+        
+        if (!chaptersView || !contentView) {
+            console.error('Required elements not found!');
+            return;
+        }
+        
+        console.log('Elements found, proceeding with initialization...');
+        
+        // Принудительное обновление Service Worker при запуске
+        try {
+            forceUpdateServiceWorker();
+        } catch (e) {
+            console.error('Error in forceUpdateServiceWorker:', e);
+        }
+        
+        try {
+            setupSearch();
+        } catch (e) {
+            console.error('Error in setupSearch:', e);
+        }
+        
+        try {
+            setupPWA();
+        } catch (e) {
+            console.error('Error in setupPWA:', e);
+        }
+        
+        try {
+            setupImageModal();
+        } catch (e) {
+            console.error('Error in setupImageModal:', e);
+        }
+        
+        try {
+            setupHeaderClick();
+        } catch (e) {
+            console.error('Error in setupHeaderClick:', e);
+        }
+        
+        try {
+            setupUpdateButton();
+        } catch (e) {
+            console.error('Error in setupUpdateButton:', e);
+        }
+        
+        try {
                     showVersionInfo();
-                } catch (e) {
-                    console.error('Error in showVersionInfo:', e);
-                }
-                
+        } catch (e) {
+            console.error('Error in showVersionInfo:', e);
+        }
+        
                 // Инициализируем состояние приложения
                 initializeWarehousemanApp();
                 
@@ -5586,14 +6808,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Critical error during initialization:', error);
                 try {
                     renderChapters();
-                } catch (e) {
+        } catch (e) {
                     console.error('Even renderChapters failed:', e);
                 }
             }
         } else if (selectedRole === 'accountant') {
-            console.log('Accountant role selected');
-            showDevelopmentScreen();
+            // Автоматический переход для учетчика отключен - всегда показываем выбор роли
         }
+        */
         
     } catch (error) {
         console.error('Critical error during initialization:', error);
@@ -5617,12 +6839,13 @@ function renderChapters() {
             return;
         }
         
-        if (!warehouseData || !warehouseData.chapters) {
-            console.error('warehouseData or chapters not found!', warehouseData);
+        const currentData = getCurrentData();
+        if (!currentData || !currentData.chapters) {
+            console.error('currentData or chapters not found!', currentData);
             return;
         }
         
-        console.log('Rendering chapters...', warehouseData.chapters.length);
+        console.log('Rendering chapters...', currentData.chapters.length);
         
         // ПРИНУДИТЕЛЬНАЯ ОЧИСТКА СТАРОГО КОНТЕНТА
         chaptersView.innerHTML = '';
@@ -5634,7 +6857,7 @@ function renderChapters() {
             breadcrumbs.style.display = 'none';
         }
         
-        warehouseData.chapters.forEach((chapter, index) => {
+        currentData.chapters.forEach((chapter, index) => {
             try {
                 const chapterCard = document.createElement('div');
                 chapterCard.className = 'chapter-card';
@@ -5668,7 +6891,8 @@ function showContent(contentId) {
     showContentDirect(contentId);
     
     // Затем обновляем историю браузера
-    const content = warehouseData.content[contentId];
+    const currentData = getCurrentData();
+    const content = currentData.content[contentId];
     if (content) {
         const state = { type: 'content', id: contentId, _programmatic: true };
         const url = `#${contentId}`;
@@ -5699,7 +6923,8 @@ function showChapter(chapterId, showSubchaptersOnly = false) {
     showChapterDirect(chapterId);
     
     // Затем обновляем историю браузера
-    const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
+    const currentData = getCurrentData();
+    const chapter = currentData.chapters.find(ch => ch.id === chapterId);
     if (chapter) {
         const state = { type: 'chapter', id: chapterId, _programmatic: true };
         const url = `#${chapterId}`;
@@ -5736,7 +6961,8 @@ function searchContent(query) {
     const results = [];
     
     // Поиск по главам и подглавам
-    warehouseData.chapters.forEach(chapter => {
+    const currentData = getCurrentData();
+    currentData.chapters.forEach(chapter => {
         const chapterTitle = getTranslatedValue(chapter.title);
         const chapterDesc = getTranslatedValue(chapter.description);
         if (chapterTitle.toLowerCase().includes(query) || 
@@ -5763,8 +6989,8 @@ function searchContent(query) {
     });
     
     // Поиск по содержимому
-    Object.keys(warehouseData.content).forEach(key => {
-        const content = warehouseData.content[key];
+    Object.keys(currentData.content).forEach(key => {
+        const content = currentData.content[key];
         const contentTitle = getTranslatedValue(content.title);
         const contentText = getTranslatedValue(content.content);
         if (contentTitle.toLowerCase().includes(query) || 
@@ -5856,7 +7082,8 @@ function updateNavigationButtons() {
     }
     
     // Получаем все доступные ID контента
-    const allContentIds = Object.keys(warehouseData.content).sort();
+    const currentData = getCurrentData();
+    const allContentIds = Object.keys(currentData.content).sort();
     const currentIndex = allContentIds.indexOf(currentContentId);
     
     // Показываем/скрываем кнопку "Назад" (нижняя и верхняя)
@@ -5881,7 +7108,8 @@ function updateNavigationButtons() {
 function navigateToPrevious() {
     if (!currentContentId) return;
     
-    const allContentIds = Object.keys(warehouseData.content).sort();
+    const currentData = getCurrentData();
+    const allContentIds = Object.keys(currentData.content).sort();
     const currentIndex = allContentIds.indexOf(currentContentId);
     
     if (currentIndex > 0) {
@@ -5895,7 +7123,8 @@ function navigateToPrevious() {
 function navigateToNext() {
     if (!currentContentId) return;
     
-    const allContentIds = Object.keys(warehouseData.content).sort();
+    const currentData = getCurrentData();
+    const allContentIds = Object.keys(currentData.content).sort();
     const currentIndex = allContentIds.indexOf(currentContentId);
     
     if (currentIndex < allContentIds.length - 1) {
@@ -5976,14 +7205,15 @@ function restoreState() {
     
     console.log('Restoring state:', { savedView, savedContent });
     
-    if (savedView === 'content' && savedContent && warehouseData.content[savedContent]) {
+    const currentData = getCurrentData();
+    if (savedView === 'content' && savedContent && currentData.content[savedContent]) {
         console.log('Restoring content:', savedContent);
         showContentDirect(savedContent);
         return true;
     } else if (savedView === 'subchapters' && savedContent) {
         console.log('Restoring subchapters for chapter:', savedContent);
         // savedContent содержит ID главы
-        const chapter = warehouseData.chapters.find(ch => ch.id === savedContent);
+        const chapter = currentData.chapters.find(ch => ch.id === savedContent);
         if (chapter) {
             showChapterDirect(savedContent);
             return true;
@@ -6078,7 +7308,8 @@ function updateBreadcrumbs(chapterTitle, contentTitle, chapterId = null) {
                 showChapterDirect(chapterId);
             } else {
                 // Иначе ищем ID главы по названию (для обратной совместимости)
-                const chapter = warehouseData.chapters.find(ch => ch.title === chapterTitle);
+                const currentData = getCurrentData();
+                const chapter = currentData.chapters.find(ch => ch.title === chapterTitle);
                 if (chapter) {
                     console.log('Found chapter by title:', chapter.id);
                     showChapterDirect(chapter.id);
@@ -6365,7 +7596,8 @@ window.addEventListener('popstate', function(event) {
 
 // Версии функций навигации без обновления истории (для обработчика popstate)
 function showContentWithoutHistory(contentId) {
-    const content = warehouseData.content[contentId];
+    const currentData = getCurrentData();
+    const content = currentData.content[contentId];
     if (!content) {
         alert('Содержимое раздела пока не добавлено');
         return;
@@ -6392,7 +7624,7 @@ function showContentWithoutHistory(contentId) {
     // Находим название главы и ID главы для хлебных крошек
     let chapterTitle = '';
     let chapterId = '';
-    warehouseData.chapters.forEach(chapter => {
+    currentData.chapters.forEach(chapter => {
         chapter.subchapters.forEach(sub => {
             if (sub.id === contentId) {
                 chapterTitle = getTranslatedValue(chapter.title);
@@ -6441,7 +7673,8 @@ function showChaptersWithoutHistory() {
 
 function showChapterWithoutHistory(chapterId) {
     console.log('showChapterWithoutHistory called with:', chapterId);
-    const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
+    const currentData = getCurrentData();
+    const chapter = currentData.chapters.find(ch => ch.id === chapterId);
     if (!chapter) {
         console.error('Chapter not found:', chapterId);
         return;
@@ -6512,13 +7745,14 @@ function handleInternalLinkNavigation(contentId, updateHistory = true) {
         return;
     }
     
-                            const content = warehouseData.content[contentId];
+                            const currentData = getCurrentData();
+    const content = currentData.content[contentId];
                             if (content) {
         updateHistory ? showContent(contentId) : showContentDirect(contentId);
                                 return;
                             }
                             
-                            const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+                            const chapter = currentData.chapters.find(ch => ch.id === contentId);
                             if (chapter) {
         updateHistory ? showChapter(contentId) : showChapterDirect(contentId);
                                 return;
@@ -6559,7 +7793,8 @@ window.navigateTo = function navigateTo(contentId) {
     }
     
     // Проверяем, является ли это контентом
-    const content = warehouseData.content[contentId];
+    const currentData = getCurrentData();
+    const content = currentData.content[contentId];
     if (content) {
         console.log('Navigating to content:', contentId);
         showContentDirect(contentId);
@@ -6567,7 +7802,7 @@ window.navigateTo = function navigateTo(contentId) {
     }
     
     // Проверяем, является ли это главой
-    const chapter = warehouseData.chapters.find(ch => ch.id === contentId);
+    const chapter = currentData.chapters.find(ch => ch.id === contentId);
     if (chapter) {
         console.log('Navigating to chapter:', contentId);
         showChapterDirect(contentId);
@@ -6587,7 +7822,8 @@ window.navigateTo = function navigateTo(contentId) {
 
 // Прямые функции навигации без обновления истории
 function showContentDirect(contentId) {
-    const content = warehouseData.content[contentId];
+    const currentData = getCurrentData();
+    const content = currentData.content[contentId];
     if (!content) {
         console.error('Content not found:', contentId);
         return;
@@ -6614,7 +7850,7 @@ function showContentDirect(contentId) {
     // Находим название главы и ID главы для хлебных крошек
     let chapterTitle = '';
     let chapterId = '';
-    warehouseData.chapters.forEach(chapter => {
+    currentData.chapters.forEach(chapter => {
         chapter.subchapters.forEach(sub => {
             if (sub.id === contentId) {
                 chapterTitle = getTranslatedValue(chapter.title);
@@ -6656,11 +7892,15 @@ function showChaptersDirect() {
 function showChapterDirect(chapterId) {
     console.log('showChapterDirect called with:', chapterId);
     
-    const chapter = warehouseData.chapters.find(ch => ch.id === chapterId);
+    const currentData = getCurrentData();
+    const chapter = currentData.chapters.find(ch => ch.id === chapterId);
     if (!chapter) {
         console.error('Chapter not found:', chapterId);
         return;
     }
+    
+    // Проверяем, есть ли контент для этой главы
+    const chapterContent = currentData.content[chapterId];
     
     // Специальная обработка для chapter7 - сразу показываем контент
     if (chapterId === 'chapter7' && chapter.subchapters.length === 1) {
@@ -6687,18 +7927,36 @@ function showChapterDirect(chapterId) {
     // Устанавливаем заголовок
     contentTitle.textContent = getTranslatedValue(chapter.title);
     
-    // Создаем контент с подразделами
-    let contentHtml = `<p>${t('chooseSubsection')}</p>`;
+    // Если есть контент для главы, показываем его вместе с подразделами
+    let contentHtml = '';
+    
+    if (chapterContent) {
+        // Показываем контент главы
+        contentHtml += getTranslatedValue(chapterContent.content);
+        
+        // Добавляем разделитель перед подразделами
+        if (chapter.subchapters.length > 0) {
+            contentHtml += '<hr style="margin: 30px 0; border: none; border-top: 2px solid #e5e7eb;">';
+            contentHtml += `<h3 style="margin-top: 30px; margin-bottom: 20px;">${t('subsections') || 'Подразделы'}</h3>`;
+        }
+    }
+    
+    // Добавляем список подразделов
+    if (chapter.subchapters.length > 0) {
+        if (!chapterContent) {
+            contentHtml += `<p>${t('chooseSubsection')}</p>`;
+        }
     chapter.subchapters.forEach(sub => {
         const subTitle = getTranslatedValue(sub.title);
         contentHtml += `<div style="margin: 10px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2563eb; cursor: pointer;" onclick="showContentDirect('${sub.id}')"><h4>${sub.id} ${subTitle}</h4></div>`;
     });
+    }
     
     contentBody.innerHTML = contentHtml;
     
     // Обновляем состояние
     currentView = 'chapter';
-    currentContentId = null;
+    currentContentId = chapterContent ? chapterId : null;
     
     // Обновляем хлебные крошки
     updateBreadcrumbs(getTranslatedValue(chapter.title), '', chapterId);
