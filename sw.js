@@ -1,6 +1,6 @@
 // Версия кэша - ОБЯЗАТЕЛЬНО обновляйте при каждом изменении файлов!
 // Формат: v[версия]-[дата в формате YYYYMMDD]
-const CACHE_VERSION = 'v2.1.3-20251203';
+const CACHE_VERSION = 'v2.1.4-20251203';
 const CACHE_NAME = 'warehouse-guide-' + CACHE_VERSION;
 const STATIC_CACHE = 'warehouse-guide-static-' + CACHE_VERSION;
 const DYNAMIC_CACHE = 'warehouse-guide-dynamic-' + CACHE_VERSION;
@@ -147,38 +147,24 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
-  // Стратегия для изображений (Stale While Revalidate с приоритетом кэша)
+  // Стратегия для изображений (Network First - сначала сеть, потом кэш)
   if (request.destination === 'image') {
     event.respondWith(
-      caches.match(request)
-        .then(function(response) {
-          if (response) {
-            // Запускаем обновление в фоне для кэшированных изображений
-            fetch(request).then(function(fetchResponse) {
-              if (fetchResponse && fetchResponse.status === 200) {
-                const responseToCache = fetchResponse.clone();
-                caches.open(DYNAMIC_CACHE).then(function(cache) {
-                  cache.put(request, responseToCache);
-                });
-              }
-            }).catch(function() {
-              // Игнорируем ошибки сети для фонового обновления
+      fetch(request, { cache: 'no-store' })
+        .then(function(fetchResponse) {
+          if (fetchResponse && fetchResponse.status === 200) {
+            const responseToCache = fetchResponse.clone();
+            caches.open(DYNAMIC_CACHE).then(function(cache) {
+              cache.put(request, responseToCache);
             });
-            
-            // Возвращаем кэшированную версию немедленно
-            return response;
-          }
-          
-          // Если нет в кэше, загружаем из сети
-          return fetch(request).then(function(fetchResponse) {
-            if (fetchResponse && fetchResponse.status === 200) {
-              const responseToCache = fetchResponse.clone();
-              caches.open(DYNAMIC_CACHE).then(function(cache) {
-                cache.put(request, responseToCache);
-              });
-            }
             return fetchResponse;
-          });
+          }
+          // Если сеть не доступна или ошибка, пробуем кэш
+          return caches.match(request);
+        })
+        .catch(function() {
+          // Если нет сети, возвращаем из кэша
+          return caches.match(request);
         })
     );
     return;
