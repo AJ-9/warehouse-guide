@@ -4989,9 +4989,24 @@ const accountantData = {
             },
             icon: '📦',
             description: {
-                ru: 'Процедуры выдачи материалов и работы с АПП',
-                en: 'Procedures for material issuance and working with APP',
-                zh: '材料发放和APP工作程序'
+                ru: 'Процедуры выдачи материалов',
+                en: 'Procedures for material issuance',
+                zh: '材料发放程序'
+            },
+            subchapters: []
+        },
+        {
+            id: 'accountant-chapter5',
+            title: {
+                ru: 'Работа с АПП',
+                en: 'Working with APP',
+                zh: '使用APP'
+            },
+            icon: '📄',
+            description: {
+                ru: 'Процедуры работы с актами приема-передачи (АПП)',
+                en: 'Procedures for working with acceptance-transfer acts (APP)',
+                zh: '验收移交单（APP）工作程序'
             },
             subchapters: []
         }
@@ -6343,28 +6358,6 @@ const accountantData = {
                 <p><strong>5.</strong> На этом процесс выдачи завершается.</p>
                 
                 <p><strong>6.</strong> В группе «выдача ТМЦ» необходимо поставить реакцию на отработанную заявку <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"></p>
-                
-                <h4>Работа с АПП</h4>
-                
-                <p><strong>1.</strong> В конце рабочего дня после размещения всех АПП (формат *ворд) на сервере в папках по командам необходимо их разослать всем командам с целью дальнейшей подписи и передачи нам в отдел</p>
-                
-                <p>Ссылка на актуальные адреса - C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\16. Учет\\Актуальная почта для рассылки АПП</p>
-                
-                <p><strong>2.</strong> После получение подписанного АПП у нас в отделе, его так же необходимо подписать со своей стороны. Первый экземпляр АПП отдать подрядчику, второй экземпляр АПП оставить у себя</p>
-                
-                <div class="image-container">
-                    <img src="images/issue-16.png" alt="Подписание АПП" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                </div>
-                
-                <p><strong>3.</strong> Далее все подписанные АПП необходимо отсканировать и разместить на сервере в папке со сканами АПП (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\6. Сканы\\АПП) + прикрепить в проводке в 1С Azolo.</p>
-                
-                <p><strong>4.</strong> Далее на отсканированные АПП необходимо сделать реестр для последующей передачи АПП в бухгалтерию</p>
-                
-                <div class="image-container">
-                    <img src="images/issue-17.png" alt="Реестр АПП" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                </div>
-                
-                <p><strong>5.</strong> Куда сохранять реестр эксель, скан реестра (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025)</p>
             `,
                 en: `
                 <h3>Material Issuance</h3>
@@ -6416,28 +6409,6 @@ const accountantData = {
                 <p><strong>5.</strong> This completes the issuance process.</p>
                 
                 <p><strong>6.</strong> In the "material issuance" group, you need to put a reaction on the processed application <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"></p>
-                
-                <h4>Working with APP</h4>
-                
-                <p><strong>1.</strong> At the end of the working day, after placing all APPs (format *word) on the server in folders by teams, they must be sent to all teams for further signing and transfer to our department</p>
-                
-                <p>Link to current addresses - C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\16. Учет\\Актуальная почта для рассылки АПП</p>
-                
-                <p><strong>2.</strong> After receiving the signed APP in our department, it must also be signed on our side. The first copy of the APP is given to the contractor, the second copy of the APP is kept by us</p>
-                
-                <div class="image-container">
-                    <img src="images/issue-16.png" alt="Signing APP" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                </div>
-                
-                <p><strong>3.</strong> Next, all signed APPs must be scanned and placed on the server in the APP scans folder (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\6. Сканы\\АПП) + attach to the transaction in 1C Azolo.</p>
-                
-                <p><strong>4.</strong> Next, a register must be made for the scanned APPs for subsequent transfer of APPs to accounting</p>
-                
-                <div class="image-container">
-                    <img src="images/issue-17.png" alt="APP register" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
-                </div>
-                
-                <p><strong>5.</strong> Where to save the Excel register, scan of the register (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025)</p>
             `,
                 zh: `
                 <h3>材料发放</h3>
@@ -6489,8 +6460,64 @@ const accountantData = {
                 <p><strong>5.</strong> 这完成了发放过程。</p>
                 
                 <p><strong>6.</strong> 在"材料发放"组中，需要在已处理的申请上设置反应 <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"></p>
+            `
+            }
+        },
+        'accountant-chapter5': {
+            title: {
+                ru: 'Работа с АПП',
+                en: 'Working with APP',
+                zh: '使用APP'
+            },
+            content: {
+                ru: `
+                <h3>Работа с АПП</h3>
                 
-                <h4>使用APP</h4>
+                <p><strong>1.</strong> В конце рабочего дня после размещения всех АПП (формат *ворд) на сервере в папках по командам необходимо их разослать всем командам с целью дальнейшей подписи и передачи нам в отдел</p>
+                
+                <p>Ссылка на актуальные адреса - C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\16. Учет\\Актуальная почта для рассылки АПП</p>
+                
+                <p><strong>2.</strong> После получение подписанного АПП у нас в отделе, его так же необходимо подписать со своей стороны. Первый экземпляр АПП отдать подрядчику, второй экземпляр АПП оставить у себя</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-16.png" alt="Подписание АПП" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Далее все подписанные АПП необходимо отсканировать и разместить на сервере в папке со сканами АПП (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\6. Сканы\\АПП) + прикрепить в проводке в 1С Azolo.</p>
+                
+                <p><strong>4.</strong> Далее на отсканированные АПП необходимо сделать реестр для последующей передачи АПП в бухгалтерию</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-17.png" alt="Реестр АПП" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> Куда сохранять реестр эксель, скан реестра (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025)</p>
+            `,
+                en: `
+                <h3>Working with APP</h3>
+                
+                <p><strong>1.</strong> At the end of the working day, after placing all APPs (format *word) on the server in folders by teams, they must be sent to all teams for further signing and transfer to our department</p>
+                
+                <p>Link to current addresses - C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\16. Учет\\Актуальная почта для рассылки АПП</p>
+                
+                <p><strong>2.</strong> After receiving the signed APP in our department, it must also be signed on our side. The first copy of the APP is given to the contractor, the second copy of the APP is kept by us</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-16.png" alt="Signing APP" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Next, all signed APPs must be scanned and placed on the server in the APP scans folder (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\6. Сканы\\АПП) + attach to the transaction in 1C Azolo.</p>
+                
+                <p><strong>4.</strong> Next, a register must be made for the scanned APPs for subsequent transfer of APPs to accounting</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-17.png" alt="APP register" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> Where to save the Excel register, scan of the register (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025)</p>
+            `,
+                zh: `
+                <h3>使用APP</h3>
                 
                 <p><strong>1.</strong> 在工作日结束时，在服务器上按团队将所有APP（格式*word）放置在文件夹中后，必须将它们发送给所有团队以进行进一步签名并转移到我们的部门</p>
                 
