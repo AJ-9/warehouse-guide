@@ -4964,6 +4964,36 @@ const accountantData = {
                     }
                 }
             ]
+        },
+        {
+            id: 'accountant-chapter3',
+            title: {
+                ru: 'Памятка по проверке заявок',
+                en: 'Application Verification Guide',
+                zh: '申请验证指南'
+            },
+            icon: '📝',
+            description: {
+                ru: 'Процедуры проверки заявок перед выдачей',
+                en: 'Procedures for verifying applications before issuance',
+                zh: '发放前申请验证程序'
+            },
+            subchapters: []
+        },
+        {
+            id: 'accountant-chapter4',
+            title: {
+                ru: 'Выдача ТМЦ',
+                en: 'Material Issuance',
+                zh: '材料发放'
+            },
+            icon: '📦',
+            description: {
+                ru: 'Процедуры выдачи материалов и работы с АПП',
+                en: 'Procedures for material issuance and working with APP',
+                zh: '材料发放和APP工作程序'
+            },
+            subchapters: []
         }
     ],
     content: {
@@ -6049,6 +6079,438 @@ const accountantData = {
                 <p><strong>6.</strong> 将备注照片添加到文件夹（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. 仓库\\1. 报告\\损坏报告\\M-7_由于供应商、承运人过错的损坏报告\\2025），其中保存了来自Excel格式的M-7报告，并将它们与扫描的M-7报告合并</p>
                 
                 <p><strong>7.</strong> 当天通过电子邮件将M-7报告发送给QC员工（AMaksimov@bccipmt.com, KSkrementov@bccipmt.com）。在电子邮件副本中必须注明"site_warehouse"。</p>
+            `
+            }
+        },
+        'accountant-chapter3': {
+            title: {
+                ru: 'Памятка по проверке заявок',
+                en: 'Application Verification Guide',
+                zh: '申请验证指南'
+            },
+            content: {
+                ru: `
+                <h3>Памятка по проверке заявок</h3>
+                
+                <h4>1. Проверка заявок перед выдачей</h4>
+                <p>В группу «проверка заявок перед выдачей» кладовщик скидывает заявку, с которой к нему приходят коллеги из подрядных организаций для последующего получения ТМЦ на складе. Ее необходимо проверить по остатку на текущий момент через 1С, т.к. по ней могли быть выдачи/корректировки/отмены.</p>
+                
+                <p>На проверку, которую вы взяли в работу, необходимо поставить реакцию в чате на сообщение <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">, чтобы никто из других коллег не взял ее в работу.</p>
+                
+                <p>Ниже пример, как выглядит запрос на проверку заявки перед выдачей.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-1.png" alt="Запрос на проверку заявки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> Далее, взяв номер заявки из сообщения кладовщика (кладовщик выкладывает фото заявки с бумажного носителя) заходим в 1С в раздел «заявки субподрядчика» и в поисковой строке прописываем номер своей заявки для ее поиска в системе</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-2.png" alt="Раздел заявки субподрядчика" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/issue-3.png" alt="Поиск заявки" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> После того как нашли заявку, в нее необходимо зайти и нажать кнопку «создать на основании» > Получение субподрядчиком ТМЦ и у вас откроется следующее окно, которое будет показывать актуальный остаток.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-4.png" alt="Актуальный остаток" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> Далее актуальный остаток необходимо предоставить кладовщику, нажимаем кнопку «еще» > вывести список, у вас будет табличная форма со списком оставшихся материалов, ее необходимо сохранить в эксель и направить кладовщику ответом на его сообщение в группе «проверка заявок перед выдачей»</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-5.png" alt="Кнопка еще" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Табличная форма, которую надо сохранить в эксель указана ниже</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-6.png" alt="Табличная форма" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Чтобы сохранить ее в эксель, необходимо нажать на дискету в правом верхнем углу <img src="images/issue-disk.png" alt="дискета" style="width: 20px; height: 20px; vertical-align: middle;"> и сохраняем в удобную для вас папку.</p>
+                
+                <p>Далее сохраненный документ необходимо отправить ответным сообщением кладовщику в группу, таким образом процесс проверки заявки перед выдачей завершается, кладовщик получил актуальные остатки по заявке.</p>
+                
+                <h4>Исключение</h4>
+                <p>Если выдачи не день в день, то перед тем, как давать информацию кладовщику с актуальными остатками, заявку необходимо проверить в группе «выдача ТМЦ» и убедиться, что по ней все списано. Если не списано, то необходимо списать и только после этого предоставить кладовщику актуальные остатки на момент запроса.</p>
+                
+                <p><strong>Как происходит проверка:</strong></p>
+                
+                <p><strong>1.</strong> Заходим в группу выдача ТМЦ и в поисковой строке вставляем номер заявки, которую вам необходимо найти и проверить, все ли списания были по ней.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-7.png" alt="Поиск в группе выдача ТМЦ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> После того, как вбили в поисковую строку номер своей заявки, у вас выпадет список с этим номером и всеми сообщениями где номер упоминается</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-8.png" alt="Список сообщений" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Вам необходимо нажать на каждую заявки из выпавшего списка и проверить стоит ли реакция на заявке <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">. Если реакция стоит, значит заявка отработана, если не стоит, то выдачу на заявку необходимо отработать и только после этого предоставить кладовщику актуальные остатки.</p>
+            `,
+                en: `
+                <h3>Application Verification Guide</h3>
+                
+                <h4>1. Pre-Issuance Application Verification</h4>
+                <p>In the "pre-issuance application verification" group, the warehouseman sends an application that colleagues from subcontractor organizations bring to obtain materials from the warehouse. It must be checked against the current balance through 1C, as there may have been issuances/corrections/cancellations.</p>
+                
+                <p>On the verification you have taken into work, you must put a reaction in the chat on the message <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">, so that no other colleague takes it into work.</p>
+                
+                <p>Below is an example of what a pre-issuance application verification request looks like.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-1.png" alt="Application verification request" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> Next, taking the application number from the warehouseman's message (the warehouseman posts a photo of the application from paper), go to 1C in the "subcontractor applications" section and enter your application number in the search field to find it in the system</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-2.png" alt="Subcontractor applications section" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/issue-3.png" alt="Application search" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> After finding the application, you need to enter it and click the "create based on" button > Subcontractor Material Receipt, and the following window will open showing the current balance.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-4.png" alt="Current balance" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> Next, you need to provide the current balance to the warehouseman, click the "more" button > export list, you will have a table form with a list of remaining materials, it must be saved to Excel and sent to the warehouseman as a reply to his message in the "pre-issuance application verification" group</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-5.png" alt="More button" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>The table form that needs to be saved to Excel is shown below</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-6.png" alt="Table form" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>To save it to Excel, you need to click on the diskette in the upper right corner <img src="images/issue-disk.png" alt="diskette" style="width: 20px; height: 20px; vertical-align: middle;"> and save it to a convenient folder.</p>
+                
+                <p>Next, send the saved document as a reply message to the warehouseman in the group, thus the pre-issuance application verification process is completed, the warehouseman has received the current balances for the application.</p>
+                
+                <h4>Exception</h4>
+                <p>If issuances are not on the same day, then before providing the warehouseman with current balance information, the application must be checked in the "material issuance" group and make sure that everything has been written off. If not written off, then it is necessary to write off and only after that provide the warehouseman with current balances at the time of the request.</p>
+                
+                <p><strong>How the verification is performed:</strong></p>
+                
+                <p><strong>1.</strong> Go to the material issuance group and paste the application number in the search field that you need to find and verify, whether all write-offs were made for it.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-7.png" alt="Search in material issuance group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> After entering your application number in the search field, a list will appear with this number and all messages where the number is mentioned</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-8.png" alt="Message list" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>You need to click on each application from the dropdown list and check if there is a reaction on the application <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">. If there is a reaction, it means the application has been processed, if not, then the issuance for the application must be processed and only after that provide the warehouseman with current balances.</p>
+            `,
+                zh: `
+                <h3>申请验证指南</h3>
+                
+                <h4>1. 发放前申请验证</h4>
+                <p>在"发放前申请验证"组中，仓库管理员发送分包组织同事带来的申请，用于从仓库获取材料。必须通过1C检查当前余额，因为可能已经进行了发放/更正/取消。</p>
+                
+                <p>对于您已接手进行验证的申请，必须在聊天中对消息设置反应 <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">，这样其他同事就不会接手。</p>
+                
+                <p>以下是发放前申请验证请求的示例。</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-1.png" alt="申请验证请求" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> 接下来，从仓库管理员的消息中获取申请编号（仓库管理员发布纸质申请的 photo），进入1C的"分包商申请"部分，在搜索字段中输入您的申请编号以在系统中查找</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-2.png" alt="分包商申请部分" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/issue-3.png" alt="申请搜索" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> 找到申请后，需要进入并点击"基于创建"按钮 > 分包商材料接收，将打开以下窗口显示当前余额。</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-4.png" alt="当前余额" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> 接下来，需要向仓库管理员提供当前余额，点击"更多"按钮 > 导出列表，您将获得一个包含剩余材料列表的表格形式，必须将其保存为Excel并作为回复发送给仓库管理员在"发放前申请验证"组中的消息</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-5.png" alt="更多按钮" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>需要保存为Excel的表格形式如下所示</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-6.png" alt="表格形式" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>要将其保存为Excel，需要点击右上角的磁盘图标 <img src="images/issue-disk.png" alt="磁盘" style="width: 20px; height: 20px; vertical-align: middle;"> 并保存到方便的文件夹。</p>
+                
+                <p>接下来，将保存的文档作为回复消息发送给组中的仓库管理员，这样发放前申请验证过程就完成了，仓库管理员已收到申请的当前余额。</p>
+                
+                <h4>例外</h4>
+                <p>如果发放不是在同一天，那么在向仓库管理员提供当前余额信息之前，必须在"材料发放"组中检查申请，并确保所有内容都已核销。如果未核销，则必须核销，然后才能向仓库管理员提供请求时的当前余额。</p>
+                
+                <p><strong>验证如何进行：</strong></p>
+                
+                <p><strong>1.</strong> 进入材料发放组，在搜索字段中粘贴您需要查找和验证的申请编号，是否已进行所有核销。</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-7.png" alt="在材料发放组中搜索" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> 在搜索字段中输入您的申请编号后，将出现一个包含此编号和所有提及该编号的消息列表</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-8.png" alt="消息列表" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>您需要点击下拉列表中的每个申请，并检查申请上是否有反应 <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">。如果有反应，表示申请已处理，如果没有，则必须处理申请的发放，然后才能向仓库管理员提供当前余额。</p>
+            `
+            }
+        },
+        'accountant-chapter4': {
+            title: {
+                ru: 'Выдача ТМЦ',
+                en: 'Material Issuance',
+                zh: '材料发放'
+            },
+            content: {
+                ru: `
+                <h3>Выдача ТМЦ</h3>
+                
+                <p><strong>1.</strong> В группу «выдача ТМЦ» кладовщик скидывает информацию по выданным ТМЦ, фото заявки и грузовых мест по заявкам, которые были выданы субподрядчику физически. Вам необходимо поставить реакцию на ту, которую взяли в работу <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-9.png" alt="Группа выдача ТМЦ" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> Находите свою заявку в 1С в разделе «заявки субподрядчика» через поисковую строку по номеру заявки</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-10.png" alt="Поиск заявки в 1С" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>далее заходим в нее и нажимаем «создать на основании> "Получение субподрядчиком ТМЦ"</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-11.png" alt="Создание на основании" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>в следующем окне у вас будет список тех материалов, которые не выданы, вам необходимо оставить только те материалы, которые выдаются, остальные выделяем и удаляем.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-12.png" alt="Удаление лишних материалов" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> После того как удалили лишние грузовые места и у вас остались только те, которые надо выдать, вы проводите документ нажимая на кнопку «провести»</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-13.png" alt="Проведение документа" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> Далее после проведения документа необходимо нажать на кнопку «принтер» для формирования АПП (АПП формируется автоматически в формате ворд и редактировать там ничего не надо).</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-14.png" alt="Кнопка принтер" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>АПП необходимо сохранить в папку конкретной команды на сервер (номер команды указан в самой заявке)</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-15.png" alt="Сохранение АПП" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Путь куда сохраняем АПП: C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\1. Акты\\Акты  WORD</p>
+                
+                <p><strong>5.</strong> На этом процесс выдачи завершается.</p>
+                
+                <p><strong>6.</strong> В группе «выдача ТМЦ» необходимо поставить реакцию на отработанную заявку <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"></p>
+                
+                <h4>Работа с АПП</h4>
+                
+                <p><strong>1.</strong> В конце рабочего дня после размещения всех АПП (формат *ворд) на сервере в папках по командам необходимо их разослать всем командам с целью дальнейшей подписи и передачи нам в отдел</p>
+                
+                <p>Ссылка на актуальные адреса - C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\16. Учет\\Актуальная почта для рассылки АПП</p>
+                
+                <p><strong>2.</strong> После получение подписанного АПП у нас в отделе, его так же необходимо подписать со своей стороны. Первый экземпляр АПП отдать подрядчику, второй экземпляр АПП оставить у себя</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-16.png" alt="Подписание АПП" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Далее все подписанные АПП необходимо отсканировать и разместить на сервере в папке со сканами АПП (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\6. Сканы\\АПП) + прикрепить в проводке в 1С Azolo.</p>
+                
+                <p><strong>4.</strong> Далее на отсканированные АПП необходимо сделать реестр для последующей передачи АПП в бухгалтерию</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-17.png" alt="Реестр АПП" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> Куда сохранять реестр эксель, скан реестра (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025)</p>
+            `,
+                en: `
+                <h3>Material Issuance</h3>
+                
+                <p><strong>1.</strong> In the "material issuance" group, the warehouseman sends information about issued materials, photos of the application and cargo units for applications that were physically issued to the subcontractor. You need to put a reaction on the one you have taken into work <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-9.png" alt="Material issuance group" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> Find your application in 1C in the "subcontractor applications" section through the search field by application number</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-10.png" alt="Application search in 1C" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>then enter it and click "create based on> Subcontractor Material Receipt"</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-11.png" alt="Create based on" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>in the next window you will have a list of materials that have not been issued, you need to leave only those materials that are being issued, select the rest and delete them.</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-12.png" alt="Delete extra materials" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> After deleting the extra cargo units and you have only those that need to be issued, you process the document by clicking the "process" button</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-13.png" alt="Process document" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> Next, after processing the document, you need to click the "printer" button to generate the APP (APP is automatically generated in Word format and nothing needs to be edited there).</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-14.png" alt="Printer button" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>The APP must be saved to the specific team's folder on the server (the team number is indicated in the application itself)</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-15.png" alt="Save APP" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>Path where to save APP: C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\1. Акты\\Акты  WORD</p>
+                
+                <p><strong>5.</strong> This completes the issuance process.</p>
+                
+                <p><strong>6.</strong> In the "material issuance" group, you need to put a reaction on the processed application <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"></p>
+                
+                <h4>Working with APP</h4>
+                
+                <p><strong>1.</strong> At the end of the working day, after placing all APPs (format *word) on the server in folders by teams, they must be sent to all teams for further signing and transfer to our department</p>
+                
+                <p>Link to current addresses - C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\16. Учет\\Актуальная почта для рассылки АПП</p>
+                
+                <p><strong>2.</strong> After receiving the signed APP in our department, it must also be signed on our side. The first copy of the APP is given to the contractor, the second copy of the APP is kept by us</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-16.png" alt="Signing APP" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> Next, all signed APPs must be scanned and placed on the server in the APP scans folder (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\6. Сканы\\АПП) + attach to the transaction in 1C Azolo.</p>
+                
+                <p><strong>4.</strong> Next, a register must be made for the scanned APPs for subsequent transfer of APPs to accounting</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-17.png" alt="APP register" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> Where to save the Excel register, scan of the register (C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025)</p>
+            `,
+                zh: `
+                <h3>材料发放</h3>
+                
+                <p><strong>1.</strong> 在"材料发放"组中，仓库管理员发送有关已发放材料的信息、申请和货物单位的照片，这些申请已实际发放给分包商。您需要在您接手的申请上设置反应 <img src="images/receiving-eyes.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;">。</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-9.png" alt="材料发放组" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>2.</strong> 在1C的"分包商申请"部分通过申请编号搜索字段找到您的申请</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-10.png" alt="在1C中搜索申请" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>然后进入并点击"基于创建> 分包商材料接收"</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-11.png" alt="基于创建" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>在下一个窗口中，您将看到未发放的材料列表，您需要只保留正在发放的材料，选择其余材料并删除它们。</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-12.png" alt="删除多余材料" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> 删除多余的货物单位后，您只剩下需要发放的那些，通过点击"处理"按钮处理文档</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-13.png" alt="处理文档" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>4.</strong> 接下来，处理文档后，需要点击"打印机"按钮生成APP（APP自动以Word格式生成，无需编辑任何内容）。</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-14.png" alt="打印机按钮" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>APP必须保存到服务器上特定团队的文件夹（团队编号在申请本身中注明）</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-15.png" alt="保存APP" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p>保存APP的路径：C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\1. Акты\\Акты  WORD</p>
+                
+                <p><strong>5.</strong> 这完成了发放过程。</p>
+                
+                <p><strong>6.</strong> 在"材料发放"组中，需要在已处理的申请上设置反应 <img src="images/receiving-like.png" alt="reaction" style="width: 20px; height: 20px; vertical-align: middle;"></p>
+                
+                <h4>使用APP</h4>
+                
+                <p><strong>1.</strong> 在工作日结束时，在服务器上按团队将所有APP（格式*word）放置在文件夹中后，必须将它们发送给所有团队以进行进一步签名并转移到我们的部门</p>
+                
+                <p>当前地址链接 - C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\16. Учет\\Актуальная почта для рассылки АПП</p>
+                
+                <p><strong>2.</strong> 在我们的部门收到签名的APP后，也必须在我们这边签名。APP的第一份副本交给承包商，APP的第二份副本由我们保留</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-16.png" alt="签署APP" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>3.</strong> 接下来，所有签名的APP必须扫描并放置在服务器上的APP扫描文件夹中（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\6. Сканы\\АПП）+ 附加到1C Azolo中的交易。</p>
+                
+                <p><strong>4.</strong> 接下来，必须为扫描的APP制作登记册，以便随后将APP转移到会计部门</p>
+                
+                <div class="image-container">
+                    <img src="images/issue-17.png" alt="APP登记册" style="max-width: 100%; height: auto; border-radius: 10px; margin: 10px 0;">
+                </div>
+                
+                <p><strong>5.</strong> 保存Excel登记册的位置，登记册扫描（C:\\Users\\User\\PESCO Energy & Resources\\GCC project (External) - Warehouse - 13. Склад\\15. Реестр передачи документов в док. контроль СС7\\2025）</p>
             `
             }
         }
