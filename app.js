@@ -7895,6 +7895,14 @@ if ('serviceWorker' in navigator) {
 
 // Функция показа уведомления об обновлении
 function showUpdateNotification() {
+    // Проверяем, не существует ли уже уведомление
+    const existingNotification = document.getElementById('update-notification');
+    if (existingNotification) {
+        console.log('Update notification already exists');
+        return; // Не создаем дубликат
+    }
+    
+    console.log('Showing update notification');
     // Создаем уведомление
     const notification = document.createElement('div');
     notification.id = 'update-notification';
@@ -7964,20 +7972,49 @@ function showUpdateNotification() {
     
     // Обработчики событий
     document.getElementById('update-btn').addEventListener('click', () => {
+        console.log('Update button clicked');
         // Принудительно активируем новый Service Worker и перезагружаем
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistration().then((registration) => {
-                if (registration && registration.waiting) {
+                if (registration) {
+                    // Проверяем все возможные состояния Service Worker
+                    if (registration.waiting) {
+                        console.log('Found waiting Service Worker, activating...');
                     // Отправляем сообщение новому Service Worker для активации
+                        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                    } else if (registration.installing) {
+                        console.log('Found installing Service Worker, waiting for activation...');
+                        registration.installing.addEventListener('statechange', function() {
+                            if (registration.waiting) {
                     registration.waiting.postMessage({ type: 'SKIP_WAITING' });
                 }
+                        });
+                    } else {
+                        console.log('No waiting Service Worker, forcing update check...');
+                        // Принудительно проверяем обновления
+                        registration.update().then(() => {
+                            console.log('Update check completed');
+                        });
+                    }
+                    
         // Обновляем страницу для применения нового Service Worker
                 setTimeout(() => {
-                    window.location.reload(true); // Принудительная перезагрузка без кэша
-                }, 100);
+                        console.log('Reloading page...');
+                        // Используем современный способ принудительной перезагрузки
+                        window.location.reload();
+                    }, 500);
+                } else {
+                    console.log('No Service Worker registration found, reloading...');
+                    window.location.reload();
+                }
+            }).catch((error) => {
+                console.error('Error updating Service Worker:', error);
+                // В случае ошибки все равно перезагружаем страницу
+                window.location.reload();
             });
         } else {
-            window.location.reload(true);
+            console.log('Service Worker not supported, reloading...');
+            window.location.reload();
         }
     });
     
