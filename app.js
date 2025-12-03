@@ -6592,8 +6592,8 @@ const translations = {
         feedbackFormError: 'Ошибка: элементы формы не найдены. Пожалуйста, обновите страницу.',
         // Выбор роли
         roleSelectionTitle: 'Выбери свою роль',
-        roleAccountant: 'учетчик',
-        roleWarehouseman: 'кладовщик',
+        roleAccountant: 'Складской учет',
+        roleWarehouseman: 'Складская логистика',
         backToRole: 'к выбору роли'
     },
     en: {
@@ -6636,8 +6636,8 @@ const translations = {
         feedbackFormError: 'Error: form elements not found. Please refresh the page.',
         // Role selection
         roleSelectionTitle: 'Choose your role',
-        roleAccountant: 'Accountant',
-        roleWarehouseman: 'Warehouseman',
+        roleAccountant: 'Warehouse Accounting',
+        roleWarehouseman: 'Warehouse Logistics',
         backToRole: 'to role selection'
     },
     zh: {
@@ -6680,8 +6680,8 @@ const translations = {
         feedbackFormError: '错误：未找到表单元素。请刷新页面。',
         // 角色选择
         roleSelectionTitle: '选择您的角色',
-        roleAccountant: '会计',
-        roleWarehouseman: '仓库管理员',
+        roleAccountant: '仓库会计',
+        roleWarehouseman: '仓库物流',
         backToRole: '返回角色选择'
     }
 };
