@@ -1,6 +1,6 @@
 // Версия кэша - ОБЯЗАТЕЛЬНО обновляйте при каждом изменении файлов!
 // Формат: v[версия]-[дата в формате YYYYMMDD]
-const CACHE_VERSION = 'v2.1.4-20251203';
+const CACHE_VERSION = 'v2.1.5-20251203';
 const CACHE_NAME = 'warehouse-guide-' + CACHE_VERSION;
 const STATIC_CACHE = 'warehouse-guide-static-' + CACHE_VERSION;
 const DYNAMIC_CACHE = 'warehouse-guide-dynamic-' + CACHE_VERSION;
@@ -148,7 +148,8 @@ self.addEventListener('fetch', function(event) {
   }
 
   // Стратегия для изображений (Network First - сначала сеть, потом кэш)
-  if (request.destination === 'image') {
+  // Проверяем как по destination, так и по URL пути
+  if (request.destination === 'image' || url.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i) || url.pathname.includes('/images/')) {
     event.respondWith(
       fetch(request, { cache: 'no-store' })
         .then(function(fetchResponse) {
@@ -159,12 +160,25 @@ self.addEventListener('fetch', function(event) {
             });
             return fetchResponse;
           }
-          // Если сеть не доступна или ошибка, пробуем кэш
-          return caches.match(request);
+          // Если ответ не OK, пробуем кэш
+          return caches.match(request).then(function(cachedResponse) {
+            if (cachedResponse) {
+              return cachedResponse;
+            }
+            // Если нет в кэше и сеть не доступна, возвращаем оригинальный ответ
+            return fetchResponse;
+          });
         })
-        .catch(function() {
+        .catch(function(error) {
+          console.log('Image fetch failed, trying cache:', request.url, error);
           // Если нет сети, возвращаем из кэша
-          return caches.match(request);
+          return caches.match(request).then(function(cachedResponse) {
+            if (cachedResponse) {
+              return cachedResponse;
+            }
+            // Если нет в кэше, возвращаем ошибку
+            return new Response('Image not found', { status: 404, statusText: 'Not Found' });
+          });
         })
     );
     return;
