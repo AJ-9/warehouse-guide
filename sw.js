@@ -1,6 +1,6 @@
 // Версия кэша - ОБЯЗАТЕЛЬНО обновляйте при каждом изменении файлов!
 // Формат: v[версия]-[дата в формате YYYYMMDD]
-const CACHE_VERSION = 'v2.1.6-20251203';
+const CACHE_VERSION = 'v2.1.7-20251203';
 const CACHE_NAME = 'warehouse-guide-' + CACHE_VERSION;
 const STATIC_CACHE = 'warehouse-guide-static-' + CACHE_VERSION;
 const DYNAMIC_CACHE = 'warehouse-guide-dynamic-' + CACHE_VERSION;
